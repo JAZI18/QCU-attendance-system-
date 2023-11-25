@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WinFormsApp2": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "conString": " server=sql12.freesqldatabase.com;user= sql12665100;password=RxXLRtru1b;database=sql12665100;"
+      }
+    }
+  }
+}
