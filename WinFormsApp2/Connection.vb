@@ -26,41 +26,38 @@ Module Connection
     ''' <summary>
     ''' opens connection , creates mysqlcommand with params added
     ''' </summary>
+    ''' <remarks>
+    ''' sql -> sql string 
+    ''' vals -> values inside array same order from sql string
+    ''' </remarks>
     ''' <param name="sql"></param>
     ''' <returns></returns>
-    Function newQuery(sql As String, ParamArray vals As String()) As MySqlCommand
+    Function NewQuery(sql As String, vals As String()) As MySqlCommand
         openCon()
 
         Dim cmd = newCommand(sql)
-        Dim matches = findParams(sql)
+        Dim matches = FindParams(sql)
 
-        compareParamsValsCount(matches, vals)
-        setParamsVal(cmd, matches, vals)
+        CompareParamsValsCount(matches, vals)
+        SetParamsVal(cmd, matches, vals)
 
         Return cmd
     End Function
 
-
-
-    Private Sub setParamsVal(cmd, params, vals)
-
-
-
+    Private Sub SetParamsVal(cmd, params, vals)
         With cmd.Parameters
-
             For i = 0 To params.Length - 1
                 .AddWithValue(params(i), vals(i))
             Next
         End With
     End Sub
 
-    Private Function findParams(sql As String) As String()
+    Private Function FindParams(sql As String) As String()
         Dim myStr As String = sql
         Dim pattern As String = "@[A-Za-z]+"
         Dim regex As New Regex(pattern)
 
         Dim matches As New HashSet(Of String)
-
 
         For Each sMatches In regex.Matches(myStr)
             matches.Add(sMatches.value)
@@ -69,7 +66,7 @@ Module Connection
         Return matches.ToArray()
     End Function
 
-    Private Sub compareParamsValsCount(params As String(), vals As String())
+    Private Sub CompareParamsValsCount(params As String(), vals As String())
         If vals Is Nothing Then vals = {}
 
         If params.Length <> vals.Length Then
@@ -86,29 +83,28 @@ Module Connection
     ''' <param name="fields"></param>
     ''' <param name="table"></param>
     ''' <returns>the MySqlDataReader </returns>
-    Function selectQuery(fields As String, table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As MySqlDataReader
-
+    Function SelectQuery(fields As String, table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As MySqlDataReader
         Dim sql = $"SELECT {fields} from {table}"
-
 
         If (whereClause IsNot Nothing) Then
             sql += $" Where {whereClause}"
         End If
 
-        Dim cmd As MySqlCommand = newQuery(sql, vals)
+        Dim cmd As MySqlCommand = NewQuery(sql, vals)
 
         Return cmd.ExecuteReader()
     End Function
 
     ''' <summary>
-    ''' update helper
+    ''' update query query builder
+    ''' fields is string seperated by comma
     ''' </summary>
-    ''' <param name="fields"></param>
     ''' <param name="table"></param>
+    ''' <param name="fields"></param>
     ''' <param name="vals"></param>
     ''' <param name="whereClause"></param>
-    ''' <returns></returns>
-    Function updateQuery(table As String, fields As String, vals As String(), Optional whereClause As String = Nothing) As Integer
+    ''' <returns>mysqlDataReader</returns>
+    Function UpdateQuery(table As String, fields As String, vals As String(), Optional whereClause As String = Nothing) As Integer
 
         Dim sql = $"UPDATE {table} SET "
 
@@ -118,24 +114,23 @@ Module Connection
             sql += $"{fArr(i)} = @{fArr(i)}" + If(i = fArr.Length - 1, "", ",")
         Next
 
-
         If whereClause IsNot Nothing Then sql += $" where {whereClause}"
 
-        Dim cmd As MySqlCommand = newQuery(sql, vals)
+        Dim cmd As MySqlCommand = NewQuery(sql, vals)
 
         Return cmd.ExecuteNonQuery()
     End Function
 
 
     ''' <summary>
-    ''' 
+    '''  insert query query builder
+    ''' fields is string seperated by comma
     ''' </summary>
     ''' <param name="table"></param>
     ''' <param name="fields"></param>
     ''' <param name="vals"></param>
-    ''' <returns></returns>
-    Function insertQuery(table As String, fields As String, vals As String()) As Integer
-
+    ''' <returns>number of rows inserted</returns>
+    Function InsertQuery(table As String, fields As String, vals As String()) As Integer
         Dim sql = $"INSERT INTO {table} ( {fields} ) values ("
 
         Dim fArr = fields.Split(",")
@@ -144,17 +139,23 @@ Module Connection
             sql += $"@{fArr(i)}" + If(i = fArr.Length - 1, ")", ",")
         Next
 
-        Dim cmd As MySqlCommand = newQuery(sql, vals)
+        Dim cmd As MySqlCommand = NewQuery(sql, vals)
 
         Return cmd.ExecuteNonQuery()
     End Function
 
-
-    Function deleteQuery(table As String, whereClause As String, vals As String()) As Integer
-
+    ''' <summary>
+    ''' delete query query builder
+    ''' vals is array of string values used in where cluse
+    ''' </summary>
+    ''' <param name="table"></param>
+    ''' <param name="whereClause"></param>
+    ''' <param name="vals"></param>
+    ''' <returns>number of rows deleted</returns>
+    Function DeleteQuery(table As String, whereClause As String, vals As String()) As Integer
         Dim sql = $"DELETE from {table} where {whereClause}"
 
-        Dim cmd = newQuery(sql, vals)
+        Dim cmd = NewQuery(sql, vals)
 
         Return cmd.ExecuteNonQuery()
     End Function
