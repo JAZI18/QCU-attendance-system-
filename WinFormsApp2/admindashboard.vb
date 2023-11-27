@@ -43,5 +43,7 @@ Public Class admindashboardform
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
 
+        loginform.Show()
+        Me.Close()
     End Sub
 End Class
