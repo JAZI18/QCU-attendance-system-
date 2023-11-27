@@ -23,6 +23,7 @@ Partial Class loginform
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Panel1 = New Panel()
+        invalid_lb = New Label()
         login_btn = New Button()
         pass_tb = New TextBox()
         PictureBox3 = New PictureBox()
@@ -44,6 +45,7 @@ Partial Class loginform
         ' Panel1
         ' 
         Panel1.BackColor = Color.FromArgb(CByte(134), CByte(134), CByte(134))
+        Panel1.Controls.Add(invalid_lb)
         Panel1.Controls.Add(login_btn)
         Panel1.Controls.Add(pass_tb)
         Panel1.Controls.Add(PictureBox3)
@@ -58,6 +60,19 @@ Partial Class loginform
         Panel1.Size = New Size(1071, 1000)
         Panel1.TabIndex = 0
         ' 
+        ' invalid_lb
+        ' 
+        invalid_lb.AutoSize = True
+        invalid_lb.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        invalid_lb.ForeColor = Color.Firebrick
+        invalid_lb.Location = New Point(425, 560)
+        invalid_lb.Name = "invalid_lb"
+        invalid_lb.Size = New Size(266, 25)
+        invalid_lb.TabIndex = 8
+        invalid_lb.Text = "Invalid Username and Password."
+        invalid_lb.UseWaitCursor = True
+        invalid_lb.Visible = False
+        ' 
         ' login_btn
         ' 
         login_btn.BackColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
@@ -65,7 +80,7 @@ Partial Class loginform
         login_btn.FlatStyle = FlatStyle.Flat
         login_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point)
         login_btn.ForeColor = Color.White
-        login_btn.Location = New Point(440, 592)
+        login_btn.Location = New Point(440, 605)
         login_btn.Margin = New Padding(4, 5, 4, 5)
         login_btn.Name = "login_btn"
         login_btn.Size = New Size(190, 68)
@@ -211,5 +226,6 @@ Partial Class loginform
     Friend WithEvents Panel3 As Panel
     Friend WithEvents settings_login_btn As Button
     Friend WithEvents login_btn As Button
+    Friend WithEvents invalid_lb As Label
 
 End Class
