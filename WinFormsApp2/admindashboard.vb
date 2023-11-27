@@ -1,22 +1,6 @@
-﻿Public Class admindashboardform
-    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
+﻿Imports MySql.Data.MySqlClient
 
-    End Sub
-
-    Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabPage2.Click
-
-    End Sub
-    Private Sub TabPage3_Click(sender As Object, e As EventArgs) Handles TabPage3.Click
-
-    End Sub
-
-    Private Sub TabPage4_Click(sender As Object, e As EventArgs) Handles TabPage4.Click
-
-    End Sub
-
-    Private Sub TabPage5_Click(sender As Object, e As EventArgs) Handles TabPage5.Click
-
-    End Sub
+Public Class admindashboardform
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles dashboard_btn.Click
         TabControl1.SelectedTab = TabPage1
@@ -53,7 +37,13 @@
         TabControl2.SelectedTab = TabPage8
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+    Private Sub admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim reader As MySqlDataReader = selectQuery("*", "qcu_department")
+        While reader.Read
+            department_grid_view.Rows.Add(reader(""))
+
+        End While
+
 
     End Sub
 End Class
