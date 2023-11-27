@@ -90,7 +90,7 @@ Module Connection
     ''' <returns>the MySqlDataReader </returns>
     Function selectQuery(fields As String, table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As MySqlDataReader
 
-        Dim sql = $"SELECT * from {table}"
+        Dim sql = $"SELECT {fields} from {table}"
 
 
         If (whereClause IsNot Nothing) Then
