@@ -99,6 +99,9 @@ Partial Class form2
         DateTimePicker1 = New DateTimePicker()
         Label12 = New Label()
         PictureBox2 = New PictureBox()
+        ComboBox1 = New ComboBox()
+        Button14 = New Button()
+        Button15 = New Button()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -149,7 +152,7 @@ Partial Class form2
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.Location = New Point(25, 130)
         Label2.Name = "Label2"
         Label2.Size = New Size(46, 21)
@@ -167,7 +170,7 @@ Partial Class form2
         ' 
         ' Button6
         ' 
-        Button6.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button6.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Button6.Image = My.Resources.Resources.report_card
         Button6.ImageAlign = ContentAlignment.MiddleLeft
         Button6.Location = New Point(10, 401)
@@ -179,7 +182,7 @@ Partial Class form2
         ' 
         ' Button4
         ' 
-        Button4.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button4.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Button4.Image = My.Resources.Resources.branch
         Button4.ImageAlign = ContentAlignment.MiddleLeft
         Button4.Location = New Point(10, 290)
@@ -191,7 +194,7 @@ Partial Class form2
         ' 
         ' Button5
         ' 
-        Button5.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button5.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Button5.Image = My.Resources.Resources.department
         Button5.ImageAlign = ContentAlignment.MiddleLeft
         Button5.Location = New Point(10, 345)
@@ -203,7 +206,7 @@ Partial Class form2
         ' 
         ' Button3
         ' 
-        Button3.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button3.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Button3.Image = My.Resources.Resources.user__1_1
         Button3.ImageAlign = ContentAlignment.MiddleLeft
         Button3.Location = New Point(10, 232)
@@ -215,7 +218,7 @@ Partial Class form2
         ' 
         ' Button2
         ' 
-        Button2.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Button2.Image = My.Resources.Resources.home
         Button2.ImageAlign = ContentAlignment.MiddleLeft
         Button2.Location = New Point(10, 160)
@@ -388,7 +391,7 @@ Partial Class form2
         ' 
         Button11.FlatAppearance.BorderSize = 0
         Button11.FlatStyle = FlatStyle.Flat
-        Button11.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button11.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Button11.Location = New Point(406, 50)
         Button11.Name = "Button11"
         Button11.Size = New Size(170, 60)
@@ -401,7 +404,7 @@ Partial Class form2
         ' 
         Button10.FlatAppearance.BorderSize = 0
         Button10.FlatStyle = FlatStyle.Flat
-        Button10.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button10.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Button10.Location = New Point(223, 50)
         Button10.Name = "Button10"
         Button10.Size = New Size(170, 60)
@@ -414,7 +417,7 @@ Partial Class form2
         ' 
         Button9.FlatAppearance.BorderSize = 0
         Button9.FlatStyle = FlatStyle.Flat
-        Button9.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button9.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Button9.Location = New Point(40, 50)
         Button9.Name = "Button9"
         Button9.Size = New Size(170, 60)
@@ -501,7 +504,7 @@ Partial Class form2
         Button8.BackColor = Color.Red
         Button8.FlatAppearance.BorderColor = Color.Red
         Button8.FlatStyle = FlatStyle.Flat
-        Button8.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button8.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Button8.ForeColor = Color.White
         Button8.Location = New Point(715, 10)
         Button8.Name = "Button8"
@@ -515,7 +518,7 @@ Partial Class form2
         Button7.BackColor = Color.Red
         Button7.FlatAppearance.BorderColor = Color.Red
         Button7.FlatStyle = FlatStyle.Flat
-        Button7.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button7.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Button7.ForeColor = Color.White
         Button7.Location = New Point(148, 10)
         Button7.Name = "Button7"
@@ -534,7 +537,7 @@ Partial Class form2
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label8.Location = New Point(10, 10)
         Label8.Name = "Label8"
         Label8.Size = New Size(26, 21)
@@ -795,7 +798,7 @@ Partial Class form2
         Button12.BackColor = Color.Red
         Button12.FlatAppearance.BorderColor = Color.Red
         Button12.FlatStyle = FlatStyle.Flat
-        Button12.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button12.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Button12.ForeColor = Color.White
         Button12.Location = New Point(715, 10)
         Button12.Name = "Button12"
@@ -809,7 +812,7 @@ Partial Class form2
         Button13.BackColor = Color.Red
         Button13.FlatAppearance.BorderColor = Color.Red
         Button13.FlatStyle = FlatStyle.Flat
-        Button13.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Button13.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Button13.ForeColor = Color.White
         Button13.Location = New Point(148, 10)
         Button13.Name = "Button13"
@@ -828,7 +831,7 @@ Partial Class form2
         ' Label13
         ' 
         Label13.AutoSize = True
-        Label13.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label13.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label13.Location = New Point(10, 10)
         Label13.Name = "Label13"
         Label13.Size = New Size(26, 21)
@@ -891,6 +894,9 @@ Partial Class form2
         ' 
         ' TabPage5
         ' 
+        TabPage5.Controls.Add(Button15)
+        TabPage5.Controls.Add(Button14)
+        TabPage5.Controls.Add(ComboBox1)
         TabPage5.Controls.Add(DateTimePicker2)
         TabPage5.Controls.Add(DateTimePicker1)
         TabPage5.Controls.Add(Label12)
@@ -921,7 +927,7 @@ Partial Class form2
         ' 
         Label12.AutoSize = True
         Label12.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label12.Location = New Point(6, 10)
+        Label12.Location = New Point(9, 13)
         Label12.Name = "Label12"
         Label12.Size = New Size(123, 25)
         Label12.TabIndex = 11
@@ -938,9 +944,45 @@ Partial Class form2
         PictureBox2.TabIndex = 3
         PictureBox2.TabStop = False
         ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Location = New Point(418, 47)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(106, 23)
+        ComboBox1.TabIndex = 14
+        ComboBox1.Text = "San, Bartolome"
+        ' 
+        ' Button14
+        ' 
+        Button14.BackColor = Color.Red
+        Button14.FlatAppearance.BorderColor = Color.Black
+        Button14.FlatStyle = FlatStyle.Flat
+        Button14.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Button14.ForeColor = Color.White
+        Button14.Location = New Point(619, 46)
+        Button14.Name = "Button14"
+        Button14.Size = New Size(75, 23)
+        Button14.TabIndex = 15
+        Button14.Text = "Search"
+        Button14.UseVisualStyleBackColor = False
+        ' 
+        ' Button15
+        ' 
+        Button15.BackColor = Color.Gray
+        Button15.FlatAppearance.BorderColor = Color.Black
+        Button15.FlatStyle = FlatStyle.Flat
+        Button15.ForeColor = Color.White
+        Button15.Location = New Point(530, 46)
+        Button15.Name = "Button15"
+        Button15.Size = New Size(83, 23)
+        Button15.TabIndex = 16
+        Button15.Text = "Department"
+        Button15.UseVisualStyleBackColor = False
+        ' 
         ' form2
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1000, 600)
         Controls.Add(Panel2)
@@ -1068,4 +1110,7 @@ Partial Class form2
     Friend WithEvents action_col As DataGridViewTextBoxColumn
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Button15 As Button
+    Friend WithEvents Button14 As Button
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
