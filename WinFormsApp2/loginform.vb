@@ -24,12 +24,28 @@ Public Class loginform
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles login_btn.Click
 
-        If un_tb.Text = "admin" And pass_tb.Text = "admin" Then
+        Dim reader As MySqlDataReader = selectQuery("password", "admin_account", {un_tb.Text}, "username = @username")
+
+        If Not reader.Read() Then
+            invalid_lb.Visible = True
+            un_tb.Clear()
+            pass_tb.Clear()
+            Exit Sub
+        End If
+
+        If reader("password") = pass_tb.Text Then
             Me.Hide()
             admindashboardform.Show()
         Else
-
+            invalid_lb.Visible = True
         End If
+
+        un_tb.Clear()
+        pass_tb.Clear()
+
     End Sub
 
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
 End Class
