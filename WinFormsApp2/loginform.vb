@@ -24,7 +24,7 @@ Public Class loginform
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles login_btn.Click
 
-        Dim reader As MySqlDataReader = selectQuery("password", "admin_account", {un_tb.Text}, "username = @username")
+        Dim reader As MySqlDataReader = SelectQuery("password", "admin_account", {un_tb.Text}, "username = @username")
 
         If Not reader.Read() Then
             invalid_lb.Visible = True
