@@ -38,12 +38,6 @@ Public Class admindashboardform
     End Sub
 
     Private Sub admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim reader As MySqlDataReader = selectQuery("*", "qcu_department")
-        While reader.Read
-            department_grid_view.Rows.Add(reader(""))
-
-        End While
-
 
     End Sub
 End Class

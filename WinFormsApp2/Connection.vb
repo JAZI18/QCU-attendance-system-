@@ -34,8 +34,6 @@ Module Connection
         Dim cmd = newCommand(sql)
         Dim matches = findParams(sql)
 
-        MsgBox(matches.Count)
-
         compareParamsValsCount(matches, vals)
         setParamsVal(cmd, matches, vals)
 
@@ -97,8 +95,6 @@ Module Connection
             sql += $" Where {whereClause}"
         End If
 
-        MsgBox(sql)
-
         Dim cmd As MySqlCommand = newQuery(sql, vals)
 
         Return cmd.ExecuteReader()
@@ -122,7 +118,6 @@ Module Connection
             sql += $"{fArr(i)} = @{fArr(i)}" + If(i = fArr.Length - 1, "", ",")
         Next
 
-        MsgBox(sql)
 
         If whereClause IsNot Nothing Then sql += $" where {whereClause}"
 
@@ -149,8 +144,6 @@ Module Connection
             sql += $"@{fArr(i)}" + If(i = fArr.Length - 1, ")", ",")
         Next
 
-        MsgBox(sql)
-
         Dim cmd As MySqlCommand = newQuery(sql, vals)
 
         Return cmd.ExecuteNonQuery()
@@ -161,10 +154,7 @@ Module Connection
 
         Dim sql = $"DELETE from {table} where {whereClause}"
 
-        MsgBox(sql)
-
         Dim cmd = newQuery(sql, vals)
-
 
         Return cmd.ExecuteNonQuery()
     End Function
