@@ -32,13 +32,11 @@ Partial Class loginform
         Label1 = New Label()
         Panel2 = New Panel()
         Panel3 = New Panel()
-        settings_login_btn = New Button()
         PictureBox1 = New PictureBox()
         Panel1.SuspendLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
-        Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -161,25 +159,11 @@ Partial Class loginform
         ' Panel3
         ' 
         Panel3.BackColor = Color.FromArgb(CByte(209), CByte(210), CByte(210))
-        Panel3.Controls.Add(settings_login_btn)
         Panel3.Location = New Point(-857, 0)
         Panel3.Margin = New Padding(4, 5, 4, 5)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(1214, 83)
         Panel3.TabIndex = 1
-        ' 
-        ' settings_login_btn
-        ' 
-        settings_login_btn.BackgroundImage = My.Resources.Resources.settings
-        settings_login_btn.BackgroundImageLayout = ImageLayout.Stretch
-        settings_login_btn.FlatAppearance.BorderSize = 0
-        settings_login_btn.FlatStyle = FlatStyle.Flat
-        settings_login_btn.Location = New Point(1157, 8)
-        settings_login_btn.Margin = New Padding(4, 5, 4, 5)
-        settings_login_btn.Name = "settings_login_btn"
-        settings_login_btn.Size = New Size(50, 58)
-        settings_login_btn.TabIndex = 0
-        settings_login_btn.UseVisualStyleBackColor = True
         ' 
         ' PictureBox1
         ' 
@@ -210,7 +194,6 @@ Partial Class loginform
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
-        Panel3.ResumeLayout(False)
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
@@ -224,7 +207,6 @@ Partial Class loginform
     Friend WithEvents un_tb As TextBox
     Friend WithEvents pass_tb As TextBox
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents settings_login_btn As Button
     Friend WithEvents login_btn As Button
     Friend WithEvents invalid_lb As Label
 
