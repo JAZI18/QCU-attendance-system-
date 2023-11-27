@@ -1,5 +1,4 @@
-﻿Imports System.Security.Cryptography
-Imports System.Text.RegularExpressions
+﻿Imports System.Text.RegularExpressions
 Imports MySql.Data.MySqlClient
 
 Module Connection
@@ -35,6 +34,8 @@ Module Connection
         Dim cmd = newCommand(sql)
         Dim matches = findParams(sql)
 
+        MsgBox(matches.Count)
+
         compareParamsValsCount(matches, vals)
         setParamsVal(cmd, matches, vals)
 
@@ -44,6 +45,9 @@ Module Connection
 
 
     Private Sub setParamsVal(cmd, params, vals)
+
+
+
         With cmd.Parameters
 
             For i = 0 To params.Length - 1
@@ -86,11 +90,14 @@ Module Connection
     ''' <returns>the MySqlDataReader </returns>
     Function selectQuery(fields As String, table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As MySqlDataReader
 
-        Dim sql = $"SELECT {fields} from {table}"
+        Dim sql = $"SELECT * from {table}"
+
 
         If (whereClause IsNot Nothing) Then
             sql += $" Where {whereClause}"
         End If
+
+        MsgBox(sql)
 
         Dim cmd As MySqlCommand = newQuery(sql, vals)
 
