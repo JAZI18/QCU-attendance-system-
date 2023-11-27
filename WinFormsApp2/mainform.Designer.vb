@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form3
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class mainform
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,10 @@ Partial Class Form3
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form3))
-        Label1 = New Label()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(mainform))
+        date_lb = New Label()
         Panel1 = New Panel()
         Label11 = New Label()
         Label10 = New Label()
@@ -38,7 +38,7 @@ Partial Class Form3
         Label6 = New Label()
         Label5 = New Label()
         Label4 = New Label()
-        Label9 = New Label()
+        sched_lb = New Label()
         Label3 = New Label()
         fullname_lb = New Label()
         Panel7 = New Panel()
@@ -64,16 +64,16 @@ Partial Class Form3
         CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Label1
+        ' date_lb
         ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(293, 42)
-        Label1.Margin = New Padding(4, 0, 4, 0)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(374, 40)
-        Label1.TabIndex = 0
-        Label1.Text = "Monday, October 20,2023"
+        date_lb.AutoSize = True
+        date_lb.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        date_lb.Location = New Point(293, 42)
+        date_lb.Margin = New Padding(4, 0, 4, 0)
+        date_lb.Name = "date_lb"
+        date_lb.Size = New Size(374, 40)
+        date_lb.TabIndex = 0
+        date_lb.Text = "Monday, October 20,2023"
         ' 
         ' Panel1
         ' 
@@ -91,7 +91,7 @@ Partial Class Form3
         Panel1.Controls.Add(Label6)
         Panel1.Controls.Add(Label5)
         Panel1.Controls.Add(Label4)
-        Panel1.Controls.Add(Label9)
+        Panel1.Controls.Add(sched_lb)
         Panel1.Controls.Add(Label3)
         Panel1.Controls.Add(fullname_lb)
         Panel1.Controls.Add(Panel7)
@@ -243,16 +243,16 @@ Partial Class Form3
         Label4.TabIndex = 4
         Label4.Text = "MORNING IN"
         ' 
-        ' Label9
+        ' sched_lb
         ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label9.Location = New Point(134, 132)
-        Label9.Margin = New Padding(4, 0, 4, 0)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(175, 25)
-        Label9.TabIndex = 4
-        Label9.Text = "8:00 AM to 5:00 PM"
+        sched_lb.AutoSize = True
+        sched_lb.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        sched_lb.Location = New Point(134, 132)
+        sched_lb.Margin = New Padding(4, 0, 4, 0)
+        sched_lb.Name = "sched_lb"
+        sched_lb.Size = New Size(175, 25)
+        sched_lb.TabIndex = 4
+        sched_lb.Text = "8:00 AM to 5:00 PM"
         ' 
         ' Label3
         ' 
@@ -399,7 +399,7 @@ Partial Class Form3
         PictureBox5.TabIndex = 3
         PictureBox5.TabStop = False
         ' 
-        ' Form3
+        ' mainform
         ' 
         AutoScaleDimensions = New SizeF(10.0F, 25.0F)
         AutoScaleMode = AutoScaleMode.Font
@@ -408,10 +408,10 @@ Partial Class Form3
         Controls.Add(PictureBox4)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
-        Controls.Add(Label1)
+        Controls.Add(date_lb)
         FormBorderStyle = FormBorderStyle.None
         Margin = New Padding(4, 5, 4, 5)
-        Name = "Form3"
+        Name = "mainform"
         StartPosition = FormStartPosition.CenterScreen
         Text = "mainform"
         Panel1.ResumeLayout(False)
@@ -431,7 +431,7 @@ Partial Class Form3
         PerformLayout()
     End Sub
 
-    Friend WithEvents Label1 As Label
+    Friend WithEvents date_lb As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents PictureBox1 As PictureBox
@@ -447,7 +447,7 @@ Partial Class Form3
     Friend WithEvents Label3 As Label
     Friend WithEvents fullname_lb As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents Label9 As Label
+    Friend WithEvents sched_lb As Label
     Friend WithEvents employee_code_tb As TextBox
     Friend WithEvents employee_id_tb As TextBox
     Friend WithEvents Label10 As Label
