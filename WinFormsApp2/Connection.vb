@@ -5,7 +5,7 @@ Imports MySql.Data.MySqlClient
 Module Connection
 
 
-    Private conString = "server=sql12.freesqldatabase.com;user=sql12665100;password=RxXLRtru1b;database=sql12665100;charset=utf8"
+    Private conString = "server=sql12.freesqldatabase.com;user=sql12665374;password=rWT73f2vYC;database=sql12665374;charset=utf8"
     Public con As New MySqlConnection(conString)
 
 
@@ -85,7 +85,6 @@ Module Connection
     ''' <param name="table"></param>
     ''' <returns>the MySqlDataReader </returns>
     Function selectQuery(fields As String, table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As MySqlDataReader
-
 
         Dim sql = $"SELECT {fields} from {table}"
 
