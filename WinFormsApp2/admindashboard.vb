@@ -46,4 +46,8 @@ Public Class admindashboardform
 
 
     End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+
+    End Sub
 End Class
