@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <StartupObject>Sub Main</StartupObject>
+    <StartupObject>WinFormsApp2.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
   </PropertyGroup>
@@ -15,14 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Encoding" Version="4.3.0" />
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="MySql.Data">
-      <HintPath>libs\mysql.data.dll</HintPath>
-    </Reference>
+    <PackageReference Include="MySql.Data" Version="8.2.0" />
   </ItemGroup>
 
   <ItemGroup>

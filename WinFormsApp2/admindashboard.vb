@@ -38,6 +38,7 @@ Public Class admindashboardform
     End Sub
 
     Private Sub admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+<<<<<<< HEAD
         Dim reader As MySqlDataReader = selectQuery("department_name, department_desc", "qcu_department")
         While reader.Read
             department_grid_view.Rows.Add(reader("department_name"), reader("department_desc"))
@@ -60,4 +61,14 @@ Public Class admindashboardform
     End Sub
 
 
+=======
+
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+
+        loginform.Show()
+        Me.Close()
+    End Sub
+>>>>>>> b4a30c14e513619d0dc2a3ddbbeac68ac43ba75d
 End Class
