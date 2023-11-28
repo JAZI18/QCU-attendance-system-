@@ -33,6 +33,7 @@ Partial Class loginform
         Panel2 = New Panel()
         Panel3 = New Panel()
         PictureBox1 = New PictureBox()
+        mainform_back_btn = New Button()
         Panel1.SuspendLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
@@ -43,6 +44,7 @@ Partial Class loginform
         ' Panel1
         ' 
         Panel1.BackColor = Color.FromArgb(CByte(134), CByte(134), CByte(134))
+        Panel1.Controls.Add(mainform_back_btn)
         Panel1.Controls.Add(invalid_lb)
         Panel1.Controls.Add(login_btn)
         Panel1.Controls.Add(pass_tb)
@@ -168,6 +170,18 @@ Partial Class loginform
         PictureBox1.TabIndex = 0
         PictureBox1.TabStop = False
         ' 
+        ' mainform_back_btn
+        ' 
+        mainform_back_btn.FlatAppearance.BorderSize = 0
+        mainform_back_btn.FlatStyle = FlatStyle.Flat
+        mainform_back_btn.Image = My.Resources.Resources.back
+        mainform_back_btn.Location = New Point(30, 32)
+        mainform_back_btn.Margin = New Padding(4, 5, 4, 5)
+        mainform_back_btn.Name = "mainform_back_btn"
+        mainform_back_btn.Size = New Size(55, 51)
+        mainform_back_btn.TabIndex = 5
+        mainform_back_btn.UseVisualStyleBackColor = True
+        ' 
         ' loginform
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -199,5 +213,6 @@ Partial Class loginform
     Friend WithEvents Panel3 As Panel
     Friend WithEvents login_btn As Button
     Friend WithEvents invalid_lb As Label
+    Friend WithEvents mainform_back_btn As Button
 
 End Class

@@ -1,12 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class loginform
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Dim A As Integer = 1
-        'NewQuery("INSERT INTO qcu_department (department_name) VALUES (@params2)", {"sadsa"}).ExecuteNonQuery()
 
-    End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles login_btn.Click
 
         Dim reader As MySqlDataReader = SelectQuery("password", "admin_account", {un_tb.Text}, "username = @username")
@@ -34,7 +30,10 @@ Public Class loginform
 
     End Sub
 
-    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
+    Private Sub mainform_back_btn_Click(sender As Object, e As EventArgs) Handles mainform_back_btn.Click
+
+        staffadminbtns.Show()
+        Me.Close()
 
     End Sub
 End Class
