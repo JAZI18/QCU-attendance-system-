@@ -131,14 +131,13 @@ Public Class admindashboardform
         MessageBox.Show(GenerateEmployeeCode())
         Try
 
-            'NewQuery("INSERT INTO employee_info (employee_code, first_name, middle_name, last_name, dob, gender, department_id, email) VALUES (@param1, @param2, @param3, @param4, @param5, @param6 @param7, @param8)",
-            '         {GenerateEmployeeCode(), e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"), e_gender.SelectedItem.ToString(), 2.ToString(), e_email.Text}).ExecuteNonQuery()
 
-            'NewQuery("INSERT INTO qcu_branches (branch_name) VALUES (@SADA)", {"asdas"}).ExecuteNonQuery 
 
-            '    InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
-            '{"132", e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
-            ' e_gender.SelectedItem.ToString(), 2.ToString(), e_email.Text})
+
+
+            InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
+        {"132", e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
+         e_gender.SelectedItem.ToString(), 2.ToString(), e_email.Text})
 
 
             MessageBox.Show("Record inserted successfully.")
