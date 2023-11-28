@@ -48,4 +48,11 @@ Public Class loginform
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
     End Sub
+
+    Private Sub mainform_back_btn_Click(sender As Object, e As EventArgs) Handles mainform_back_btn.Click
+
+        staffadminbtns.Show()
+        Me.Close()
+
+    End Sub
 End Class
