@@ -52,6 +52,8 @@ Partial Class mainform
         cam_pic_box = New PictureBox()
         PictureBox4 = New PictureBox()
         PictureBox5 = New PictureBox()
+        mainform_back_btn = New Button()
+        DateTimePicker1 = New DateTimePicker()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel7.SuspendLayout()
@@ -107,7 +109,7 @@ Partial Class mainform
         Label11.AutoSize = True
         Label11.BackColor = Color.Transparent
         Label11.FlatStyle = FlatStyle.Flat
-        Label11.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label11.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label11.Location = New Point(384, 245)
         Label11.Margin = New Padding(4, 0, 4, 0)
         Label11.Name = "Label11"
@@ -120,7 +122,7 @@ Partial Class mainform
         Label10.AutoSize = True
         Label10.BackColor = Color.Transparent
         Label10.FlatStyle = FlatStyle.Flat
-        Label10.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label10.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label10.Location = New Point(393, 175)
         Label10.Margin = New Padding(4, 0, 4, 0)
         Label10.Name = "Label10"
@@ -192,17 +194,17 @@ Partial Class mainform
         ' 
         PictureBox1.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox1.BackgroundImageLayout = ImageLayout.Zoom
-        PictureBox1.Location = New Point(355, 107)
+        PictureBox1.Location = New Point(354, 107)
         PictureBox1.Margin = New Padding(4, 5, 4, 5)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(215, 274)
+        PictureBox1.Size = New Size(214, 273)
         PictureBox1.TabIndex = 0
         PictureBox1.TabStop = False
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label7.Location = New Point(26, 308)
         Label7.Margin = New Padding(4, 0, 4, 0)
         Label7.Name = "Label7"
@@ -213,7 +215,7 @@ Partial Class mainform
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label6.Location = New Point(26, 275)
         Label6.Margin = New Padding(4, 0, 4, 0)
         Label6.Name = "Label6"
@@ -224,7 +226,7 @@ Partial Class mainform
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label5.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label5.Location = New Point(26, 225)
         Label5.Margin = New Padding(4, 0, 4, 0)
         Label5.Name = "Label5"
@@ -235,7 +237,7 @@ Partial Class mainform
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label4.Location = New Point(26, 192)
         Label4.Margin = New Padding(4, 0, 4, 0)
         Label4.Name = "Label4"
@@ -246,7 +248,7 @@ Partial Class mainform
         ' sched_lb
         ' 
         sched_lb.AutoSize = True
-        sched_lb.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        sched_lb.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         sched_lb.Location = New Point(134, 132)
         sched_lb.Margin = New Padding(4, 0, 4, 0)
         sched_lb.Name = "sched_lb"
@@ -257,7 +259,7 @@ Partial Class mainform
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label3.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Label3.Location = New Point(134, 107)
         Label3.Margin = New Padding(4, 0, 4, 0)
         Label3.Name = "Label3"
@@ -268,7 +270,7 @@ Partial Class mainform
         ' fullname_lb
         ' 
         fullname_lb.AutoSize = True
-        fullname_lb.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        fullname_lb.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point)
         fullname_lb.Location = New Point(134, 82)
         fullname_lb.Margin = New Padding(4, 0, 4, 0)
         fullname_lb.Name = "fullname_lb"
@@ -330,30 +332,29 @@ Partial Class mainform
         ' 
         ' employee_code_tb
         ' 
-        employee_code_tb.BackColor = Color.DimGray
+        employee_code_tb.BackColor = Color.Silver
         employee_code_tb.BorderStyle = BorderStyle.None
-        employee_code_tb.Enabled = False
         employee_code_tb.Font = New Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         employee_code_tb.Location = New Point(19, 325)
         employee_code_tb.Margin = New Padding(4, 5, 4, 5)
         employee_code_tb.Name = "employee_code_tb"
+        employee_code_tb.PlaceholderText = "EMPLOYEE CODE"
         employee_code_tb.Size = New Size(214, 30)
         employee_code_tb.TabIndex = 5
-        employee_code_tb.Text = "EMPLOYEE CODE"
         employee_code_tb.TextAlign = HorizontalAlignment.Center
         ' 
         ' employee_id_tb
         ' 
-        employee_id_tb.BackColor = Color.DimGray
+        employee_id_tb.BackColor = Color.Silver
         employee_id_tb.BorderStyle = BorderStyle.None
-        employee_id_tb.Enabled = False
         employee_id_tb.Font = New Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        employee_id_tb.ForeColor = SystemColors.ButtonFace
         employee_id_tb.Location = New Point(19, 267)
         employee_id_tb.Margin = New Padding(4, 5, 4, 5)
         employee_id_tb.Name = "employee_id_tb"
+        employee_id_tb.PlaceholderText = "EMPLOYEE ID"
         employee_id_tb.Size = New Size(214, 30)
         employee_id_tb.TabIndex = 5
-        employee_id_tb.Text = "EMPLOYEE ID"
         employee_id_tb.TextAlign = HorizontalAlignment.Center
         ' 
         ' Panel4
@@ -399,11 +400,32 @@ Partial Class mainform
         PictureBox5.TabIndex = 3
         PictureBox5.TabStop = False
         ' 
+        ' mainform_back_btn
+        ' 
+        mainform_back_btn.FlatAppearance.BorderSize = 0
+        mainform_back_btn.FlatStyle = FlatStyle.Flat
+        mainform_back_btn.Image = My.Resources.Resources.back
+        mainform_back_btn.Location = New Point(871, 20)
+        mainform_back_btn.Margin = New Padding(4, 5, 4, 5)
+        mainform_back_btn.Name = "mainform_back_btn"
+        mainform_back_btn.Size = New Size(40, 35)
+        mainform_back_btn.TabIndex = 4
+        mainform_back_btn.UseVisualStyleBackColor = True
+        ' 
+        ' DateTimePicker1
+        ' 
+        DateTimePicker1.Location = New Point(29, 541)
+        DateTimePicker1.Name = "DateTimePicker1"
+        DateTimePicker1.Size = New Size(294, 31)
+        DateTimePicker1.TabIndex = 5
+        ' 
         ' mainform
         ' 
-        AutoScaleDimensions = New SizeF(10.0F, 25.0F)
+        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(929, 583)
+        Controls.Add(DateTimePicker1)
+        Controls.Add(mainform_back_btn)
         Controls.Add(PictureBox5)
         Controls.Add(PictureBox4)
         Controls.Add(Panel2)
@@ -460,4 +482,6 @@ Partial Class mainform
     Friend WithEvents overtime_in_tb As TextBox
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents mainform_back_btn As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class
