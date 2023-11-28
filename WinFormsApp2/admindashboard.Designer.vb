@@ -69,6 +69,9 @@ Partial Class admindashboardform
         act_col = New DataGridViewTextBoxColumn()
         PictureBox3 = New PictureBox()
         TabPage1 = New TabPage()
+        employee_num = New Label()
+        branch_num = New Label()
+        dept_num = New Label()
         Label6 = New Label()
         branch_grid_view = New DataGridView()
         branch_col = New DataGridViewTextBoxColumn()
@@ -104,9 +107,6 @@ Partial Class admindashboardform
         DateTimePicker1 = New DateTimePicker()
         Label12 = New Label()
         PictureBox2 = New PictureBox()
-        dept_num = New Label()
-        branch_num = New Label()
-        employee_num = New Label()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -158,7 +158,7 @@ Partial Class admindashboardform
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.Location = New Point(43, 260)
         Label2.Margin = New Padding(5, 0, 5, 0)
         Label2.Name = "Label2"
@@ -178,7 +178,7 @@ Partial Class admindashboardform
         ' 
         ' printreport_btn
         ' 
-        printreport_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        printreport_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         printreport_btn.Image = My.Resources.Resources.report_card
         printreport_btn.ImageAlign = ContentAlignment.MiddleLeft
         printreport_btn.Location = New Point(17, 802)
@@ -191,7 +191,7 @@ Partial Class admindashboardform
         ' 
         ' branch_btn
         ' 
-        branch_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        branch_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         branch_btn.Image = My.Resources.Resources.branch
         branch_btn.ImageAlign = ContentAlignment.MiddleLeft
         branch_btn.Location = New Point(17, 580)
@@ -204,7 +204,7 @@ Partial Class admindashboardform
         ' 
         ' department_btn
         ' 
-        department_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        department_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         department_btn.Image = My.Resources.Resources.department
         department_btn.ImageAlign = ContentAlignment.MiddleLeft
         department_btn.Location = New Point(17, 690)
@@ -217,7 +217,7 @@ Partial Class admindashboardform
         ' 
         ' employee_btn
         ' 
-        employee_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        employee_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         employee_btn.Image = My.Resources.Resources.user__1_1
         employee_btn.ImageAlign = ContentAlignment.MiddleLeft
         employee_btn.Location = New Point(17, 464)
@@ -230,7 +230,7 @@ Partial Class admindashboardform
         ' 
         ' dashboard_btn
         ' 
-        dashboard_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        dashboard_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         dashboard_btn.Image = My.Resources.Resources.home
         dashboard_btn.ImageAlign = ContentAlignment.MiddleLeft
         dashboard_btn.Location = New Point(17, 320)
@@ -421,7 +421,7 @@ Partial Class admindashboardform
         ' 
         sanfrancisco_branch_btn.FlatAppearance.BorderSize = 0
         sanfrancisco_branch_btn.FlatStyle = FlatStyle.Flat
-        sanfrancisco_branch_btn.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        sanfrancisco_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         sanfrancisco_branch_btn.Location = New Point(696, 100)
         sanfrancisco_branch_btn.Margin = New Padding(5, 6, 5, 6)
         sanfrancisco_branch_btn.Name = "sanfrancisco_branch_btn"
@@ -435,7 +435,7 @@ Partial Class admindashboardform
         ' 
         batasan_branch_btn.FlatAppearance.BorderSize = 0
         batasan_branch_btn.FlatStyle = FlatStyle.Flat
-        batasan_branch_btn.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        batasan_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         batasan_branch_btn.Location = New Point(383, 100)
         batasan_branch_btn.Margin = New Padding(5, 6, 5, 6)
         batasan_branch_btn.Name = "batasan_branch_btn"
@@ -449,7 +449,7 @@ Partial Class admindashboardform
         ' 
         sanbartolome_branch_btn.FlatAppearance.BorderSize = 0
         sanbartolome_branch_btn.FlatStyle = FlatStyle.Flat
-        sanbartolome_branch_btn.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        sanbartolome_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         sanbartolome_branch_btn.Location = New Point(68, 100)
         sanbartolome_branch_btn.Margin = New Padding(5, 6, 5, 6)
         sanbartolome_branch_btn.Name = "sanbartolome_branch_btn"
@@ -544,7 +544,7 @@ Partial Class admindashboardform
         add_employees_btn.BackColor = Color.Red
         add_employees_btn.FlatAppearance.BorderColor = Color.Red
         add_employees_btn.FlatStyle = FlatStyle.Flat
-        add_employees_btn.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        add_employees_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         add_employees_btn.ForeColor = Color.White
         add_employees_btn.Location = New Point(1225, 20)
         add_employees_btn.Margin = New Padding(5, 6, 5, 6)
@@ -559,7 +559,7 @@ Partial Class admindashboardform
         search_employees_btn.BackColor = Color.Red
         search_employees_btn.FlatAppearance.BorderColor = Color.Red
         search_employees_btn.FlatStyle = FlatStyle.Flat
-        search_employees_btn.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        search_employees_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         search_employees_btn.ForeColor = Color.White
         search_employees_btn.Location = New Point(253, 20)
         search_employees_btn.Margin = New Padding(5, 6, 5, 6)
@@ -580,7 +580,7 @@ Partial Class admindashboardform
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label8.Location = New Point(17, 20)
         Label8.Margin = New Padding(5, 0, 5, 0)
         Label8.Name = "Label8"
@@ -703,6 +703,36 @@ Partial Class admindashboardform
         TabPage1.TabIndex = 0
         TabPage1.Text = "TabPage1"
         TabPage1.UseVisualStyleBackColor = True
+        ' 
+        ' employee_num
+        ' 
+        employee_num.AutoSize = True
+        employee_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
+        employee_num.Location = New Point(860, 169)
+        employee_num.Name = "employee_num"
+        employee_num.Size = New Size(123, 149)
+        employee_num.TabIndex = 11
+        employee_num.Text = "0"
+        ' 
+        ' branch_num
+        ' 
+        branch_num.AutoSize = True
+        branch_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
+        branch_num.Location = New Point(463, 169)
+        branch_num.Name = "branch_num"
+        branch_num.Size = New Size(123, 149)
+        branch_num.TabIndex = 10
+        branch_num.Text = "0"
+        ' 
+        ' dept_num
+        ' 
+        dept_num.AutoSize = True
+        dept_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
+        dept_num.Location = New Point(66, 169)
+        dept_num.Name = "dept_num"
+        dept_num.Size = New Size(123, 149)
+        dept_num.TabIndex = 9
+        dept_num.Text = "0"
         ' 
         ' Label6
         ' 
@@ -890,7 +920,7 @@ Partial Class admindashboardform
         add_dept_btn.BackColor = Color.Red
         add_dept_btn.FlatAppearance.BorderColor = Color.Red
         add_dept_btn.FlatStyle = FlatStyle.Flat
-        add_dept_btn.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        add_dept_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         add_dept_btn.ForeColor = Color.White
         add_dept_btn.Location = New Point(1225, 20)
         add_dept_btn.Margin = New Padding(5, 6, 5, 6)
@@ -905,7 +935,7 @@ Partial Class admindashboardform
         search_dept_btn.BackColor = Color.Red
         search_dept_btn.FlatAppearance.BorderColor = Color.Red
         search_dept_btn.FlatStyle = FlatStyle.Flat
-        search_dept_btn.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        search_dept_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         search_dept_btn.ForeColor = Color.White
         search_dept_btn.Location = New Point(253, 20)
         search_dept_btn.Margin = New Padding(5, 6, 5, 6)
@@ -926,7 +956,7 @@ Partial Class admindashboardform
         ' Label13
         ' 
         Label13.AutoSize = True
-        Label13.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label13.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label13.Location = New Point(17, 20)
         Label13.Margin = New Padding(5, 0, 5, 0)
         Label13.Name = "Label13"
@@ -1032,7 +1062,7 @@ Partial Class admindashboardform
         search_pr_btn.BackColor = Color.Red
         search_pr_btn.FlatAppearance.BorderColor = Color.Black
         search_pr_btn.FlatStyle = FlatStyle.Flat
-        search_pr_btn.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        search_pr_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         search_pr_btn.ForeColor = Color.White
         search_pr_btn.Location = New Point(1061, 92)
         search_pr_btn.Margin = New Padding(5, 6, 5, 6)
@@ -1091,41 +1121,12 @@ Partial Class admindashboardform
         PictureBox2.TabIndex = 3
         PictureBox2.TabStop = False
         ' 
-        ' dept_num
-        ' 
-        dept_num.AutoSize = True
-        dept_num.Font = New Font("Segoe UI", 48.0F, FontStyle.Regular, GraphicsUnit.Point)
-        dept_num.Location = New Point(66, 169)
-        dept_num.Name = "dept_num"
-        dept_num.Size = New Size(123, 149)
-        dept_num.TabIndex = 9
-        dept_num.Text = "0"
-        ' 
-        ' branch_num
-        ' 
-        branch_num.AutoSize = True
-        branch_num.Font = New Font("Segoe UI", 48.0F, FontStyle.Regular, GraphicsUnit.Point)
-        branch_num.Location = New Point(463, 169)
-        branch_num.Name = "branch_num"
-        branch_num.Size = New Size(123, 149)
-        branch_num.TabIndex = 10
-        branch_num.Text = "0"
-        ' 
-        ' employee_num
-        ' 
-        employee_num.AutoSize = True
-        employee_num.Font = New Font("Segoe UI", 48.0F, FontStyle.Regular, GraphicsUnit.Point)
-        employee_num.Location = New Point(860, 169)
-        employee_num.Name = "employee_num"
-        employee_num.Size = New Size(123, 149)
-        employee_num.TabIndex = 11
-        employee_num.Text = "0"
-        ' 
         ' admindashboardform
         ' 
-        AutoScaleDimensions = New SizeF(12.0F, 30.0F)
+        AutoScaleDimensions = New SizeF(12F, 30F)
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
+        AutoSizeMode = AutoSizeMode.GrowAndShrink
         ClientSize = New Size(1715, 1200)
         Controls.Add(Panel2)
         Controls.Add(TabControl1)

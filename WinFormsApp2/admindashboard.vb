@@ -59,13 +59,13 @@ Public Class admindashboardform
         reader = SelectQuery("count(*) as a", "qcu_branches")
         While reader.Read
             reader.Read()
-            dept_num.Text = reader("a")
+            branch_num.Text = reader("a")
         End While
 
         reader = SelectQuery("count(*) as b", "employee_info")
         While reader.Read
             reader.Read()
-            dept_num.Text = reader("b")
+            employee_num.Text = reader("b")
         End While
 
 
