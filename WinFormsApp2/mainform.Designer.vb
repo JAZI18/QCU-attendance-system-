@@ -404,7 +404,6 @@ Partial Class mainform
         ' 
         mainform_back_btn.FlatAppearance.BorderSize = 0
         mainform_back_btn.FlatStyle = FlatStyle.Flat
-        mainform_back_btn.Image = My.Resources.Resources.back
         mainform_back_btn.Location = New Point(871, 20)
         mainform_back_btn.Margin = New Padding(4, 5, 4, 5)
         mainform_back_btn.Name = "mainform_back_btn"
