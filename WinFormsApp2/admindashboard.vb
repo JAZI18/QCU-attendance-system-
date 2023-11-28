@@ -40,8 +40,32 @@ Public Class admindashboardform
     Private Sub admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim reader As MySqlDataReader = selectQuery("department_name, department_desc", "qcu_department")
         While reader.Read
-            department_grid_view.Rows.Add(reader(""))
+            department_grid_view.Rows.Add(reader("department_name"), reader("department_desc"))
+        End While
 
+        reader = SelectQuery("branch_name, branch_address", "qcu_branches")
+
+        While reader.Read
+            branch_grid_view.Rows.Add(reader("branch_name"), reader("branch_address"))
+
+        End While
+
+        reader = SelectQuery("count(*) as c", "qcu_department")
+        While reader.Read
+            reader.Read()
+            dept_num.Text = reader("c")
+        End While
+
+        reader = SelectQuery("count(*) as a", "qcu_branches")
+        While reader.Read
+            reader.Read()
+            dept_num.Text = reader("a")
+        End While
+
+        reader = SelectQuery("count(*) as b", "employee_info")
+        While reader.Read
+            reader.Read()
+            dept_num.Text = reader("b")
         End While
 
 
