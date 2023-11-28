@@ -38,37 +38,14 @@ Public Class admindashboardform
     End Sub
 
     Private Sub admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-<<<<<<< HEAD
         Dim reader As MySqlDataReader = selectQuery("department_name, department_desc", "qcu_department")
         While reader.Read
-            department_grid_view.Rows.Add(reader("department_name"), reader("department_desc"))
+            department_grid_view.Rows.Add(reader(""))
 
         End While
 
-        reader = selectQuery("branch_name, branch_address", "qcu_branches")
-        While reader.Read
-            branch_grid_view.Rows.Add(reader("branch_name"), reader("branch_address"))
-
-        End While
-
-        Dim cmd As MySqlCommand = newQuery("select count(department_name) as branch from qcu_department")
-
-        reader = cmd.ExecuteReader
-
-        dept_num.Text = reader("branch")
-
 
     End Sub
 
 
-=======
-
-    End Sub
-
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
-
-        loginform.Show()
-        Me.Close()
-    End Sub
->>>>>>> b4a30c14e513619d0dc2a3ddbbeac68ac43ba75d
 End Class
