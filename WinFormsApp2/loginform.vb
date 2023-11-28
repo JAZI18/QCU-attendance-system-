@@ -24,7 +24,7 @@ Public Class loginform
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles login_btn.Click
 
-        Dim reader As MySqlDataReader = selectQuery("password", "admin_account", {un_tb.Text}, "username = @username")
+        Dim reader As MySqlDataReader = SelectQuery("password", "admin_account", {un_tb.Text}, "username = @username")
 
         If Not reader.Read() Then
             invalid_lb.Visible = True
@@ -46,13 +46,6 @@ Public Class loginform
     End Sub
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
-
-    Private Sub mainform_back_btn_Click(sender As Object, e As EventArgs) Handles mainform_back_btn.Click
-
-        staffadminbtns.Show()
-        Me.Close()
 
     End Sub
 End Class
