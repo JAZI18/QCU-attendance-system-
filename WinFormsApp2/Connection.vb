@@ -40,7 +40,7 @@ Module Connection
 
         CompareParamsValsCount(matches, vals)
         SetParamsVal(cmd, matches, vals)
-
+        MsgBox(sql)
         Return cmd
     End Function
 

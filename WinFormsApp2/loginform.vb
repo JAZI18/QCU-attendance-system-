@@ -3,25 +3,10 @@
 Public Class loginform
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
-
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        Dim A As Integer = 1
+        'NewQuery("INSERT INTO qcu_department (department_name) VALUES (@params2)", {"sadsa"}).ExecuteNonQuery()
 
     End Sub
-
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs)
-
-
-    End Sub
-
-    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
-
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles login_btn.Click
 
         Dim reader As MySqlDataReader = SelectQuery("password", "admin_account", {un_tb.Text}, "username = @username")
@@ -46,6 +31,10 @@ Public Class loginform
     End Sub
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+    End Sub
+
+    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
 
     End Sub
 End Class
