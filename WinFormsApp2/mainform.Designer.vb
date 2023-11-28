@@ -53,6 +53,7 @@ Partial Class mainform
         PictureBox4 = New PictureBox()
         PictureBox5 = New PictureBox()
         mainform_back_btn = New Button()
+        DateTimePicker1 = New DateTimePicker()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel7.SuspendLayout()
@@ -411,11 +412,19 @@ Partial Class mainform
         mainform_back_btn.TabIndex = 4
         mainform_back_btn.UseVisualStyleBackColor = True
         ' 
+        ' DateTimePicker1
+        ' 
+        DateTimePicker1.Location = New Point(29, 541)
+        DateTimePicker1.Name = "DateTimePicker1"
+        DateTimePicker1.Size = New Size(294, 31)
+        DateTimePicker1.TabIndex = 5
+        ' 
         ' mainform
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(929, 583)
+        Controls.Add(DateTimePicker1)
         Controls.Add(mainform_back_btn)
         Controls.Add(PictureBox5)
         Controls.Add(PictureBox4)
@@ -474,4 +483,5 @@ Partial Class mainform
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents mainform_back_btn As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class
