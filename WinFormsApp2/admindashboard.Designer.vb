@@ -69,11 +69,13 @@ Partial Class admindashboardform
         act_col = New DataGridViewTextBoxColumn()
         PictureBox3 = New PictureBox()
         TabPage1 = New TabPage()
+        dept_num = New Label()
         Label6 = New Label()
         branch_grid_view = New DataGridView()
         branch_col = New DataGridViewTextBoxColumn()
         department_grid_view = New DataGridView()
         depart_col = New DataGridViewTextBoxColumn()
+        Desciption = New DataGridViewTextBoxColumn()
         Label5 = New Label()
         Label4 = New Label()
         Label3 = New Label()
@@ -102,6 +104,8 @@ Partial Class admindashboardform
         DateTimePicker1 = New DateTimePicker()
         Label12 = New Label()
         PictureBox2 = New PictureBox()
+        branch_num = New Label()
+        employee_num = New Label()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -677,6 +681,9 @@ Partial Class admindashboardform
         ' 
         ' TabPage1
         ' 
+        TabPage1.Controls.Add(employee_num)
+        TabPage1.Controls.Add(branch_num)
+        TabPage1.Controls.Add(dept_num)
         TabPage1.Controls.Add(Label6)
         TabPage1.Controls.Add(branch_grid_view)
         TabPage1.Controls.Add(department_grid_view)
@@ -695,6 +702,16 @@ Partial Class admindashboardform
         TabPage1.TabIndex = 0
         TabPage1.Text = "TabPage1"
         TabPage1.UseVisualStyleBackColor = True
+        ' 
+        ' dept_num
+        ' 
+        dept_num.AutoSize = True
+        dept_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
+        dept_num.Location = New Point(66, 169)
+        dept_num.Name = "dept_num"
+        dept_num.Size = New Size(123, 149)
+        dept_num.TabIndex = 9
+        dept_num.Text = "0"
         ' 
         ' Label6
         ' 
@@ -734,11 +751,10 @@ Partial Class admindashboardform
         department_grid_view.AllowUserToAddRows = False
         department_grid_view.AllowUserToDeleteRows = False
         department_grid_view.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        department_grid_view.Columns.AddRange(New DataGridViewColumn() {depart_col})
+        department_grid_view.Columns.AddRange(New DataGridViewColumn() {depart_col, Desciption})
         department_grid_view.Location = New Point(47, 370)
         department_grid_view.Margin = New Padding(5, 6, 5, 6)
         department_grid_view.Name = "department_grid_view"
-        department_grid_view.ReadOnly = True
         department_grid_view.RowHeadersWidth = 62
         department_grid_view.Size = New Size(661, 662)
         department_grid_view.TabIndex = 7
@@ -749,7 +765,13 @@ Partial Class admindashboardform
         depart_col.HeaderText = "Department"
         depart_col.MinimumWidth = 8
         depart_col.Name = "depart_col"
-        depart_col.ReadOnly = True
+        ' 
+        ' Desciption
+        ' 
+        Desciption.HeaderText = "Description"
+        Desciption.MinimumWidth = 9
+        Desciption.Name = "Desciption"
+        Desciption.Width = 175
         ' 
         ' Label5
         ' 
@@ -1067,6 +1089,26 @@ Partial Class admindashboardform
         PictureBox2.TabIndex = 3
         PictureBox2.TabStop = False
         ' 
+        ' branch_num
+        ' 
+        branch_num.AutoSize = True
+        branch_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
+        branch_num.Location = New Point(463, 169)
+        branch_num.Name = "branch_num"
+        branch_num.Size = New Size(123, 149)
+        branch_num.TabIndex = 10
+        branch_num.Text = "0"
+        ' 
+        ' employee_num
+        ' 
+        employee_num.AutoSize = True
+        employee_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
+        employee_num.Location = New Point(860, 169)
+        employee_num.Name = "employee_num"
+        employee_num.Size = New Size(123, 149)
+        employee_num.TabIndex = 11
+        employee_num.Text = "0"
+        ' 
         ' admindashboardform
         ' 
         AutoScaleDimensions = New SizeF(12F, 30F)
@@ -1169,7 +1211,6 @@ Partial Class admindashboardform
     Friend WithEvents branch_grid_view As DataGridView
     Friend WithEvents branch_col As DataGridViewTextBoxColumn
     Friend WithEvents department_grid_view As DataGridView
-    Friend WithEvents depart_col As DataGridViewTextBoxColumn
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
@@ -1201,4 +1242,9 @@ Partial Class admindashboardform
     Friend WithEvents dept_pr_btn As Button
     Friend WithEvents search_pr_btn As Button
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents depart_col As DataGridViewTextBoxColumn
+    Friend WithEvents Desciption As DataGridViewTextBoxColumn
+    Friend WithEvents dept_num As Label
+    Friend WithEvents employee_num As Label
+    Friend WithEvents branch_num As Label
 End Class
