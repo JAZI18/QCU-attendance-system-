@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 Module Connection
 
 
-    Private conString = "server=sql12.freesqldatabase.com;user=sql12665374;password=rWT73f2vYC;database=sql12665374;charset=utf8"
+    Private conString = "server=sql12.freesqldatabase.com;user=sql12665374;password=rWT73f2vYC;database=sql12665374;charset=utf8;Allow User Variables=True"
     Public con As New MySqlConnection(conString)
 
 
@@ -47,6 +47,7 @@ Module Connection
     Private Sub SetParamsVal(cmd, params, vals)
         With cmd.Parameters
             For i = 0 To params.Length - 1
+
                 .AddWithValue(params(i), vals(i))
             Next
         End With
@@ -54,7 +55,7 @@ Module Connection
 
     Private Function FindParams(sql As String) As String()
         Dim myStr As String = sql
-        Dim pattern As String = "@[A-Za-z]+"
+        Dim pattern As String = "@([A-Za-z])\w+"
         Dim regex As New Regex(pattern)
 
         Dim matches As New HashSet(Of String)
@@ -118,7 +119,7 @@ Module Connection
 
         Dim cmd As MySqlCommand = NewQuery(sql, vals)
 
-        Return cmd.ExecuteNonQuery()
+        cmd.ExecuteNonQuery()
     End Function
 
 
@@ -135,9 +136,13 @@ Module Connection
 
         Dim fArr = fields.Split(",")
 
+
+
         For i = 0 To fArr.Length - 1
-            sql += $"@{fArr(i)}" + If(i = fArr.Length - 1, ")", ",")
+            sql += $" @{fArr(i)} " + If(i = fArr.Length - 1, ")", ",")
         Next
+
+
 
         Dim cmd As MySqlCommand = NewQuery(sql, vals)
 
