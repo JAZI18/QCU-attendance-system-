@@ -331,30 +331,29 @@ Partial Class mainform
         ' 
         ' employee_code_tb
         ' 
-        employee_code_tb.BackColor = Color.DimGray
+        employee_code_tb.BackColor = Color.Silver
         employee_code_tb.BorderStyle = BorderStyle.None
-        employee_code_tb.Enabled = False
         employee_code_tb.Font = New Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
         employee_code_tb.Location = New Point(19, 325)
         employee_code_tb.Margin = New Padding(4, 5, 4, 5)
         employee_code_tb.Name = "employee_code_tb"
+        employee_code_tb.PlaceholderText = "EMPLOYEE CODE"
         employee_code_tb.Size = New Size(214, 30)
         employee_code_tb.TabIndex = 5
-        employee_code_tb.Text = "EMPLOYEE CODE"
         employee_code_tb.TextAlign = HorizontalAlignment.Center
         ' 
         ' employee_id_tb
         ' 
-        employee_id_tb.BackColor = Color.DimGray
+        employee_id_tb.BackColor = Color.Silver
         employee_id_tb.BorderStyle = BorderStyle.None
-        employee_id_tb.Enabled = False
         employee_id_tb.Font = New Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point)
+        employee_id_tb.ForeColor = SystemColors.ButtonFace
         employee_id_tb.Location = New Point(19, 267)
         employee_id_tb.Margin = New Padding(4, 5, 4, 5)
         employee_id_tb.Name = "employee_id_tb"
+        employee_id_tb.PlaceholderText = "EMPLOYEE ID"
         employee_id_tb.Size = New Size(214, 30)
         employee_id_tb.TabIndex = 5
-        employee_id_tb.Text = "EMPLOYEE ID"
         employee_id_tb.TextAlign = HorizontalAlignment.Center
         ' 
         ' Panel4
