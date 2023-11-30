@@ -514,7 +514,7 @@ Partial Class admindashboardform
         TabPage2.Location = New Point(4, 24)
         TabPage2.Name = "TabPage2"
         TabPage2.Padding = New Padding(3)
-        TabPage2.Size = New Size(842, 546)
+        TabPage2.Size = New Size(842, 531)
         TabPage2.TabIndex = 1
         TabPage2.Text = "TabPage2"
         TabPage2.UseVisualStyleBackColor = True
@@ -1041,10 +1041,10 @@ Partial Class admindashboardform
         TabControl1.Controls.Add(TabPage3)
         TabControl1.Controls.Add(TabPage4)
         TabControl1.Controls.Add(TabPage5)
-        TabControl1.Location = New Point(150, 26)
+        TabControl1.Location = New Point(150, 41)
         TabControl1.Name = "TabControl1"
         TabControl1.SelectedIndex = 0
-        TabControl1.Size = New Size(850, 574)
+        TabControl1.Size = New Size(850, 559)
         TabControl1.TabIndex = 2
         ' 
         ' TabPage4

@@ -24,19 +24,43 @@ Public Class admindashboardform
 
     Private Sub submit_employees_btn_(sender As Object, e As EventArgs) Handles Button2.Click, submit_employees_btn.Click
 
-        MessageBox.Show(GenerateEmployeeCode)
+
         Try
 
-            InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
-        {"132", e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
-         e_gender.SelectedItem.ToString, 2.ToString, e_email.Text})
+            Dim tableName As String = "employee_info"
+            Dim columns As String = "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email"
+            Dim values As String() = {
+            GenerateEmployeeCode(), e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
+              e_gender.SelectedItem.ToString, getDepartmentId(e_dep.SelectedItem.ToString()).ToString(), e_email.Text
+                 }
+
+            Dim query As String = InsertQuery(tableName, columns, values)
+            Console.WriteLine("Generated SQL Query: " & query)
+
+            InsertQuery(tableName, columns, values)
 
             MessageBox.Show("Record inserted successfully.")
+            e_tab_show.Visible = False
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.StackTrace)
         End Try
 
     End Sub
+    Function getDepartmentId(d_name As String) As Integer
+        Dim command As MySqlCommand = NewQuery("SELECT department_id FROM qcu_department WHERE department_name = '" & d_name & "'", Nothing)
+
+        ' Execute the command to get the reader
+        Dim reader As MySqlDataReader = command.ExecuteReader()
+
+        While reader.Read
+            ' Assuming you want to return the department_id, you can use the following line
+            Return Convert.ToInt32(reader("department_id"))
+        End While
+
+        ' If the department_id is not found, you may want to handle that case accordingly
+        ' For example, return -1 or throw an exception
+        Return -1
+    End Function
 
     Private Sub employee_btn_(sender As Object, e As EventArgs) Handles employee_btn.Click
         employee_grid_view.Rows.Clear()
@@ -68,6 +92,8 @@ Public Class admindashboardform
         Listgender()
         ListDepartment()
     End Sub
+
+
 
     Private Sub branch_btn_(sender As Object, e As EventArgs) Handles branch_btn.Click
         TabControl1.SelectedTab = TabPage3
@@ -161,6 +187,10 @@ Public Class admindashboardform
 
     Private Sub add_employees_btn_Click(sender As Object, e As EventArgs) Handles add_employees_btn.Click
         e_tab_show.Visible = True
+
+    End Sub
+
+    Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabPage2.Click
 
     End Sub
 End Class
