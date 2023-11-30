@@ -53,6 +53,23 @@ Partial Class admindashboardform
         Label9 = New Label()
         PictureBox4 = New PictureBox()
         TabPage2 = New TabPage()
+        TabControl3 = New TabControl()
+        TabPage9 = New TabPage()
+        submit_employees_btn = New Button()
+        e_dep = New ComboBox()
+        dep = New Label()
+        e = New Label()
+        e_email = New TextBox()
+        e_lastname = New TextBox()
+        e_middlename = New TextBox()
+        e_firstname = New TextBox()
+        d = New Label()
+        e_gender = New ComboBox()
+        Label17 = New Label()
+        l = New Label()
+        m = New Label()
+        f = New Label()
+        e_date = New DateTimePicker()
         Panel7 = New Panel()
         Panel13 = New Panel()
         add_employees_btn = New Button()
@@ -94,7 +111,7 @@ Partial Class admindashboardform
         search_dept_btn = New Button()
         id_dept_tb = New TextBox()
         Label13 = New Label()
-        DataGridView7 = New DataGridView()
+        dept_gridview = New DataGridView()
         id_dep = New DataGridViewTextBoxColumn()
         dep_col = New DataGridViewTextBoxColumn()
         dep_desc = New DataGridViewTextBoxColumn()
@@ -110,23 +127,6 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
-        TabPage9 = New TabPage()
-        e_firstname = New TextBox()
-        e_middlename = New TextBox()
-        e_lastname = New TextBox()
-        e_date = New DateTimePicker()
-        f = New Label()
-        m = New Label()
-        l = New Label()
-        Label17 = New Label()
-        e_gender = New ComboBox()
-        d = New Label()
-        e_email = New TextBox()
-        e = New Label()
-        dep = New Label()
-        e_dep = New ComboBox()
-        Button2 = New Button()
-        TabControl3 = New TabControl()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -142,6 +142,8 @@ Partial Class admindashboardform
         CType(DataGridView6, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         TabPage2.SuspendLayout()
+        TabControl3.SuspendLayout()
+        TabPage9.SuspendLayout()
         Panel7.SuspendLayout()
         CType(employee_grid_view, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
@@ -152,12 +154,10 @@ Partial Class admindashboardform
         TabControl1.SuspendLayout()
         TabPage4.SuspendLayout()
         Panel12.SuspendLayout()
-        CType(DataGridView7, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dept_gridview, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
         TabPage5.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
-        TabPage9.SuspendLayout()
-        TabControl3.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel1
@@ -550,6 +550,194 @@ Partial Class admindashboardform
         TabPage2.Text = "TabPage2"
         TabPage2.UseVisualStyleBackColor = True
         ' 
+        ' TabControl3
+        ' 
+        TabControl3.Controls.Add(TabPage9)
+        TabControl3.Location = New Point(240, 83)
+        TabControl3.Margin = New Padding(4, 5, 4, 5)
+        TabControl3.Name = "TabControl3"
+        TabControl3.SelectedIndex = 0
+        TabControl3.Size = New Size(653, 725)
+        TabControl3.TabIndex = 0
+        ' 
+        ' TabPage9
+        ' 
+        TabPage9.Controls.Add(submit_employees_btn)
+        TabPage9.Controls.Add(e_dep)
+        TabPage9.Controls.Add(dep)
+        TabPage9.Controls.Add(e)
+        TabPage9.Controls.Add(e_email)
+        TabPage9.Controls.Add(e_lastname)
+        TabPage9.Controls.Add(e_middlename)
+        TabPage9.Controls.Add(e_firstname)
+        TabPage9.Controls.Add(d)
+        TabPage9.Controls.Add(e_gender)
+        TabPage9.Controls.Add(Label17)
+        TabPage9.Controls.Add(l)
+        TabPage9.Controls.Add(m)
+        TabPage9.Controls.Add(f)
+        TabPage9.Controls.Add(e_date)
+        TabPage9.Location = New Point(4, 34)
+        TabPage9.Margin = New Padding(4, 5, 4, 5)
+        TabPage9.Name = "TabPage9"
+        TabPage9.Padding = New Padding(4, 5, 4, 5)
+        TabPage9.Size = New Size(645, 687)
+        TabPage9.TabIndex = 0
+        TabPage9.Text = "TabPage9"
+        TabPage9.UseVisualStyleBackColor = True
+        ' 
+        ' submit_employees_btn
+        ' 
+        submit_employees_btn.Location = New Point(316, 465)
+        submit_employees_btn.Margin = New Padding(4, 5, 4, 5)
+        submit_employees_btn.Name = "submit_employees_btn"
+        submit_employees_btn.Size = New Size(276, 55)
+        submit_employees_btn.TabIndex = 15
+        submit_employees_btn.Text = "Submit"
+        submit_employees_btn.UseVisualStyleBackColor = True
+        ' 
+        ' e_dep
+        ' 
+        e_dep.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        e_dep.FormattingEnabled = True
+        e_dep.Location = New Point(9, 472)
+        e_dep.Margin = New Padding(4, 5, 4, 5)
+        e_dep.Name = "e_dep"
+        e_dep.Size = New Size(275, 40)
+        e_dep.TabIndex = 14
+        ' 
+        ' dep
+        ' 
+        dep.AutoSize = True
+        dep.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        dep.Location = New Point(4, 432)
+        dep.Margin = New Padding(4, 0, 4, 0)
+        dep.Name = "dep"
+        dep.Size = New Size(147, 32)
+        dep.TabIndex = 13
+        dep.Text = "Department"
+        ' 
+        ' e
+        ' 
+        e.AutoSize = True
+        e.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        e.Location = New Point(297, 183)
+        e.Margin = New Padding(4, 0, 4, 0)
+        e.Name = "e"
+        e.Size = New Size(72, 32)
+        e.TabIndex = 11
+        e.Text = "Email"
+        ' 
+        ' e_email
+        ' 
+        e_email.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        e_email.Location = New Point(297, 223)
+        e_email.Margin = New Padding(4, 5, 4, 5)
+        e_email.Name = "e_email"
+        e_email.Size = New Size(293, 39)
+        e_email.TabIndex = 10
+        ' 
+        ' e_lastname
+        ' 
+        e_lastname.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        e_lastname.Location = New Point(4, 223)
+        e_lastname.Margin = New Padding(4, 5, 4, 5)
+        e_lastname.Name = "e_lastname"
+        e_lastname.Size = New Size(275, 39)
+        e_lastname.TabIndex = 2
+        ' 
+        ' e_middlename
+        ' 
+        e_middlename.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        e_middlename.Location = New Point(297, 108)
+        e_middlename.Margin = New Padding(4, 5, 4, 5)
+        e_middlename.Name = "e_middlename"
+        e_middlename.Size = New Size(293, 39)
+        e_middlename.TabIndex = 1
+        ' 
+        ' e_firstname
+        ' 
+        e_firstname.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        e_firstname.Location = New Point(4, 108)
+        e_firstname.Margin = New Padding(4, 5, 4, 5)
+        e_firstname.Name = "e_firstname"
+        e_firstname.Size = New Size(275, 39)
+        e_firstname.TabIndex = 0
+        ' 
+        ' d
+        ' 
+        d.AutoSize = True
+        d.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        d.Location = New Point(9, 305)
+        d.Margin = New Padding(4, 0, 4, 0)
+        d.Name = "d"
+        d.Size = New Size(59, 32)
+        d.TabIndex = 9
+        d.Text = "Dob"
+        ' 
+        ' e_gender
+        ' 
+        e_gender.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        e_gender.FormattingEnabled = True
+        e_gender.Location = New Point(297, 345)
+        e_gender.Margin = New Padding(4, 5, 4, 5)
+        e_gender.Name = "e_gender"
+        e_gender.Size = New Size(293, 40)
+        e_gender.TabIndex = 8
+        ' 
+        ' Label17
+        ' 
+        Label17.AutoSize = True
+        Label17.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label17.Location = New Point(297, 305)
+        Label17.Margin = New Padding(4, 0, 4, 0)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(94, 32)
+        Label17.TabIndex = 7
+        Label17.Text = "Gender"
+        ' 
+        ' l
+        ' 
+        l.AutoSize = True
+        l.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        l.Location = New Point(4, 183)
+        l.Margin = New Padding(4, 0, 4, 0)
+        l.Name = "l"
+        l.Size = New Size(119, 32)
+        l.TabIndex = 6
+        l.Text = "Lastname"
+        ' 
+        ' m
+        ' 
+        m.AutoSize = True
+        m.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        m.Location = New Point(297, 68)
+        m.Margin = New Padding(4, 0, 4, 0)
+        m.Name = "m"
+        m.Size = New Size(150, 32)
+        m.TabIndex = 5
+        m.Text = "Middlename"
+        ' 
+        ' f
+        ' 
+        f.AutoSize = True
+        f.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        f.Location = New Point(4, 68)
+        f.Margin = New Padding(4, 0, 4, 0)
+        f.Name = "f"
+        f.Size = New Size(121, 32)
+        f.TabIndex = 3
+        f.Text = "Firstname"
+        ' 
+        ' e_date
+        ' 
+        e_date.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        e_date.Location = New Point(9, 345)
+        e_date.Margin = New Padding(4, 5, 4, 5)
+        e_date.Name = "e_date"
+        e_date.Size = New Size(271, 39)
+        e_date.TabIndex = 4
+        ' 
         ' Panel7
         ' 
         Panel7.Controls.Add(Panel13)
@@ -933,7 +1121,7 @@ Partial Class admindashboardform
         ' TabPage4
         ' 
         TabPage4.Controls.Add(Panel12)
-        TabPage4.Controls.Add(DataGridView7)
+        TabPage4.Controls.Add(dept_gridview)
         TabPage4.Controls.Add(Label11)
         TabPage4.Controls.Add(PictureBox5)
         TabPage4.Location = New Point(4, 34)
@@ -1006,19 +1194,19 @@ Partial Class admindashboardform
         Label13.TabIndex = 0
         Label13.Text = "ID"
         ' 
-        ' DataGridView7
+        ' dept_gridview
         ' 
-        DataGridView7.AllowUserToAddRows = False
-        DataGridView7.AllowUserToDeleteRows = False
-        DataGridView7.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView7.Columns.AddRange(New DataGridViewColumn() {id_dep, dep_col, dep_desc, action_col})
-        DataGridView7.Location = New Point(29, 167)
-        DataGridView7.Margin = New Padding(4, 5, 4, 5)
-        DataGridView7.Name = "DataGridView7"
-        DataGridView7.ReadOnly = True
-        DataGridView7.RowHeadersWidth = 62
-        DataGridView7.Size = New Size(1144, 710)
-        DataGridView7.TabIndex = 12
+        dept_gridview.AllowUserToAddRows = False
+        dept_gridview.AllowUserToDeleteRows = False
+        dept_gridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dept_gridview.Columns.AddRange(New DataGridViewColumn() {id_dep, dep_col, dep_desc, action_col})
+        dept_gridview.Location = New Point(29, 167)
+        dept_gridview.Margin = New Padding(4, 5, 4, 5)
+        dept_gridview.Name = "dept_gridview"
+        dept_gridview.ReadOnly = True
+        dept_gridview.RowHeadersWidth = 62
+        dept_gridview.Size = New Size(1144, 710)
+        dept_gridview.TabIndex = 12
         ' 
         ' id_dep
         ' 
@@ -1182,194 +1370,6 @@ Partial Class admindashboardform
         MySqlCommand1.EnableCaching = False
         MySqlCommand1.Transaction = Nothing
         ' 
-        ' TabPage9
-        ' 
-        TabPage9.Controls.Add(Button2)
-        TabPage9.Controls.Add(e_dep)
-        TabPage9.Controls.Add(dep)
-        TabPage9.Controls.Add(e)
-        TabPage9.Controls.Add(e_email)
-        TabPage9.Controls.Add(e_lastname)
-        TabPage9.Controls.Add(e_middlename)
-        TabPage9.Controls.Add(e_firstname)
-        TabPage9.Controls.Add(d)
-        TabPage9.Controls.Add(e_gender)
-        TabPage9.Controls.Add(Label17)
-        TabPage9.Controls.Add(l)
-        TabPage9.Controls.Add(m)
-        TabPage9.Controls.Add(f)
-        TabPage9.Controls.Add(e_date)
-        TabPage9.Location = New Point(4, 34)
-        TabPage9.Margin = New Padding(4, 5, 4, 5)
-        TabPage9.Name = "TabPage9"
-        TabPage9.Padding = New Padding(4, 5, 4, 5)
-        TabPage9.Size = New Size(645, 687)
-        TabPage9.TabIndex = 0
-        TabPage9.Text = "TabPage9"
-        TabPage9.UseVisualStyleBackColor = True
-        ' 
-        ' e_firstname
-        ' 
-        e_firstname.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_firstname.Location = New Point(4, 108)
-        e_firstname.Margin = New Padding(4, 5, 4, 5)
-        e_firstname.Name = "e_firstname"
-        e_firstname.Size = New Size(275, 39)
-        e_firstname.TabIndex = 0
-        ' 
-        ' e_middlename
-        ' 
-        e_middlename.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_middlename.Location = New Point(297, 108)
-        e_middlename.Margin = New Padding(4, 5, 4, 5)
-        e_middlename.Name = "e_middlename"
-        e_middlename.Size = New Size(293, 39)
-        e_middlename.TabIndex = 1
-        ' 
-        ' e_lastname
-        ' 
-        e_lastname.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_lastname.Location = New Point(4, 223)
-        e_lastname.Margin = New Padding(4, 5, 4, 5)
-        e_lastname.Name = "e_lastname"
-        e_lastname.Size = New Size(275, 39)
-        e_lastname.TabIndex = 2
-        ' 
-        ' e_date
-        ' 
-        e_date.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_date.Location = New Point(9, 345)
-        e_date.Margin = New Padding(4, 5, 4, 5)
-        e_date.Name = "e_date"
-        e_date.Size = New Size(271, 39)
-        e_date.TabIndex = 4
-        ' 
-        ' f
-        ' 
-        f.AutoSize = True
-        f.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        f.Location = New Point(4, 68)
-        f.Margin = New Padding(4, 0, 4, 0)
-        f.Name = "f"
-        f.Size = New Size(121, 32)
-        f.TabIndex = 3
-        f.Text = "Firstname"
-        ' 
-        ' m
-        ' 
-        m.AutoSize = True
-        m.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        m.Location = New Point(297, 68)
-        m.Margin = New Padding(4, 0, 4, 0)
-        m.Name = "m"
-        m.Size = New Size(150, 32)
-        m.TabIndex = 5
-        m.Text = "Middlename"
-        ' 
-        ' l
-        ' 
-        l.AutoSize = True
-        l.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        l.Location = New Point(4, 183)
-        l.Margin = New Padding(4, 0, 4, 0)
-        l.Name = "l"
-        l.Size = New Size(119, 32)
-        l.TabIndex = 6
-        l.Text = "Lastname"
-        ' 
-        ' Label17
-        ' 
-        Label17.AutoSize = True
-        Label17.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label17.Location = New Point(297, 305)
-        Label17.Margin = New Padding(4, 0, 4, 0)
-        Label17.Name = "Label17"
-        Label17.Size = New Size(94, 32)
-        Label17.TabIndex = 7
-        Label17.Text = "Gender"
-        ' 
-        ' e_gender
-        ' 
-        e_gender.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_gender.FormattingEnabled = True
-        e_gender.Location = New Point(297, 345)
-        e_gender.Margin = New Padding(4, 5, 4, 5)
-        e_gender.Name = "e_gender"
-        e_gender.Size = New Size(293, 40)
-        e_gender.TabIndex = 8
-        ' 
-        ' d
-        ' 
-        d.AutoSize = True
-        d.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        d.Location = New Point(9, 305)
-        d.Margin = New Padding(4, 0, 4, 0)
-        d.Name = "d"
-        d.Size = New Size(59, 32)
-        d.TabIndex = 9
-        d.Text = "Dob"
-        ' 
-        ' e_email
-        ' 
-        e_email.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_email.Location = New Point(297, 223)
-        e_email.Margin = New Padding(4, 5, 4, 5)
-        e_email.Name = "e_email"
-        e_email.Size = New Size(293, 39)
-        e_email.TabIndex = 10
-        ' 
-        ' e
-        ' 
-        e.AutoSize = True
-        e.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        e.Location = New Point(297, 183)
-        e.Margin = New Padding(4, 0, 4, 0)
-        e.Name = "e"
-        e.Size = New Size(72, 32)
-        e.TabIndex = 11
-        e.Text = "Email"
-        ' 
-        ' dep
-        ' 
-        dep.AutoSize = True
-        dep.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        dep.Location = New Point(4, 432)
-        dep.Margin = New Padding(4, 0, 4, 0)
-        dep.Name = "dep"
-        dep.Size = New Size(147, 32)
-        dep.TabIndex = 13
-        dep.Text = "Department"
-        ' 
-        ' e_dep
-        ' 
-        e_dep.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_dep.FormattingEnabled = True
-        e_dep.Location = New Point(9, 472)
-        e_dep.Margin = New Padding(4, 5, 4, 5)
-        e_dep.Name = "e_dep"
-        e_dep.Size = New Size(275, 40)
-        e_dep.TabIndex = 14
-        ' 
-        ' Button2
-        ' 
-        Button2.Location = New Point(316, 465)
-        Button2.Margin = New Padding(4, 5, 4, 5)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(276, 55)
-        Button2.TabIndex = 15
-        Button2.Text = "Submit"
-        Button2.UseVisualStyleBackColor = True
-        ' 
-        ' TabControl3
-        ' 
-        TabControl3.Controls.Add(TabPage9)
-        TabControl3.Location = New Point(240, 83)
-        TabControl3.Margin = New Padding(4, 5, 4, 5)
-        TabControl3.Name = "TabControl3"
-        TabControl3.SelectedIndex = 0
-        TabControl3.Size = New Size(653, 725)
-        TabControl3.TabIndex = 0
-        ' 
         ' admindashboardform
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
@@ -1402,6 +1402,9 @@ Partial Class admindashboardform
         CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
         TabPage2.ResumeLayout(False)
         TabPage2.PerformLayout()
+        TabControl3.ResumeLayout(False)
+        TabPage9.ResumeLayout(False)
+        TabPage9.PerformLayout()
         Panel7.ResumeLayout(False)
         Panel7.PerformLayout()
         CType(employee_grid_view, ComponentModel.ISupportInitialize).EndInit()
@@ -1416,14 +1419,11 @@ Partial Class admindashboardform
         TabPage4.PerformLayout()
         Panel12.ResumeLayout(False)
         Panel12.PerformLayout()
-        CType(DataGridView7, ComponentModel.ISupportInitialize).EndInit()
+        CType(dept_gridview, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
         TabPage5.ResumeLayout(False)
         TabPage5.PerformLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
-        TabPage9.ResumeLayout(False)
-        TabPage9.PerformLayout()
-        TabControl3.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -1532,4 +1532,7 @@ Partial Class admindashboardform
     Friend WithEvents m As Label
     Friend WithEvents f As Label
     Friend WithEvents e_date As DateTimePicker
+    Friend WithEvents submit_employees_btn As Button
+    Friend WithEvents depa As DataGridView
+    Friend WithEvents dept_gridview As DataGridView
 End Class

@@ -22,14 +22,14 @@ Public Class admindashboardform
     End Function
 
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click, submit_employees_btn.Click
 
-        MessageBox.Show(GenerateEmployeeCode())
+        MessageBox.Show(GenerateEmployeeCode)
         Try
 
             InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
         {"132", e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
-         e_gender.SelectedItem.ToString(), 2.ToString(), e_email.Text})
+         e_gender.SelectedItem.ToString, 2.ToString, e_email.Text})
 
             MessageBox.Show("Record inserted successfully.")
         Catch ex As Exception
