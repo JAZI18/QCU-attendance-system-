@@ -3,7 +3,7 @@ Imports MySql.Data.MySqlClient
 Imports Org.BouncyCastle.Utilities
 
 Public Class admindashboardform
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles dashboard_btn.Click
+    Private Sub dashboard_btn_(sender As Object, e As EventArgs) Handles dashboard_btn.Click
         TabControl1.SelectedTab = TabPage1
     End Sub
 
@@ -22,7 +22,7 @@ Public Class admindashboardform
     End Function
 
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click, submit_employees_btn.Click
+    Private Sub submit_employees_btn_(sender As Object, e As EventArgs) Handles Button2.Click, submit_employees_btn.Click
 
         MessageBox.Show(GenerateEmployeeCode)
         Try
@@ -38,7 +38,7 @@ Public Class admindashboardform
 
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles employee_btn.Click
+    Private Sub employee_btn_(sender As Object, e As EventArgs) Handles employee_btn.Click
         employee_grid_view.Rows.Clear()
         TabControl1.SelectedTab = TabPage2
 
@@ -69,11 +69,11 @@ Public Class admindashboardform
         ListDepartment()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles branch_btn.Click
+    Private Sub branch_btn_(sender As Object, e As EventArgs) Handles branch_btn.Click
         TabControl1.SelectedTab = TabPage3
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles department_btn.Click
+    Private Sub department_btn_(sender As Object, e As EventArgs) Handles department_btn.Click
         DataGridView7.Rows.Clear()
         TabControl1.SelectedTab = TabPage4
 
@@ -87,21 +87,21 @@ Public Class admindashboardform
         reader.Close()
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles printreport_btn.Click
+    Private Sub printreport_btn_(sender As Object, e As EventArgs) Handles printreport_btn.Click
         TabControl1.SelectedTab = TabPage5
     End Sub
 
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles sanbartolome_branch_btn.Click
+    Private Sub sanbartolome_branch_btn_(sender As Object, e As EventArgs) Handles sanbartolome_branch_btn.Click
         Label10.Text = "San. Bartolome"
         TabControl2.SelectedTab = TabPage6
     End Sub
 
-    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles batasan_branch_btn.Click
+    Private Sub batasan_branch_btn_(sender As Object, e As EventArgs) Handles batasan_branch_btn.Click
         Label10.Text = "Batasan"
         TabControl2.SelectedTab = TabPage7
     End Sub
 
-    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles sanfrancisco_branch_btn.Click
+    Private Sub sanfrancisco_branch_btn_(sender As Object, e As EventArgs) Handles sanfrancisco_branch_btn.Click
         Label10.Text = "San. Francisco"
         TabControl2.SelectedTab = TabPage8
     End Sub
@@ -153,6 +153,10 @@ Public Class admindashboardform
         While reader.Read
             branch_grid_view.Rows.Add(reader("branch_name"), reader("branch_address"))
         End While
+    End Sub
+
+    Private Sub e_dep_SelectedIndexChanged(sender As Object, e As EventArgs) Handles e_dep.SelectedIndexChanged
+
     End Sub
 End Class
 
