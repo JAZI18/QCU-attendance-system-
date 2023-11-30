@@ -22,8 +22,6 @@ Public Class admindashboardform
     End Function
 
 
-
-
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
 
         MessageBox.Show(GenerateEmployeeCode())
@@ -125,7 +123,6 @@ Public Class admindashboardform
         e_gender.Items.Add("Female")
         e_gender.Items.Add("Other")
         e_gender.SelectedIndex = 0
-        ListDepartment()
     End Sub
 
     Private Sub Admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
