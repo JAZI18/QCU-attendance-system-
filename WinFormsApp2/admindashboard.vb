@@ -1,9 +1,43 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports Org.BouncyCastle.Utilities
 
 Public Class admindashboardform
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles dashboard_btn.Click
         TabControl1.SelectedTab = TabPage1
+    End Sub
+
+    Public Function GenerateEmployeeCode() As String
+        ' Get the year
+        Dim yearCode As String = DateTime.Now.ToString("yy")
+
+        ' Generate a random four-digit number
+        Dim random As New Random()
+        Dim randomNumber As Integer = random.Next(1000, 10000)
+
+
+        Dim employeeCode As String = $"{yearCode}-{randomNumber:0000}"
+
+        Return employeeCode
+    End Function
+
+
+
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
+
+        MessageBox.Show(GenerateEmployeeCode())
+        Try
+
+            InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
+        {"132", e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
+         e_gender.SelectedItem.ToString(), 2.ToString(), e_email.Text})
+
+            MessageBox.Show("Record inserted successfully.")
+        Catch ex As Exception
+            MessageBox.Show("An error occurred: " & ex.StackTrace)
+        End Try
+
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles employee_btn.Click
@@ -101,7 +135,7 @@ Public Class admindashboardform
 
     End Function
     Private Sub admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim reader As MySqlDataReader = selectQuery("department_name, department_desc", "qcu_department")
+        Dim reader As MySqlDataReader = SelectQuery("department_name, department_desc", "qcu_department")
         While reader.Read
             department_grid_view.Rows.Add(reader("department_name"), reader("department_desc"))
         End While
@@ -131,8 +165,16 @@ Public Class admindashboardform
             employee_num.Text = reader("b")
         End While
 
-
     End Sub
 
+    Private Sub DateTimePicker3_ValueChanged(sender As Object, e As EventArgs) Handles e_date.ValueChanged
+        'Update the TextBox text when the date changes
+        e_firstname.Text = e_date.Text
+    End Sub
 
 End Class
+
+'
+
+
+
