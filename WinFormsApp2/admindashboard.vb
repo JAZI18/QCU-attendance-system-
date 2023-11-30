@@ -7,36 +7,10 @@ Public Class admindashboardform
         TabControl1.SelectedTab = TabPage1
     End Sub
 
-    Public Function GenerateEmployeeCode() As String
-        ' Get the year
-        Dim yearCode As String = DateTime.Now.ToString("yy")
-
-        ' Generate a random four-digit number
-        Dim random As New Random()
-        Dim randomNumber As Integer = random.Next(1000, 10000)
 
 
-        Dim employeeCode As String = $"{yearCode}-{randomNumber:0000}"
-
-        Return employeeCode
-    End Function
 
 
-    Private Sub submit_employees_btn_(sender As Object, e As EventArgs) Handles Button2.Click, submit_employees_btn.Click
-
-        MessageBox.Show(GenerateEmployeeCode)
-        Try
-
-            InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
-        {"132", e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
-         e_gender.SelectedItem.ToString, 2.ToString, e_email.Text})
-
-            MessageBox.Show("Record inserted successfully.")
-        Catch ex As Exception
-            MessageBox.Show("An error occurred: " & ex.StackTrace)
-        End Try
-
-    End Sub
 
     Private Sub employee_btn_(sender As Object, e As EventArgs) Handles employee_btn.Click
         employee_grid_view.Rows.Clear()
@@ -65,8 +39,7 @@ Public Class admindashboardform
         End While
 
         reader.Close()
-        Listgender()
-        ListDepartment()
+
     End Sub
 
     Private Sub branch_btn_(sender As Object, e As EventArgs) Handles branch_btn.Click
@@ -74,14 +47,14 @@ Public Class admindashboardform
     End Sub
 
     Private Sub department_btn_(sender As Object, e As EventArgs) Handles department_btn.Click
-        DataGridView7.Rows.Clear()
+        dept_gridview.Rows.Clear()
         TabControl1.SelectedTab = TabPage4
 
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department")
 
         ' Create a while loop to fetch all data from the database'
         While reader.Read
-            DataGridView7.Rows.Add(reader("department_id"), reader("department_name"), reader("department_desc"))
+            dept_gridview.Rows.Add(reader("department_id"), reader("department_name"), reader("department_desc"))
         End While
 
         reader.Close()
@@ -106,24 +79,9 @@ Public Class admindashboardform
         TabControl2.SelectedTab = TabPage8
     End Sub
 
-    Public Sub ListDepartment()
-        Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department")
-        e_dep.Items.Clear()
-        While reader.Read
-            e_dep.Items.Add(reader("department_name"))
-        End While
-        e_dep.SelectedIndex = 0
-        reader.Close()
-    End Sub
 
-    Public Sub Listgender()
-        e_gender.Items.Clear()
-        e_gender.Items.Add("Please Choose Gender")
-        e_gender.Items.Add("Male")
-        e_gender.Items.Add("Female")
-        e_gender.Items.Add("Other")
-        e_gender.SelectedIndex = 0
-    End Sub
+
+
 
     Private Sub Admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UpdateHomeGrids()
@@ -155,7 +113,8 @@ Public Class admindashboardform
         End While
     End Sub
 
-    Private Sub e_dep_SelectedIndexChanged(sender As Object, e As EventArgs) Handles e_dep.SelectedIndexChanged
+    Private Sub add_employees_btn_Click(sender As Object, e As EventArgs) Handles add_employees_btn.Click
+        addEmployee.Show()
 
     End Sub
 End Class
