@@ -1,8 +1,8 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Diagnostics.Eventing
+Imports MySql.Data.MySqlClient
 Imports Org.BouncyCastle.Utilities
 
 Public Class admindashboardform
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles dashboard_btn.Click
         TabControl1.SelectedTab = TabPage1
     End Sub
@@ -67,9 +67,8 @@ Public Class admindashboardform
         End While
 
         reader.Close()
-        listgender()
-        listDepartment()
-
+        Listgender()
+        ListDepartment()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles branch_btn.Click
@@ -109,69 +108,55 @@ Public Class admindashboardform
         TabControl2.SelectedTab = TabPage8
     End Sub
 
-    Public Function listDepartment()
-
+    Public Sub ListDepartment()
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department")
-
         e_dep.Items.Clear()
         While reader.Read
             e_dep.Items.Add(reader("department_name"))
-
         End While
         e_dep.SelectedIndex = 0
         reader.Close()
-    End Function
+    End Sub
 
-    Public Function listgender()
-
+    Public Sub Listgender()
         e_gender.Items.Clear()
         e_gender.Items.Add("Please Choose Gender")
         e_gender.Items.Add("Male")
         e_gender.Items.Add("Female")
         e_gender.Items.Add("Other")
         e_gender.SelectedIndex = 0
+        ListDepartment()
+    End Sub
 
-        listDepartment()
+    Private Sub Admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        UpdateHomeGrids()
+        UpdateCounters()
+    End Sub
 
-    End Function
-    Private Sub admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub UpdateCounters()
+        UpdateCount("qcu_department", dept_num)
+        UpdateCount("qcu_branches", branch_num)
+        UpdateCount("employee_info", employee_num)
+    End Sub
+
+    Private Sub UpdateCount(table As String, label_num As Label)
+        Dim Reader As MySqlDataReader = SelectQuery("count(*) as a", table)
+        While Reader.Read
+            Reader.Read()
+            label_num.Text = Reader("a")
+        End While
+    End Sub
+
+    Private Sub UpdateHomeGrids()
         Dim reader As MySqlDataReader = SelectQuery("department_name, department_desc", "qcu_department")
         While reader.Read
             department_grid_view.Rows.Add(reader("department_name"), reader("department_desc"))
         End While
-
         reader = SelectQuery("branch_name, branch_address", "qcu_branches")
-
         While reader.Read
             branch_grid_view.Rows.Add(reader("branch_name"), reader("branch_address"))
-
         End While
-
-        reader = SelectQuery("count(*) as c", "qcu_department")
-        While reader.Read
-            reader.Read()
-            dept_num.Text = reader("c")
-        End While
-
-        reader = SelectQuery("count(*) as a", "qcu_branches")
-        While reader.Read
-            reader.Read()
-            branch_num.Text = reader("a")
-        End While
-
-        reader = SelectQuery("count(*) as b", "employee_info")
-        While reader.Read
-            reader.Read()
-            employee_num.Text = reader("b")
-        End While
-
     End Sub
-
-    Private Sub DateTimePicker3_ValueChanged(sender As Object, e As EventArgs) Handles e_date.ValueChanged
-        'Update the TextBox text when the date changes
-        e_firstname.Text = e_date.Text
-    End Sub
-
 End Class
 
 '
