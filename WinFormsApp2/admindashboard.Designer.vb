@@ -606,7 +606,7 @@ Partial Class admindashboardform
         employee_grid_view.AllowUserToDeleteRows = False
         employee_grid_view.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         employee_grid_view.Columns.AddRange(New DataGridViewColumn() {id_col, name_col, shift_col, gender_col, dob_col, hired_col, act_col})
-        employee_grid_view.Location = New Point(52, 200)
+        employee_grid_view.Location = New Point(35, 200)
         employee_grid_view.Margin = New Padding(5, 6, 5, 6)
         employee_grid_view.Name = "employee_grid_view"
         employee_grid_view.ReadOnly = True

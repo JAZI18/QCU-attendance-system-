@@ -7,11 +7,6 @@ Public Class admindashboardform
         TabControl1.SelectedTab = TabPage1
     End Sub
 
-
-
-
-
-
     Private Sub employee_btn_(sender As Object, e As EventArgs) Handles employee_btn.Click
         employee_grid_view.Rows.Clear()
         TabControl1.SelectedTab = TabPage2
@@ -54,7 +49,7 @@ Public Class admindashboardform
 
         ' Create a while loop to fetch all data from the database'
         While reader.Read
-            dept_gridview.Rows.Add(reader("department_id"), reader("department_name"), reader("department_desc"))
+            dept_gridview.Rows.Add(reader("department_name"), reader("department_desc"))
         End While
 
         reader.Close()
@@ -78,10 +73,6 @@ Public Class admindashboardform
         Label10.Text = "San. Francisco"
         TabControl2.SelectedTab = TabPage8
     End Sub
-
-
-
-
 
     Private Sub Admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UpdateHomeGrids()
@@ -111,6 +102,8 @@ Public Class admindashboardform
         While reader.Read
             branch_grid_view.Rows.Add(reader("branch_name"), reader("branch_address"))
         End While
+
+
     End Sub
 
     Private Sub add_employees_btn_Click(sender As Object, e As EventArgs) Handles add_employees_btn.Click
