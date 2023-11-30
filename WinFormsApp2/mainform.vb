@@ -42,12 +42,6 @@ Public Class mainform
 
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        DateTimePicker1.Format = DateTimePickerFormat.Time
-        DateTimePicker1.ShowUpDown = True
-        DateTimePicker1.Enabled = False
-        DateTimePicker1.Visible = False
-
-
     End Sub
 
     Private Sub morning_in_tb_KeyPress(sender As Object, e As KeyPressEventArgs) Handles morning_in_tb.KeyPress
