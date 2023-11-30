@@ -55,7 +55,7 @@ Public Class admindashboardform
             Dim middleName As String = If(Not IsDBNull(reader("middle_name")), reader("middle_name").ToString(), "")
 
             ' Check for null before attempting to convert to Date
-            Dim dob As String = If(Not IsDBNull(reader("dob")), CType(reader("dob"), Date).ToString("yyyy-MM-dd"), "")
+            Dim dob As String = If(Not IsDBNull(reader("dob")), CType(reader("dob"), Date).ToString("yy-MM-dd"), "")
 
             ' Concatenate last name, first name, and middle name into one column
             Dim fullName As String = $"{lastName} {firstName} {middleName}"
@@ -156,6 +156,11 @@ Public Class admindashboardform
     End Sub
 
     Private Sub e_dep_SelectedIndexChanged(sender As Object, e As EventArgs) Handles e_dep.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub add_employees_btn_Click(sender As Object, e As EventArgs) Handles add_employees_btn.Click
+        e_tab_show.Visible = True
 
     End Sub
 End Class
