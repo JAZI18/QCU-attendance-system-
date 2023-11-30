@@ -11,19 +11,28 @@ Public Class addEmployee
         e_dep.SelectedIndex = 0
         reader.Close()
     End Sub
-    Private Sub submit_employees_btn_(sender As Object, e As EventArgs) Handles submit_employees_btn.Click, submit_employees_btn.Click
+    Private Sub submit_employees_btn_(sender As Object, e As EventArgs) Handles submit_employees_btn.Click
 
-        MessageBox.Show(GenerateEmployeeCode)
+        MsgBox(GenerateEmployeeCode())
+
         Try
 
             InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
         {"132", e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
          e_gender.SelectedItem.ToString, 2.ToString, e_email.Text})
-
+            Me.Close()
             MessageBox.Show("Record inserted successfully.")
+
         Catch ex As Exception
-            MessageBox.Show("An error occurred: " & ex.StackTrace)
+            e_firstname.Clear()
+            e_middlename.Clear()
+            e_lastname.Clear()
+            e_email.Clear()
+            e_gender.SelectedItem = Nothing
+            e_date.Value = Date.Now
+            MessageBox.Show("An error occurred: ")
         End Try
+
 
     End Sub
     Public Function GenerateEmployeeCode() As String
@@ -39,4 +48,9 @@ Public Class addEmployee
 
         Return employeeCode
     End Function
+
+    Private Sub addEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ListDepartment()
+
+    End Sub
 End Class

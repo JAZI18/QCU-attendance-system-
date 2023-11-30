@@ -236,7 +236,7 @@ Partial Class addEmployee
         ' 
         AutoScaleDimensions = New SizeF(12F, 30F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(745, 803)
+        ClientSize = New Size(814, 842)
         Controls.Add(TabControl3)
         FormBorderStyle = FormBorderStyle.None
         Name = "addEmployee"
