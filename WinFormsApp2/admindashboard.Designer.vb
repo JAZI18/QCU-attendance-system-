@@ -350,8 +350,6 @@ Partial Class admindashboardform
         ' 
         ' TabPage2
         ' 
-        TabPage2.Controls.Add(Label4)
-        TabPage2.Controls.Add(Label3)
         TabPage2.Controls.Add(Panel7)
         TabPage2.Controls.Add(Label7)
         TabPage2.Controls.Add(employee_grid_view)
@@ -366,6 +364,8 @@ Partial Class admindashboardform
         ' 
         ' Panel7
         ' 
+        Panel7.Controls.Add(Label4)
+        Panel7.Controls.Add(Label3)
         Panel7.Controls.Add(add_employees_btn)
         Panel7.Controls.Add(id_employees_tb)
         Panel7.Location = New Point(20, 61)
@@ -780,7 +780,7 @@ Partial Class admindashboardform
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(141, 16)
+        Label3.Location = New Point(228, 14)
         Label3.Name = "Label3"
         Label3.Size = New Size(62, 15)
         Label3.TabIndex = 11
@@ -789,7 +789,7 @@ Partial Class admindashboardform
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(220, 16)
+        Label4.Location = New Point(307, 14)
         Label4.Name = "Label4"
         Label4.Size = New Size(87, 15)
         Label4.TabIndex = 12
