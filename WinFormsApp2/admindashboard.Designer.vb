@@ -67,8 +67,6 @@ Partial Class admindashboardform
         Panel12 = New Panel()
         Update_btn_dept = New Button()
         add_dept_btn = New Button()
-        id_dept_tb = New TextBox()
-        Label13 = New Label()
         dept_gridview = New DataGridView()
         dep_col = New DataGridViewTextBoxColumn()
         dep_desc = New DataGridViewTextBoxColumn()
@@ -86,6 +84,7 @@ Partial Class admindashboardform
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
         Label3 = New Label()
         Label4 = New Label()
+        TextBox1 = New TextBox()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -389,7 +388,7 @@ Partial Class admindashboardform
         ' 
         ' id_employees_tb
         ' 
-        id_employees_tb.Location = New Point(3, 10)
+        id_employees_tb.Location = New Point(3, 9)
         id_employees_tb.Name = "id_employees_tb"
         id_employees_tb.PlaceholderText = "search"
         id_employees_tb.Size = New Size(218, 23)
@@ -568,10 +567,9 @@ Partial Class admindashboardform
         ' 
         ' Panel12
         ' 
+        Panel12.Controls.Add(TextBox1)
         Panel12.Controls.Add(Update_btn_dept)
         Panel12.Controls.Add(add_dept_btn)
-        Panel12.Controls.Add(id_dept_tb)
-        Panel12.Controls.Add(Label13)
         Panel12.Location = New Point(20, 61)
         Panel12.Name = "Panel12"
         Panel12.Size = New Size(801, 40)
@@ -604,23 +602,6 @@ Partial Class admindashboardform
         add_dept_btn.TabIndex = 3
         add_dept_btn.Text = "Add"
         add_dept_btn.UseVisualStyleBackColor = False
-        ' 
-        ' id_dept_tb
-        ' 
-        id_dept_tb.Location = New Point(71, 10)
-        id_dept_tb.Name = "id_dept_tb"
-        id_dept_tb.Size = New Size(100, 23)
-        id_dept_tb.TabIndex = 1
-        ' 
-        ' Label13
-        ' 
-        Label13.AutoSize = True
-        Label13.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label13.Location = New Point(10, 10)
-        Label13.Name = "Label13"
-        Label13.Size = New Size(59, 21)
-        Label13.TabIndex = 0
-        Label13.Text = "Search"
         ' 
         ' dept_gridview
         ' 
@@ -795,6 +776,14 @@ Partial Class admindashboardform
         Label4.TabIndex = 12
         Label4.Text = "department ---"
         ' 
+        ' TextBox1
+        ' 
+        TextBox1.Location = New Point(3, 9)
+        TextBox1.Name = "TextBox1"
+        TextBox1.PlaceholderText = "search"
+        TextBox1.Size = New Size(218, 23)
+        TextBox1.TabIndex = 5
+        ' 
         ' admindashboardform
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -875,8 +864,6 @@ Partial Class admindashboardform
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Panel12 As Panel
     Friend WithEvents add_dept_btn As Button
-    Friend WithEvents id_dept_tb As TextBox
-    Friend WithEvents Label13 As Label
     Friend WithEvents DataGridView7 As DataGridView
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
@@ -904,4 +891,5 @@ Partial Class admindashboardform
     Friend WithEvents Update_btn_dept As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents TextBox1 As TextBox
 End Class
