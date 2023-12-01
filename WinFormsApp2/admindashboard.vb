@@ -3,19 +3,12 @@ Imports MySql.Data.MySqlClient
 Imports Org.BouncyCastle.Utilities
 
 Public Class admindashboardform
+
     Private Sub dashboard_btn_(sender As Object, e As EventArgs) Handles dashboard_btn.Click
         TabControl1.SelectedTab = TabPage1
     End Sub
 
-    While reader.Read
-    ' Assuming you want to return the department_id, you can use the following line
-    Return Convert.ToInt32(reader("department_id"))
-    End While
 
-    ' If the department_id is not found, you may want to handle that case accordingly
-    ' For example, return -1 or throw an exception
-    Return -1
-    End Function
 
     Private Sub employee_btn_(sender As Object, e As EventArgs) Handles employee_btn.Click
         employee_grid_view.Rows.Clear()
@@ -120,17 +113,8 @@ Public Class admindashboardform
 
     Private Sub add_employees_btn_Click(sender As Object, e As EventArgs) Handles add_employees_btn.Click
         addEmployee.Show()
-
     End Sub
 
-    Private Sub add_employees_btn_Click(sender As Object, e As EventArgs) Handles add_employees_btn.Click
-        e_tab_show.Visible = True
-
-    End Sub
-
-    Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabPage2.Click
-
-    End Sub
 End Class
 
 '
