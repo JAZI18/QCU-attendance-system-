@@ -46,9 +46,7 @@ Partial Class admindashboardform
         TabPage2 = New TabPage()
         Panel7 = New Panel()
         add_employees_btn = New Button()
-        search_employees_btn = New Button()
         id_employees_tb = New TextBox()
-        Label8 = New Label()
         Label7 = New Label()
         employee_grid_view = New DataGridView()
         id_col = New DataGridViewTextBoxColumn()
@@ -86,6 +84,8 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
+        Label3 = New Label()
+        Label4 = New Label()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -350,6 +350,8 @@ Partial Class admindashboardform
         ' 
         ' TabPage2
         ' 
+        TabPage2.Controls.Add(Label4)
+        TabPage2.Controls.Add(Label3)
         TabPage2.Controls.Add(Panel7)
         TabPage2.Controls.Add(Label7)
         TabPage2.Controls.Add(employee_grid_view)
@@ -365,9 +367,7 @@ Partial Class admindashboardform
         ' Panel7
         ' 
         Panel7.Controls.Add(add_employees_btn)
-        Panel7.Controls.Add(search_employees_btn)
         Panel7.Controls.Add(id_employees_tb)
-        Panel7.Controls.Add(Label8)
         Panel7.Location = New Point(20, 61)
         Panel7.Name = "Panel7"
         Panel7.Size = New Size(801, 40)
@@ -387,36 +387,13 @@ Partial Class admindashboardform
         add_employees_btn.Text = "Add"
         add_employees_btn.UseVisualStyleBackColor = False
         ' 
-        ' search_employees_btn
-        ' 
-        search_employees_btn.BackColor = Color.Red
-        search_employees_btn.FlatAppearance.BorderColor = Color.Red
-        search_employees_btn.FlatStyle = FlatStyle.Flat
-        search_employees_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        search_employees_btn.ForeColor = Color.White
-        search_employees_btn.Location = New Point(148, 10)
-        search_employees_btn.Name = "search_employees_btn"
-        search_employees_btn.Size = New Size(75, 23)
-        search_employees_btn.TabIndex = 2
-        search_employees_btn.Text = "Search"
-        search_employees_btn.UseVisualStyleBackColor = False
-        ' 
         ' id_employees_tb
         ' 
-        id_employees_tb.Location = New Point(42, 10)
+        id_employees_tb.Location = New Point(3, 10)
         id_employees_tb.Name = "id_employees_tb"
-        id_employees_tb.Size = New Size(100, 23)
+        id_employees_tb.PlaceholderText = "search"
+        id_employees_tb.Size = New Size(218, 23)
         id_employees_tb.TabIndex = 1
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label8.Location = New Point(10, 10)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(26, 21)
-        Label8.TabIndex = 0
-        Label8.Text = "ID"
         ' 
         ' Label7
         ' 
@@ -800,6 +777,24 @@ Partial Class admindashboardform
         MySqlCommand1.EnableCaching = False
         MySqlCommand1.Transaction = Nothing
         ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(141, 16)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(62, 15)
+        Label3.TabIndex = 11
+        Label3.Text = "branch ---"
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(220, 16)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(87, 15)
+        Label4.TabIndex = 12
+        Label4.Text = "department ---"
+        ' 
         ' admindashboardform
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -866,9 +861,7 @@ Partial Class admindashboardform
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents Panel7 As Panel
     Friend WithEvents add_employees_btn As Button
-    Friend WithEvents search_employees_btn As Button
     Friend WithEvents id_employees_tb As TextBox
-    Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents employee_grid_view As DataGridView
     Friend WithEvents PictureBox3 As PictureBox
@@ -909,4 +902,6 @@ Partial Class admindashboardform
     Friend WithEvents dep_desc As DataGridViewTextBoxColumn
     Friend WithEvents action_col As DataGridViewTextBoxColumn
     Friend WithEvents Update_btn_dept As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
 End Class
