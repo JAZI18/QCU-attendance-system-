@@ -58,6 +58,8 @@ Module Connection
         Dim pattern As String = "@([A-Za-z])\w+"
         Dim regex As New Regex(pattern)
 
+
+        'MsgBox(sql)
         Dim matches As New HashSet(Of String)
 
         For Each sMatches In regex.Matches(myStr)
