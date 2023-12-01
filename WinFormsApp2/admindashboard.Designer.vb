@@ -32,15 +32,6 @@ Partial Class admindashboardform
         dashboard_btn = New Button()
         Panel3 = New Panel()
         TabPage3 = New TabPage()
-        Panel11 = New Panel()
-        Label10 = New Label()
-        TabControl2 = New TabControl()
-        TabPage6 = New TabPage()
-        branch_gridview = New DataGridView()
-        TabPage7 = New TabPage()
-        DataGridView5 = New DataGridView()
-        TabPage8 = New TabPage()
-        DataGridView6 = New DataGridView()
         sanfrancisco_branch_btn = New Button()
         batasan_branch_btn = New Button()
         sanbartolome_branch_btn = New Button()
@@ -66,16 +57,7 @@ Partial Class admindashboardform
         act_col = New DataGridViewTextBoxColumn()
         PictureBox3 = New PictureBox()
         TabPage1 = New TabPage()
-        employee_num = New Label()
-        branch_num = New Label()
-        dept_num = New Label()
         Label6 = New Label()
-        Label5 = New Label()
-        Label4 = New Label()
-        Label3 = New Label()
-        Panel5 = New Panel()
-        Panel6 = New Panel()
-        Panel4 = New Panel()
         PictureBox6 = New PictureBox()
         Column2 = New DataGridViewTextBoxColumn()
         Column1 = New DataGridViewTextBoxColumn()
@@ -100,16 +82,11 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
+        Panel2 = New Panel()
+        Panel4 = New Panel()
+        Label3 = New Label()
         Panel1.SuspendLayout()
         TabPage3.SuspendLayout()
-        Panel11.SuspendLayout()
-        TabControl2.SuspendLayout()
-        TabPage6.SuspendLayout()
-        CType(branch_gridview, ComponentModel.ISupportInitialize).BeginInit()
-        TabPage7.SuspendLayout()
-        CType(DataGridView5, ComponentModel.ISupportInitialize).BeginInit()
-        TabPage8.SuspendLayout()
-        CType(DataGridView6, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         TabPage2.SuspendLayout()
         Panel7.SuspendLayout()
@@ -125,11 +102,13 @@ Partial Class admindashboardform
         TabPage5.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        Panel2.SuspendLayout()
+        Panel4.SuspendLayout()
         SuspendLayout()
         ' 
         ' Panel1
         ' 
-        Panel1.BackColor = Color.FromArgb(CByte(134), CByte(134), CByte(134))
+        Panel1.BackColor = Color.FromArgb(134, 134, 134)
         Panel1.Controls.Add(Label2)
         Panel1.Controls.Add(Label1)
         Panel1.Controls.Add(printreport_btn)
@@ -232,7 +211,7 @@ Partial Class admindashboardform
         ' 
         ' Panel3
         ' 
-        Panel3.BackColor = Color.FromArgb(CByte(209), CByte(210), CByte(210))
+        Panel3.BackColor = Color.FromArgb(209, 210, 210)
         Panel3.Location = New Point(14, 17)
         Panel3.Margin = New Padding(4, 5, 4, 5)
         Panel3.Name = "Panel3"
@@ -241,8 +220,6 @@ Partial Class admindashboardform
         ' 
         ' TabPage3
         ' 
-        TabPage3.Controls.Add(Panel11)
-        TabPage3.Controls.Add(TabControl2)
         TabPage3.Controls.Add(sanfrancisco_branch_btn)
         TabPage3.Controls.Add(batasan_branch_btn)
         TabPage3.Controls.Add(sanbartolome_branch_btn)
@@ -260,116 +237,6 @@ Partial Class admindashboardform
         TabPage3.Text = "TabPage3"
         TabPage3.UseVisualStyleBackColor = True
         ' 
-        ' Panel11
-        ' 
-        Panel11.Controls.Add(Label10)
-        Panel11.Location = New Point(29, 217)
-        Panel11.Margin = New Padding(4, 5, 4, 5)
-        Panel11.Name = "Panel11"
-        Panel11.Size = New Size(1143, 67)
-        Panel11.TabIndex = 0
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label10.Location = New Point(10, 17)
-        Label10.Margin = New Padding(4, 0, 4, 0)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(78, 28)
-        Label10.TabIndex = 0
-        Label10.Text = "Branch"
-        ' 
-        ' TabControl2
-        ' 
-        TabControl2.Controls.Add(TabPage6)
-        TabControl2.Controls.Add(TabPage7)
-        TabControl2.Controls.Add(TabPage8)
-        TabControl2.Location = New Point(29, 233)
-        TabControl2.Margin = New Padding(4, 5, 4, 5)
-        TabControl2.Name = "TabControl2"
-        TabControl2.SelectedIndex = 0
-        TabControl2.Size = New Size(1143, 643)
-        TabControl2.TabIndex = 16
-        ' 
-        ' TabPage6
-        ' 
-        TabPage6.Controls.Add(branch_gridview)
-        TabPage6.Location = New Point(4, 34)
-        TabPage6.Margin = New Padding(4, 5, 4, 5)
-        TabPage6.Name = "TabPage6"
-        TabPage6.Padding = New Padding(4, 5, 4, 5)
-        TabPage6.Size = New Size(1135, 605)
-        TabPage6.TabIndex = 0
-        TabPage6.Text = "TabPage6"
-        TabPage6.UseVisualStyleBackColor = True
-        ' 
-        ' branch_gridview
-        ' 
-        branch_gridview.AllowUserToAddRows = False
-        branch_gridview.AllowUserToDeleteRows = False
-        branch_gridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        branch_gridview.Dock = DockStyle.Fill
-        branch_gridview.Location = New Point(4, 5)
-        branch_gridview.Margin = New Padding(4, 5, 4, 5)
-        branch_gridview.Name = "branch_gridview"
-        branch_gridview.ReadOnly = True
-        branch_gridview.RowHeadersWidth = 62
-        branch_gridview.Size = New Size(1127, 595)
-        branch_gridview.TabIndex = 0
-        ' 
-        ' TabPage7
-        ' 
-        TabPage7.Controls.Add(DataGridView5)
-        TabPage7.Location = New Point(4, 34)
-        TabPage7.Margin = New Padding(4, 5, 4, 5)
-        TabPage7.Name = "TabPage7"
-        TabPage7.Padding = New Padding(4, 5, 4, 5)
-        TabPage7.Size = New Size(1135, 605)
-        TabPage7.TabIndex = 1
-        TabPage7.Text = "TabPage7"
-        TabPage7.UseVisualStyleBackColor = True
-        ' 
-        ' DataGridView5
-        ' 
-        DataGridView5.AllowUserToAddRows = False
-        DataGridView5.AllowUserToDeleteRows = False
-        DataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView5.Dock = DockStyle.Fill
-        DataGridView5.Location = New Point(4, 5)
-        DataGridView5.Margin = New Padding(4, 5, 4, 5)
-        DataGridView5.Name = "DataGridView5"
-        DataGridView5.ReadOnly = True
-        DataGridView5.RowHeadersWidth = 62
-        DataGridView5.Size = New Size(1127, 595)
-        DataGridView5.TabIndex = 0
-        ' 
-        ' TabPage8
-        ' 
-        TabPage8.Controls.Add(DataGridView6)
-        TabPage8.Location = New Point(4, 34)
-        TabPage8.Margin = New Padding(4, 5, 4, 5)
-        TabPage8.Name = "TabPage8"
-        TabPage8.Padding = New Padding(4, 5, 4, 5)
-        TabPage8.Size = New Size(1135, 605)
-        TabPage8.TabIndex = 2
-        TabPage8.Text = "TabPage8"
-        TabPage8.UseVisualStyleBackColor = True
-        ' 
-        ' DataGridView6
-        ' 
-        DataGridView6.AllowUserToAddRows = False
-        DataGridView6.AllowUserToDeleteRows = False
-        DataGridView6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView6.Dock = DockStyle.Fill
-        DataGridView6.Location = New Point(4, 5)
-        DataGridView6.Margin = New Padding(4, 5, 4, 5)
-        DataGridView6.Name = "DataGridView6"
-        DataGridView6.ReadOnly = True
-        DataGridView6.RowHeadersWidth = 62
-        DataGridView6.Size = New Size(1127, 595)
-        DataGridView6.TabIndex = 0
-        ' 
         ' sanfrancisco_branch_btn
         ' 
         sanfrancisco_branch_btn.FlatAppearance.BorderSize = 0
@@ -380,7 +247,7 @@ Partial Class admindashboardform
         sanfrancisco_branch_btn.Name = "sanfrancisco_branch_btn"
         sanfrancisco_branch_btn.Size = New Size(243, 100)
         sanfrancisco_branch_btn.TabIndex = 15
-        sanfrancisco_branch_btn.Text = "QCU" & vbCrLf & "San. Francisco"
+        sanfrancisco_branch_btn.Text = "QCU" + vbCrLf + "San. Francisco"
         sanfrancisco_branch_btn.TextAlign = ContentAlignment.MiddleLeft
         sanfrancisco_branch_btn.UseVisualStyleBackColor = True
         ' 
@@ -394,7 +261,7 @@ Partial Class admindashboardform
         batasan_branch_btn.Name = "batasan_branch_btn"
         batasan_branch_btn.Size = New Size(243, 100)
         batasan_branch_btn.TabIndex = 14
-        batasan_branch_btn.Text = "QCU" & vbCrLf & "Batasan"
+        batasan_branch_btn.Text = "QCU" + vbCrLf + "Batasan"
         batasan_branch_btn.TextAlign = ContentAlignment.MiddleLeft
         batasan_branch_btn.UseVisualStyleBackColor = True
         ' 
@@ -408,7 +275,7 @@ Partial Class admindashboardform
         sanbartolome_branch_btn.Name = "sanbartolome_branch_btn"
         sanbartolome_branch_btn.Size = New Size(243, 100)
         sanbartolome_branch_btn.TabIndex = 13
-        sanbartolome_branch_btn.Text = "QCU" & vbCrLf & "San. Bartolome"
+        sanbartolome_branch_btn.Text = "QCU" + vbCrLf + "San. Bartolome"
         sanbartolome_branch_btn.TextAlign = ContentAlignment.MiddleLeft
         sanbartolome_branch_btn.UseVisualStyleBackColor = True
         ' 
@@ -643,16 +510,8 @@ Partial Class admindashboardform
         ' 
         ' TabPage1
         ' 
-        TabPage1.Controls.Add(employee_num)
-        TabPage1.Controls.Add(branch_num)
-        TabPage1.Controls.Add(dept_num)
+        TabPage1.Controls.Add(Panel2)
         TabPage1.Controls.Add(Label6)
-        TabPage1.Controls.Add(Label5)
-        TabPage1.Controls.Add(Label4)
-        TabPage1.Controls.Add(Label3)
-        TabPage1.Controls.Add(Panel5)
-        TabPage1.Controls.Add(Panel6)
-        TabPage1.Controls.Add(Panel4)
         TabPage1.Controls.Add(PictureBox6)
         TabPage1.Location = New Point(4, 34)
         TabPage1.Margin = New Padding(4, 5, 4, 5)
@@ -662,39 +521,6 @@ Partial Class admindashboardform
         TabPage1.TabIndex = 0
         TabPage1.Text = "TabPage1"
         TabPage1.UseVisualStyleBackColor = True
-        ' 
-        ' employee_num
-        ' 
-        employee_num.AutoSize = True
-        employee_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
-        employee_num.Location = New Point(711, 134)
-        employee_num.Margin = New Padding(4, 0, 4, 0)
-        employee_num.Name = "employee_num"
-        employee_num.Size = New Size(106, 128)
-        employee_num.TabIndex = 11
-        employee_num.Text = "0"
-        ' 
-        ' branch_num
-        ' 
-        branch_num.AutoSize = True
-        branch_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
-        branch_num.Location = New Point(382, 134)
-        branch_num.Margin = New Padding(4, 0, 4, 0)
-        branch_num.Name = "branch_num"
-        branch_num.Size = New Size(106, 128)
-        branch_num.TabIndex = 10
-        branch_num.Text = "0"
-        ' 
-        ' dept_num
-        ' 
-        dept_num.AutoSize = True
-        dept_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
-        dept_num.Location = New Point(51, 134)
-        dept_num.Margin = New Padding(4, 0, 4, 0)
-        dept_num.Name = "dept_num"
-        dept_num.Size = New Size(106, 128)
-        dept_num.TabIndex = 9
-        dept_num.Text = "0"
         ' 
         ' Label6
         ' 
@@ -706,64 +532,6 @@ Partial Class admindashboardform
         Label6.Size = New Size(175, 40)
         Label6.TabIndex = 8
         Label6.Text = "Dash Board"
-        ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.Location = New Point(717, 113)
-        Label5.Margin = New Padding(4, 0, 4, 0)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(90, 25)
-        Label5.TabIndex = 6
-        Label5.Text = "Employee"
-        ' 
-        ' Label4
-        ' 
-        Label4.AutoSize = True
-        Label4.Location = New Point(386, 112)
-        Label4.Margin = New Padding(4, 0, 4, 0)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(65, 25)
-        Label4.TabIndex = 5
-        Label4.Text = "Branch"
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Location = New Point(54, 112)
-        Label3.Margin = New Padding(4, 0, 4, 0)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(107, 25)
-        Label3.TabIndex = 4
-        Label3.Text = "Department"
-        ' 
-        ' Panel5
-        ' 
-        Panel5.BackColor = Color.Yellow
-        Panel5.Location = New Point(370, 112)
-        Panel5.Margin = New Padding(4, 5, 4, 5)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(7, 150)
-        Panel5.TabIndex = 3
-        ' 
-        ' Panel6
-        ' 
-        Panel6.BackColor = Color.Red
-        Panel6.Location = New Point(701, 112)
-        Panel6.Margin = New Padding(4, 5, 4, 5)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(7, 150)
-        Panel6.TabIndex = 3
-        ' 
-        ' Panel4
-        ' 
-        Panel4.BackColor = Color.Blue
-        Panel4.ForeColor = Color.Black
-        Panel4.Location = New Point(39, 112)
-        Panel4.Margin = New Padding(4, 5, 4, 5)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(7, 150)
-        Panel4.TabIndex = 2
         ' 
         ' PictureBox6
         ' 
@@ -1028,6 +796,33 @@ Partial Class admindashboardform
         MySqlCommand1.EnableCaching = False
         MySqlCommand1.Transaction = Nothing
         ' 
+        ' Panel2
+        ' 
+        Panel2.BackColor = Color.FromArgb(224, 224, 224)
+        Panel2.Controls.Add(Panel4)
+        Panel2.Location = New Point(25, 125)
+        Panel2.Name = "Panel2"
+        Panel2.Size = New Size(1153, 203)
+        Panel2.TabIndex = 3
+        ' 
+        ' Panel4
+        ' 
+        Panel4.Controls.Add(Label3)
+        Panel4.Location = New Point(23, 43)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(260, 118)
+        Panel4.TabIndex = 0
+        ' 
+        ' Label3
+        ' 
+        Label3.Dock = DockStyle.Left
+        Label3.Location = New Point(0, 0)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(171, 118)
+        Label3.TabIndex = 0
+        Label3.Text = "Label3"
+        Label3.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' admindashboardform
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
@@ -1045,15 +840,6 @@ Partial Class admindashboardform
         Panel1.PerformLayout()
         TabPage3.ResumeLayout(False)
         TabPage3.PerformLayout()
-        Panel11.ResumeLayout(False)
-        Panel11.PerformLayout()
-        TabControl2.ResumeLayout(False)
-        TabPage6.ResumeLayout(False)
-        CType(branch_gridview, ComponentModel.ISupportInitialize).EndInit()
-        TabPage7.ResumeLayout(False)
-        CType(DataGridView5, ComponentModel.ISupportInitialize).EndInit()
-        TabPage8.ResumeLayout(False)
-        CType(DataGridView6, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
         TabPage2.ResumeLayout(False)
         TabPage2.PerformLayout()
@@ -1075,6 +861,8 @@ Partial Class admindashboardform
         TabPage5.PerformLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        Panel2.ResumeLayout(False)
+        Panel4.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -1088,12 +876,6 @@ Partial Class admindashboardform
     Friend WithEvents department_btn As Button
     Friend WithEvents employee_btn As Button
     Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents Panel11 As Panel
-    Friend WithEvents Label10 As Label
-    Friend WithEvents TabControl2 As TabControl
-    Friend WithEvents TabPage6 As TabPage
-    Friend WithEvents TabPage7 As TabPage
-    Friend WithEvents TabPage8 As TabPage
     Friend WithEvents sanfrancisco_branch_btn As Button
     Friend WithEvents batasan_branch_btn As Button
     Friend WithEvents sanbartolome_branch_btn As Button
@@ -1113,21 +895,12 @@ Partial Class admindashboardform
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents Panel4 As Panel
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage4 As TabPage
     Friend WithEvents TabPage5 As TabPage
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents branch_gridview As DataGridView
-    Friend WithEvents DataGridView5 As DataGridView
-    Friend WithEvents DataGridView6 As DataGridView
     Friend WithEvents Panel12 As Panel
     Friend WithEvents add_dept_btn As Button
     Friend WithEvents search_dept_btn As Button
@@ -1149,9 +922,6 @@ Partial Class admindashboardform
     Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents employee_num As Label
-    Friend WithEvents branch_num As Label
-    Friend WithEvents dept_num As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents depa As DataGridView
     Friend WithEvents dept_gridview As DataGridView
@@ -1159,4 +929,7 @@ Partial Class admindashboardform
     Friend WithEvents dep_desc As DataGridViewTextBoxColumn
     Friend WithEvents action_col As DataGridViewTextBoxColumn
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Label3 As Label
 End Class
