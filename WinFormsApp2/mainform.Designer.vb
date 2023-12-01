@@ -402,6 +402,7 @@ Partial Class mainform
         ' 
         ' mainform_back_btn
         ' 
+        mainform_back_btn.BackColor = SystemColors.ActiveCaptionText
         mainform_back_btn.FlatAppearance.BorderSize = 0
         mainform_back_btn.FlatStyle = FlatStyle.Flat
         mainform_back_btn.Location = New Point(871, 20)
@@ -409,7 +410,7 @@ Partial Class mainform
         mainform_back_btn.Name = "mainform_back_btn"
         mainform_back_btn.Size = New Size(40, 35)
         mainform_back_btn.TabIndex = 4
-        mainform_back_btn.UseVisualStyleBackColor = True
+        mainform_back_btn.UseVisualStyleBackColor = False
         ' 
         ' DateTimePicker1
         ' 
@@ -417,6 +418,7 @@ Partial Class mainform
         DateTimePicker1.Name = "DateTimePicker1"
         DateTimePicker1.Size = New Size(294, 31)
         DateTimePicker1.TabIndex = 5
+        DateTimePicker1.Visible = False
         ' 
         ' mainform
         ' 

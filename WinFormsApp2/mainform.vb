@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class mainform
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles mainform_back_btn.Click
+    Private Sub mainform_back_btn_(sender As Object, e As EventArgs) Handles mainform_back_btn.Click
 
         staffadminbtns.Show()
         Close()
