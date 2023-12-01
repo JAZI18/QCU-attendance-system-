@@ -57,25 +57,24 @@ Partial Class loginform
         Panel1.Location = New Point(0, 0)
         Panel1.Margin = New Padding(4, 5, 4, 5)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(1071, 788)
+        Panel1.Size = New Size(729, 473)
         Panel1.TabIndex = 0
         ' 
         ' mainform_back_btn
         ' 
-        mainform_back_btn.BackColor = Color.White
         mainform_back_btn.FlatAppearance.BorderSize = 0
         mainform_back_btn.FlatStyle = FlatStyle.Flat
-        mainform_back_btn.Location = New Point(43, 53)
-        mainform_back_btn.Margin = New Padding(6, 8, 6, 8)
+        mainform_back_btn.Location = New Point(30, 32)
+        mainform_back_btn.Margin = New Padding(4, 5, 4, 5)
         mainform_back_btn.Name = "mainform_back_btn"
-        mainform_back_btn.Size = New Size(79, 85)
+        mainform_back_btn.Size = New Size(55, 51)
         mainform_back_btn.TabIndex = 5
-        mainform_back_btn.UseVisualStyleBackColor = False
+        mainform_back_btn.UseVisualStyleBackColor = True
         ' 
         ' invalid_lb
         ' 
         invalid_lb.AutoSize = True
-        invalid_lb.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
+        invalid_lb.Font = New Font("Segoe UI", 9.0F, FontStyle.Italic, GraphicsUnit.Point)
         invalid_lb.ForeColor = Color.Firebrick
         invalid_lb.Location = New Point(426, 560)
         invalid_lb.Name = "invalid_lb"
@@ -90,7 +89,7 @@ Partial Class loginform
         login_btn.BackColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
         login_btn.FlatAppearance.BorderColor = Color.Black
         login_btn.FlatStyle = FlatStyle.Flat
-        login_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point)
+        login_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point)
         login_btn.ForeColor = Color.White
         login_btn.Location = New Point(440, 605)
         login_btn.Margin = New Padding(4, 5, 4, 5)
@@ -151,7 +150,7 @@ Partial Class loginform
         ' 
         Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
-        Label1.Font = New Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Segoe UI", 24.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.White
         Label1.Location = New Point(440, 283)
         Label1.Margin = New Padding(4, 0, 4, 0)
@@ -193,7 +192,7 @@ Partial Class loginform
         ' 
         ' loginform
         ' 
-        AutoScaleDimensions = New SizeF(10F, 25F)
+        AutoScaleDimensions = New SizeF(10.0F, 25.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1386, 788)
         Controls.Add(Panel2)

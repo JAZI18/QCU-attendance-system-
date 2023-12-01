@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 Module Connection
 
 
-    Private conString = "server=sql12.freesqldatabase.com;user=sql12665374;password=rWT73f2vYC;database=sql12665374;charset=utf8;Allow User Variables=True"
+    Private conString = "server=sql12.freesqldatabase.com;user=sql12665374;password=rWT73f2vYC;database=sql12665374;charset=utf8;Allow User Variables=True; convert zero datetime=True "
     Public con As New MySqlConnection(conString)
 
 
