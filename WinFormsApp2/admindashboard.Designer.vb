@@ -35,15 +35,6 @@ Partial Class admindashboardform
         Panel2 = New Panel()
         Button1 = New Button()
         TabPage3 = New TabPage()
-        Panel11 = New Panel()
-        Label10 = New Label()
-        TabControl2 = New TabControl()
-        TabPage6 = New TabPage()
-        branch_gridview = New DataGridView()
-        TabPage7 = New TabPage()
-        DataGridView5 = New DataGridView()
-        TabPage8 = New TabPage()
-        DataGridView6 = New DataGridView()
         sanfrancisco_branch_btn = New Button()
         batasan_branch_btn = New Button()
         sanbartolome_branch_btn = New Button()
@@ -100,14 +91,6 @@ Partial Class admindashboardform
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         TabPage3.SuspendLayout()
-        Panel11.SuspendLayout()
-        TabControl2.SuspendLayout()
-        TabPage6.SuspendLayout()
-        CType(branch_gridview, ComponentModel.ISupportInitialize).BeginInit()
-        TabPage7.SuspendLayout()
-        CType(DataGridView5, ComponentModel.ISupportInitialize).BeginInit()
-        TabPage8.SuspendLayout()
-        CType(DataGridView6, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         TabPage2.SuspendLayout()
         Panel7.SuspendLayout()
@@ -262,8 +245,6 @@ Partial Class admindashboardform
         ' 
         ' TabPage3
         ' 
-        TabPage3.Controls.Add(Panel11)
-        TabPage3.Controls.Add(TabControl2)
         TabPage3.Controls.Add(sanfrancisco_branch_btn)
         TabPage3.Controls.Add(batasan_branch_btn)
         TabPage3.Controls.Add(sanbartolome_branch_btn)
@@ -279,107 +260,6 @@ Partial Class admindashboardform
         TabPage3.TabIndex = 2
         TabPage3.Text = "TabPage3"
         TabPage3.UseVisualStyleBackColor = True
-        ' 
-        ' Panel11
-        ' 
-        Panel11.Controls.Add(Label10)
-        Panel11.Location = New Point(20, 130)
-        Panel11.Name = "Panel11"
-        Panel11.Size = New Size(800, 40)
-        Panel11.TabIndex = 0
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
-        Label10.Location = New Point(7, 10)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(50, 17)
-        Label10.TabIndex = 0
-        Label10.Text = "Branch"
-        ' 
-        ' TabControl2
-        ' 
-        TabControl2.Controls.Add(TabPage6)
-        TabControl2.Controls.Add(TabPage7)
-        TabControl2.Controls.Add(TabPage8)
-        TabControl2.Location = New Point(20, 140)
-        TabControl2.Name = "TabControl2"
-        TabControl2.SelectedIndex = 0
-        TabControl2.Size = New Size(800, 386)
-        TabControl2.TabIndex = 16
-        ' 
-        ' TabPage6
-        ' 
-        TabPage6.Controls.Add(branch_gridview)
-        TabPage6.Location = New Point(4, 24)
-        TabPage6.Name = "TabPage6"
-        TabPage6.Padding = New Padding(3)
-        TabPage6.Size = New Size(792, 358)
-        TabPage6.TabIndex = 0
-        TabPage6.Text = "TabPage6"
-        TabPage6.UseVisualStyleBackColor = True
-        ' 
-        ' branch_gridview
-        ' 
-        branch_gridview.AllowUserToAddRows = False
-        branch_gridview.AllowUserToDeleteRows = False
-        branch_gridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        branch_gridview.Dock = DockStyle.Fill
-        branch_gridview.Location = New Point(3, 3)
-        branch_gridview.Name = "branch_gridview"
-        branch_gridview.ReadOnly = True
-        branch_gridview.RowHeadersWidth = 62
-        branch_gridview.Size = New Size(786, 352)
-        branch_gridview.TabIndex = 0
-        ' 
-        ' TabPage7
-        ' 
-        TabPage7.Controls.Add(DataGridView5)
-        TabPage7.Location = New Point(4, 24)
-        TabPage7.Name = "TabPage7"
-        TabPage7.Padding = New Padding(3)
-        TabPage7.Size = New Size(792, 358)
-        TabPage7.TabIndex = 1
-        TabPage7.Text = "TabPage7"
-        TabPage7.UseVisualStyleBackColor = True
-        ' 
-        ' DataGridView5
-        ' 
-        DataGridView5.AllowUserToAddRows = False
-        DataGridView5.AllowUserToDeleteRows = False
-        DataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView5.Dock = DockStyle.Fill
-        DataGridView5.Location = New Point(3, 3)
-        DataGridView5.Name = "DataGridView5"
-        DataGridView5.ReadOnly = True
-        DataGridView5.RowHeadersWidth = 62
-        DataGridView5.Size = New Size(786, 352)
-        DataGridView5.TabIndex = 0
-        ' 
-        ' TabPage8
-        ' 
-        TabPage8.Controls.Add(DataGridView6)
-        TabPage8.Location = New Point(4, 24)
-        TabPage8.Name = "TabPage8"
-        TabPage8.Padding = New Padding(3)
-        TabPage8.Size = New Size(792, 358)
-        TabPage8.TabIndex = 2
-        TabPage8.Text = "TabPage8"
-        TabPage8.UseVisualStyleBackColor = True
-        ' 
-        ' DataGridView6
-        ' 
-        DataGridView6.AllowUserToAddRows = False
-        DataGridView6.AllowUserToDeleteRows = False
-        DataGridView6.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView6.Dock = DockStyle.Fill
-        DataGridView6.Location = New Point(3, 3)
-        DataGridView6.Name = "DataGridView6"
-        DataGridView6.ReadOnly = True
-        DataGridView6.RowHeadersWidth = 62
-        DataGridView6.Size = New Size(786, 352)
-        DataGridView6.TabIndex = 0
         ' 
         ' sanfrancisco_branch_btn
         ' 
@@ -939,15 +819,6 @@ Partial Class admindashboardform
         Panel2.ResumeLayout(False)
         TabPage3.ResumeLayout(False)
         TabPage3.PerformLayout()
-        Panel11.ResumeLayout(False)
-        Panel11.PerformLayout()
-        TabControl2.ResumeLayout(False)
-        TabPage6.ResumeLayout(False)
-        CType(branch_gridview, ComponentModel.ISupportInitialize).EndInit()
-        TabPage7.ResumeLayout(False)
-        CType(DataGridView5, ComponentModel.ISupportInitialize).EndInit()
-        TabPage8.ResumeLayout(False)
-        CType(DataGridView6, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
         TabPage2.ResumeLayout(False)
         TabPage2.PerformLayout()
@@ -984,12 +855,6 @@ Partial Class admindashboardform
     Friend WithEvents department_btn As Button
     Friend WithEvents employee_btn As Button
     Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents Panel11 As Panel
-    Friend WithEvents Label10 As Label
-    Friend WithEvents TabControl2 As TabControl
-    Friend WithEvents TabPage6 As TabPage
-    Friend WithEvents TabPage7 As TabPage
-    Friend WithEvents TabPage8 As TabPage
     Friend WithEvents sanfrancisco_branch_btn As Button
     Friend WithEvents batasan_branch_btn As Button
     Friend WithEvents sanbartolome_branch_btn As Button
@@ -1015,9 +880,6 @@ Partial Class admindashboardform
     Friend WithEvents TabPage5 As TabPage
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents branch_gridview As DataGridView
-    Friend WithEvents DataGridView5 As DataGridView
-    Friend WithEvents DataGridView6 As DataGridView
     Friend WithEvents Panel12 As Panel
     Friend WithEvents add_dept_btn As Button
     Friend WithEvents id_dept_tb As TextBox
