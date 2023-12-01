@@ -47,10 +47,14 @@ Public Class admindashboardform
     End Sub
 
     Private Sub department_btn_(sender As Object, e As EventArgs) Handles department_btn.Click
+        UpdateDeptGridView()
+    End Sub
+
+    Sub UpdateDeptGridView(Optional vals As String() = Nothing, Optional where As String = Nothing)
         dept_gridview.Rows.Clear()
         TabControl1.SelectedTab = TabPage4
 
-        Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department")
+        Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", vals, where)
 
         ' Create a while loop to fetch all data from the database'
         While reader.Read
@@ -59,6 +63,7 @@ Public Class admindashboardform
 
         reader.Close()
     End Sub
+
 
     Private Sub printreport_btn_(sender As Object, e As EventArgs) Handles printreport_btn.Click
         TabControl1.SelectedTab = TabPage5
@@ -115,6 +120,17 @@ Public Class admindashboardform
         addEmployee.Show()
     End Sub
 
+    Private Sub id_dept_tb_TextChanged(sender As Object, e As EventArgs) Handles id_dept_tb.TextChanged
+
+        UpdateDeptGridView({$"{id_dept_tb.Text}%"}, " department_name LIKE @department_name ")
+        If (dept_gridview.RowCount < 1) Then UpdateDeptGridView()
+
+    End Sub
+
+    Private Sub Update_btn_dept_Click(sender As Object, e As EventArgs) Handles Update_btn_dept.Click
+        Update_department.Show()
+
+    End Sub
 End Class
 
 '
