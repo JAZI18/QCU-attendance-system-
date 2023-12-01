@@ -1076,7 +1076,6 @@ Partial Class admindashboardform
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
         ClientSize = New Size(945, 460)
-        Controls.Add(Panel2)
         Controls.Add(TabControl1)
         Controls.Add(Panel1)
         FormBorderStyle = FormBorderStyle.None

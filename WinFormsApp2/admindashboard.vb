@@ -70,30 +70,19 @@ Public Class admindashboardform
     End Sub
 
     Private Sub sanbartolome_branch_btn_(sender As Object, e As EventArgs) Handles sanbartolome_branch_btn.Click
-        Label10.Text = "San. Bartolome"
-        TabControl2.SelectedTab = TabPage6
     End Sub
 
     Private Sub batasan_branch_btn_(sender As Object, e As EventArgs) Handles batasan_branch_btn.Click
-        Label10.Text = "Batasan"
-        TabControl2.SelectedTab = TabPage7
     End Sub
 
     Private Sub sanfrancisco_branch_btn_(sender As Object, e As EventArgs) Handles sanfrancisco_branch_btn.Click
-        Label10.Text = "San. Francisco"
-        TabControl2.SelectedTab = TabPage8
     End Sub
 
     Private Sub Admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UpdateHomeGrids()
-        UpdateCounters()
     End Sub
 
-    Private Sub UpdateCounters()
-        UpdateCount("qcu_department", dept_num)
-        UpdateCount("qcu_branches", branch_num)
-        UpdateCount("employee_info", employee_num)
-    End Sub
+
 
     Private Sub UpdateCount(table As String, label_num As Label)
         Dim Reader As MySqlDataReader = SelectQuery("count(*) as a", table)
@@ -104,16 +93,14 @@ Public Class admindashboardform
     End Sub
 
     Private Sub UpdateHomeGrids()
-        Dim reader As MySqlDataReader = SelectQuery("department_name, department_desc", "qcu_department")
-        While reader.Read
-            department_grid_view.Rows.Add(reader("department_name"), reader("department_desc"))
-        End While
-        reader = SelectQuery("branch_name, branch_address", "qcu_branches")
-        While reader.Read
-            branch_grid_view.Rows.Add(reader("branch_name"), reader("branch_address"))
-        End While
-
-
+        'Dim reader As MySqlDataReader = SelectQuery("department_name, department_desc", "qcu_department")
+        'While reader.Read
+        '    department_grid_view.Rows.Add(reader("department_name"), reader("department_desc"))
+        'End While
+        'reader = SelectQuery("branch_name, branch_address", "qcu_branches")
+        'While reader.Read
+        '    branch_grid_view.Rows.Add(reader("branch_name"), reader("branch_address"))
+        'End While
     End Sub
 
     Private Sub add_employees_btn_Click(sender As Object, e As EventArgs) Handles add_employees_btn.Click
@@ -129,7 +116,6 @@ Public Class admindashboardform
 
     Private Sub Update_btn_dept_Click(sender As Object, e As EventArgs) Handles Update_btn_dept.Click
         Update_department.Show()
-
     End Sub
 End Class
 
