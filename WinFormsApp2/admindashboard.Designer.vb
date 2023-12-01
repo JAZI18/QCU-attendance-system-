@@ -69,26 +69,14 @@ Partial Class admindashboardform
         act_col = New DataGridViewTextBoxColumn()
         PictureBox3 = New PictureBox()
         TabPage1 = New TabPage()
-        employee_num = New Label()
-        branch_num = New Label()
-        dept_num = New Label()
         Label6 = New Label()
-        branch_grid_view = New DataGridView()
-        branch_col = New DataGridViewTextBoxColumn()
-        department_grid_view = New DataGridView()
-        depart_col = New DataGridViewTextBoxColumn()
-        Label5 = New Label()
-        Label4 = New Label()
-        Label3 = New Label()
-        Panel5 = New Panel()
-        Panel6 = New Panel()
-        Panel4 = New Panel()
         PictureBox6 = New PictureBox()
         Column2 = New DataGridViewTextBoxColumn()
         Column1 = New DataGridViewTextBoxColumn()
         TabControl1 = New TabControl()
         TabPage4 = New TabPage()
         Panel12 = New Panel()
+        Update_btn_dept = New Button()
         add_dept_btn = New Button()
         id_dept_tb = New TextBox()
         Label13 = New Label()
@@ -107,7 +95,6 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
-        Update_btn_dept = New Button()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -127,8 +114,6 @@ Partial Class admindashboardform
         CType(employee_grid_view, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         TabPage1.SuspendLayout()
-        CType(branch_grid_view, ComponentModel.ISupportInitialize).BeginInit()
-        CType(department_grid_view, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
         TabControl1.SuspendLayout()
         TabPage4.SuspendLayout()
@@ -651,18 +636,7 @@ Partial Class admindashboardform
         ' 
         ' TabPage1
         ' 
-        TabPage1.Controls.Add(employee_num)
-        TabPage1.Controls.Add(branch_num)
-        TabPage1.Controls.Add(dept_num)
         TabPage1.Controls.Add(Label6)
-        TabPage1.Controls.Add(branch_grid_view)
-        TabPage1.Controls.Add(department_grid_view)
-        TabPage1.Controls.Add(Label5)
-        TabPage1.Controls.Add(Label4)
-        TabPage1.Controls.Add(Label3)
-        TabPage1.Controls.Add(Panel5)
-        TabPage1.Controls.Add(Panel6)
-        TabPage1.Controls.Add(Panel4)
         TabPage1.Controls.Add(PictureBox6)
         TabPage1.Location = New Point(4, 24)
         TabPage1.Name = "TabPage1"
@@ -671,36 +645,6 @@ Partial Class admindashboardform
         TabPage1.TabIndex = 0
         TabPage1.Text = "TabPage1"
         TabPage1.UseVisualStyleBackColor = True
-        ' 
-        ' employee_num
-        ' 
-        employee_num.AutoSize = True
-        employee_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
-        employee_num.Location = New Point(498, 80)
-        employee_num.Name = "employee_num"
-        employee_num.Size = New Size(72, 86)
-        employee_num.TabIndex = 11
-        employee_num.Text = "0"
-        ' 
-        ' branch_num
-        ' 
-        branch_num.AutoSize = True
-        branch_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
-        branch_num.Location = New Point(267, 80)
-        branch_num.Name = "branch_num"
-        branch_num.Size = New Size(72, 86)
-        branch_num.TabIndex = 10
-        branch_num.Text = "0"
-        ' 
-        ' dept_num
-        ' 
-        dept_num.AutoSize = True
-        dept_num.Font = New Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point)
-        dept_num.Location = New Point(36, 80)
-        dept_num.Name = "dept_num"
-        dept_num.Size = New Size(72, 86)
-        dept_num.TabIndex = 9
-        dept_num.Text = "0"
         ' 
         ' Label6
         ' 
@@ -711,100 +655,6 @@ Partial Class admindashboardform
         Label6.Size = New Size(114, 25)
         Label6.TabIndex = 8
         Label6.Text = "Dash Board"
-        ' 
-        ' branch_grid_view
-        ' 
-        branch_grid_view.AllowUserToAddRows = False
-        branch_grid_view.AllowUserToDeleteRows = False
-        branch_grid_view.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        branch_grid_view.Columns.AddRange(New DataGridViewColumn() {branch_col})
-        branch_grid_view.Location = New Point(435, 185)
-        branch_grid_view.Name = "branch_grid_view"
-        branch_grid_view.ReadOnly = True
-        branch_grid_view.RowHeadersWidth = 62
-        branch_grid_view.Size = New Size(386, 331)
-        branch_grid_view.TabIndex = 7
-        ' 
-        ' branch_col
-        ' 
-        branch_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        branch_col.HeaderText = "Branch"
-        branch_col.MinimumWidth = 8
-        branch_col.Name = "branch_col"
-        branch_col.ReadOnly = True
-        ' 
-        ' department_grid_view
-        ' 
-        department_grid_view.AllowUserToAddRows = False
-        department_grid_view.AllowUserToDeleteRows = False
-        department_grid_view.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        department_grid_view.Columns.AddRange(New DataGridViewColumn() {depart_col})
-        department_grid_view.Location = New Point(27, 185)
-        department_grid_view.Name = "department_grid_view"
-        department_grid_view.ReadOnly = True
-        department_grid_view.RowHeadersWidth = 62
-        department_grid_view.Size = New Size(386, 331)
-        department_grid_view.TabIndex = 7
-        ' 
-        ' depart_col
-        ' 
-        depart_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        depart_col.HeaderText = "Department"
-        depart_col.MinimumWidth = 8
-        depart_col.Name = "depart_col"
-        depart_col.ReadOnly = True
-        ' 
-        ' Label5
-        ' 
-        Label5.AutoSize = True
-        Label5.Location = New Point(502, 68)
-        Label5.Name = "Label5"
-        Label5.Size = New Size(59, 15)
-        Label5.TabIndex = 6
-        Label5.Text = "Employee"
-        ' 
-        ' Label4
-        ' 
-        Label4.AutoSize = True
-        Label4.Location = New Point(270, 67)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(44, 15)
-        Label4.TabIndex = 5
-        Label4.Text = "Branch"
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Location = New Point(38, 67)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(70, 15)
-        Label3.TabIndex = 4
-        Label3.Text = "Department"
-        ' 
-        ' Panel5
-        ' 
-        Panel5.BackColor = Color.Yellow
-        Panel5.Location = New Point(259, 67)
-        Panel5.Name = "Panel5"
-        Panel5.Size = New Size(5, 90)
-        Panel5.TabIndex = 3
-        ' 
-        ' Panel6
-        ' 
-        Panel6.BackColor = Color.Red
-        Panel6.Location = New Point(491, 67)
-        Panel6.Name = "Panel6"
-        Panel6.Size = New Size(5, 90)
-        Panel6.TabIndex = 3
-        ' 
-        ' Panel4
-        ' 
-        Panel4.BackColor = Color.Blue
-        Panel4.ForeColor = Color.Black
-        Panel4.Location = New Point(27, 67)
-        Panel4.Name = "Panel4"
-        Panel4.Size = New Size(5, 90)
-        Panel4.TabIndex = 2
         ' 
         ' PictureBox6
         ' 
@@ -869,6 +719,20 @@ Partial Class admindashboardform
         Panel12.Name = "Panel12"
         Panel12.Size = New Size(801, 40)
         Panel12.TabIndex = 13
+        ' 
+        ' Update_btn_dept
+        ' 
+        Update_btn_dept.BackColor = Color.Red
+        Update_btn_dept.FlatAppearance.BorderColor = Color.Red
+        Update_btn_dept.FlatStyle = FlatStyle.Flat
+        Update_btn_dept.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        Update_btn_dept.ForeColor = Color.White
+        Update_btn_dept.Location = New Point(611, 10)
+        Update_btn_dept.Name = "Update_btn_dept"
+        Update_btn_dept.Size = New Size(75, 23)
+        Update_btn_dept.TabIndex = 4
+        Update_btn_dept.Text = "Update"
+        Update_btn_dept.UseVisualStyleBackColor = False
         ' 
         ' add_dept_btn
         ' 
@@ -1056,20 +920,6 @@ Partial Class admindashboardform
         MySqlCommand1.EnableCaching = False
         MySqlCommand1.Transaction = Nothing
         ' 
-        ' Update_btn_dept
-        ' 
-        Update_btn_dept.BackColor = Color.Red
-        Update_btn_dept.FlatAppearance.BorderColor = Color.Red
-        Update_btn_dept.FlatStyle = FlatStyle.Flat
-        Update_btn_dept.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        Update_btn_dept.ForeColor = Color.White
-        Update_btn_dept.Location = New Point(611, 10)
-        Update_btn_dept.Name = "Update_btn_dept"
-        Update_btn_dept.Size = New Size(75, 23)
-        Update_btn_dept.TabIndex = 4
-        Update_btn_dept.Text = "Update"
-        Update_btn_dept.UseVisualStyleBackColor = False
-        ' 
         ' admindashboardform
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -1107,8 +957,6 @@ Partial Class admindashboardform
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         TabPage1.ResumeLayout(False)
         TabPage1.PerformLayout()
-        CType(branch_grid_view, ComponentModel.ISupportInitialize).EndInit()
-        CType(department_grid_view, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox6, ComponentModel.ISupportInitialize).EndInit()
         TabControl1.ResumeLayout(False)
         TabPage4.ResumeLayout(False)
@@ -1161,14 +1009,6 @@ Partial Class admindashboardform
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents Label6 As Label
-    Friend WithEvents branch_grid_view As DataGridView
-    Friend WithEvents department_grid_view As DataGridView
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents Panel4 As Panel
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage4 As TabPage
@@ -1198,13 +1038,8 @@ Partial Class admindashboardform
     Friend WithEvents hired_col As DataGridViewTextBoxColumn
     Friend WithEvents act_col As DataGridViewTextBoxColumn
     Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand
-    Friend WithEvents branch_col As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents depart_col As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents employee_num As Label
-    Friend WithEvents branch_num As Label
-    Friend WithEvents dept_num As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents depa As DataGridView
     Friend WithEvents dept_gridview As DataGridView
