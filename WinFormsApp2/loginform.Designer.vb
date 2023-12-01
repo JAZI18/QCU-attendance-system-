@@ -23,6 +23,7 @@ Partial Class loginform
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Panel1 = New Panel()
+        mainform_back_btn = New Button()
         invalid_lb = New Label()
         login_btn = New Button()
         pass_tb = New TextBox()
@@ -33,7 +34,6 @@ Partial Class loginform
         Panel2 = New Panel()
         Panel3 = New Panel()
         PictureBox1 = New PictureBox()
-        mainform_back_btn = New Button()
         Panel1.SuspendLayout()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
@@ -56,8 +56,19 @@ Partial Class loginform
         Panel1.ForeColor = Color.White
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(750, 473)
+        Panel1.Size = New Size(729, 473)
         Panel1.TabIndex = 0
+        ' 
+        ' mainform_back_btn
+        ' 
+        mainform_back_btn.FlatAppearance.BorderSize = 0
+        mainform_back_btn.FlatStyle = FlatStyle.Flat
+        mainform_back_btn.Location = New Point(30, 32)
+        mainform_back_btn.Margin = New Padding(4, 5, 4, 5)
+        mainform_back_btn.Name = "mainform_back_btn"
+        mainform_back_btn.Size = New Size(55, 51)
+        mainform_back_btn.TabIndex = 5
+        mainform_back_btn.UseVisualStyleBackColor = True
         ' 
         ' invalid_lb
         ' 
@@ -169,18 +180,6 @@ Partial Class loginform
         PictureBox1.Size = New Size(180, 500)
         PictureBox1.TabIndex = 0
         PictureBox1.TabStop = False
-        ' 
-        ' mainform_back_btn
-        ' 
-        mainform_back_btn.FlatAppearance.BorderSize = 0
-        mainform_back_btn.FlatStyle = FlatStyle.Flat
-        'mainform_back_btn.Image = My.Resources.Resources.back
-        mainform_back_btn.Location = New Point(30, 32)
-        mainform_back_btn.Margin = New Padding(4, 5, 4, 5)
-        mainform_back_btn.Name = "mainform_back_btn"
-        mainform_back_btn.Size = New Size(55, 51)
-        mainform_back_btn.TabIndex = 5
-        mainform_back_btn.UseVisualStyleBackColor = True
         ' 
         ' loginform
         ' 

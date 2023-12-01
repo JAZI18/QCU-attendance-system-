@@ -7,6 +7,16 @@ Public Class admindashboardform
         TabControl1.SelectedTab = TabPage1
     End Sub
 
+    While reader.Read
+    ' Assuming you want to return the department_id, you can use the following line
+    Return Convert.ToInt32(reader("department_id"))
+    End While
+
+    ' If the department_id is not found, you may want to handle that case accordingly
+    ' For example, return -1 or throw an exception
+    Return -1
+    End Function
+
     Private Sub employee_btn_(sender As Object, e As EventArgs) Handles employee_btn.Click
         employee_grid_view.Rows.Clear()
         TabControl1.SelectedTab = TabPage2
@@ -24,7 +34,7 @@ Public Class admindashboardform
             Dim middleName As String = If(Not IsDBNull(reader("middle_name")), reader("middle_name").ToString(), "")
 
             ' Check for null before attempting to convert to Date
-            Dim dob As String = If(Not IsDBNull(reader("dob")), CType(reader("dob"), Date).ToString("yyyy-MM-dd"), "")
+            Dim dob As String = If(Not IsDBNull(reader("dob")), CType(reader("dob"), Date).ToString("yy-MM-dd"), "")
 
             ' Concatenate last name, first name, and middle name into one column
             Dim fullName As String = $"{lastName} {firstName} {middleName}"
@@ -36,6 +46,8 @@ Public Class admindashboardform
         reader.Close()
 
     End Sub
+
+
 
     Private Sub branch_btn_(sender As Object, e As EventArgs) Handles branch_btn.Click
         TabControl1.SelectedTab = TabPage3
@@ -108,6 +120,15 @@ Public Class admindashboardform
 
     Private Sub add_employees_btn_Click(sender As Object, e As EventArgs) Handles add_employees_btn.Click
         addEmployee.Show()
+
+    End Sub
+
+    Private Sub add_employees_btn_Click(sender As Object, e As EventArgs) Handles add_employees_btn.Click
+        e_tab_show.Visible = True
+
+    End Sub
+
+    Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabPage2.Click
 
     End Sub
 End Class
