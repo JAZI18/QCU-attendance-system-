@@ -13,15 +13,12 @@ Public Class addEmployee
     End Sub
     Private Sub submit_employees_btn_(sender As Object, e As EventArgs) Handles submit_employees_btn.Click
 
-        MsgBox(GenerateEmployeeCode())
-
         Try
-
             InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
-        {"132", e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
+        {GenerateEmployeeCode(), e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
          e_gender.SelectedItem.ToString, 2.ToString, e_email.Text})
-            Me.Close()
             MessageBox.Show("Record inserted successfully.")
+            Me.Close()
 
         Catch ex As Exception
             e_firstname.Clear()
@@ -51,6 +48,6 @@ Public Class addEmployee
 
     Private Sub addEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ListDepartment()
-
     End Sub
+
 End Class
