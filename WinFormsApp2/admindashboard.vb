@@ -107,7 +107,7 @@ Public Class admindashboardform
         addEmployee.Show()
     End Sub
 
-    Private Sub id_dept_tb_TextChanged(sender As Object, e As EventArgs) Handles id_dept_tb.TextChanged
+    Private Sub id_dept_tb_TextChanged(sender As Object, e As EventArgs)
 
         UpdateDeptGridView({$"{id_dept_tb.Text}%"}, " department_name LIKE @department_name ")
         If (dept_gridview.RowCount < 1) Then UpdateDeptGridView()
