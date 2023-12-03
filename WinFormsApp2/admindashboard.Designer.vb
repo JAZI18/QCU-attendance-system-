@@ -60,6 +60,10 @@ Partial Class admindashboardform
         act_col = New DataGridViewTextBoxColumn()
         PictureBox3 = New PictureBox()
         TabPage1 = New TabPage()
+        Stats_button3 = New stats_button()
+        Stats_button4 = New stats_button()
+        Stats_button2 = New stats_button()
+        Stats_button1 = New stats_button()
         Label6 = New Label()
         PictureBox6 = New PictureBox()
         Column2 = New DataGridViewTextBoxColumn()
@@ -85,10 +89,6 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
-        Stats_button1 = New stats_button()
-        Stats_button2 = New stats_button()
-        Stats_button3 = New stats_button()
-        Stats_button4 = New stats_button()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -557,6 +557,50 @@ Partial Class admindashboardform
         TabPage1.Text = "TabPage1"
         TabPage1.UseVisualStyleBackColor = True
         ' 
+        ' Stats_button3
+        ' 
+        Stats_button3.BackColor = SystemColors.Control
+        Stats_button3.Counter = "200"
+        Stats_button3.Label = "-----"
+        Stats_button3.Location = New Point(652, 340)
+        Stats_button3.Margin = New Padding(0)
+        Stats_button3.Name = "Stats_button3"
+        Stats_button3.Size = New Size(443, 156)
+        Stats_button3.TabIndex = 12
+        ' 
+        ' Stats_button4
+        ' 
+        Stats_button4.BackColor = SystemColors.Control
+        Stats_button4.Counter = "200"
+        Stats_button4.Label = "-----"
+        Stats_button4.Location = New Point(110, 340)
+        Stats_button4.Margin = New Padding(0)
+        Stats_button4.Name = "Stats_button4"
+        Stats_button4.Size = New Size(443, 156)
+        Stats_button4.TabIndex = 11
+        ' 
+        ' Stats_button2
+        ' 
+        Stats_button2.BackColor = SystemColors.Control
+        Stats_button2.Counter = "200"
+        Stats_button2.Label = "-----"
+        Stats_button2.Location = New Point(652, 134)
+        Stats_button2.Margin = New Padding(0)
+        Stats_button2.Name = "Stats_button2"
+        Stats_button2.Size = New Size(443, 156)
+        Stats_button2.TabIndex = 10
+        ' 
+        ' Stats_button1
+        ' 
+        Stats_button1.BackColor = SystemColors.Control
+        Stats_button1.Counter = "200"
+        Stats_button1.Label = "-----"
+        Stats_button1.Location = New Point(110, 134)
+        Stats_button1.Margin = New Padding(0)
+        Stats_button1.Name = "Stats_button1"
+        Stats_button1.Size = New Size(443, 156)
+        Stats_button1.TabIndex = 9
+        ' 
         ' Label6
         ' 
         Label6.AutoSize = True
@@ -829,50 +873,6 @@ Partial Class admindashboardform
         MySqlCommand1.Connection = Nothing
         MySqlCommand1.EnableCaching = False
         MySqlCommand1.Transaction = Nothing
-        ' 
-        ' Stats_button1
-        ' 
-        Stats_button1.BackColor = SystemColors.Control
-        Stats_button1.Counter = "200"
-        Stats_button1.Label = "-----"
-        Stats_button1.Location = New Point(110, 134)
-        Stats_button1.Margin = New Padding(0)
-        Stats_button1.Name = "Stats_button1"
-        Stats_button1.Size = New Size(443, 114)
-        Stats_button1.TabIndex = 9
-        ' 
-        ' Stats_button2
-        ' 
-        Stats_button2.BackColor = SystemColors.Control
-        Stats_button2.Counter = "200"
-        Stats_button2.Label = "-----"
-        Stats_button2.Location = New Point(652, 134)
-        Stats_button2.Margin = New Padding(0)
-        Stats_button2.Name = "Stats_button2"
-        Stats_button2.Size = New Size(443, 114)
-        Stats_button2.TabIndex = 10
-        ' 
-        ' Stats_button3
-        ' 
-        Stats_button3.BackColor = SystemColors.Control
-        Stats_button3.Counter = "200"
-        Stats_button3.Label = "-----"
-        Stats_button3.Location = New Point(652, 330)
-        Stats_button3.Margin = New Padding(0)
-        Stats_button3.Name = "Stats_button3"
-        Stats_button3.Size = New Size(443, 114)
-        Stats_button3.TabIndex = 12
-        ' 
-        ' Stats_button4
-        ' 
-        Stats_button4.BackColor = SystemColors.Control
-        Stats_button4.Counter = "200"
-        Stats_button4.Label = "-----"
-        Stats_button4.Location = New Point(110, 330)
-        Stats_button4.Margin = New Padding(0)
-        Stats_button4.Name = "Stats_button4"
-        Stats_button4.Size = New Size(443, 114)
-        Stats_button4.TabIndex = 11
         ' 
         ' admindashboardform
         ' 
