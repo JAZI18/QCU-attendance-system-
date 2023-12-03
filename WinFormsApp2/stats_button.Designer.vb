@@ -88,7 +88,7 @@ Partial Class stats_button
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = SystemColors.Control
+        BackColor = SystemColors.ControlLight
         Controls.Add(TableLayoutPanel1)
         Margin = New Padding(0)
         Name = "stats_button"

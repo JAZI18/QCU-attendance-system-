@@ -24,6 +24,7 @@ Partial Class staffadminbtns
     Private Sub InitializeComponent()
         admin_btn = New Button()
         staff_btn = New Button()
+        Panel1 = New Panel()
         SuspendLayout()
         ' 
         ' admin_btn
@@ -48,11 +49,20 @@ Partial Class staffadminbtns
         staff_btn.Text = "STAFF"
         staff_btn.UseVisualStyleBackColor = True
         ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = SystemColors.ControlDarkDark
+        Panel1.Location = New Point(26, 0)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(1117, 35)
+        Panel1.TabIndex = 2
+        ' 
         ' staffadminbtns
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1143, 667)
+        Controls.Add(Panel1)
         Controls.Add(staff_btn)
         Controls.Add(admin_btn)
         FormBorderStyle = FormBorderStyle.None
@@ -64,4 +74,5 @@ Partial Class staffadminbtns
 
     Friend WithEvents admin_btn As Button
     Friend WithEvents staff_btn As Button
+    Friend WithEvents Panel1 As Panel
 End Class
