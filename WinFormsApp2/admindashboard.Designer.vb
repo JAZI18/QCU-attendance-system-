@@ -49,8 +49,8 @@ Partial Class admindashboardform
         PictureBox4 = New PictureBox()
         TabPage2 = New TabPage()
         Panel7 = New Panel()
-        Label4 = New Label()
-        Label3 = New Label()
+        dep_filter_btn = New Label()
+        branch_filter_lb = New Label()
         add_employees_btn = New Button()
         id_employees_tb = New TextBox()
         Label7 = New Label()
@@ -94,6 +94,7 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
+        clear_filter_btn = New Button()
         nav_panel.SuspendLayout()
         Nav1.SuspendLayout()
         Panel3.SuspendLayout()
@@ -323,7 +324,7 @@ Partial Class admindashboardform
         TabPage3.Location = New Point(4, 24)
         TabPage3.Name = "TabPage3"
         TabPage3.Padding = New Padding(3)
-        TabPage3.Size = New Size(842, 503)
+        TabPage3.Size = New Size(842, 500)
         TabPage3.TabIndex = 2
         TabPage3.Text = "TabPage3"
         TabPage3.UseVisualStyleBackColor = True
@@ -475,8 +476,9 @@ Partial Class admindashboardform
         ' 
         ' Panel7
         ' 
-        Panel7.Controls.Add(Label4)
-        Panel7.Controls.Add(Label3)
+        Panel7.Controls.Add(clear_filter_btn)
+        Panel7.Controls.Add(dep_filter_btn)
+        Panel7.Controls.Add(branch_filter_lb)
         Panel7.Controls.Add(add_employees_btn)
         Panel7.Controls.Add(id_employees_tb)
         Panel7.Location = New Point(20, 61)
@@ -484,23 +486,25 @@ Partial Class admindashboardform
         Panel7.Size = New Size(801, 40)
         Panel7.TabIndex = 10
         ' 
-        ' Label4
+        ' dep_filter_btn
         ' 
-        Label4.AutoSize = True
-        Label4.Location = New Point(307, 14)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(87, 15)
-        Label4.TabIndex = 12
-        Label4.Text = "department ---"
+        dep_filter_btn.AutoSize = True
+        dep_filter_btn.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        dep_filter_btn.Location = New Point(326, 10)
+        dep_filter_btn.Name = "dep_filter_btn"
+        dep_filter_btn.Size = New Size(103, 19)
+        dep_filter_btn.TabIndex = 12
+        dep_filter_btn.Text = "department ---"
         ' 
-        ' Label3
+        ' branch_filter_lb
         ' 
-        Label3.AutoSize = True
-        Label3.Location = New Point(228, 14)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(62, 15)
-        Label3.TabIndex = 11
-        Label3.Text = "branch ---"
+        branch_filter_lb.AutoSize = True
+        branch_filter_lb.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        branch_filter_lb.Location = New Point(228, 10)
+        branch_filter_lb.Name = "branch_filter_lb"
+        branch_filter_lb.Size = New Size(73, 19)
+        branch_filter_lb.TabIndex = 11
+        branch_filter_lb.Text = "branch ---"
         ' 
         ' add_employees_btn
         ' 
@@ -750,7 +754,7 @@ Partial Class admindashboardform
         TabPage4.Location = New Point(4, 24)
         TabPage4.Name = "TabPage4"
         TabPage4.Padding = New Padding(3)
-        TabPage4.Size = New Size(842, 503)
+        TabPage4.Size = New Size(842, 500)
         TabPage4.TabIndex = 3
         TabPage4.Text = "TabPage4"
         TabPage4.UseVisualStyleBackColor = True
@@ -873,7 +877,7 @@ Partial Class admindashboardform
         TabPage5.Location = New Point(4, 24)
         TabPage5.Name = "TabPage5"
         TabPage5.Padding = New Padding(3)
-        TabPage5.Size = New Size(842, 503)
+        TabPage5.Size = New Size(842, 500)
         TabPage5.TabIndex = 4
         TabPage5.Text = "TabPage5"
         TabPage5.UseVisualStyleBackColor = True
@@ -946,6 +950,15 @@ Partial Class admindashboardform
         MySqlCommand1.Connection = Nothing
         MySqlCommand1.EnableCaching = False
         MySqlCommand1.Transaction = Nothing
+        ' 
+        ' clear_filter_btn
+        ' 
+        clear_filter_btn.Location = New Point(611, 9)
+        clear_filter_btn.Name = "clear_filter_btn"
+        clear_filter_btn.Size = New Size(75, 23)
+        clear_filter_btn.TabIndex = 13
+        clear_filter_btn.Text = "clear filters"
+        clear_filter_btn.UseVisualStyleBackColor = True
         ' 
         ' admindashboardform
         ' 
@@ -1042,8 +1055,8 @@ Partial Class admindashboardform
     Friend WithEvents dep_desc As DataGridViewTextBoxColumn
     Friend WithEvents action_col As DataGridViewTextBoxColumn
     Friend WithEvents Update_btn_dept As Button
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents dep_filter_btn As Label
+    Friend WithEvents branch_filter_lb As Label
     Friend WithEvents id_dept_tb As TextBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ComboBox2 As ComboBox
@@ -1063,4 +1076,5 @@ Partial Class admindashboardform
     Friend WithEvents leave_stat As stats_button
     Friend WithEvents present_stat As stats_button
     Friend WithEvents total_stat As stats_button
+    Friend WithEvents clear_filter_btn As Button
 End Class
