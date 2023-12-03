@@ -77,7 +77,6 @@ Partial Class admindashboardform
         Label11 = New Label()
         PictureBox5 = New PictureBox()
         TabPage5 = New TabPage()
-        dept_pr_btn = New Button()
         search_pr_btn = New Button()
         ComboBox1 = New ComboBox()
         DateTimePicker2 = New DateTimePicker()
@@ -85,6 +84,9 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
+        ComboBox2 = New ComboBox()
+        ComboBox3 = New ComboBox()
+        TextBox1 = New TextBox()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -154,7 +156,7 @@ Partial Class admindashboardform
         printreport_btn.Name = "printreport_btn"
         printreport_btn.Size = New Size(186, 67)
         printreport_btn.TabIndex = 2
-        printreport_btn.Text = "  Print Report"
+        printreport_btn.Text = "Reports"
         printreport_btn.UseVisualStyleBackColor = True
         ' 
         ' branch_btn
@@ -731,7 +733,9 @@ Partial Class admindashboardform
         ' 
         ' TabPage5
         ' 
-        TabPage5.Controls.Add(dept_pr_btn)
+        TabPage5.Controls.Add(TextBox1)
+        TabPage5.Controls.Add(ComboBox3)
+        TabPage5.Controls.Add(ComboBox2)
         TabPage5.Controls.Add(search_pr_btn)
         TabPage5.Controls.Add(ComboBox1)
         TabPage5.Controls.Add(DateTimePicker2)
@@ -746,20 +750,6 @@ Partial Class admindashboardform
         TabPage5.TabIndex = 4
         TabPage5.Text = "TabPage5"
         TabPage5.UseVisualStyleBackColor = True
-        ' 
-        ' dept_pr_btn
-        ' 
-        dept_pr_btn.BackColor = Color.Gray
-        dept_pr_btn.FlatAppearance.BorderColor = Color.Black
-        dept_pr_btn.FlatStyle = FlatStyle.Flat
-        dept_pr_btn.ForeColor = Color.White
-        dept_pr_btn.Location = New Point(757, 77)
-        dept_pr_btn.Margin = New Padding(4, 5, 4, 5)
-        dept_pr_btn.Name = "dept_pr_btn"
-        dept_pr_btn.Size = New Size(119, 38)
-        dept_pr_btn.TabIndex = 16
-        dept_pr_btn.Text = "Department"
-        dept_pr_btn.UseVisualStyleBackColor = False
         ' 
         ' search_pr_btn
         ' 
@@ -779,7 +769,7 @@ Partial Class admindashboardform
         ' ComboBox1
         ' 
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(597, 78)
+        ComboBox1.Location = New Point(9, 119)
         ComboBox1.Margin = New Padding(4, 5, 4, 5)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(150, 33)
@@ -809,9 +799,9 @@ Partial Class admindashboardform
         Label12.Location = New Point(13, 22)
         Label12.Margin = New Padding(4, 0, 4, 0)
         Label12.Name = "Label12"
-        Label12.Size = New Size(186, 40)
+        Label12.Size = New Size(111, 40)
         Label12.TabIndex = 11
-        Label12.Text = "Print Report"
+        Label12.Text = "Report"
         ' 
         ' PictureBox2
         ' 
@@ -831,6 +821,34 @@ Partial Class admindashboardform
         MySqlCommand1.Connection = Nothing
         MySqlCommand1.EnableCaching = False
         MySqlCommand1.Transaction = Nothing
+        ' 
+        ' ComboBox2
+        ' 
+        ComboBox2.FormattingEnabled = True
+        ComboBox2.Location = New Point(176, 119)
+        ComboBox2.Margin = New Padding(4, 5, 4, 5)
+        ComboBox2.Name = "ComboBox2"
+        ComboBox2.Size = New Size(150, 33)
+        ComboBox2.TabIndex = 16
+        ComboBox2.Text = "San, Bartolome"
+        ' 
+        ' ComboBox3
+        ' 
+        ComboBox3.FormattingEnabled = True
+        ComboBox3.Location = New Point(528, 443)
+        ComboBox3.Margin = New Padding(4, 5, 4, 5)
+        ComboBox3.Name = "ComboBox3"
+        ComboBox3.Size = New Size(150, 33)
+        ComboBox3.TabIndex = 17
+        ComboBox3.Text = "San, Bartolome"
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.Location = New Point(344, 120)
+        TextBox1.Name = "TextBox1"
+        TextBox1.PlaceholderText = "employee"
+        TextBox1.Size = New Size(190, 31)
+        TextBox1.TabIndex = 18
         ' 
         ' admindashboardform
         ' 
@@ -918,7 +936,6 @@ Partial Class admindashboardform
     Friend WithEvents Label12 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents dept_pr_btn As Button
     Friend WithEvents search_pr_btn As Button
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents id_col As DataGridViewTextBoxColumn
@@ -941,4 +958,7 @@ Partial Class admindashboardform
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents id_dept_tb As TextBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents ComboBox2 As ComboBox
 End Class
