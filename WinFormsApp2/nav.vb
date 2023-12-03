@@ -26,15 +26,15 @@
     End Property
 
     Protected Overrides Sub OnCreateControl()
+
+        For Each btn As Button In buttons
+            AddBtnHandler(btn)
+        Next
         MyBase.OnCreateControl()
-        AddHandler FindForm().Load, Sub()
-                                        For Each btn As Button In buttons
-                                            AddBtnHandler(btn)
-                                        Next
-                                    End Sub
     End Sub
 
     Private Sub AddBtnHandler(btn As Button)
+
         AddHandler btn.Click, Sub()
                                   If _selected Is btn Then Exit Sub
                                   HandleSelect(btn)
