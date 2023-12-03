@@ -161,6 +161,7 @@ Partial Class admindashboardform
         printreport_btn.Location = New Point(14, 668)
         printreport_btn.Margin = New Padding(4, 5, 4, 5)
         printreport_btn.Name = "printreport_btn"
+        printreport_btn.Padding = New Padding(15, 0, 0, 0)
         printreport_btn.Size = New Size(186, 67)
         printreport_btn.TabIndex = 2
         printreport_btn.Text = "Reports"
@@ -174,6 +175,7 @@ Partial Class admindashboardform
         branch_btn.Location = New Point(14, 483)
         branch_btn.Margin = New Padding(4, 5, 4, 5)
         branch_btn.Name = "branch_btn"
+        branch_btn.Padding = New Padding(15, 0, 0, 0)
         branch_btn.Size = New Size(186, 67)
         branch_btn.TabIndex = 2
         branch_btn.Text = "Branch"
@@ -187,6 +189,7 @@ Partial Class admindashboardform
         department_btn.Location = New Point(14, 575)
         department_btn.Margin = New Padding(4, 5, 4, 5)
         department_btn.Name = "department_btn"
+        department_btn.Padding = New Padding(15, 0, 0, 0)
         department_btn.Size = New Size(186, 67)
         department_btn.TabIndex = 1
         department_btn.Text = "  Department"
@@ -200,6 +203,7 @@ Partial Class admindashboardform
         employee_btn.Location = New Point(14, 392)
         employee_btn.Margin = New Padding(4, 5, 4, 5)
         employee_btn.Name = "employee_btn"
+        employee_btn.Padding = New Padding(15, 0, 0, 0)
         employee_btn.Size = New Size(186, 67)
         employee_btn.TabIndex = 1
         employee_btn.Text = "  Employee"
@@ -213,6 +217,7 @@ Partial Class admindashboardform
         dashboard_btn.Location = New Point(14, 267)
         dashboard_btn.Margin = New Padding(4, 5, 4, 5)
         dashboard_btn.Name = "dashboard_btn"
+        dashboard_btn.Padding = New Padding(15, 0, 0, 0)
         dashboard_btn.Size = New Size(186, 67)
         dashboard_btn.TabIndex = 0
         dashboard_btn.Text = "  Dash Board"
@@ -933,6 +938,7 @@ Partial Class admindashboardform
         Panel4.BackColor = SystemColors.ControlLight
         Panel4.Location = New Point(113, 83)
         Panel4.Name = "Panel4"
+        Panel4.Padding = New Padding(10, 0, 0, 0)
         Panel4.Size = New Size(985, 150)
         Panel4.TabIndex = 17
         ' 
