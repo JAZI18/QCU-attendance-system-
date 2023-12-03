@@ -60,10 +60,6 @@ Partial Class admindashboardform
         act_col = New DataGridViewTextBoxColumn()
         PictureBox3 = New PictureBox()
         TabPage1 = New TabPage()
-        Stats_button3 = New stats_button()
-        Stats_button4 = New stats_button()
-        Stats_button2 = New stats_button()
-        Stats_button1 = New stats_button()
         Label6 = New Label()
         PictureBox6 = New PictureBox()
         Column2 = New DataGridViewTextBoxColumn()
@@ -89,6 +85,15 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
+        Stats_button5 = New stats_button()
+        Stats_button6 = New stats_button()
+        Stats_button7 = New stats_button()
+        Stats_button8 = New stats_button()
+        Stats_button3 = New stats_button()
+        Stats_button4 = New stats_button()
+        Stats_button2 = New stats_button()
+        Stats_button1 = New stats_button()
+        Panel4 = New Panel()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -258,6 +263,10 @@ Partial Class admindashboardform
         ' 
         ' TabPage3
         ' 
+        TabPage3.Controls.Add(Stats_button5)
+        TabPage3.Controls.Add(Stats_button6)
+        TabPage3.Controls.Add(Stats_button7)
+        TabPage3.Controls.Add(Stats_button8)
         TabPage3.Controls.Add(sanfrancisco_branch_btn)
         TabPage3.Controls.Add(batasan_branch_btn)
         TabPage3.Controls.Add(sanbartolome_branch_btn)
@@ -280,7 +289,7 @@ Partial Class admindashboardform
         sanfrancisco_branch_btn.FlatAppearance.BorderSize = 0
         sanfrancisco_branch_btn.FlatStyle = FlatStyle.Flat
         sanfrancisco_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        sanfrancisco_branch_btn.Location = New Point(580, 83)
+        sanfrancisco_branch_btn.Location = New Point(640, 83)
         sanfrancisco_branch_btn.Margin = New Padding(4, 5, 4, 5)
         sanfrancisco_branch_btn.Name = "sanfrancisco_branch_btn"
         sanfrancisco_branch_btn.Size = New Size(243, 100)
@@ -294,7 +303,7 @@ Partial Class admindashboardform
         batasan_branch_btn.FlatAppearance.BorderSize = 0
         batasan_branch_btn.FlatStyle = FlatStyle.Flat
         batasan_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        batasan_branch_btn.Location = New Point(319, 83)
+        batasan_branch_btn.Location = New Point(379, 83)
         batasan_branch_btn.Margin = New Padding(4, 5, 4, 5)
         batasan_branch_btn.Name = "batasan_branch_btn"
         batasan_branch_btn.Size = New Size(243, 100)
@@ -308,7 +317,7 @@ Partial Class admindashboardform
         sanbartolome_branch_btn.FlatAppearance.BorderSize = 0
         sanbartolome_branch_btn.FlatStyle = FlatStyle.Flat
         sanbartolome_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        sanbartolome_branch_btn.Location = New Point(57, 83)
+        sanbartolome_branch_btn.Location = New Point(117, 83)
         sanbartolome_branch_btn.Margin = New Padding(4, 5, 4, 5)
         sanbartolome_branch_btn.Name = "sanbartolome_branch_btn"
         sanbartolome_branch_btn.Size = New Size(243, 100)
@@ -321,7 +330,7 @@ Partial Class admindashboardform
         ' 
         Panel10.BackColor = Color.Red
         Panel10.ForeColor = Color.Black
-        Panel10.Location = New Point(570, 83)
+        Panel10.Location = New Point(630, 83)
         Panel10.Margin = New Padding(4, 5, 4, 5)
         Panel10.Name = "Panel10"
         Panel10.Size = New Size(7, 100)
@@ -331,7 +340,7 @@ Partial Class admindashboardform
         ' 
         Panel9.BackColor = Color.Yellow
         Panel9.ForeColor = Color.Black
-        Panel9.Location = New Point(309, 83)
+        Panel9.Location = New Point(369, 83)
         Panel9.Margin = New Padding(4, 5, 4, 5)
         Panel9.Name = "Panel9"
         Panel9.Size = New Size(7, 100)
@@ -341,7 +350,7 @@ Partial Class admindashboardform
         ' 
         Panel8.BackColor = Color.Blue
         Panel8.ForeColor = Color.Black
-        Panel8.Location = New Point(50, 83)
+        Panel8.Location = New Point(110, 83)
         Panel8.Margin = New Padding(4, 5, 4, 5)
         Panel8.Name = "Panel8"
         Panel8.Size = New Size(7, 100)
@@ -542,11 +551,12 @@ Partial Class admindashboardform
         ' 
         ' TabPage1
         ' 
+        TabPage1.Controls.Add(Panel4)
         TabPage1.Controls.Add(Stats_button3)
+        TabPage1.Controls.Add(Label6)
         TabPage1.Controls.Add(Stats_button4)
         TabPage1.Controls.Add(Stats_button2)
         TabPage1.Controls.Add(Stats_button1)
-        TabPage1.Controls.Add(Label6)
         TabPage1.Controls.Add(PictureBox6)
         TabPage1.Location = New Point(4, 34)
         TabPage1.Margin = New Padding(4, 5, 4, 5)
@@ -556,50 +566,6 @@ Partial Class admindashboardform
         TabPage1.TabIndex = 0
         TabPage1.Text = "TabPage1"
         TabPage1.UseVisualStyleBackColor = True
-        ' 
-        ' Stats_button3
-        ' 
-        Stats_button3.BackColor = SystemColors.Control
-        Stats_button3.Counter = "200"
-        Stats_button3.Label = "-----"
-        Stats_button3.Location = New Point(652, 340)
-        Stats_button3.Margin = New Padding(0)
-        Stats_button3.Name = "Stats_button3"
-        Stats_button3.Size = New Size(443, 156)
-        Stats_button3.TabIndex = 12
-        ' 
-        ' Stats_button4
-        ' 
-        Stats_button4.BackColor = SystemColors.Control
-        Stats_button4.Counter = "200"
-        Stats_button4.Label = "-----"
-        Stats_button4.Location = New Point(110, 340)
-        Stats_button4.Margin = New Padding(0)
-        Stats_button4.Name = "Stats_button4"
-        Stats_button4.Size = New Size(443, 156)
-        Stats_button4.TabIndex = 11
-        ' 
-        ' Stats_button2
-        ' 
-        Stats_button2.BackColor = SystemColors.Control
-        Stats_button2.Counter = "200"
-        Stats_button2.Label = "-----"
-        Stats_button2.Location = New Point(652, 134)
-        Stats_button2.Margin = New Padding(0)
-        Stats_button2.Name = "Stats_button2"
-        Stats_button2.Size = New Size(443, 156)
-        Stats_button2.TabIndex = 10
-        ' 
-        ' Stats_button1
-        ' 
-        Stats_button1.BackColor = SystemColors.Control
-        Stats_button1.Counter = "200"
-        Stats_button1.Label = "-----"
-        Stats_button1.Location = New Point(110, 134)
-        Stats_button1.Margin = New Padding(0)
-        Stats_button1.Name = "Stats_button1"
-        Stats_button1.Size = New Size(443, 156)
-        Stats_button1.TabIndex = 9
         ' 
         ' Label6
         ' 
@@ -874,6 +840,102 @@ Partial Class admindashboardform
         MySqlCommand1.EnableCaching = False
         MySqlCommand1.Transaction = Nothing
         ' 
+        ' Stats_button5
+        ' 
+        Stats_button5.BackColor = SystemColors.Control
+        Stats_button5.Counter = "200"
+        Stats_button5.Label = "ABSENT:"
+        Stats_button5.Location = New Point(654, 483)
+        Stats_button5.Margin = New Padding(0)
+        Stats_button5.Name = "Stats_button5"
+        Stats_button5.Size = New Size(443, 156)
+        Stats_button5.TabIndex = 19
+        ' 
+        ' Stats_button6
+        ' 
+        Stats_button6.BackColor = SystemColors.Control
+        Stats_button6.Counter = "200"
+        Stats_button6.Label = "LEAVE:"
+        Stats_button6.Location = New Point(112, 483)
+        Stats_button6.Margin = New Padding(0)
+        Stats_button6.Name = "Stats_button6"
+        Stats_button6.Size = New Size(443, 156)
+        Stats_button6.TabIndex = 18
+        ' 
+        ' Stats_button7
+        ' 
+        Stats_button7.BackColor = SystemColors.Control
+        Stats_button7.Counter = "200"
+        Stats_button7.Label = "PRESENT:"
+        Stats_button7.Location = New Point(654, 277)
+        Stats_button7.Margin = New Padding(0)
+        Stats_button7.Name = "Stats_button7"
+        Stats_button7.Size = New Size(443, 156)
+        Stats_button7.TabIndex = 17
+        ' 
+        ' Stats_button8
+        ' 
+        Stats_button8.BackColor = SystemColors.Control
+        Stats_button8.Counter = "200"
+        Stats_button8.Label = "TOTAL:"
+        Stats_button8.Location = New Point(112, 277)
+        Stats_button8.Margin = New Padding(0)
+        Stats_button8.Name = "Stats_button8"
+        Stats_button8.Size = New Size(443, 156)
+        Stats_button8.TabIndex = 16
+        ' 
+        ' Stats_button3
+        ' 
+        Stats_button3.BackColor = SystemColors.Control
+        Stats_button3.Counter = "200"
+        Stats_button3.Label = "ABSENT:"
+        Stats_button3.Location = New Point(655, 482)
+        Stats_button3.Margin = New Padding(0)
+        Stats_button3.Name = "Stats_button3"
+        Stats_button3.Size = New Size(443, 156)
+        Stats_button3.TabIndex = 16
+        ' 
+        ' Stats_button4
+        ' 
+        Stats_button4.BackColor = SystemColors.Control
+        Stats_button4.Counter = "200"
+        Stats_button4.Label = "LEAVE:"
+        Stats_button4.Location = New Point(113, 482)
+        Stats_button4.Margin = New Padding(0)
+        Stats_button4.Name = "Stats_button4"
+        Stats_button4.Size = New Size(443, 156)
+        Stats_button4.TabIndex = 15
+        ' 
+        ' Stats_button2
+        ' 
+        Stats_button2.BackColor = SystemColors.Control
+        Stats_button2.Counter = "200"
+        Stats_button2.Label = "PRESENT:"
+        Stats_button2.Location = New Point(655, 276)
+        Stats_button2.Margin = New Padding(0)
+        Stats_button2.Name = "Stats_button2"
+        Stats_button2.Size = New Size(443, 156)
+        Stats_button2.TabIndex = 14
+        ' 
+        ' Stats_button1
+        ' 
+        Stats_button1.BackColor = SystemColors.Control
+        Stats_button1.Counter = "200"
+        Stats_button1.Label = "TOTAL:"
+        Stats_button1.Location = New Point(113, 276)
+        Stats_button1.Margin = New Padding(0)
+        Stats_button1.Name = "Stats_button1"
+        Stats_button1.Size = New Size(443, 156)
+        Stats_button1.TabIndex = 13
+        ' 
+        ' Panel4
+        ' 
+        Panel4.BackColor = SystemColors.ControlLight
+        Panel4.Location = New Point(113, 83)
+        Panel4.Name = "Panel4"
+        Panel4.Size = New Size(985, 150)
+        Panel4.TabIndex = 17
+        ' 
         ' admindashboardform
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
@@ -983,8 +1045,13 @@ Partial Class admindashboardform
     Friend WithEvents id_dept_tb As TextBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents Stats_button1 As stats_button
-    Friend WithEvents Stats_button2 As stats_button
+    Friend WithEvents Stats_button5 As stats_button
+    Friend WithEvents Stats_button6 As stats_button
+    Friend WithEvents Stats_button7 As stats_button
+    Friend WithEvents Stats_button8 As stats_button
     Friend WithEvents Stats_button3 As stats_button
     Friend WithEvents Stats_button4 As stats_button
+    Friend WithEvents Stats_button2 As stats_button
+    Friend WithEvents Stats_button1 As stats_button
+    Friend WithEvents Panel4 As Panel
 End Class
