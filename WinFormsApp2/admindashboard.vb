@@ -117,6 +117,8 @@ Public Class admindashboardform
     Private Sub Update_btn_dept_Click(sender As Object, e As EventArgs) Handles Update_btn_dept.Click
         Update_department.Show()
     End Sub
+
+
 End Class
 
 '
