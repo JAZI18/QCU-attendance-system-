@@ -36,7 +36,7 @@ Public Class admindashboardform
             ' Create a DataGridViewButtonCell for the "Delete" and "Update" actions
 
             ' Add the concatenated name and other fields to the DataGridView along with the button cell
-            employee_grid_view.Rows.Add(reader("employee_id"), fullName, reader("email"), reader("gender"), dob, reader("department_name"), "Delete")
+            employee_grid_view.Rows.Add(reader("employee_id"), fullName, reader("email"), reader("gender"), dob, reader("department_name"), "Modify")
         End While
 
         reader.Close()
@@ -74,7 +74,7 @@ Public Class admindashboardform
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", vals, where)
         ' Create a while loop to fetch all data from the database'
         While reader.Read
-            dept_gridview.Rows.Add(reader("department_name"), reader("department_desc"))
+            dept_gridview.Rows.Add(reader("department_name"), reader("department_desc"), " Modify ")
         End While
 
         reader.Close()
