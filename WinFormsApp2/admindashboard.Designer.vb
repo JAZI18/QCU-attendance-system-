@@ -22,19 +22,23 @@ Partial Class admindashboardform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Panel1 = New Panel()
-        Label2 = New Label()
-        Label1 = New Label()
+        nav_panel = New Panel()
+        Nav1 = New nav()
         printreport_btn = New Button()
         branch_btn = New Button()
         department_btn = New Button()
         employee_btn = New Button()
         dashboard_btn = New Button()
+        Label2 = New Label()
         Panel3 = New Panel()
         PictureBox1 = New PictureBox()
         Panel2 = New Panel()
         Button1 = New Button()
         TabPage3 = New TabPage()
+        absent_stat = New stats_button()
+        leave_stat = New stats_button()
+        present_stat = New stats_button()
+        total_stat = New stats_button()
         sanfrancisco_branch_btn = New Button()
         batasan_branch_btn = New Button()
         sanbartolome_branch_btn = New Button()
@@ -45,8 +49,9 @@ Partial Class admindashboardform
         PictureBox4 = New PictureBox()
         TabPage2 = New TabPage()
         Panel7 = New Panel()
-        Label4 = New Label()
-        Label3 = New Label()
+        clear_filter_btn = New Button()
+        dep_filter_btn = New Label()
+        branch_filter_lb = New Label()
         add_employees_btn = New Button()
         id_employees_tb = New TextBox()
         Label7 = New Label()
@@ -60,11 +65,12 @@ Partial Class admindashboardform
         act_col = New DataGridViewTextBoxColumn()
         PictureBox3 = New PictureBox()
         TabPage1 = New TabPage()
-        Stats_button3 = New stats_button()
-        Stats_button4 = New stats_button()
-        Stats_button2 = New stats_button()
-        Stats_button1 = New stats_button()
+        Panel4 = New Panel()
+        main_absent_stat = New stats_button()
         Label6 = New Label()
+        main_leave_stat = New stats_button()
+        main_present_stat = New stats_button()
+        main_total_stat = New stats_button()
         PictureBox6 = New PictureBox()
         Column2 = New DataGridViewTextBoxColumn()
         Column1 = New DataGridViewTextBoxColumn()
@@ -89,7 +95,8 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
-        Panel1.SuspendLayout()
+        nav_panel.SuspendLayout()
+        Nav1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
@@ -110,108 +117,153 @@ Partial Class admindashboardform
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Panel1
+        ' nav_panel
         ' 
-        Panel1.BackColor = Color.FromArgb(CByte(134), CByte(134), CByte(134))
-        Panel1.Controls.Add(Label2)
-        Panel1.Controls.Add(Label1)
-        Panel1.Controls.Add(printreport_btn)
-        Panel1.Controls.Add(branch_btn)
-        Panel1.Controls.Add(department_btn)
-        Panel1.Controls.Add(employee_btn)
-        Panel1.Controls.Add(dashboard_btn)
-        Panel1.Controls.Add(Panel3)
-        Panel1.Location = New Point(0, 0)
-        Panel1.Margin = New Padding(4, 5, 4, 5)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(214, 1000)
-        Panel1.TabIndex = 0
+        nav_panel.BackColor = SystemColors.ButtonShadow
+        nav_panel.Controls.Add(Nav1)
+        nav_panel.Controls.Add(Panel3)
+        nav_panel.Dock = DockStyle.Left
+        nav_panel.Location = New Point(0, 0)
+        nav_panel.Margin = New Padding(4, 5, 4, 5)
+        nav_panel.Name = "nav_panel"
+        nav_panel.Size = New Size(230, 928)
+        nav_panel.TabIndex = 0
         ' 
-        ' Label2
+        ' Nav1
         ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(36, 217)
-        Label2.Margin = New Padding(4, 0, 4, 0)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(68, 32)
-        Label2.TabIndex = 0
-        Label2.Text = "C.C.F"
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(-24, 338)
-        Label1.Margin = New Padding(4, 0, 4, 0)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(236, 25)
-        Label1.TabIndex = 0
-        Label1.Text = "________________________________"
+        Nav1.Controls.Add(printreport_btn)
+        Nav1.Controls.Add(branch_btn)
+        Nav1.Controls.Add(department_btn)
+        Nav1.Controls.Add(employee_btn)
+        Nav1.Controls.Add(dashboard_btn)
+        Nav1.Controls.Add(Label2)
+        Nav1.Dock = DockStyle.Bottom
+        Nav1.HighlightBackColor = Color.White
+        Nav1.Location = New Point(0, 206)
+        Nav1.Name = "Nav1"
+        Nav1.NormalBackColor = SystemColors.ControlDark
+        Nav1.Size = New Size(230, 722)
+        Nav1.TabIndex = 3
+        Nav1.Text = "Nav1"
         ' 
         ' printreport_btn
         ' 
+        printreport_btn.BackColor = SystemColors.ControlDark
+        printreport_btn.Dock = DockStyle.Top
+        printreport_btn.FlatAppearance.BorderSize = 0
+        printreport_btn.FlatStyle = FlatStyle.Flat
         printreport_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         printreport_btn.Image = My.Resources.Resources.report_card
         printreport_btn.ImageAlign = ContentAlignment.MiddleLeft
-        printreport_btn.Location = New Point(14, 668)
-        printreport_btn.Margin = New Padding(4, 5, 4, 5)
+        printreport_btn.Location = New Point(0, 453)
+        printreport_btn.Margin = New Padding(0)
         printreport_btn.Name = "printreport_btn"
-        printreport_btn.Size = New Size(186, 67)
-        printreport_btn.TabIndex = 2
-        printreport_btn.Text = "Reports"
-        printreport_btn.UseVisualStyleBackColor = True
+        printreport_btn.Padding = New Padding(14, 0, 0, 0)
+        printreport_btn.Size = New Size(230, 92)
+        printreport_btn.TabIndex = 6
+        printreport_btn.Text = "  Reports"
+        printreport_btn.TextAlign = ContentAlignment.MiddleLeft
+        printreport_btn.TextImageRelation = TextImageRelation.ImageBeforeText
+        printreport_btn.UseCompatibleTextRendering = True
+        printreport_btn.UseVisualStyleBackColor = False
         ' 
         ' branch_btn
         ' 
+        branch_btn.BackColor = SystemColors.ButtonShadow
+        branch_btn.Dock = DockStyle.Top
+        branch_btn.FlatAppearance.BorderSize = 0
+        branch_btn.FlatStyle = FlatStyle.Flat
         branch_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         branch_btn.Image = My.Resources.Resources.branch
         branch_btn.ImageAlign = ContentAlignment.MiddleLeft
-        branch_btn.Location = New Point(14, 483)
-        branch_btn.Margin = New Padding(4, 5, 4, 5)
+        branch_btn.Location = New Point(0, 361)
+        branch_btn.Margin = New Padding(0)
         branch_btn.Name = "branch_btn"
-        branch_btn.Size = New Size(186, 67)
-        branch_btn.TabIndex = 2
-        branch_btn.Text = "Branch"
-        branch_btn.UseVisualStyleBackColor = True
+        branch_btn.Padding = New Padding(14, 0, 0, 0)
+        branch_btn.Size = New Size(230, 92)
+        branch_btn.TabIndex = 7
+        branch_btn.Text = "  Branch"
+        branch_btn.TextAlign = ContentAlignment.MiddleLeft
+        branch_btn.TextImageRelation = TextImageRelation.ImageBeforeText
+        branch_btn.UseCompatibleTextRendering = True
+        branch_btn.UseVisualStyleBackColor = False
         ' 
         ' department_btn
         ' 
+        department_btn.BackColor = SystemColors.ButtonShadow
+        department_btn.Dock = DockStyle.Top
+        department_btn.FlatAppearance.BorderSize = 0
+        department_btn.FlatStyle = FlatStyle.Flat
         department_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         department_btn.Image = My.Resources.Resources.department
         department_btn.ImageAlign = ContentAlignment.MiddleLeft
-        department_btn.Location = New Point(14, 575)
-        department_btn.Margin = New Padding(4, 5, 4, 5)
+        department_btn.Location = New Point(0, 269)
+        department_btn.Margin = New Padding(0)
         department_btn.Name = "department_btn"
-        department_btn.Size = New Size(186, 67)
-        department_btn.TabIndex = 1
+        department_btn.Padding = New Padding(14, 0, 0, 0)
+        department_btn.Size = New Size(230, 92)
+        department_btn.TabIndex = 4
         department_btn.Text = "  Department"
-        department_btn.UseVisualStyleBackColor = True
+        department_btn.TextAlign = ContentAlignment.MiddleLeft
+        department_btn.TextImageRelation = TextImageRelation.ImageBeforeText
+        department_btn.UseCompatibleTextRendering = True
+        department_btn.UseVisualStyleBackColor = False
         ' 
         ' employee_btn
         ' 
+        employee_btn.BackColor = Color.Transparent
+        employee_btn.Dock = DockStyle.Top
+        employee_btn.FlatAppearance.BorderSize = 0
+        employee_btn.FlatStyle = FlatStyle.Flat
         employee_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         employee_btn.Image = My.Resources.Resources.user__1_1
         employee_btn.ImageAlign = ContentAlignment.MiddleLeft
-        employee_btn.Location = New Point(14, 392)
-        employee_btn.Margin = New Padding(4, 5, 4, 5)
+        employee_btn.Location = New Point(0, 177)
+        employee_btn.Margin = New Padding(0)
         employee_btn.Name = "employee_btn"
-        employee_btn.Size = New Size(186, 67)
-        employee_btn.TabIndex = 1
+        employee_btn.Padding = New Padding(14, 0, 0, 0)
+        employee_btn.Size = New Size(230, 92)
+        employee_btn.TabIndex = 5
         employee_btn.Text = "  Employee"
-        employee_btn.UseVisualStyleBackColor = True
+        employee_btn.TextAlign = ContentAlignment.MiddleLeft
+        employee_btn.TextImageRelation = TextImageRelation.ImageBeforeText
+        employee_btn.UseCompatibleTextRendering = True
+        employee_btn.UseVisualStyleBackColor = False
         ' 
         ' dashboard_btn
         ' 
+        dashboard_btn.BackColor = Color.Transparent
+        dashboard_btn.Dock = DockStyle.Top
+        dashboard_btn.FlatAppearance.BorderColor = Color.CadetBlue
+        dashboard_btn.FlatAppearance.BorderSize = 0
+        dashboard_btn.FlatStyle = FlatStyle.Flat
         dashboard_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         dashboard_btn.Image = My.Resources.Resources.home
         dashboard_btn.ImageAlign = ContentAlignment.MiddleLeft
-        dashboard_btn.Location = New Point(14, 267)
-        dashboard_btn.Margin = New Padding(4, 5, 4, 5)
+        dashboard_btn.Location = New Point(0, 85)
+        dashboard_btn.Margin = New Padding(0)
         dashboard_btn.Name = "dashboard_btn"
-        dashboard_btn.Size = New Size(186, 67)
+        dashboard_btn.Padding = New Padding(14, 0, 0, 0)
+        dashboard_btn.Size = New Size(230, 92)
         dashboard_btn.TabIndex = 0
         dashboard_btn.Text = "  Dash Board"
-        dashboard_btn.UseVisualStyleBackColor = True
+        dashboard_btn.TextAlign = ContentAlignment.MiddleLeft
+        dashboard_btn.TextImageRelation = TextImageRelation.ImageBeforeText
+        dashboard_btn.UseCompatibleTextRendering = True
+        dashboard_btn.UseMnemonic = False
+        dashboard_btn.UseVisualStyleBackColor = False
+        ' 
+        ' Label2
+        ' 
+        Label2.Dock = DockStyle.Top
+        Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Location = New Point(0, 0)
+        Label2.Margin = New Padding(4, 0, 4, 0)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(230, 85)
+        Label2.TabIndex = 0
+        Label2.Text = "C.C.F"
+        Label2.TextAlign = ContentAlignment.TopCenter
         ' 
         ' Panel3
         ' 
@@ -225,12 +277,14 @@ Partial Class admindashboardform
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.BackgroundImage = My.Resources.Resources.user
         PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox1.Location = New Point(21, 17)
+        PictureBox1.Dock = DockStyle.Fill
+        PictureBox1.Image = My.Resources.Resources.qcu
+        PictureBox1.Location = New Point(0, 0)
         PictureBox1.Margin = New Padding(4, 5, 4, 5)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(143, 150)
+        PictureBox1.Size = New Size(186, 183)
+        PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
         PictureBox1.TabIndex = 0
         PictureBox1.TabStop = False
         ' 
@@ -258,6 +312,10 @@ Partial Class admindashboardform
         ' 
         ' TabPage3
         ' 
+        TabPage3.Controls.Add(absent_stat)
+        TabPage3.Controls.Add(leave_stat)
+        TabPage3.Controls.Add(present_stat)
+        TabPage3.Controls.Add(total_stat)
         TabPage3.Controls.Add(sanfrancisco_branch_btn)
         TabPage3.Controls.Add(batasan_branch_btn)
         TabPage3.Controls.Add(sanbartolome_branch_btn)
@@ -270,17 +328,61 @@ Partial Class admindashboardform
         TabPage3.Margin = New Padding(4, 5, 4, 5)
         TabPage3.Name = "TabPage3"
         TabPage3.Padding = New Padding(4, 5, 4, 5)
-        TabPage3.Size = New Size(1206, 919)
+        TabPage3.Size = New Size(1206, 847)
         TabPage3.TabIndex = 2
         TabPage3.Text = "TabPage3"
         TabPage3.UseVisualStyleBackColor = True
+        ' 
+        ' absent_stat
+        ' 
+        absent_stat.BackColor = Color.FromArgb(CByte(242), CByte(200), CByte(200))
+        absent_stat.Counter = "200"
+        absent_stat.Label = "ABSENT:"
+        absent_stat.Location = New Point(654, 545)
+        absent_stat.Margin = New Padding(0)
+        absent_stat.Name = "absent_stat"
+        absent_stat.Size = New Size(443, 252)
+        absent_stat.TabIndex = 20
+        ' 
+        ' leave_stat
+        ' 
+        leave_stat.BackColor = Color.FromArgb(CByte(233), CByte(193), CByte(240))
+        leave_stat.Counter = "200"
+        leave_stat.Label = "LEAVE:"
+        leave_stat.Location = New Point(113, 545)
+        leave_stat.Margin = New Padding(0)
+        leave_stat.Name = "leave_stat"
+        leave_stat.Size = New Size(443, 252)
+        leave_stat.TabIndex = 19
+        ' 
+        ' present_stat
+        ' 
+        present_stat.BackColor = Color.FromArgb(CByte(205), CByte(241), CByte(197))
+        present_stat.Counter = "200"
+        present_stat.Label = "PRESENT:"
+        present_stat.Location = New Point(654, 230)
+        present_stat.Margin = New Padding(0)
+        present_stat.Name = "present_stat"
+        present_stat.Size = New Size(443, 252)
+        present_stat.TabIndex = 18
+        ' 
+        ' total_stat
+        ' 
+        total_stat.BackColor = Color.FromArgb(CByte(240), CByte(239), CByte(193))
+        total_stat.Counter = "200"
+        total_stat.Label = "TOTAL:"
+        total_stat.Location = New Point(113, 230)
+        total_stat.Margin = New Padding(0)
+        total_stat.Name = "total_stat"
+        total_stat.Size = New Size(443, 252)
+        total_stat.TabIndex = 17
         ' 
         ' sanfrancisco_branch_btn
         ' 
         sanfrancisco_branch_btn.FlatAppearance.BorderSize = 0
         sanfrancisco_branch_btn.FlatStyle = FlatStyle.Flat
         sanfrancisco_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        sanfrancisco_branch_btn.Location = New Point(580, 83)
+        sanfrancisco_branch_btn.Location = New Point(640, 83)
         sanfrancisco_branch_btn.Margin = New Padding(4, 5, 4, 5)
         sanfrancisco_branch_btn.Name = "sanfrancisco_branch_btn"
         sanfrancisco_branch_btn.Size = New Size(243, 100)
@@ -294,7 +396,7 @@ Partial Class admindashboardform
         batasan_branch_btn.FlatAppearance.BorderSize = 0
         batasan_branch_btn.FlatStyle = FlatStyle.Flat
         batasan_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        batasan_branch_btn.Location = New Point(319, 83)
+        batasan_branch_btn.Location = New Point(379, 83)
         batasan_branch_btn.Margin = New Padding(4, 5, 4, 5)
         batasan_branch_btn.Name = "batasan_branch_btn"
         batasan_branch_btn.Size = New Size(243, 100)
@@ -308,7 +410,7 @@ Partial Class admindashboardform
         sanbartolome_branch_btn.FlatAppearance.BorderSize = 0
         sanbartolome_branch_btn.FlatStyle = FlatStyle.Flat
         sanbartolome_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        sanbartolome_branch_btn.Location = New Point(57, 83)
+        sanbartolome_branch_btn.Location = New Point(117, 83)
         sanbartolome_branch_btn.Margin = New Padding(4, 5, 4, 5)
         sanbartolome_branch_btn.Name = "sanbartolome_branch_btn"
         sanbartolome_branch_btn.Size = New Size(243, 100)
@@ -321,7 +423,7 @@ Partial Class admindashboardform
         ' 
         Panel10.BackColor = Color.Red
         Panel10.ForeColor = Color.Black
-        Panel10.Location = New Point(570, 83)
+        Panel10.Location = New Point(630, 83)
         Panel10.Margin = New Padding(4, 5, 4, 5)
         Panel10.Name = "Panel10"
         Panel10.Size = New Size(7, 100)
@@ -331,7 +433,7 @@ Partial Class admindashboardform
         ' 
         Panel9.BackColor = Color.Yellow
         Panel9.ForeColor = Color.Black
-        Panel9.Location = New Point(309, 83)
+        Panel9.Location = New Point(369, 83)
         Panel9.Margin = New Padding(4, 5, 4, 5)
         Panel9.Name = "Panel9"
         Panel9.Size = New Size(7, 100)
@@ -341,7 +443,7 @@ Partial Class admindashboardform
         ' 
         Panel8.BackColor = Color.Blue
         Panel8.ForeColor = Color.Black
-        Panel8.Location = New Point(50, 83)
+        Panel8.Location = New Point(110, 83)
         Panel8.Margin = New Padding(4, 5, 4, 5)
         Panel8.Name = "Panel8"
         Panel8.Size = New Size(7, 100)
@@ -380,15 +482,16 @@ Partial Class admindashboardform
         TabPage2.Margin = New Padding(4, 5, 4, 5)
         TabPage2.Name = "TabPage2"
         TabPage2.Padding = New Padding(4, 5, 4, 5)
-        TabPage2.Size = New Size(1206, 919)
+        TabPage2.Size = New Size(1206, 847)
         TabPage2.TabIndex = 1
         TabPage2.Text = "TabPage2"
         TabPage2.UseVisualStyleBackColor = True
         ' 
         ' Panel7
         ' 
-        Panel7.Controls.Add(Label4)
-        Panel7.Controls.Add(Label3)
+        Panel7.Controls.Add(clear_filter_btn)
+        Panel7.Controls.Add(dep_filter_btn)
+        Panel7.Controls.Add(branch_filter_lb)
         Panel7.Controls.Add(add_employees_btn)
         Panel7.Controls.Add(id_employees_tb)
         Panel7.Location = New Point(29, 102)
@@ -397,25 +500,37 @@ Partial Class admindashboardform
         Panel7.Size = New Size(1144, 67)
         Panel7.TabIndex = 10
         ' 
-        ' Label4
+        ' clear_filter_btn
         ' 
-        Label4.AutoSize = True
-        Label4.Location = New Point(439, 23)
-        Label4.Margin = New Padding(4, 0, 4, 0)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(131, 25)
-        Label4.TabIndex = 12
-        Label4.Text = "department ---"
+        clear_filter_btn.Location = New Point(873, 15)
+        clear_filter_btn.Margin = New Padding(4, 5, 4, 5)
+        clear_filter_btn.Name = "clear_filter_btn"
+        clear_filter_btn.Size = New Size(107, 38)
+        clear_filter_btn.TabIndex = 13
+        clear_filter_btn.Text = "clear filters"
+        clear_filter_btn.UseVisualStyleBackColor = True
         ' 
-        ' Label3
+        ' dep_filter_btn
         ' 
-        Label3.AutoSize = True
-        Label3.Location = New Point(326, 23)
-        Label3.Margin = New Padding(4, 0, 4, 0)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(92, 25)
-        Label3.TabIndex = 11
-        Label3.Text = "branch ---"
+        dep_filter_btn.AutoSize = True
+        dep_filter_btn.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        dep_filter_btn.Location = New Point(466, 17)
+        dep_filter_btn.Margin = New Padding(4, 0, 4, 0)
+        dep_filter_btn.Name = "dep_filter_btn"
+        dep_filter_btn.Size = New Size(144, 28)
+        dep_filter_btn.TabIndex = 12
+        dep_filter_btn.Text = "department ---"
+        ' 
+        ' branch_filter_lb
+        ' 
+        branch_filter_lb.AutoSize = True
+        branch_filter_lb.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
+        branch_filter_lb.Location = New Point(326, 17)
+        branch_filter_lb.Margin = New Padding(4, 0, 4, 0)
+        branch_filter_lb.Name = "branch_filter_lb"
+        branch_filter_lb.Size = New Size(101, 28)
+        branch_filter_lb.TabIndex = 11
+        branch_filter_lb.Text = "branch ---"
         ' 
         ' add_employees_btn
         ' 
@@ -463,7 +578,7 @@ Partial Class admindashboardform
         employee_grid_view.Name = "employee_grid_view"
         employee_grid_view.ReadOnly = True
         employee_grid_view.RowHeadersWidth = 62
-        employee_grid_view.Size = New Size(1144, 666)
+        employee_grid_view.Size = New Size(1144, 667)
         employee_grid_view.TabIndex = 2
         ' 
         ' id_col
@@ -542,64 +657,41 @@ Partial Class admindashboardform
         ' 
         ' TabPage1
         ' 
-        TabPage1.Controls.Add(Stats_button3)
-        TabPage1.Controls.Add(Stats_button4)
-        TabPage1.Controls.Add(Stats_button2)
-        TabPage1.Controls.Add(Stats_button1)
+        TabPage1.Controls.Add(Panel4)
+        TabPage1.Controls.Add(main_absent_stat)
         TabPage1.Controls.Add(Label6)
+        TabPage1.Controls.Add(main_leave_stat)
+        TabPage1.Controls.Add(main_present_stat)
+        TabPage1.Controls.Add(main_total_stat)
         TabPage1.Controls.Add(PictureBox6)
         TabPage1.Location = New Point(4, 34)
         TabPage1.Margin = New Padding(4, 5, 4, 5)
         TabPage1.Name = "TabPage1"
         TabPage1.Padding = New Padding(4, 5, 4, 5)
-        TabPage1.Size = New Size(1206, 919)
+        TabPage1.Size = New Size(1206, 847)
         TabPage1.TabIndex = 0
         TabPage1.Text = "TabPage1"
         TabPage1.UseVisualStyleBackColor = True
         ' 
-        ' Stats_button3
+        ' Panel4
         ' 
-        Stats_button3.BackColor = SystemColors.Control
-        Stats_button3.Counter = "200"
-        Stats_button3.Label = "-----"
-        Stats_button3.Location = New Point(652, 340)
-        Stats_button3.Margin = New Padding(0)
-        Stats_button3.Name = "Stats_button3"
-        Stats_button3.Size = New Size(443, 156)
-        Stats_button3.TabIndex = 12
+        Panel4.BackColor = SystemColors.ControlLight
+        Panel4.Location = New Point(113, 83)
+        Panel4.Name = "Panel4"
+        Panel4.Padding = New Padding(10, 0, 0, 0)
+        Panel4.Size = New Size(986, 133)
+        Panel4.TabIndex = 17
         ' 
-        ' Stats_button4
+        ' main_absent_stat
         ' 
-        Stats_button4.BackColor = SystemColors.Control
-        Stats_button4.Counter = "200"
-        Stats_button4.Label = "-----"
-        Stats_button4.Location = New Point(110, 340)
-        Stats_button4.Margin = New Padding(0)
-        Stats_button4.Name = "Stats_button4"
-        Stats_button4.Size = New Size(443, 156)
-        Stats_button4.TabIndex = 11
-        ' 
-        ' Stats_button2
-        ' 
-        Stats_button2.BackColor = SystemColors.Control
-        Stats_button2.Counter = "200"
-        Stats_button2.Label = "-----"
-        Stats_button2.Location = New Point(652, 134)
-        Stats_button2.Margin = New Padding(0)
-        Stats_button2.Name = "Stats_button2"
-        Stats_button2.Size = New Size(443, 156)
-        Stats_button2.TabIndex = 10
-        ' 
-        ' Stats_button1
-        ' 
-        Stats_button1.BackColor = SystemColors.Control
-        Stats_button1.Counter = "200"
-        Stats_button1.Label = "-----"
-        Stats_button1.Location = New Point(110, 134)
-        Stats_button1.Margin = New Padding(0)
-        Stats_button1.Name = "Stats_button1"
-        Stats_button1.Size = New Size(443, 156)
-        Stats_button1.TabIndex = 9
+        main_absent_stat.BackColor = Color.FromArgb(CByte(242), CByte(200), CByte(200))
+        main_absent_stat.Counter = "200"
+        main_absent_stat.Label = "ABSENT:"
+        main_absent_stat.Location = New Point(654, 547)
+        main_absent_stat.Margin = New Padding(0)
+        main_absent_stat.Name = "main_absent_stat"
+        main_absent_stat.Size = New Size(443, 252)
+        main_absent_stat.TabIndex = 16
         ' 
         ' Label6
         ' 
@@ -611,6 +703,39 @@ Partial Class admindashboardform
         Label6.Size = New Size(175, 40)
         Label6.TabIndex = 8
         Label6.Text = "Dash Board"
+        ' 
+        ' main_leave_stat
+        ' 
+        main_leave_stat.BackColor = Color.FromArgb(CByte(233), CByte(193), CByte(240))
+        main_leave_stat.Counter = "200"
+        main_leave_stat.Label = "LEAVE:"
+        main_leave_stat.Location = New Point(113, 547)
+        main_leave_stat.Margin = New Padding(0)
+        main_leave_stat.Name = "main_leave_stat"
+        main_leave_stat.Size = New Size(443, 252)
+        main_leave_stat.TabIndex = 15
+        ' 
+        ' main_present_stat
+        ' 
+        main_present_stat.BackColor = Color.FromArgb(CByte(205), CByte(241), CByte(197))
+        main_present_stat.Counter = "200"
+        main_present_stat.Label = "PRESENT:"
+        main_present_stat.Location = New Point(654, 232)
+        main_present_stat.Margin = New Padding(0)
+        main_present_stat.Name = "main_present_stat"
+        main_present_stat.Size = New Size(443, 252)
+        main_present_stat.TabIndex = 14
+        ' 
+        ' main_total_stat
+        ' 
+        main_total_stat.BackColor = Color.FromArgb(CByte(240), CByte(239), CByte(193))
+        main_total_stat.Counter = "200"
+        main_total_stat.Label = "TOTAL:"
+        main_total_stat.Location = New Point(113, 232)
+        main_total_stat.Margin = New Padding(0)
+        main_total_stat.Name = "main_total_stat"
+        main_total_stat.Size = New Size(443, 252)
+        main_total_stat.TabIndex = 13
         ' 
         ' PictureBox6
         ' 
@@ -647,11 +772,11 @@ Partial Class admindashboardform
         TabControl1.Controls.Add(TabPage3)
         TabControl1.Controls.Add(TabPage4)
         TabControl1.Controls.Add(TabPage5)
-        TabControl1.Location = New Point(214, 43)
+        TabControl1.Location = New Point(229, 43)
         TabControl1.Margin = New Padding(4, 5, 4, 5)
         TabControl1.Name = "TabControl1"
         TabControl1.SelectedIndex = 0
-        TabControl1.Size = New Size(1214, 957)
+        TabControl1.Size = New Size(1214, 885)
         TabControl1.TabIndex = 2
         ' 
         ' TabPage4
@@ -664,7 +789,7 @@ Partial Class admindashboardform
         TabPage4.Margin = New Padding(4, 5, 4, 5)
         TabPage4.Name = "TabPage4"
         TabPage4.Padding = New Padding(4, 5, 4, 5)
-        TabPage4.Size = New Size(1206, 919)
+        TabPage4.Size = New Size(1206, 847)
         TabPage4.TabIndex = 3
         TabPage4.Text = "TabPage4"
         TabPage4.UseVisualStyleBackColor = True
@@ -795,7 +920,7 @@ Partial Class admindashboardform
         TabPage5.Margin = New Padding(4, 5, 4, 5)
         TabPage5.Name = "TabPage5"
         TabPage5.Padding = New Padding(4, 5, 4, 5)
-        TabPage5.Size = New Size(1206, 919)
+        TabPage5.Size = New Size(1206, 847)
         TabPage5.TabIndex = 4
         TabPage5.Text = "TabPage5"
         TabPage5.UseVisualStyleBackColor = True
@@ -811,7 +936,7 @@ Partial Class admindashboardform
         ' ComboBox2
         ' 
         ComboBox2.FormattingEnabled = True
-        ComboBox2.Location = New Point(176, 119)
+        ComboBox2.Location = New Point(176, 118)
         ComboBox2.Margin = New Padding(4, 5, 4, 5)
         ComboBox2.Name = "ComboBox2"
         ComboBox2.Size = New Size(150, 33)
@@ -821,7 +946,7 @@ Partial Class admindashboardform
         ' ComboBox1
         ' 
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(9, 119)
+        ComboBox1.Location = New Point(9, 118)
         ComboBox1.Margin = New Padding(4, 5, 4, 5)
         ComboBox1.Name = "ComboBox1"
         ComboBox1.Size = New Size(150, 33)
@@ -879,16 +1004,16 @@ Partial Class admindashboardform
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
-        ClientSize = New Size(1467, 929)
+        ClientSize = New Size(1467, 928)
         Controls.Add(TabControl1)
-        Controls.Add(Panel1)
+        Controls.Add(nav_panel)
         FormBorderStyle = FormBorderStyle.None
         Margin = New Padding(4, 5, 4, 5)
         Name = "admindashboardform"
         StartPosition = FormStartPosition.CenterScreen
         Text = "form2"
-        Panel1.ResumeLayout(False)
-        Panel1.PerformLayout()
+        nav_panel.ResumeLayout(False)
+        Nav1.ResumeLayout(False)
         Panel3.ResumeLayout(False)
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
@@ -917,18 +1042,11 @@ Partial Class admindashboardform
         ResumeLayout(False)
     End Sub
 
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents nav_panel As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Button1 As Button
     Friend WithEvents dashboard_btn As Button
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents printreport_btn As Button
-    Friend WithEvents branch_btn As Button
-    Friend WithEvents department_btn As Button
-    Friend WithEvents employee_btn As Button
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents sanfrancisco_branch_btn As Button
     Friend WithEvents batasan_branch_btn As Button
@@ -971,20 +1089,32 @@ Partial Class admindashboardform
     Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Button2 As Button
     Friend WithEvents depa As DataGridView
     Friend WithEvents dept_gridview As DataGridView
     Friend WithEvents dep_col As DataGridViewTextBoxColumn
     Friend WithEvents dep_desc As DataGridViewTextBoxColumn
     Friend WithEvents action_col As DataGridViewTextBoxColumn
     Friend WithEvents Update_btn_dept As Button
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents dep_filter_btn As Label
+    Friend WithEvents branch_filter_lb As Label
     Friend WithEvents id_dept_tb As TextBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents Stats_button1 As stats_button
-    Friend WithEvents Stats_button2 As stats_button
-    Friend WithEvents Stats_button3 As stats_button
-    Friend WithEvents Stats_button4 As stats_button
+    Friend WithEvents main_absent_stat As stats_button
+    Friend WithEvents main_leave_stat As stats_button
+    Friend WithEvents main_present_stat As stats_button
+    Friend WithEvents main_total_stat As stats_button
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Nav1 As nav
+    Friend WithEvents printreport_btn As Button
+    Friend WithEvents branch_btn As Button
+    Friend WithEvents department_btn As Button
+    Friend WithEvents employee_btn As Button
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents absent_stat As stats_button
+    Friend WithEvents leave_stat As stats_button
+    Friend WithEvents present_stat As stats_button
+    Friend WithEvents total_stat As stats_button
+    Friend WithEvents clear_filter_btn As Button
 End Class

@@ -2,6 +2,8 @@
 Imports System.ComponentModel
 
 Public Class stats_button
+
+
     <Browsable(True)>
     Public Shadows Event Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
