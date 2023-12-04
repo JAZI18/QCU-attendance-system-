@@ -139,7 +139,7 @@ Partial Class admindashboardform
         Nav1.Dock = DockStyle.Bottom
         Nav1.HighlightBackColor = Color.White
         Nav1.Location = New Point(0, 40)
-        Nav1.Margin = New Padding(2, 2, 2, 2)
+        Nav1.Margin = New Padding(2)
         Nav1.Name = "Nav1"
         Nav1.NormalBackColor = SystemColors.ControlDark
         Nav1.Size = New Size(161, 433)
@@ -152,7 +152,7 @@ Partial Class admindashboardform
         printreport_btn.Dock = DockStyle.Top
         printreport_btn.FlatAppearance.BorderSize = 0
         printreport_btn.FlatStyle = FlatStyle.Flat
-        printreport_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        printreport_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         printreport_btn.Image = My.Resources.Resources.report_card
         printreport_btn.ImageAlign = ContentAlignment.MiddleLeft
         printreport_btn.Location = New Point(0, 271)
@@ -173,7 +173,7 @@ Partial Class admindashboardform
         branch_btn.Dock = DockStyle.Top
         branch_btn.FlatAppearance.BorderSize = 0
         branch_btn.FlatStyle = FlatStyle.Flat
-        branch_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        branch_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         branch_btn.Image = My.Resources.Resources.branch
         branch_btn.ImageAlign = ContentAlignment.MiddleLeft
         branch_btn.Location = New Point(0, 216)
@@ -194,7 +194,7 @@ Partial Class admindashboardform
         department_btn.Dock = DockStyle.Top
         department_btn.FlatAppearance.BorderSize = 0
         department_btn.FlatStyle = FlatStyle.Flat
-        department_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        department_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         department_btn.Image = My.Resources.Resources.department
         department_btn.ImageAlign = ContentAlignment.MiddleLeft
         department_btn.Location = New Point(0, 161)
@@ -215,7 +215,7 @@ Partial Class admindashboardform
         employee_btn.Dock = DockStyle.Top
         employee_btn.FlatAppearance.BorderSize = 0
         employee_btn.FlatStyle = FlatStyle.Flat
-        employee_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        employee_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         employee_btn.Image = My.Resources.Resources.user__1_1
         employee_btn.ImageAlign = ContentAlignment.MiddleLeft
         employee_btn.Location = New Point(0, 106)
@@ -237,7 +237,7 @@ Partial Class admindashboardform
         dashboard_btn.FlatAppearance.BorderColor = Color.CadetBlue
         dashboard_btn.FlatAppearance.BorderSize = 0
         dashboard_btn.FlatStyle = FlatStyle.Flat
-        dashboard_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        dashboard_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         dashboard_btn.Image = My.Resources.Resources.home
         dashboard_btn.ImageAlign = ContentAlignment.MiddleLeft
         dashboard_btn.Location = New Point(0, 51)
@@ -256,7 +256,7 @@ Partial Class admindashboardform
         ' Label2
         ' 
         Label2.Dock = DockStyle.Top
-        Label2.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.Location = New Point(0, 0)
         Label2.Name = "Label2"
         Label2.Size = New Size(161, 51)
@@ -323,7 +323,7 @@ Partial Class admindashboardform
         TabPage3.Controls.Add(PictureBox4)
         TabPage3.Location = New Point(4, 24)
         TabPage3.Name = "TabPage3"
-        TabPage3.Padding = New Padding(3, 3, 3, 3)
+        TabPage3.Padding = New Padding(3)
         TabPage3.Size = New Size(842, 503)
         TabPage3.TabIndex = 2
         TabPage3.Text = "TabPage3"
@@ -377,7 +377,7 @@ Partial Class admindashboardform
         ' 
         sanfrancisco_branch_btn.FlatAppearance.BorderSize = 0
         sanfrancisco_branch_btn.FlatStyle = FlatStyle.Flat
-        sanfrancisco_branch_btn.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        sanfrancisco_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         sanfrancisco_branch_btn.Location = New Point(448, 50)
         sanfrancisco_branch_btn.Name = "sanfrancisco_branch_btn"
         sanfrancisco_branch_btn.Size = New Size(170, 60)
@@ -390,7 +390,7 @@ Partial Class admindashboardform
         ' 
         batasan_branch_btn.FlatAppearance.BorderSize = 0
         batasan_branch_btn.FlatStyle = FlatStyle.Flat
-        batasan_branch_btn.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        batasan_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         batasan_branch_btn.Location = New Point(265, 50)
         batasan_branch_btn.Name = "batasan_branch_btn"
         batasan_branch_btn.Size = New Size(170, 60)
@@ -403,7 +403,7 @@ Partial Class admindashboardform
         ' 
         sanbartolome_branch_btn.FlatAppearance.BorderSize = 0
         sanbartolome_branch_btn.FlatStyle = FlatStyle.Flat
-        sanbartolome_branch_btn.Font = New Font("Segoe UI", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        sanbartolome_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         sanbartolome_branch_btn.Location = New Point(82, 50)
         sanbartolome_branch_btn.Name = "sanbartolome_branch_btn"
         sanbartolome_branch_btn.Size = New Size(170, 60)
@@ -468,7 +468,7 @@ Partial Class admindashboardform
         TabPage2.Controls.Add(PictureBox3)
         TabPage2.Location = New Point(4, 24)
         TabPage2.Name = "TabPage2"
-        TabPage2.Padding = New Padding(3, 3, 3, 3)
+        TabPage2.Padding = New Padding(3)
         TabPage2.Size = New Size(842, 503)
         TabPage2.TabIndex = 1
         TabPage2.Text = "TabPage2"
@@ -498,7 +498,7 @@ Partial Class admindashboardform
         ' dep_filter_btn
         ' 
         dep_filter_btn.AutoSize = True
-        dep_filter_btn.Font = New Font("Segoe UI", 10.0F, FontStyle.Regular, GraphicsUnit.Point)
+        dep_filter_btn.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
         dep_filter_btn.Location = New Point(326, 10)
         dep_filter_btn.Name = "dep_filter_btn"
         dep_filter_btn.Size = New Size(103, 19)
@@ -508,7 +508,7 @@ Partial Class admindashboardform
         ' branch_filter_lb
         ' 
         branch_filter_lb.AutoSize = True
-        branch_filter_lb.Font = New Font("Segoe UI", 10.0F, FontStyle.Regular, GraphicsUnit.Point)
+        branch_filter_lb.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
         branch_filter_lb.Location = New Point(228, 10)
         branch_filter_lb.Name = "branch_filter_lb"
         branch_filter_lb.Size = New Size(73, 19)
@@ -520,7 +520,7 @@ Partial Class admindashboardform
         add_employees_btn.BackColor = Color.Red
         add_employees_btn.FlatAppearance.BorderColor = Color.Red
         add_employees_btn.FlatStyle = FlatStyle.Flat
-        add_employees_btn.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        add_employees_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         add_employees_btn.ForeColor = Color.White
         add_employees_btn.Location = New Point(715, 10)
         add_employees_btn.Name = "add_employees_btn"
@@ -644,7 +644,7 @@ Partial Class admindashboardform
         TabPage1.Controls.Add(PictureBox6)
         TabPage1.Location = New Point(4, 24)
         TabPage1.Name = "TabPage1"
-        TabPage1.Padding = New Padding(3, 3, 3, 3)
+        TabPage1.Padding = New Padding(3)
         TabPage1.Size = New Size(842, 503)
         TabPage1.TabIndex = 0
         TabPage1.Text = "TabPage1"
@@ -654,7 +654,7 @@ Partial Class admindashboardform
         ' 
         Panel4.BackColor = SystemColors.ControlLight
         Panel4.Location = New Point(79, 50)
-        Panel4.Margin = New Padding(2, 2, 2, 2)
+        Panel4.Margin = New Padding(2)
         Panel4.Name = "Panel4"
         Panel4.Padding = New Padding(7, 0, 0, 0)
         Panel4.Size = New Size(690, 80)
@@ -762,7 +762,7 @@ Partial Class admindashboardform
         TabPage4.Controls.Add(PictureBox5)
         TabPage4.Location = New Point(4, 24)
         TabPage4.Name = "TabPage4"
-        TabPage4.Padding = New Padding(3, 3, 3, 3)
+        TabPage4.Padding = New Padding(3)
         TabPage4.Size = New Size(842, 503)
         TabPage4.TabIndex = 3
         TabPage4.Text = "TabPage4"
@@ -791,7 +791,7 @@ Partial Class admindashboardform
         Update_btn_dept.BackColor = Color.Red
         Update_btn_dept.FlatAppearance.BorderColor = Color.Red
         Update_btn_dept.FlatStyle = FlatStyle.Flat
-        Update_btn_dept.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        Update_btn_dept.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Update_btn_dept.ForeColor = Color.White
         Update_btn_dept.Location = New Point(611, 10)
         Update_btn_dept.Name = "Update_btn_dept"
@@ -805,7 +805,7 @@ Partial Class admindashboardform
         add_dept_btn.BackColor = Color.Red
         add_dept_btn.FlatAppearance.BorderColor = Color.Red
         add_dept_btn.FlatStyle = FlatStyle.Flat
-        add_dept_btn.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
+        add_dept_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         add_dept_btn.ForeColor = Color.White
         add_dept_btn.Location = New Point(715, 10)
         add_dept_btn.Name = "add_dept_btn"
@@ -847,7 +847,7 @@ Partial Class admindashboardform
         ' action_col
         ' 
         action_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        action_col.FillWeight = 50.0F
+        action_col.FillWeight = 50F
         action_col.HeaderText = "Action"
         action_col.MinimumWidth = 50
         action_col.Name = "action_col"
@@ -885,7 +885,7 @@ Partial Class admindashboardform
         TabPage5.Controls.Add(PictureBox2)
         TabPage5.Location = New Point(4, 24)
         TabPage5.Name = "TabPage5"
-        TabPage5.Padding = New Padding(3, 3, 3, 3)
+        TabPage5.Padding = New Padding(3)
         TabPage5.Size = New Size(842, 503)
         TabPage5.TabIndex = 4
         TabPage5.Text = "TabPage5"
@@ -894,7 +894,7 @@ Partial Class admindashboardform
         ' TextBox1
         ' 
         TextBox1.Location = New Point(241, 72)
-        TextBox1.Margin = New Padding(2, 2, 2, 2)
+        TextBox1.Margin = New Padding(2)
         TextBox1.Name = "TextBox1"
         TextBox1.PlaceholderText = "employee"
         TextBox1.Size = New Size(134, 23)
@@ -962,7 +962,7 @@ Partial Class admindashboardform
         ' 
         ' admindashboardform
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
         ClientSize = New Size(970, 473)

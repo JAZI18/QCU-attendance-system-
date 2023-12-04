@@ -3,12 +3,15 @@
     Private _employeeCode As String
 
     Private _name As String
+    Private _depname As String
+
 
     ' Modify the constructor to accept employeeCode as a parameter
-    Public Sub New(employeeCode As String, name As String)
+    Public Sub New(employeeCode As String, name As String, depname As String)
         InitializeComponent()
         _employeeCode = employeeCode
         _name = name
+        _depname = depname
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -41,5 +44,14 @@
 
     Private Sub ChooseChangeEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label2.Text = _name
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Dim employee As Update_Employee = New Update_Employee(_employeeCode, _name, _depname)
+
+        employee.Show()
+
     End Sub
 End Class

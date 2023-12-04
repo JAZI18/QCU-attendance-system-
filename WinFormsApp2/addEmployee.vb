@@ -13,10 +13,12 @@ Public Class addEmployee
     End Sub
     Private Sub submit_employees_btn_(sender As Object, e As EventArgs) Handles submit_employees_btn.Click
 
+
+        MsgBox(e_dep.SelectedItem)
         Try
             InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
         {GenerateEmployeeCode(), e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
-         e_gender.SelectedItem.ToString, 2.ToString, e_email.Text})
+         e_gender.SelectedItem.ToString, selectDepartment(), e_email.Text})
             MessageBox.Show("Record inserted successfully.")
 
             admindashboardform.updateEmpployeeGrid()
@@ -34,6 +36,21 @@ Public Class addEmployee
 
 
     End Sub
+    Function selectDepartment() As Integer
+        Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", {e_dep.SelectedItem}, "department_name=@deparment")
+
+        If reader.Read Then
+            If Not reader.IsDBNull(reader.GetOrdinal("department_id")) Then
+                Dim departmentId As Integer = reader.GetInt32("department_id")
+                Console.WriteLine("Department ID: " & departmentId)
+                Return departmentId
+            End If
+        End If
+
+
+
+    End Function
+
     Public Function GenerateEmployeeCode() As String
         ' Get the year
         Dim yearCode As String = DateTime.Now.ToString("yy")
@@ -54,5 +71,9 @@ Public Class addEmployee
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         TabPage9.BackColor = Color.Black
+    End Sub
+
+    Private Sub TabPage9_Click(sender As Object, e As EventArgs) Handles TabPage9.Click
+
     End Sub
 End Class

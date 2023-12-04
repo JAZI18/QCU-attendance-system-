@@ -246,7 +246,6 @@ Partial Class addEmployee
     Friend WithEvents TabControl3 As TabControl
     Friend WithEvents TabPage9 As TabPage
     Friend WithEvents submit_employees_btn As Button
-    Friend WithEvents e_dep As ComboBox
     Friend WithEvents dep As Label
     Friend WithEvents e As Label
     Friend WithEvents e_email As TextBox
@@ -261,4 +260,5 @@ Partial Class addEmployee
     Friend WithEvents f As Label
     Friend WithEvents e_date As DateTimePicker
     Friend WithEvents Button1 As Button
+    Friend WithEvents e_dep As ComboBox
 End Class

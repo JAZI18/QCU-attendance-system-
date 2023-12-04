@@ -48,8 +48,9 @@ Public Class admindashboardform
             ' Get the employee_id regardless of the button type
             Dim employeeCode As String = employee_grid_view.Rows(e.RowIndex).Cells("id_col").Value
             Dim name As String = employee_grid_view.Rows(e.RowIndex).Cells("name_col").Value
+            Dim depname As String = employee_grid_view.Rows(e.RowIndex).Cells("hired_col").Value
 
-            Dim chooseChangeEmployeeForm As New ChooseChangeEmployee(employeeCode, name)
+            Dim chooseChangeEmployeeForm As New ChooseChangeEmployee(employeeCode, name, depname)
             chooseChangeEmployeeForm.Show()
 
 
@@ -115,6 +116,10 @@ Public Class admindashboardform
     End Sub
 
     Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
+
+    End Sub
+
+    Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabPage2.Click
 
     End Sub
 End Class
