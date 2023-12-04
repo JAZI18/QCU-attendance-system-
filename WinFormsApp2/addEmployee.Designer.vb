@@ -24,6 +24,7 @@ Partial Class addEmployee
     Private Sub InitializeComponent()
         TabControl3 = New TabControl()
         TabPage9 = New TabPage()
+        Button1 = New Button()
         submit_employees_btn = New Button()
         e_dep = New ComboBox()
         dep = New Label()
@@ -39,7 +40,6 @@ Partial Class addEmployee
         m = New Label()
         f = New Label()
         e_date = New DateTimePicker()
-        Button1 = New Button()
         TabControl3.SuspendLayout()
         TabPage9.SuspendLayout()
         SuspendLayout()
@@ -78,6 +78,15 @@ Partial Class addEmployee
         TabPage9.Size = New Size(422, 330)
         TabPage9.TabIndex = 0
         TabPage9.Text = "TabPage9"
+        ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(292, 0)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 23)
+        Button1.TabIndex = 16
+        Button1.Text = "Button1"
+        Button1.UseVisualStyleBackColor = True
         ' 
         ' submit_employees_btn
         ' 
@@ -216,15 +225,6 @@ Partial Class addEmployee
         e_date.Name = "e_date"
         e_date.Size = New Size(191, 29)
         e_date.TabIndex = 4
-        ' 
-        ' Button1
-        ' 
-        Button1.Location = New Point(292, 0)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(75, 23)
-        Button1.TabIndex = 16
-        Button1.Text = "Button1"
-        Button1.UseVisualStyleBackColor = True
         ' 
         ' addEmployee
         ' 
