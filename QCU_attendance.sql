@@ -19,8 +19,44 @@
 CREATE DATABASE IF NOT EXISTS `qcu_attendance_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `qcu_attendance_db`;
 
--- Dumping structure for table qcu_attendance_db.emloyee_schedule
-CREATE TABLE IF NOT EXISTS `emloyee_schedule` (
+-- Dumping structure for table qcu_attendance_db.admin_account
+CREATE TABLE IF NOT EXISTS `admin_account` (
+  `admin_id` int(100) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `employee_info` int(100) NOT NULL,
+  PRIMARY KEY (`admin_id`) USING BTREE,
+  KEY `employee_info` (`employee_info`),
+  CONSTRAINT `FK_admin_account_employee_info` FOREIGN KEY (`employee_info`) REFERENCES `employee_info` (`employee_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table qcu_attendance_db.admin_account: ~1 rows (approximately)
+
+-- Dumping structure for table qcu_attendance_db.employee_info
+CREATE TABLE IF NOT EXISTS `employee_info` (
+  `employee_id` int(100) NOT NULL AUTO_INCREMENT,
+  `employee_code` varchar(50) NOT NULL DEFAULT '',
+  `first_name` varchar(50) NOT NULL DEFAULT '',
+  `middle_name` varchar(50) NOT NULL DEFAULT '',
+  `last_name` varchar(50) NOT NULL DEFAULT '',
+  `dob` date NOT NULL,
+  `gender` varchar(55) NOT NULL,
+  `department_id` int(11) NOT NULL DEFAULT 0,
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`employee_id`) USING BTREE,
+  KEY `FK_employee_info_qcu_department` (`department_id`),
+  CONSTRAINT `FK_employee_info_qcu_department` FOREIGN KEY (`department_id`) REFERENCES `qcu_department` (`department_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table qcu_attendance_db.employee_info: ~1 rows (approximately)
+INSERT INTO `employee_info` (`employee_id`, `employee_code`, `first_name`, `middle_name`, `last_name`, `dob`, `gender`, `department_id`, `email`) VALUES
+	(23, '23-9678', 'dasd', 'asdas', 'asdas', '2023-12-04', 'Female', 2, 'asd'),
+	(24, '23-3876', 'asdsa', 'sadas', 'asdasasdas', '2023-12-04', 'Female', 2, 'asdsa'),
+	(25, '23-8208', 'das', 'sda', 'asdw', '2023-12-04', 'Female', 2, 'asdas'),
+	(26, '23-6019', 'dasd', 'das', 'dsa', '2023-12-04', 'Female', 2, 'asdsa');
+
+-- Dumping structure for table qcu_attendance_db.employee_schedule
+CREATE TABLE IF NOT EXISTS `employee_schedule` (
   `emp_schedule_id` int(11) NOT NULL,
   `employee_id` int(100) NOT NULL,
   `emp_branc_id` int(100) NOT NULL,
@@ -32,52 +68,14 @@ CREATE TABLE IF NOT EXISTS `emloyee_schedule` (
   PRIMARY KEY (`emp_schedule_id`),
   KEY `employee_id` (`employee_id`),
   KEY `emp_branc_id` (`emp_branc_id`),
-  CONSTRAINT `FK_emloyee_schedule_employe_account` FOREIGN KEY (`employee_id`) REFERENCES `employe_account` (`employee_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_emloyee_schedule_qcu_branches` FOREIGN KEY (`emp_branc_id`) REFERENCES `qcu_branches` (`branch_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FK_emloyee_schedule_qcu_branches` FOREIGN KEY (`emp_branc_id`) REFERENCES `qcu_branches` (`branch_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_employee_schedule_employee_info` FOREIGN KEY (`employee_id`) REFERENCES `employee_info` (`employee_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table qcu_attendance_db.emloyee_schedule: ~0 rows (approximately)
-INSERT INTO `emloyee_schedule` (`emp_schedule_id`, `employee_id`, `emp_branc_id`, `workdays`, `shift_start_time`, `shift_end_time`, `schedule_start_date`, `schedule_end_date`) VALUES
-	(1, 1, 1, 'Monday', '22:38:54', '34:38:54', '2023-11-17', '2023-11-30');
+-- Dumping data for table qcu_attendance_db.employee_schedule: ~0 rows (approximately)
 
--- Dumping structure for table qcu_attendance_db.employee_info
-CREATE TABLE IF NOT EXISTS `employee_info` (
-  `employee_Id` int(100) NOT NULL,
-  `employee_code` varchar(50) NOT NULL DEFAULT '',
-  `first_name` varchar(50) NOT NULL DEFAULT '',
-  `middle_name` varchar(50) NOT NULL DEFAULT '',
-  `last_name` varchar(50) NOT NULL DEFAULT '',
-  `dob` date NOT NULL,
-  `gender` varchar(55) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `department_id` int(11) NOT NULL DEFAULT 0,
-  `email` varchar(50) NOT NULL,
-  PRIMARY KEY (`employee_Id`) USING BTREE,
-  KEY `FK_employee_info_qcu_department` (`department_id`),
-  CONSTRAINT `FK_employee_info_qcu_department` FOREIGN KEY (`department_id`) REFERENCES `qcu_department` (`department_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Dumping data for table qcu_attendance_db.employee_info: ~0 rows (approximately)
-INSERT INTO `employee_info` (`employee_Id`, `employee_code`, `first_name`, `middle_name`, `last_name`, `dob`, `gender`, `address`, `department_id`, `email`) VALUES
-	(1, '123', 'alexander', 'auguis', 'estares', '2023-11-01', 'Male', '#03 alton', 1, '');
-
--- Dumping structure for table qcu_attendance_db.employe_account
-CREATE TABLE IF NOT EXISTS `employe_account` (
-  `employee_id` int(100) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `employee_info` int(100) NOT NULL,
-  PRIMARY KEY (`employee_id`) USING BTREE,
-  KEY `employee_info` (`employee_info`),
-  CONSTRAINT `FK_employe_account_employee_info` FOREIGN KEY (`employee_info`) REFERENCES `employee_info` (`employee_Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Dumping data for table qcu_attendance_db.employe_account: ~0 rows (approximately)
-INSERT INTO `employe_account` (`employee_id`, `username`, `password`, `employee_info`) VALUES
-	(1, 'lex', '123', 1);
-
--- Dumping structure for table qcu_attendance_db.emp_attence_in
-CREATE TABLE IF NOT EXISTS `emp_attence_in` (
+-- Dumping structure for table qcu_attendance_db.emp_attendance_in
+CREATE TABLE IF NOT EXISTS `emp_attendance_in` (
   `emp_attendace_id` int(10) NOT NULL,
   `employee_id` int(10) NOT NULL,
   `date` date NOT NULL,
@@ -87,12 +85,10 @@ CREATE TABLE IF NOT EXISTS `emp_attence_in` (
   `over_time_out` time NOT NULL,
   PRIMARY KEY (`emp_attendace_id`),
   KEY `employee_id` (`employee_id`),
-  CONSTRAINT `FK_emp_attence_in_employe_account` FOREIGN KEY (`employee_id`) REFERENCES `employe_account` (`employee_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `FK_emp_attendance_in_employee_info` FOREIGN KEY (`emp_attendace_id`) REFERENCES `employee_info` (`employee_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table qcu_attendance_db.emp_attence_in: ~0 rows (approximately)
-INSERT INTO `emp_attence_in` (`emp_attendace_id`, `employee_id`, `date`, `time_in`, `time_out`, `over_time_in`, `over_time_out`) VALUES
-	(1, 1, '2023-11-01', '13:34:11', '15:34:11', '20:34:11', '25:34:11');
+-- Dumping data for table qcu_attendance_db.emp_attendance_in: ~0 rows (approximately)
 
 -- Dumping structure for table qcu_attendance_db.qcu_branches
 CREATE TABLE IF NOT EXISTS `qcu_branches` (
@@ -102,11 +98,12 @@ CREATE TABLE IF NOT EXISTS `qcu_branches` (
   PRIMARY KEY (`branch_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table qcu_attendance_db.qcu_branches: ~3 rows (approximately)
+-- Dumping data for table qcu_attendance_db.qcu_branches: ~4 rows (approximately)
 INSERT INTO `qcu_branches` (`branch_id`, `branch_name`, `branch_address`) VALUES
 	(1, 'San Francisco', 'SDASDADSA'),
 	(2, 'Batasan', 'asdsa'),
-	(3, 'San Bartolome', 'sadsaasddgreht');
+	(3, 'San Bartolome', 'sadsaasddgreht'),
+	(4, 'San Beda', 'Porok');
 
 -- Dumping structure for table qcu_attendance_db.qcu_department
 CREATE TABLE IF NOT EXISTS `qcu_department` (
@@ -114,15 +111,35 @@ CREATE TABLE IF NOT EXISTS `qcu_department` (
   `department_name` varchar(250) NOT NULL,
   `department_desc` varchar(250) NOT NULL,
   PRIMARY KEY (`department_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table qcu_attendance_db.qcu_department: ~0 rows (approximately)
+-- Dumping data for table qcu_attendance_db.qcu_department: ~3 rows (approximately)
 INSERT INTO `qcu_department` (`department_id`, `department_name`, `department_desc`) VALUES
-	(1, 'Computer Science', 'Thishdasdasd');
+	(1, 'new_department_name', 'Thishdasdasd'),
+	(2, 'Physical Education', 'Math'),
+	(3, 'Mathemathics', 'Science');
+
+-- Dumping structure for view qcu_attendance_db.views
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `views` (
+	`employee_id` INT(100) NOT NULL,
+	`first_name` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`last_name` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`middle_name` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`department_id` INT(11) NOT NULL,
+	`gender` VARCHAR(55) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`email` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
+	`dob` DATE NOT NULL,
+	`department_name` VARCHAR(250) NOT NULL COLLATE 'utf8mb4_general_ci'
+) ENGINE=MyISAM;
+
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `views`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `views` AS SELECT e.employee_id, e.first_name, e.last_name, e.middle_name, e.department_id, e.gender, e.email, e.dob, d.department_name 
+FROM employee_info e JOIN qcu_department d ON e.department_id = d.department_id ;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
-
