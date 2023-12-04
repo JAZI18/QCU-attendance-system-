@@ -10,6 +10,10 @@ Public Class loginform
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles login_btn.Click
 
+        ' Hash the entered password
+        Dim hashedPassword As String = HashedPasswords(pass_tb.Text)
+
+        ' Fetch the hashed password from the database
         Dim reader As MySqlDataReader = SelectQuery("password", "admin_account", {un_tb.Text}, "username = @username")
 
         If Not reader.Read() Then
@@ -19,7 +23,8 @@ Public Class loginform
             Exit Sub
         End If
 
-        If reader("password") = pass_tb.Text Then
+        ' Compare hashed passwords
+        If reader("password") = hashedPassword Then
             Me.Hide()
             admindashboardform.Show()
         Else
@@ -30,6 +35,13 @@ Public Class loginform
         pass_tb.Clear()
 
     End Sub
+
+    Public Function HashedPasswords(password As String)
+        Using sha256 As New SHA256Managed()
+            Dim hashedBytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(password))
+            Return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower()
+        End Using
+    End Function
 
     Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
