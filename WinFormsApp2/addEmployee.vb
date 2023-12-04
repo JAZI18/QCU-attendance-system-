@@ -18,8 +18,6 @@ Public Class addEmployee
         {GenerateEmployeeCode(), e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
          e_gender.SelectedItem.ToString, 2.ToString, e_email.Text})
             MessageBox.Show("Record inserted successfully.")
-
-            admindashboardform.showEmployee()
             Me.Close()
 
         Catch ex As Exception
@@ -29,7 +27,7 @@ Public Class addEmployee
             e_email.Clear()
             e_gender.SelectedItem = Nothing
             e_date.Value = Date.Now
-            MessageBox.Show("An error occurred: " & ex.StackTrace)
+            MessageBox.Show("An error occurred: ")
         End Try
 
 
