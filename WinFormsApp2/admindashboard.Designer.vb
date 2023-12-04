@@ -56,13 +56,6 @@ Partial Class admindashboardform
         id_employees_tb = New TextBox()
         Label7 = New Label()
         employee_grid_view = New DataGridView()
-        id_col = New DataGridViewTextBoxColumn()
-        name_col = New DataGridViewTextBoxColumn()
-        shift_col = New DataGridViewTextBoxColumn()
-        gender_col = New DataGridViewTextBoxColumn()
-        dob_col = New DataGridViewTextBoxColumn()
-        hired_col = New DataGridViewTextBoxColumn()
-        act_col = New DataGridViewTextBoxColumn()
         PictureBox3 = New PictureBox()
         TabPage1 = New TabPage()
         Panel4 = New Panel()
@@ -81,9 +74,10 @@ Partial Class admindashboardform
         Update_btn_dept = New Button()
         add_dept_btn = New Button()
         dept_gridview = New DataGridView()
+        Id = New DataGridViewTextBoxColumn()
         dep_col = New DataGridViewTextBoxColumn()
         dep_desc = New DataGridViewTextBoxColumn()
-        action_col = New DataGridViewTextBoxColumn()
+        action_col = New DataGridViewButtonColumn()
         Label11 = New Label()
         PictureBox5 = New PictureBox()
         TabPage5 = New TabPage()
@@ -95,6 +89,13 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
+        id_col = New DataGridViewTextBoxColumn()
+        name_col = New DataGridViewTextBoxColumn()
+        shift_col = New DataGridViewTextBoxColumn()
+        gender_col = New DataGridViewTextBoxColumn()
+        dob_col = New DataGridViewTextBoxColumn()
+        hired_col = New DataGridViewTextBoxColumn()
+        act_col = New DataGridViewButtonColumn()
         nav_panel.SuspendLayout()
         Nav1.SuspendLayout()
         Panel3.SuspendLayout()
@@ -560,69 +561,6 @@ Partial Class admindashboardform
         employee_grid_view.Size = New Size(801, 400)
         employee_grid_view.TabIndex = 2
         ' 
-        ' id_col
-        ' 
-        id_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        id_col.FillWeight = 147.608124F
-        id_col.HeaderText = "Employoee Code"
-        id_col.MinimumWidth = 8
-        id_col.Name = "id_col"
-        id_col.ReadOnly = True
-        ' 
-        ' name_col
-        ' 
-        name_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        name_col.FillWeight = 170.55838F
-        name_col.HeaderText = "Name"
-        name_col.MinimumWidth = 8
-        name_col.Name = "name_col"
-        name_col.ReadOnly = True
-        ' 
-        ' shift_col
-        ' 
-        shift_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        shift_col.FillWeight = 76.3667F
-        shift_col.HeaderText = "Email"
-        shift_col.MinimumWidth = 8
-        shift_col.Name = "shift_col"
-        shift_col.ReadOnly = True
-        ' 
-        ' gender_col
-        ' 
-        gender_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        gender_col.FillWeight = 76.3667F
-        gender_col.HeaderText = "Gender"
-        gender_col.MinimumWidth = 8
-        gender_col.Name = "gender_col"
-        gender_col.ReadOnly = True
-        ' 
-        ' dob_col
-        ' 
-        dob_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        dob_col.FillWeight = 76.3667F
-        dob_col.HeaderText = "DOB"
-        dob_col.MinimumWidth = 8
-        dob_col.Name = "dob_col"
-        dob_col.ReadOnly = True
-        ' 
-        ' hired_col
-        ' 
-        hired_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        hired_col.FillWeight = 76.3667F
-        hired_col.HeaderText = "Department"
-        hired_col.MinimumWidth = 8
-        hired_col.Name = "hired_col"
-        hired_col.ReadOnly = True
-        ' 
-        ' act_col
-        ' 
-        act_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        act_col.FillWeight = 76.3667F
-        act_col.HeaderText = "Action"
-        act_col.MinimumWidth = 8
-        act_col.Name = "act_col"
-        act_col.ReadOnly = True
-        ' 
         ' PictureBox3
         ' 
         PictureBox3.BackColor = Color.Transparent
@@ -819,13 +757,19 @@ Partial Class admindashboardform
         dept_gridview.AllowUserToAddRows = False
         dept_gridview.AllowUserToDeleteRows = False
         dept_gridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dept_gridview.Columns.AddRange(New DataGridViewColumn() {dep_col, dep_desc, action_col})
+        dept_gridview.Columns.AddRange(New DataGridViewColumn() {Id, dep_col, dep_desc, action_col})
         dept_gridview.Location = New Point(20, 101)
         dept_gridview.Name = "dept_gridview"
         dept_gridview.ReadOnly = True
         dept_gridview.RowHeadersWidth = 62
         dept_gridview.Size = New Size(801, 391)
         dept_gridview.TabIndex = 12
+        ' 
+        ' Id
+        ' 
+        Id.HeaderText = "ID"
+        Id.Name = "Id"
+        Id.ReadOnly = True
         ' 
         ' dep_col
         ' 
@@ -852,6 +796,8 @@ Partial Class admindashboardform
         action_col.MinimumWidth = 50
         action_col.Name = "action_col"
         action_col.ReadOnly = True
+        action_col.Resizable = DataGridViewTriState.True
+        action_col.SortMode = DataGridViewColumnSortMode.Automatic
         ' 
         ' Label11
         ' 
@@ -960,12 +906,77 @@ Partial Class admindashboardform
         MySqlCommand1.EnableCaching = False
         MySqlCommand1.Transaction = Nothing
         ' 
+        ' id_col
+        ' 
+        id_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        id_col.FillWeight = 147.608124F
+        id_col.HeaderText = "Employoee Code"
+        id_col.MinimumWidth = 8
+        id_col.Name = "id_col"
+        id_col.ReadOnly = True
+        ' 
+        ' name_col
+        ' 
+        name_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        name_col.FillWeight = 170.55838F
+        name_col.HeaderText = "Name"
+        name_col.MinimumWidth = 8
+        name_col.Name = "name_col"
+        name_col.ReadOnly = True
+        ' 
+        ' shift_col
+        ' 
+        shift_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        shift_col.FillWeight = 76.3667F
+        shift_col.HeaderText = "Email"
+        shift_col.MinimumWidth = 8
+        shift_col.Name = "shift_col"
+        shift_col.ReadOnly = True
+        ' 
+        ' gender_col
+        ' 
+        gender_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        gender_col.FillWeight = 76.3667F
+        gender_col.HeaderText = "Gender"
+        gender_col.MinimumWidth = 8
+        gender_col.Name = "gender_col"
+        gender_col.ReadOnly = True
+        ' 
+        ' dob_col
+        ' 
+        dob_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        dob_col.FillWeight = 76.3667F
+        dob_col.HeaderText = "DOB"
+        dob_col.MinimumWidth = 8
+        dob_col.Name = "dob_col"
+        dob_col.ReadOnly = True
+        ' 
+        ' hired_col
+        ' 
+        hired_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        hired_col.FillWeight = 76.3667F
+        hired_col.HeaderText = "Department"
+        hired_col.MinimumWidth = 8
+        hired_col.Name = "hired_col"
+        hired_col.ReadOnly = True
+        ' 
+        ' act_col
+        ' 
+        act_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        act_col.FillWeight = 76.3667F
+        act_col.HeaderText = "Action"
+        act_col.MinimumWidth = 8
+        act_col.Name = "act_col"
+        act_col.ReadOnly = True
+        act_col.Resizable = DataGridViewTriState.True
+        act_col.SortMode = DataGridViewColumnSortMode.Automatic
+        ' 
         ' admindashboardform
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
-        ClientSize = New Size(970, 473)
+        ClientSize = New Size(1065, 473)
         Controls.Add(TabControl1)
         Controls.Add(nav_panel)
         FormBorderStyle = FormBorderStyle.None
@@ -1039,21 +1050,11 @@ Partial Class admindashboardform
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents id_col As DataGridViewTextBoxColumn
-    Friend WithEvents name_col As DataGridViewTextBoxColumn
-    Friend WithEvents shift_col As DataGridViewTextBoxColumn
-    Friend WithEvents gender_col As DataGridViewTextBoxColumn
-    Friend WithEvents dob_col As DataGridViewTextBoxColumn
-    Friend WithEvents hired_col As DataGridViewTextBoxColumn
-    Friend WithEvents act_col As DataGridViewTextBoxColumn
     Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents depa As DataGridView
     Friend WithEvents dept_gridview As DataGridView
-    Friend WithEvents dep_col As DataGridViewTextBoxColumn
-    Friend WithEvents dep_desc As DataGridViewTextBoxColumn
-    Friend WithEvents action_col As DataGridViewTextBoxColumn
     Friend WithEvents Update_btn_dept As Button
     Friend WithEvents dep_filter_btn As Label
     Friend WithEvents branch_filter_lb As Label
@@ -1077,4 +1078,15 @@ Partial Class admindashboardform
     Friend WithEvents present_stat As stats_button
     Friend WithEvents total_stat As stats_button
     Friend WithEvents clear_filter_btn As Button
+    Friend WithEvents Id As DataGridViewTextBoxColumn
+    Friend WithEvents dep_col As DataGridViewTextBoxColumn
+    Friend WithEvents dep_desc As DataGridViewTextBoxColumn
+    Friend WithEvents action_col As DataGridViewButtonColumn
+    Friend WithEvents id_col As DataGridViewTextBoxColumn
+    Friend WithEvents name_col As DataGridViewTextBoxColumn
+    Friend WithEvents shift_col As DataGridViewTextBoxColumn
+    Friend WithEvents gender_col As DataGridViewTextBoxColumn
+    Friend WithEvents dob_col As DataGridViewTextBoxColumn
+    Friend WithEvents hired_col As DataGridViewTextBoxColumn
+    Friend WithEvents act_col As DataGridViewButtonColumn
 End Class
