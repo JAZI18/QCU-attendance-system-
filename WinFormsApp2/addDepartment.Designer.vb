@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Update_department
+Partial Class addDepartment
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -35,73 +35,73 @@ Partial Class Update_department
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(12, 9)
+        Label1.Location = New Point(23, 9)
         Label1.Name = "Label1"
-        Label1.Size = New Size(195, 25)
-        Label1.TabIndex = 4
-        Label1.Text = "Update Department"
+        Label1.Size = New Size(165, 25)
+        Label1.TabIndex = 5
+        Label1.Text = "Add Department"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
         Label3.ForeColor = Color.Red
-        Label3.Location = New Point(233, 9)
+        Label3.Location = New Point(223, 9)
         Label3.Name = "Label3"
         Label3.Size = New Size(24, 25)
-        Label3.TabIndex = 13
+        Label3.TabIndex = 14
         Label3.Text = "X"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(22, 71)
+        Label2.Location = New Point(23, 59)
         Label2.Name = "Label2"
         Label2.Size = New Size(145, 21)
-        Label2.TabIndex = 14
+        Label2.TabIndex = 15
         Label2.Text = "Department Name"
         ' 
         ' dep_name
         ' 
         dep_name.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        dep_name.Location = New Point(22, 104)
+        dep_name.Location = New Point(23, 94)
         dep_name.Name = "dep_name"
         dep_name.Size = New Size(235, 29)
-        dep_name.TabIndex = 15
+        dep_name.TabIndex = 16
         ' 
         ' dep_desc
         ' 
         dep_desc.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        dep_desc.Location = New Point(22, 190)
+        dep_desc.Location = New Point(23, 171)
         dep_desc.Name = "dep_desc"
         dep_desc.Size = New Size(235, 29)
-        dep_desc.TabIndex = 16
+        dep_desc.TabIndex = 17
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.Location = New Point(22, 166)
+        Label4.Location = New Point(31, 147)
         Label4.Name = "Label4"
         Label4.Size = New Size(137, 21)
-        Label4.TabIndex = 17
+        Label4.TabIndex = 18
         Label4.Text = "Department Desc"
         ' 
         ' sub_btn
         ' 
-        sub_btn.Location = New Point(145, 249)
+        sub_btn.Location = New Point(146, 224)
         sub_btn.Name = "sub_btn"
         sub_btn.Size = New Size(112, 33)
-        sub_btn.TabIndex = 18
+        sub_btn.TabIndex = 19
         sub_btn.Text = "Submit"
         sub_btn.UseVisualStyleBackColor = True
         ' 
-        ' Update_department
+        ' addDepartment
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(292, 330)
+        ClientSize = New Size(291, 280)
         Controls.Add(sub_btn)
         Controls.Add(Label4)
         Controls.Add(dep_desc)
@@ -109,9 +109,8 @@ Partial Class Update_department
         Controls.Add(Label2)
         Controls.Add(Label3)
         Controls.Add(Label1)
-        FormBorderStyle = FormBorderStyle.None
-        Name = "Update_department"
-        Text = "Update_department"
+        Name = "addDepartment"
+        Text = "addDepartment"
         ResumeLayout(False)
         PerformLayout()
     End Sub

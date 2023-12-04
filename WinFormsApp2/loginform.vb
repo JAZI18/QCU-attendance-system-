@@ -1,4 +1,9 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Text
+Imports MySql.Data.MySqlClient
+
+
+Imports System.Security.Cryptography
+
 
 Public Class loginform
 

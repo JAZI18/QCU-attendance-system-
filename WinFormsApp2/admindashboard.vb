@@ -122,6 +122,16 @@ Public Class admindashboardform
     Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabPage2.Click
 
     End Sub
+
+    Private Sub add_dept_btn_Click(sender As Object, e As EventArgs) Handles add_dept_btn.Click
+
+        addDepartment.Show()
+
+    End Sub
+
+    Private Sub TabPage4_Click(sender As Object, e As EventArgs) Handles TabPage4.Click
+
+    End Sub
 End Class
 
 '
