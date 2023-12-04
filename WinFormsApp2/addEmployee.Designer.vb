@@ -90,7 +90,7 @@ Partial Class addEmployee
         ' 
         ' submit_employees_btn
         ' 
-        submit_employees_btn.Location = New Point(221, 279)
+        submit_employees_btn.Location = New Point(211, 279)
         submit_employees_btn.Name = "submit_employees_btn"
         submit_employees_btn.Size = New Size(193, 33)
         submit_employees_btn.TabIndex = 15
