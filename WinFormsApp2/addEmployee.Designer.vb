@@ -39,6 +39,7 @@ Partial Class addEmployee
         m = New Label()
         f = New Label()
         e_date = New DateTimePicker()
+        Button1 = New Button()
         TabControl3.SuspendLayout()
         TabPage9.SuspendLayout()
         SuspendLayout()
@@ -55,6 +56,7 @@ Partial Class addEmployee
         ' TabPage9
         ' 
         TabPage9.BackColor = Color.Transparent
+        TabPage9.Controls.Add(Button1)
         TabPage9.Controls.Add(submit_employees_btn)
         TabPage9.Controls.Add(e_dep)
         TabPage9.Controls.Add(dep)
@@ -72,7 +74,7 @@ Partial Class addEmployee
         TabPage9.Controls.Add(e_date)
         TabPage9.Location = New Point(4, 24)
         TabPage9.Name = "TabPage9"
-        TabPage9.Padding = New Padding(3, 3, 3, 3)
+        TabPage9.Padding = New Padding(3)
         TabPage9.Size = New Size(422, 330)
         TabPage9.TabIndex = 0
         TabPage9.Text = "TabPage9"
@@ -215,6 +217,15 @@ Partial Class addEmployee
         e_date.Size = New Size(191, 29)
         e_date.TabIndex = 4
         ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(292, 0)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 23)
+        Button1.TabIndex = 16
+        Button1.Text = "Button1"
+        Button1.UseVisualStyleBackColor = True
+        ' 
         ' addEmployee
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -222,7 +233,7 @@ Partial Class addEmployee
         ClientSize = New Size(429, 370)
         Controls.Add(TabControl3)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
-        Margin = New Padding(2, 2, 2, 2)
+        Margin = New Padding(2)
         Name = "addEmployee"
         StartPosition = FormStartPosition.CenterParent
         Text = "addEmployee"
@@ -249,4 +260,5 @@ Partial Class addEmployee
     Friend WithEvents m As Label
     Friend WithEvents f As Label
     Friend WithEvents e_date As DateTimePicker
+    Friend WithEvents Button1 As Button
 End Class

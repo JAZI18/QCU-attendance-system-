@@ -52,4 +52,7 @@ Public Class addEmployee
         ListDepartment()
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        TabPage9.BackColor = Color.Black
+    End Sub
 End Class
