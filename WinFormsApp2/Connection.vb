@@ -104,7 +104,13 @@ Module Connection
     ''' <summary>
     ''' update query query builder
     ''' fields is string seperated by comma
+    ''' 
     ''' </summary>
+    ''' <remarks>
+    ''' pre fields lang wala ng @ hahahahah
+    ''' 
+    ''' </remarks>
+    ''' 
     ''' <param name="table"></param>
     ''' <param name="fields"></param>
     ''' <param name="vals"></param>
@@ -122,9 +128,12 @@ Module Connection
 
         If whereClause IsNot Nothing Then sql += $" where {whereClause}"
 
+        MsgBox(sql)
+
+
         Dim cmd As MySqlCommand = NewQuery(sql, vals)
 
-        cmd.ExecuteNonQuery()
+        Return cmd.ExecuteNonQuery()
     End Function
 
 
