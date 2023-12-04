@@ -1,6 +1,4 @@
-﻿Imports System.Diagnostics.Eventing
-Imports MySql.Data.MySqlClient
-Imports Org.BouncyCastle.Utilities
+﻿Imports MySql.Data.MySqlClient
 
 Public Class admindashboardform
 
@@ -10,8 +8,11 @@ Public Class admindashboardform
 
 
     Private Sub employee_btn_(sender As Object, e As EventArgs) Handles employee_btn.Click
-        employee_grid_view.Rows.Clear()
         TabControl1.SelectedTab = TabPage2
+    End Sub
+
+    Private Sub updateEmpployeeGrid()
+        employee_grid_view.Rows.Clear()
 
         Dim command As MySqlCommand = NewQuery("SELECT e.employee_id, e.first_name, e.last_name, e.middle_name, e.department_id, e.gender, e.email, e.dob, d.department_name FROM employee_info e JOIN qcu_department d ON e.department_id = d.department_id", Nothing)
 
@@ -37,7 +38,6 @@ Public Class admindashboardform
         reader.Close()
     End Sub
 
-
     Private Sub branch_btn_(sender As Object, e As EventArgs) Handles branch_btn.Click
         TabControl1.SelectedTab = TabPage3
     End Sub
@@ -47,6 +47,8 @@ Public Class admindashboardform
     End Sub
 
     Sub UpdateDeptGridView(Optional vals As String() = Nothing, Optional where As String = Nothing)
+
+
         dept_gridview.Rows.Clear()
         TabControl1.SelectedTab = TabPage4
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", vals, where)
@@ -63,17 +65,9 @@ Public Class admindashboardform
         TabControl1.SelectedTab = TabPage5
     End Sub
 
-    Private Sub sanbartolome_branch_btn_(sender As Object, e As EventArgs) Handles sanbartolome_branch_btn.Click
-    End Sub
 
-    Private Sub batasan_branch_btn_(sender As Object, e As EventArgs) Handles batasan_branch_btn.Click
-    End Sub
-
-    Private Sub sanfrancisco_branch_btn_(sender As Object, e As EventArgs) Handles sanfrancisco_branch_btn.Click
-    End Sub
 
     Private Sub Admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MsgBox("1")
         dashboard_btn.PerformClick()
     End Sub
 
@@ -101,21 +95,6 @@ Public Class admindashboardform
         Update_department.Show()
     End Sub
 
-    Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub Stats_button1_Load(sender As Object, e As EventArgs) Handles main_total_stat.Load
-    End Sub
-
-    Private Sub Stats_button2_Load(sender As Object, e As EventArgs) Handles main_present_stat.Load
-    End Sub
-
-    Private Sub Stats_button4_Load(sender As Object, e As EventArgs) Handles main_leave_stat.Load
-    End Sub
-
-    Private Sub Stats_button3_Load(sender As Object, e As EventArgs) Handles main_absent_stat.Load
-    End Sub
 
 
 End Class
