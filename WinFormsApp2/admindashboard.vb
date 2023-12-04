@@ -9,9 +9,10 @@ Public Class admindashboardform
 
     Private Sub employee_btn_(sender As Object, e As EventArgs) Handles employee_btn.Click
         TabControl1.SelectedTab = TabPage2
+        updateEmpployeeGrid()
     End Sub
 
-    Private Sub updateEmpployeeGrid()
+    Public Function updateEmpployeeGrid()
         employee_grid_view.Rows.Clear()
 
         Dim command As MySqlCommand = NewQuery("SELECT e.employee_id, e.first_name, e.last_name, e.middle_name, e.department_id, e.gender, e.email, e.dob, d.department_name FROM employee_info e JOIN qcu_department d ON e.department_id = d.department_id", Nothing)
@@ -32,10 +33,40 @@ Public Class admindashboardform
             ' Concatenate last name, first name, and middle name into one column
             Dim fullName As String = $"{lastName} {firstName} {middleName}"
 
-            ' Add the concatenated name and other fields to the DataGridView
-            employee_grid_view.Rows.Add(reader("employee_id"), fullName, reader("email"), reader("gender"), dob, reader("department_name"), "Delete Update")
+            ' Create a DataGridViewButtonCell for the "Delete" and "Update" actions
+
+            ' Add the concatenated name and other fields to the DataGridView along with the button cell
+            employee_grid_view.Rows.Add(reader("employee_id"), fullName, reader("email"), reader("gender"), dob, reader("department_name"), "Delete")
         End While
+
         reader.Close()
+
+    End Function
+    Private Sub employee_grid_view_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles employee_grid_view.CellContentClick
+        ' Check if the clicked cell is in the "Actions" column (assuming it's the last column in your DataGridView)
+        If e.ColumnIndex = employee_grid_view.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
+            ' Get the employee_id regardless of the button type
+            Dim employeeCode As String = employee_grid_view.Rows(e.RowIndex).Cells("id_col").Value
+            DeleteEmployee(employeeCode)
+
+        End If
+    End Sub
+    Private Sub DeleteEmployee(employeeCode As String)
+        ' Ask for confirmation before deletion
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this employee?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.Yes Then
+            ' User confirmed, proceed with deletion
+            DeleteQuery("admin_account", "employee_info=@id", {employeeCode})
+            DeleteQuery("employee_schedule", "employee_id=@id", {employeeCode})
+            DeleteQuery("emp_attendance_in", "employee_id=@id", {employeeCode})
+            DeleteQuery("employee_info", "employee_id=@id", {employeeCode})
+            updateEmpployeeGrid()
+            MessageBox.Show("Employee deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            ' User canceled deletion
+            MessageBox.Show("Deletion canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 
     Private Sub branch_btn_(sender As Object, e As EventArgs) Handles branch_btn.Click
@@ -95,8 +126,9 @@ Public Class admindashboardform
         Update_department.Show()
     End Sub
 
+    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
-
+    End Sub
 End Class
 
 '

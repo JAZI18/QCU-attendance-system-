@@ -18,6 +18,8 @@ Public Class addEmployee
         {GenerateEmployeeCode(), e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
          e_gender.SelectedItem.ToString, 2.ToString, e_email.Text})
             MessageBox.Show("Record inserted successfully.")
+
+            admindashboardform.updateEmpployeeGrid()
             Me.Close()
 
         Catch ex As Exception
