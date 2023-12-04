@@ -47,27 +47,15 @@ Public Class admindashboardform
         If e.ColumnIndex = employee_grid_view.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
             ' Get the employee_id regardless of the button type
             Dim employeeCode As String = employee_grid_view.Rows(e.RowIndex).Cells("id_col").Value
-            DeleteEmployee(employeeCode)
+            Dim name As String = employee_grid_view.Rows(e.RowIndex).Cells("name_col").Value
+
+            Dim chooseChangeEmployeeForm As New ChooseChangeEmployee(employeeCode, name)
+            chooseChangeEmployeeForm.Show()
+
 
         End If
     End Sub
-    Private Sub DeleteEmployee(employeeCode As String)
-        ' Ask for confirmation before deletion
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this employee?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-        If result = DialogResult.Yes Then
-            ' User confirmed, proceed with deletion
-            DeleteQuery("admin_account", "employee_info=@id", {employeeCode})
-            DeleteQuery("employee_schedule", "employee_id=@id", {employeeCode})
-            DeleteQuery("emp_attendance_in", "employee_id=@id", {employeeCode})
-            DeleteQuery("employee_info", "employee_id=@id", {employeeCode})
-            updateEmpployeeGrid()
-            MessageBox.Show("Employee deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Else
-            ' User canceled deletion
-            MessageBox.Show("Deletion canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-    End Sub
 
     Private Sub branch_btn_(sender As Object, e As EventArgs) Handles branch_btn.Click
         TabControl1.SelectedTab = TabPage3

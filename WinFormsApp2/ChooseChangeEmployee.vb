@@ -1,3 +1,45 @@
 ﻿Public Class ChooseChangeEmployee
 
+    Private _employeeCode As String
+
+    Private _name As String
+
+    ' Modify the constructor to accept employeeCode as a parameter
+    Public Sub New(employeeCode As String, name As String)
+        InitializeComponent()
+        _employeeCode = employeeCode
+        _name = name
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+
+        DeleteEmployee(_employeeCode)
+    End Sub
+
+
+
+    Private Sub DeleteEmployee(employeeCode As String)
+        ' Ask for confirmation before deletion
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this employee?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.Yes Then
+            ' User confirmed, proceed with deletion
+            DeleteQuery("admin_account", "employee_info=@id", {employeeCode})
+            DeleteQuery("employee_schedule", "employee_id=@id", {employeeCode})
+            DeleteQuery("emp_attendance_in", "employee_id=@id", {employeeCode})
+            DeleteQuery("employee_info", "employee_id=@id", {employeeCode})
+            admindashboardform.updateEmpployeeGrid()
+            MessageBox.Show("Employee deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Me.Close()
+        Else
+            ' User canceled deletion
+            MessageBox.Show("Deletion canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub ChooseChangeEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label2.Text = _name
+    End Sub
 End Class
