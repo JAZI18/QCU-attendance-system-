@@ -24,6 +24,7 @@ Partial Class addEmployee
     Private Sub InitializeComponent()
         TabControl3 = New TabControl()
         TabPage9 = New TabPage()
+        Button1 = New Button()
         submit_employees_btn = New Button()
         e_dep = New ComboBox()
         dep = New Label()
@@ -55,6 +56,7 @@ Partial Class addEmployee
         ' TabPage9
         ' 
         TabPage9.BackColor = Color.Transparent
+        TabPage9.Controls.Add(Button1)
         TabPage9.Controls.Add(submit_employees_btn)
         TabPage9.Controls.Add(e_dep)
         TabPage9.Controls.Add(dep)
@@ -72,10 +74,19 @@ Partial Class addEmployee
         TabPage9.Controls.Add(e_date)
         TabPage9.Location = New Point(4, 24)
         TabPage9.Name = "TabPage9"
-        TabPage9.Padding = New Padding(3, 3, 3, 3)
+        TabPage9.Padding = New Padding(3)
         TabPage9.Size = New Size(422, 330)
         TabPage9.TabIndex = 0
         TabPage9.Text = "TabPage9"
+        ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(292, 0)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(75, 23)
+        Button1.TabIndex = 16
+        Button1.Text = "Button1"
+        Button1.UseVisualStyleBackColor = True
         ' 
         ' submit_employees_btn
         ' 
@@ -222,7 +233,7 @@ Partial Class addEmployee
         ClientSize = New Size(429, 370)
         Controls.Add(TabControl3)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
-        Margin = New Padding(2, 2, 2, 2)
+        Margin = New Padding(2)
         Name = "addEmployee"
         StartPosition = FormStartPosition.CenterParent
         Text = "addEmployee"
@@ -235,7 +246,6 @@ Partial Class addEmployee
     Friend WithEvents TabControl3 As TabControl
     Friend WithEvents TabPage9 As TabPage
     Friend WithEvents submit_employees_btn As Button
-    Friend WithEvents e_dep As ComboBox
     Friend WithEvents dep As Label
     Friend WithEvents e As Label
     Friend WithEvents e_email As TextBox
@@ -249,4 +259,6 @@ Partial Class addEmployee
     Friend WithEvents m As Label
     Friend WithEvents f As Label
     Friend WithEvents e_date As DateTimePicker
+    Friend WithEvents Button1 As Button
+    Friend WithEvents e_dep As ComboBox
 End Class
