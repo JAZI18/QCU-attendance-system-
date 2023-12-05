@@ -17,7 +17,7 @@
     End Sub
 
     Private Sub modify_DepartmentForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Label2.Text = _depname
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -42,4 +42,14 @@
         End If
 
     End Function
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim dep As Update_department = New Update_department(_depname, _depId)
+        dep.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Me.Close()
+    End Sub
 End Class

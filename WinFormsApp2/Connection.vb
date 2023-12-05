@@ -128,7 +128,7 @@ Module Connection
 
         If whereClause IsNot Nothing Then sql += $" where {whereClause}"
 
-        MsgBox(sql)
+
 
 
         Dim cmd As MySqlCommand = NewQuery(sql, vals)
