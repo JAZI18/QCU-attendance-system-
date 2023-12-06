@@ -4,6 +4,15 @@ Public Class admindashboardform
 
     Private Sub dashboard_btn_(sender As Object, e As EventArgs) Handles dashboard_btn.Click
         TabControl1.SelectedTab = TabPage1
+        UpdateStats()
+    End Sub
+
+    Private Sub UpdateStats()
+
+
+        Dim reader As MySqlDataReader = SelectQuery("total", "total_emp")
+        reader.Read()
+        main_total_stat.Counter = reader("total")
     End Sub
 
 
@@ -115,23 +124,12 @@ Public Class admindashboardform
         Update_department.Show()
     End Sub
 
-    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
-    End Sub
-
-    Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabPage2.Click
-
-    End Sub
 
     Private Sub add_dept_btn_Click(sender As Object, e As EventArgs) Handles add_dept_btn.Click
-
         addDepartment.Show()
-
     End Sub
 
-    Private Sub TabPage4_Click(sender As Object, e As EventArgs) Handles TabPage4.Click
-
-    End Sub
 End Class
 
 '
