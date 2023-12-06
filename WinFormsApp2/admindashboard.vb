@@ -9,7 +9,6 @@ Public Class admindashboardform
 
     Private Sub UpdateStats()
 
-
         Dim reader As MySqlDataReader = SelectQuery("total", "total_emp")
         reader.Read()
         main_total_stat.Counter = reader("total")
@@ -82,11 +81,8 @@ Public Class admindashboardform
             Dim dep_name As String = dept_gridview.Rows(e.RowIndex).Cells("dep_col").Value
             Dim dep_id As String = dept_gridview.Rows(e.RowIndex).Cells("Id").Value
 
-
             Dim modifyDepartmentForm As New modify_DepartmentForm(dep_name, dep_id)
             modifyDepartmentForm.Show()
-
-
         End If
     End Sub
     Sub UpdateDeptGridView(Optional vals As String() = Nothing, Optional where As String = Nothing)
@@ -110,8 +106,6 @@ Public Class admindashboardform
 
 
     Function UpdateDeptGridView2()
-
-
         dept_gridview.Rows.Clear()
         TabControl1.SelectedTab = TabPage4
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", {"2"}, "department_id >= @username")
@@ -153,24 +147,12 @@ Public Class admindashboardform
     End Sub
 
 
-    Private Sub Update_btn_dept_Click(sender As Object, e As EventArgs) Handles Update_btn_dept.Click
-
-    End Sub
-
 
 
     Private Sub add_dept_btn_Click(sender As Object, e As EventArgs) Handles add_dept_btn.Click
         addDepartment.Show()
     End Sub
 
-<<<<<<< HEAD
-=======
-    Private Sub TabPage4_Click(sender As Object, e As EventArgs) Handles TabPage4.Click
-
-    End Sub
-
-
->>>>>>> 43a4fb7cad35657b7f3841120f3a7e14e8f3ccae
 End Class
 
 '
