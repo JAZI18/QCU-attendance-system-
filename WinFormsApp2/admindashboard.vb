@@ -67,14 +67,28 @@ Public Class admindashboardform
     End Sub
 
 
+
+
     Private Sub branch_btn_(sender As Object, e As EventArgs) Handles branch_btn.Click
         TabControl1.SelectedTab = TabPage3
     End Sub
 
-    Private Sub department_btn_(sender As Object, e As EventArgs) Handles department_btn.Click
-        UpdateDeptGridView()
-    End Sub
 
+
+    Private Sub dept_gridview_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dept_gridview.CellContentClick
+        ' Check if the clicked cell is in the "Actions" column (assuming it's the last column in your DataGridView)
+        If e.ColumnIndex = dept_gridview.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
+            ' Get the employee_id regardless of the button type
+            Dim dep_name As String = dept_gridview.Rows(e.RowIndex).Cells("dep_col").Value
+            Dim dep_id As String = dept_gridview.Rows(e.RowIndex).Cells("Id").Value
+
+
+            Dim modifyDepartmentForm As New modify_DepartmentForm(dep_name, dep_id)
+            modifyDepartmentForm.Show()
+
+
+        End If
+    End Sub
     Sub UpdateDeptGridView(Optional vals As String() = Nothing, Optional where As String = Nothing)
 
 
@@ -83,10 +97,33 @@ Public Class admindashboardform
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", vals, where)
         ' Create a while loop to fetch all data from the database'
         While reader.Read
-            dept_gridview.Rows.Add(reader("department_name"), reader("department_desc"), " Modify ")
+            dept_gridview.Rows.Add(reader("department_id"), reader("department_name"), reader("department_desc"), " Modify ")
         End While
 
         reader.Close()
+    End Sub
+
+    Private Sub id_dept_tb_TextChanged(sender As Object, e As EventArgs)
+        UpdateDeptGridView({$"{id_dept_tb.Text}%"}, " department_name LIKE @department_name ")
+        If (dept_gridview.RowCount < 1) Then UpdateDeptGridView()
+    End Sub
+
+
+    Function UpdateDeptGridView2()
+
+
+        dept_gridview.Rows.Clear()
+        TabControl1.SelectedTab = TabPage4
+        Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", {"2"}, "department_id >= @username")
+        ' Create a while loop to fetch all data from the database'
+        While reader.Read
+            dept_gridview.Rows.Add(reader("department_id"), reader("department_name"), reader("department_desc"), " Modify ")
+        End While
+
+        reader.Close()
+    End Function
+    Private Sub department_btn_Click(sender As Object, e As EventArgs) Handles department_btn.Click
+        UpdateDeptGridView2()
     End Sub
 
 
@@ -115,13 +152,9 @@ Public Class admindashboardform
         addEmployee.Show()
     End Sub
 
-    Private Sub id_dept_tb_TextChanged(sender As Object, e As EventArgs)
-        UpdateDeptGridView({$"{id_dept_tb.Text}%"}, " department_name LIKE @department_name ")
-        If (dept_gridview.RowCount < 1) Then UpdateDeptGridView()
-    End Sub
 
     Private Sub Update_btn_dept_Click(sender As Object, e As EventArgs) Handles Update_btn_dept.Click
-        Update_department.Show()
+
     End Sub
 
 
@@ -130,6 +163,14 @@ Public Class admindashboardform
         addDepartment.Show()
     End Sub
 
+<<<<<<< HEAD
+=======
+    Private Sub TabPage4_Click(sender As Object, e As EventArgs) Handles TabPage4.Click
+
+    End Sub
+
+
+>>>>>>> 43a4fb7cad35657b7f3841120f3a7e14e8f3ccae
 End Class
 
 '

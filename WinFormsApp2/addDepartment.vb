@@ -5,7 +5,7 @@
         {dep_name.Text, dep_desc.Text})
             MessageBox.Show("Record inserted successfully.")
 
-            admindashboardform.UpdateDeptGridView()
+            admindashboardform.UpdateDeptGridView2()
             Me.Close()
 
 
