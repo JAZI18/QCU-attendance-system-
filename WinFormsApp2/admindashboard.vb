@@ -8,11 +8,8 @@ Public Class admindashboardform
     End Sub
 
     Private Sub UpdateStats()
-
         main_total_stat.Counter = selectScalarQuery("total", "total_emp")
         main_leave_stat.Counter = selectScalarQuery("count(employee_id)", "late_emp")
-
-
     End Sub
 
 
@@ -154,6 +151,9 @@ Public Class admindashboardform
         addDepartment.Show()
     End Sub
 
+    Private Sub main_total_stat_Load(sender As Object, e As EventArgs) Handles main_total_stat.Load
+
+    End Sub
 End Class
 
 '
