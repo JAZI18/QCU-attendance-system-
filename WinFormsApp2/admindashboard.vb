@@ -9,9 +9,10 @@ Public Class admindashboardform
 
     Private Sub UpdateStats()
 
-        Dim reader As MySqlDataReader = SelectQuery("total", "total_emp")
-        reader.Read()
-        main_total_stat.Counter = reader("total")
+        main_total_stat.Counter = selectScalarQuery("total", "total_emp")
+        main_leave_stat.Counter = selectScalarQuery("count(employee_id)", "late_emp")
+
+
     End Sub
 
 

@@ -1,5 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 Imports MySql.Data.MySqlClient
+Imports Mysqlx.XDevAPI.Relational
 
 Module Connection
 
@@ -8,14 +9,10 @@ Module Connection
     Private conString = "server=localhost;user=root;password=;database=qcu_attendance_db;charset=utf8;Allow User Variables=True; convert zero datetime=True "
     Public con As New MySqlConnection(conString)
 
-
-
-
     Sub openCon()
         con.Close()
         con.Open()
     End Sub
-
 
     ''' <summary>
     ''' mysqlcommand creation helper
@@ -90,16 +87,26 @@ Module Connection
     ''' <param name="table"></param>
     ''' <returns>the MySqlDataReader </returns>
     Function SelectQuery(fields As String, table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As MySqlDataReader
-        Dim sql = $"SELECT {fields} from {table}"
+        Dim cmd As MySqlCommand = selectQHelper(fields, table, vals, whereClause)
+        Return cmd.ExecuteReader()
+    End Function
+
+    Private Function selectQHelper(fields As String, Table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As MySqlCommand
+        Dim sql = $"SELECT {fields} from {Table}"
 
         If (whereClause IsNot Nothing) Then
             sql += $" Where {whereClause}"
         End If
 
-        Dim cmd As MySqlCommand = NewQuery(sql, vals)
-
-        Return cmd.ExecuteReader()
+        Return NewQuery(sql, vals)
     End Function
+
+    Function selectScalarQuery(fields As String, table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As Object
+        Dim cmd As MySqlCommand = selectQHelper(fields, table, vals, whereClause)
+        Return cmd.ExecuteScalar()
+    End Function
+
+
 
     ''' <summary>
     ''' update query query builder
@@ -127,9 +134,6 @@ Module Connection
         Next
 
         If whereClause IsNot Nothing Then sql += $" where {whereClause}"
-
-
-
 
         Dim cmd As MySqlCommand = NewQuery(sql, vals)
 
@@ -173,11 +177,8 @@ Module Connection
     ''' <returns>number of rows deleted</returns>
     Function DeleteQuery(table As String, whereClause As String, vals As String()) As Integer
         Dim sql = $"DELETE from {table} where {whereClause}"
-
         Dim cmd = NewQuery(sql, vals)
-
         Return cmd.ExecuteNonQuery()
     End Function
-
 
 End Module
