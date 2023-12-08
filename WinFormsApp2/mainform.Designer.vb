@@ -22,7 +22,7 @@ Partial Class mainform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(mainform))
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(mainform))
         date_lb = New Label()
         Panel1 = New Panel()
         Label11 = New Label()
@@ -401,7 +401,9 @@ Partial Class mainform
         ' 
         ' mainform_back_btn
         ' 
-        mainform_back_btn.BackColor = SystemColors.ActiveCaptionText
+        mainform_back_btn.BackColor = Color.Transparent
+        mainform_back_btn.BackgroundImage = My.Resources.Resources.back
+        mainform_back_btn.BackgroundImageLayout = ImageLayout.Center
         mainform_back_btn.FlatAppearance.BorderSize = 0
         mainform_back_btn.FlatStyle = FlatStyle.Flat
         mainform_back_btn.Location = New Point(871, 20)
