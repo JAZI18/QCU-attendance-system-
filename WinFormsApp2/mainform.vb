@@ -9,7 +9,6 @@ Public Class mainform
     Dim cameraHandle As Integer
     Dim needClose As Boolean = True
     Dim userName As String
-    Const TrackerMemoryFile = "tracker70.dat"
     Dim tracker As Integer = 0  ' creating a Tracker
 
     Dim curr_emp_id As Integer = -1
@@ -37,12 +36,15 @@ Public Class mainform
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Init_fsdk()
         Start_cam()
+
         Create_tracker()
-        Save_tracker()
 
         Start_timer(Sub()
                         Live_feed()
                     End Sub, "s")
+
+        NewQuery("INSERT INTO face_recog (tracker)  VALUES (19201920391230123901932012)", {}).ExecuteNonQuery()
+
 
     End Sub
 
@@ -202,7 +204,6 @@ Public Class mainform
 
     Private Sub close_save()
         Save_tracker()
-        FSDK.FreeTracker(tracker)
         FSDKCam.CloseVideoCamera(cameraHandle)
         FSDKCam.FinalizeCapturing()
     End Sub
@@ -276,6 +277,7 @@ Public Class mainform
 
 
     Private Sub mainform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        MsgBox("saving")
         close_save()
     End Sub
 
@@ -366,11 +368,8 @@ Public Class mainform
 
     Private Sub Create_tracker()
         If (FSDK.FSDKE_OK <> Retrieve_tracker()) Then ' try to load saved tracker state
-
             MsgBox("creating new tracker!")
-
             FSDK.CreateTracker(tracker) ' if could not be loaded, create a new tracker
-            Save_tracker()
         End If
 
         Dim err As Integer = 0 ' set realtime face detection parameters
@@ -384,12 +383,14 @@ Public Class mainform
         Dim trackerBuffer(bufferSize(0)) As Byte
         FSDK.SaveTrackerMemoryToBuffer(tracker, trackerBuffer, 256 * 100)
 
-        InsertQuery("test", "test", {trackerBuffer})
-
+        UpdateQuery("face_recog", "tracker", {trackerBuffer})
     End Sub
 
     Private Function Retrieve_tracker() As Integer
-        Dim trackerBuffer = selectScalarQuery("test", "test")
+        Dim trackerBuffer As Byte() = selectScalarQuery("tracker", "face_recog")
+
+        If trackerBuffer Is Nothing Then trackerBuffer = {}
+
         Return FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
     End Function
 
