@@ -64,15 +64,16 @@ CREATE TABLE IF NOT EXISTS `employee_info` (
   PRIMARY KEY (`employee_id`) USING BTREE,
   KEY `FK_employee_info_qcu_department` (`department_id`),
   CONSTRAINT `FK_employee_info_qcu_department` FOREIGN KEY (`department_id`) REFERENCES `qcu_department` (`department_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table qcu_attendance_db.employee_info: ~5 rows (approximately)
+-- Dumping data for table qcu_attendance_db.employee_info: ~6 rows (approximately)
 INSERT INTO `employee_info` (`employee_id`, `employee_code`, `first_name`, `middle_name`, `last_name`, `dob`, `gender`, `department_id`, `email`) VALUES
 	(23, '23-9678', 'Super', 'Mario', 'Rarw', '2023-12-04', 'Female', 2, 'asd'),
 	(24, '23-3876', 'captain', 'teemo', 'duty', '2023-12-04', 'Female', 2, 'asdsa'),
 	(25, '23-8208', 'juan', 'dela', 'cruz', '2023-12-04', 'Female', 2, 'asdas'),
 	(26, '23-6019', 'kath', 'niel', 'por eber', '2023-12-04', 'Female', 2, 'asdsa'),
-	(27, 'ABC123', 'John', 'Wick', 'Cena', '1999-01-10', 'Male', 5, 'johnwick@gmail.com');
+	(27, 'ABC123', 'John', 'Wick', 'Cena', '1999-01-10', 'Male', 5, 'johnwick@gmail.com'),
+	(35, '23-0134', 'enerjhun', 'quinanola', 'relon', '2023-12-10', 'male', 1, 'enerjhunrelon@gmail.com');
 
 -- Dumping structure for table qcu_attendance_db.employee_schedule
 CREATE TABLE IF NOT EXISTS `employee_schedule` (
@@ -97,26 +98,29 @@ INSERT INTO `employee_schedule` (`emp_schedule_id`, `employee_id`, `emp_branc_id
 	(2, 24, 2, 'Monday', '12:58:37', '11:58:38', '2023-12-06', '2023-12-06'),
 	(3, 26, 2, 'Wednesday', '01:00:00', '10:49:39', '2023-12-06', '2023-12-06');
 
--- Dumping structure for table qcu_attendance_db.emp_attendance_in
-CREATE TABLE IF NOT EXISTS `emp_attendance_in` (
+-- Dumping structure for table qcu_attendance_db.emp_attendance
+CREATE TABLE IF NOT EXISTS `emp_attendance` (
   `emp_attendace_id` int(10) NOT NULL AUTO_INCREMENT,
   `employee_id` int(10) NOT NULL,
   `date` date NOT NULL,
-  `time_in` time NOT NULL,
-  `time_out` time NOT NULL,
-  `over_time_in` time NOT NULL,
-  `over_time_out` time NOT NULL,
+  `time_in` time DEFAULT NULL,
+  `time_out` time DEFAULT NULL,
+  `over_time_in` time DEFAULT NULL,
+  `over_time_out` time DEFAULT NULL,
   PRIMARY KEY (`emp_attendace_id`),
   KEY `employee_id` (`employee_id`),
   CONSTRAINT `FK_emp_attendance_in_employee_info` FOREIGN KEY (`employee_id`) REFERENCES `employee_info` (`employee_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table qcu_attendance_db.emp_attendance_in: ~4 rows (approximately)
-INSERT INTO `emp_attendance_in` (`emp_attendace_id`, `employee_id`, `date`, `time_in`, `time_out`, `over_time_in`, `over_time_out`) VALUES
+-- Dumping data for table qcu_attendance_db.emp_attendance: ~6 rows (approximately)
+INSERT INTO `emp_attendance` (`emp_attendace_id`, `employee_id`, `date`, `time_in`, `time_out`, `over_time_in`, `over_time_out`) VALUES
 	(1, 26, '2023-12-05', '01:00:00', '15:42:50', '00:00:00', '00:00:00'),
-	(2, 26, '2023-12-06', '01:20:00', '05:00:00', '00:00:00', '00:00:00'),
+	(2, 26, '2023-12-06', '01:20:00', '05:00:00', '00:00:01', '00:00:00'),
 	(3, 26, '2023-12-06', '01:33:01', '14:33:02', '14:33:03', '14:33:03'),
-	(4, 24, '2023-12-10', '14:56:30', '14:56:31', '14:56:32', '14:56:33');
+	(4, 24, '2023-12-10', '14:56:30', '14:56:31', '14:56:32', '14:56:33'),
+	(5, 24, '2023-12-08', '02:26:00', '00:00:00', '00:00:00', '00:00:00'),
+	(6, 25, '2023-12-08', NULL, NULL, NULL, NULL),
+	(7, 25, '2023-12-07', NULL, NULL, NULL, NULL);
 
 -- Dumping structure for function qcu_attendance_db.get_settings
 DELIMITER //
@@ -138,7 +142,7 @@ DELIMITER ;
 CREATE TABLE `late_emp` (
 	`employee_id` INT(10) NOT NULL,
 	`att_date` DATE NOT NULL,
-	`attendance_time` TIME NOT NULL,
+	`attendance_time` TIME NULL,
 	`schedule_time` TIME NOT NULL,
 	`minutes_late` BIGINT(21) NULL,
 	`attendance_day` VARCHAR(9) NULL COLLATE 'utf8mb4_general_ci',
@@ -199,16 +203,7 @@ CREATE TABLE `views` (
 
 -- Dumping structure for view qcu_attendance_db.vw_attendancelog
 -- Creating temporary table to overcome VIEW dependency errors
-CREATE TABLE `vw_attendancelog` (
-	`employee_id` INT(100) NOT NULL,
-	`department_id` INT(11) NOT NULL,
-	`first_name` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
-	`last_name` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
-	`date` DATE NOT NULL,
-	`time_in` TIME NOT NULL,
-	`time_out` TIME NOT NULL,
-	`over_time_in` TIME NOT NULL,
-	`over_time_out` TIME NOT NULL
+CREATE TABLE `vw_attendancelog` 
 ) ENGINE=MyISAM;
 
 -- Dumping structure for view qcu_attendance_db.vw_department
@@ -223,7 +218,7 @@ DROP TABLE IF EXISTS `absent_emp`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `absent_emp` AS SELECT
 s.employee_id,s.workday
 FROM employee_schedule AS s
-left JOIN emp_attendance_in AS a
+left JOIN emp_attendance AS a
 ON s.employee_id = a.employee_id
 WHERE a.employee_id is null ;
 
@@ -238,7 +233,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `late_emp` AS SELECT
     DAYNAME(a.date) attendance_day,
     s.workday work_day
 FROM
-    emp_attendance_in a
+    emp_attendance a
 jOIN
     employee_schedule s ON a.employee_id = s.employee_id 
     AND  DAYNAME(a.date) = s.workday 
