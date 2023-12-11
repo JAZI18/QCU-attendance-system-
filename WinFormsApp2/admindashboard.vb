@@ -7,9 +7,17 @@ Public Class admindashboardform
         UpdateStats()
     End Sub
 
+    Private Sub updbranchstat(id As Integer)
+        total_stat.Counter = selectScalarQuery("count(employee_id)", "employee_schedule", {id}, "emp_branc_id = @branch_id")
+        'present_stat.Counter = selectScalarQuery()
+        'absent_stat.Counter = selectScalarQuery("count(employee_id))
+        'leave_stat.Counter = 
+    End Sub
     Private Sub UpdateStats()
         main_total_stat.Counter = selectScalarQuery("total", "total_emp")
         main_leave_stat.Counter = selectScalarQuery("count(employee_id)", "late_emp")
+        main_present_stat.Counter = selectScalarQuery("Present", "branch_emp_present")
+
     End Sub
 
 
@@ -181,14 +189,32 @@ Public Class admindashboardform
         addDepartment.Show()
     End Sub
 
-    Private Sub main_total_stat_Load(sender As Object, e As EventArgs) Handles main_total_stat.Load
 
-    End Sub
 
     Private Sub search_btn_dept_Click(sender As Object, e As EventArgs) Handles search_btn_dept.Click
 
 
         Dim read As MySqlDataReader = SelectQuery("*", "")
+
+    End Sub
+
+    Private Sub sanbartolome_branch_btn_Click(sender As Object, e As EventArgs) Handles sanbartolome_branch_btn.Click
+
+        updbranchstat(3)
+
+
+
+
+
+    End Sub
+
+    Private Sub batasan_branch_btn_Click(sender As Object, e As EventArgs) Handles batasan_branch_btn.Click
+        updbranchstat(2)
+
+    End Sub
+
+    Private Sub sanfrancisco_branch_btn_Click(sender As Object, e As EventArgs) Handles sanfrancisco_branch_btn.Click
+        updbranchstat(1)
 
     End Sub
 End Class
