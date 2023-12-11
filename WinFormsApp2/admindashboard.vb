@@ -64,16 +64,32 @@ Public Class admindashboardform
     End Sub
 
     Private Sub LoadData()
-        DataGridView1.DataSource = Nothing
+        Try
+            DataGridView1.DataSource = Nothing
 
-        Dim cmd As MySqlCommand = NewQuery("SELECT employee_id AS 'Employee ID', employee_Name AS 'Employee Name', workday AS 'Workday', att_date AS 'Attendance Date', attendance_time AS 'Attendance Time', departure_time AS 'Departure Time', overtime_in AS 'Overtime In', overtime_out AS 'Overtime Out', schedule_start_time AS 'Time IN', schedule_end_time AS 'Time OUT', minutes_late AS 'Minutes Late', minutes_early_departure AS 'Minutes Early Departure' FROM emp_report", Nothing)
+            Dim startDate As String = DateTimePicker1.Value.ToString("yyyy-MM-dd")
+            Dim endDate As String = DateTimePicker2.Value.ToString("yyyy-MM-dd")
 
-        Dim adapter As New MySqlDataAdapter(cmd)
-        Dim dataSet As New DataSet()
+            Dim cmd As MySqlCommand = NewQuery($"SELECT employee_id AS 'Employee ID', employee_Name AS 'Employee Name', workday AS 'Workday', att_date AS 'Attendance Date', attendance_time AS 'Attendance Time', departure_time AS 'Departure Time', overtime_in AS 'Overtime In', overtime_out AS 'Overtime Out', schedule_start_time AS 'Time IN', schedule_end_time AS 'Time OUT', minutes_late AS 'Minutes Late', minutes_early_departure AS 'Minutes Early Departure' FROM emp_report WHERE att_date BETWEEN '{startDate}' AND '{endDate}'", Nothing)
 
-        adapter.Fill(dataSet, "emp_report")
+            Using adapter As New MySqlDataAdapter(cmd)
+                Using dataSet As New DataSet()
+                    adapter.Fill(dataSet, "emp_report")
 
-        DataGridView1.DataSource = dataSet.Tables("emp_report")
+                    DataGridView1.DataSource = dataSet.Tables("emp_report")
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        LoadData()
+    End Sub
+
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+        LoadData()
     End Sub
 
 
