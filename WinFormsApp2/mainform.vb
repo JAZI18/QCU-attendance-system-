@@ -38,6 +38,7 @@ Public Class mainform
         Init_fsdk()
         Start_cam()
         Create_tracker()
+        Save_tracker()
 
         Start_timer(Sub()
                         Live_feed()
@@ -198,8 +199,9 @@ Public Class mainform
     End Sub
 
 
+
     Private Sub close_save()
-        FSDK.SaveTrackerMemoryToFile(tracker, TrackerMemoryFile)
+        Save_tracker()
         FSDK.FreeTracker(tracker)
         FSDKCam.CloseVideoCamera(cameraHandle)
         FSDKCam.FinalizeCapturing()
@@ -363,15 +365,33 @@ Public Class mainform
 
 
     Private Sub Create_tracker()
-        If (FSDK.FSDKE_OK <> FSDK.LoadTrackerMemoryFromFile(tracker, TrackerMemoryFile)) Then ' try to load saved tracker state
+        If (FSDK.FSDKE_OK <> Retrieve_tracker()) Then ' try to load saved tracker state
+
+            MsgBox("creating new tracker!")
+
             FSDK.CreateTracker(tracker) ' if could not be loaded, create a new tracker
+            Save_tracker()
         End If
 
         Dim err As Integer = 0 ' set realtime face detection parameters
-        FSDK.SetTrackerMultipleParameters(tracker, "HandleArbitraryRotations=true; DetermineFaceRotationAngle=false; InternalResizeWidth=100; FaceDetectionThreshold=5;", err)
+        FSDK.SetTrackerMultipleParameters(tracker, "HandleArbitraryRotations=true; DetermineFaceRotationAngle=false; InternalResizeWidth=200; FaceDetectionThreshold=5;", err)
     End Sub
 
 
+    Private Sub Save_tracker()
+        Dim bufferSize(0) As Long
+        FSDK.GetTrackerMemoryBufferSize(tracker, bufferSize(0))
+        Dim trackerBuffer(bufferSize(0)) As Byte
+        FSDK.SaveTrackerMemoryToBuffer(tracker, trackerBuffer, 256 * 100)
+
+        InsertQuery("test", "test", {trackerBuffer})
+
+    End Sub
+
+    Private Function Retrieve_tracker() As Integer
+        Dim trackerBuffer = selectScalarQuery("test", "test")
+        Return FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
+    End Function
 
 #End Region
 
