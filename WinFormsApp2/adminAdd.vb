@@ -33,6 +33,7 @@ Public Class adminAdd
                 Try
                     InsertQuery("admin_account", "username,password,employee_info", {e_firstname.Text, hashedPasswords, _employeeCode})
                     MessageBox.Show("Record inserted successfully.")
+                    admindashboardform.Enabled = True
                     Me.Close()
 
                 Catch ex As Exception
