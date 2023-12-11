@@ -24,7 +24,6 @@ Partial Class addEmployee
     Private Sub InitializeComponent()
         TabControl3 = New TabControl()
         TabPage9 = New TabPage()
-        Button1 = New Button()
         submit_employees_btn = New Button()
         e_dep = New ComboBox()
         dep = New Label()
@@ -40,23 +39,24 @@ Partial Class addEmployee
         m = New Label()
         f = New Label()
         e_date = New DateTimePicker()
+        PictureBox1 = New PictureBox()
         TabControl3.SuspendLayout()
         TabPage9.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TabControl3
         ' 
         TabControl3.Controls.Add(TabPage9)
-        TabControl3.Location = New Point(0, 2)
+        TabControl3.Location = New Point(12, 147)
         TabControl3.Name = "TabControl3"
         TabControl3.SelectedIndex = 0
-        TabControl3.Size = New Size(430, 358)
+        TabControl3.Size = New Size(494, 345)
         TabControl3.TabIndex = 1
         ' 
         ' TabPage9
         ' 
         TabPage9.BackColor = Color.Transparent
-        TabPage9.Controls.Add(Button1)
         TabPage9.Controls.Add(submit_employees_btn)
         TabPage9.Controls.Add(e_dep)
         TabPage9.Controls.Add(dep)
@@ -75,18 +75,9 @@ Partial Class addEmployee
         TabPage9.Location = New Point(4, 24)
         TabPage9.Name = "TabPage9"
         TabPage9.Padding = New Padding(3)
-        TabPage9.Size = New Size(422, 330)
+        TabPage9.Size = New Size(486, 317)
         TabPage9.TabIndex = 0
         TabPage9.Text = "TabPage9"
-        ' 
-        ' Button1
-        ' 
-        Button1.Location = New Point(292, 0)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(75, 23)
-        Button1.TabIndex = 16
-        Button1.Text = "Button1"
-        Button1.UseVisualStyleBackColor = True
         ' 
         ' submit_employees_btn
         ' 
@@ -226,11 +217,20 @@ Partial Class addEmployee
         e_date.Size = New Size(191, 29)
         e_date.TabIndex = 4
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Location = New Point(145, 23)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(171, 166)
+        PictureBox1.TabIndex = 2
+        PictureBox1.TabStop = False
+        ' 
         ' addEmployee
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(429, 370)
+        ClientSize = New Size(468, 504)
+        Controls.Add(PictureBox1)
         Controls.Add(TabControl3)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Margin = New Padding(2)
@@ -240,6 +240,7 @@ Partial Class addEmployee
         TabControl3.ResumeLayout(False)
         TabPage9.ResumeLayout(False)
         TabPage9.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -259,6 +260,6 @@ Partial Class addEmployee
     Friend WithEvents m As Label
     Friend WithEvents f As Label
     Friend WithEvents e_date As DateTimePicker
-    Friend WithEvents Button1 As Button
     Friend WithEvents e_dep As ComboBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
