@@ -35,7 +35,6 @@ Partial Class admindashboardform
         Panel2 = New Panel()
         Button1 = New Button()
         TabPage3 = New TabPage()
-
         absent_stat = New stats_button()
         leave_stat = New stats_button()
         present_stat = New stats_button()
@@ -89,6 +88,7 @@ Partial Class admindashboardform
         Label11 = New Label()
         PictureBox5 = New PictureBox()
         TabPage5 = New TabPage()
+        DataGridView1 = New DataGridView()
         TextBox1 = New TextBox()
         ComboBox2 = New ComboBox()
         ComboBox1 = New ComboBox()
@@ -116,6 +116,7 @@ Partial Class admindashboardform
         CType(dept_gridview, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
         TabPage5.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -923,6 +924,7 @@ Partial Class admindashboardform
         ' 
         ' TabPage5
         ' 
+        TabPage5.Controls.Add(DataGridView1)
         TabPage5.Controls.Add(TextBox1)
         TabPage5.Controls.Add(ComboBox2)
         TabPage5.Controls.Add(ComboBox1)
@@ -938,6 +940,22 @@ Partial Class admindashboardform
         TabPage5.TabIndex = 4
         TabPage5.Text = "TabPage5"
         TabPage5.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.AllowUserToAddRows = False
+        DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.AllowUserToOrderColumns = True
+        DataGridView1.AllowUserToResizeColumns = False
+        DataGridView1.AllowUserToResizeRows = False
+        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Location = New Point(34, 209)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowHeadersWidth = 62
+        DataGridView1.RowTemplate.Height = 33
+        DataGridView1.Size = New Size(1145, 490)
+        DataGridView1.TabIndex = 19
         ' 
         ' TextBox1
         ' 
@@ -1052,6 +1070,7 @@ Partial Class admindashboardform
         CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
         TabPage5.ResumeLayout(False)
         TabPage5.PerformLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
@@ -1132,4 +1151,5 @@ Partial Class admindashboardform
     Friend WithEvents dob_col As DataGridViewTextBoxColumn
     Friend WithEvents hired_col As DataGridViewTextBoxColumn
     Friend WithEvents act_col As DataGridViewButtonColumn
+    Friend WithEvents DataGridView1 As DataGridView
 End Class
