@@ -30,12 +30,13 @@
             ' User confirmed, proceed with deletion
             DeleteQuery("admin_account", "employee_info=@id", {employeeCode})
             DeleteQuery("employee_schedule", "employee_id=@id", {employeeCode})
-            DeleteQuery("emp_attendance_in", "employee_id=@id", {employeeCode})
+            DeleteQuery("emp_attendance", "employee_id=@id", {employeeCode})
             DeleteQuery("employee_info", "employee_id=@id", {employeeCode})
             admindashboardform.updateEmpployeeGrid()
             MessageBox.Show("Employee deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+            admindashboardform.Enabled = True
             Me.Close()
+
         Else
             ' User canceled deletion
             MessageBox.Show("Deletion canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -56,6 +57,7 @@
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        admindashboardform.Enabled = True
         Me.Close()
     End Sub
 
@@ -64,5 +66,11 @@
 
         Dim addAdmin As adminAdd = New adminAdd(_employeeCode)
         addAdmin.Show()
+    End Sub
+    Private Sub ChooseChangeEmployee_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        ' Check if the close button was clicked
+        If e.CloseReason = CloseReason.UserClosing Then
+            admindashboardform.Enabled = True
+        End If
     End Sub
 End Class

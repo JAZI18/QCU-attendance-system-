@@ -57,7 +57,9 @@ Public Class admindashboardform
             Dim depname As String = employee_grid_view.Rows(e.RowIndex).Cells("hired_col").Value
 
             Dim chooseChangeEmployeeForm As New ChooseChangeEmployee(employeeCode, name, depname)
+            Me.Enabled = False
             chooseChangeEmployeeForm.Show()
+
 
 
         End If
@@ -152,6 +154,13 @@ Public Class admindashboardform
     End Sub
 
     Private Sub main_total_stat_Load(sender As Object, e As EventArgs) Handles main_total_stat.Load
+
+    End Sub
+
+    Private Sub search_btn_dept_Click(sender As Object, e As EventArgs) Handles search_btn_dept.Click
+
+
+        Dim read As MySqlDataReader = SelectQuery("*", "")
 
     End Sub
 End Class
