@@ -65,7 +65,18 @@ Public Class admindashboardform
         End If
     End Sub
 
+    Private Sub LoadData()
+        DataGridView1.DataSource = Nothing
 
+        Dim cmd As MySqlCommand = NewQuery("SELECT employee_id AS 'Employee ID', employee_Name AS 'Employee Name', workday AS 'Workday', att_date AS 'Attendance Date', attendance_time AS 'Attendance Time', departure_time AS 'Departure Time', overtime_in AS 'Overtime In', overtime_out AS 'Overtime Out', schedule_start_time AS 'Time IN', schedule_end_time AS 'Time OUT', minutes_late AS 'Minutes Late', minutes_early_departure AS 'Minutes Early Departure' FROM emp_report", Nothing)
+
+        Dim adapter As New MySqlDataAdapter(cmd)
+        Dim dataSet As New DataSet()
+
+        adapter.Fill(dataSet, "emp_report")
+
+        DataGridView1.DataSource = dataSet.Tables("emp_report")
+    End Sub
 
 
     Private Sub branch_btn_(sender As Object, e As EventArgs) Handles branch_btn.Click
@@ -129,6 +140,7 @@ Public Class admindashboardform
 
     Private Sub Admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dashboard_btn.PerformClick()
+        LoadData()
     End Sub
 
 
