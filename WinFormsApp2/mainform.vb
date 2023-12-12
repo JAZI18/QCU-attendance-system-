@@ -42,10 +42,6 @@ Public Class mainform
         Start_timer(Sub()
                         Live_feed()
                     End Sub, "s")
-
-        NewQuery("INSERT INTO face_recog (tracker)  VALUES (19201920391230123901932012)", {}).ExecuteNonQuery()
-
-
     End Sub
 
     Private Sub Live_feed()
@@ -94,15 +90,15 @@ Public Class mainform
                     If tracker_state = tracker_states.unlocking_face Then Continue While
                     tracker_state = tracker_states.unlocking_face
 
-                    'find face again after 2 seconds
+                    'find face again after 1 second
                     Start_timer(Sub()
                                     Refresh_fields()
                                     curr_emp_id = -1
                                     pic_border.BackColor = Color.Blue
                                     tracker_state = tracker_states.finding_face
-                                End Sub, "unlocking face", 2000)
+                                End Sub, "unlocking face", 600)
                 End If
-
+                unenrolled_id = -1
             Else
                 'face detected
                 Dim image_tag_name As String = ""
@@ -111,25 +107,29 @@ Public Class mainform
                 If image_tag_name.Length > 0 Then
                     'if face is recognized
 
-                    If tracker_state <> tracker_states.found_face Then
 
-                        If tracker_state = tracker_states.unlocking_face Then
-                            Stop_timer("unlocking face")
-                        Else
+                    If tracker_state <> tracker_states.found_face Then
+                        'first time
+                        Face_detected(image_tag_name)
+
+                    Else
+                        If prev_emp_id <> id Then
                             Face_detected(image_tag_name)
                         End If
-
-                        curr_emp_id = id 'set the curr_emp_id
-                        pic_border.BackColor = Color.LightGreen
-                        tracker_state = tracker_states.found_face
+                        'not the same as last
+                        Stop_timer("unlocking face")
                     End If
+
+                    curr_emp_id = id 'set the curr_emp_id
+                    pic_border.BackColor = Color.LightGreen
+                    tracker_state = tracker_states.found_face
+                    unenrolled_id = -1
                 Else
                     'face not recognized
                     Refresh_fields()
                     pic_border.BackColor = Color.Red
                     unenrolled_id = id
                 End If
-
             End If
         End While
     End Sub
@@ -138,15 +138,12 @@ Public Class mainform
     Private Sub Display_vid(frameImage As Image)
         frameImage.RotateFlip(RotateFlipType.RotateNoneFlipX)
         cam_pic_box.Image = frameImage ' display current frame
-
-
         GC.Collect() ' collect the garbage after the deletion
         Application.DoEvents() ' make UI controls accessible
     End Sub
 
 
     Private Sub Face_detected(image_tag_name)
-
         employee_id_tb.Text = image_tag_name
         fetch_all()
     End Sub
@@ -198,6 +195,8 @@ Public Class mainform
             End If
             FSDK.UnlockID(tracker, id)
         End If
+
+        Save_tracker()
     End Sub
 
 
@@ -225,7 +224,7 @@ Public Class mainform
             Fetch_employee_details(employee_id_tb.Text)
             Fetch_employee_scheds(employee_id_tb.Text)
         Catch ex As Exception
-            MsgBox($"ooops cannot load details! \n {ex.ToString}", MsgBoxStyle.OkOnly, "something went wrong!")
+            MsgBox($"ooops cannot load details! \n {ex.Message}", MsgBoxStyle.OkOnly, "something went wrong!")
             Refresh_fields()
         End Try
 
@@ -277,7 +276,7 @@ Public Class mainform
 
 
     Private Sub mainform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        MsgBox("saving")
+
         close_save()
     End Sub
 
@@ -381,17 +380,18 @@ Public Class mainform
         Dim bufferSize(0) As Long
         FSDK.GetTrackerMemoryBufferSize(tracker, bufferSize(0))
         Dim trackerBuffer(bufferSize(0)) As Byte
-        FSDK.SaveTrackerMemoryToBuffer(tracker, trackerBuffer, 256 * 100)
+        FSDK.SaveTrackerMemoryToBuffer(tracker, trackerBuffer, 256 * 5000)
 
         UpdateQuery("face_recog", "tracker", {trackerBuffer})
     End Sub
 
     Private Function Retrieve_tracker() As Integer
-        Dim trackerBuffer As Byte() = selectScalarQuery("tracker", "face_recog")
-
-        If trackerBuffer Is Nothing Then trackerBuffer = {}
-
-        Return FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
+        Try
+            Dim trackerBuffer As Byte() = selectScalarQuery("tracker", "face_recog")
+            Return FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
+        Catch ex As Exception
+        End Try
+        Return -1
     End Function
 
 #End Region
