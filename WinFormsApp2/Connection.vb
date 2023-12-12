@@ -33,7 +33,7 @@ Module Connection
     ''' </remarks>
     ''' <param name="sql"></param>
     ''' <returns></returns>
-    Function NewQuery(sql As String, vals As String()) As MySqlCommand
+    Function NewQuery(sql As String, vals As Object()) As MySqlCommand
         openCon()
 
         Dim cmd = newCommand(sql)
@@ -70,7 +70,7 @@ Module Connection
         Return matches.ToArray()
     End Function
 
-    Private Sub CompareParamsValsCount(params As String(), vals As String())
+    Private Sub CompareParamsValsCount(params As String(), vals As Object())
         If vals Is Nothing Then vals = {}
 
         If params.Length <> vals.Length Then
@@ -87,12 +87,12 @@ Module Connection
     ''' <param name="fields"></param>
     ''' <param name="table"></param>
     ''' <returns>the MySqlDataReader </returns>
-    Function SelectQuery(fields As String, table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As MySqlDataReader
+    Function SelectQuery(fields As String, table As String, Optional vals As Object() = Nothing, Optional whereClause As String = Nothing) As MySqlDataReader
         Dim cmd As MySqlCommand = selectQHelper(fields, table, vals, whereClause)
         Return cmd.ExecuteReader()
     End Function
 
-    Private Function selectQHelper(fields As String, Table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As MySqlCommand
+    Private Function selectQHelper(fields As String, Table As String, Optional vals As Object() = Nothing, Optional whereClause As String = Nothing) As MySqlCommand
         Dim sql = $"SELECT {fields} from {Table}"
 
         If (whereClause IsNot Nothing) Then
@@ -102,7 +102,7 @@ Module Connection
         Return NewQuery(sql, vals)
     End Function
 
-    Function selectScalarQuery(fields As String, table As String, Optional vals As String() = Nothing, Optional whereClause As String = Nothing) As Object
+    Function selectScalarQuery(fields As String, table As String, Optional vals As Object() = Nothing, Optional whereClause As String = Nothing) As Object
         Dim cmd As MySqlCommand = selectQHelper(fields, table, vals, whereClause)
         Return cmd.ExecuteScalar()
     End Function
@@ -124,7 +124,7 @@ Module Connection
     ''' <param name="vals"></param>
     ''' <param name="whereClause"></param>
     ''' <returns>mysqlDataReader</returns>
-    Function UpdateQuery(table As String, fields As String, vals As String(), Optional whereClause As String = Nothing) As Integer
+    Function UpdateQuery(table As String, fields As String, vals As Object(), Optional whereClause As String = Nothing) As Integer
 
         Dim sql = $"UPDATE {table} SET "
 
@@ -150,7 +150,7 @@ Module Connection
     ''' <param name="fields"></param>
     ''' <param name="vals"></param>
     ''' <returns>number of rows inserted</returns>
-    Function InsertQuery(table As String, fields As String, vals As String()) As Integer
+    Function InsertQuery(table As String, fields As String, vals As Object()) As Integer
         Dim sql = $"INSERT INTO {table} ( {fields} ) values ("
 
         Dim fArr = fields.Split(",")
@@ -176,7 +176,7 @@ Module Connection
     ''' <param name="whereClause"></param>
     ''' <param name="vals"></param>
     ''' <returns>number of rows deleted</returns>
-    Function DeleteQuery(table As String, whereClause As String, vals As String()) As Integer
+    Function DeleteQuery(table As String, whereClause As String, vals As Object()) As Integer
         Dim sql = $"DELETE from {table} where {whereClause}"
         Dim cmd = NewQuery(sql, vals)
         Return cmd.ExecuteNonQuery()

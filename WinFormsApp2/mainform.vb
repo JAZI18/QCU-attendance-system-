@@ -9,7 +9,6 @@ Public Class mainform
     Dim cameraHandle As Integer
     Dim needClose As Boolean = True
     Dim userName As String
-    Const TrackerMemoryFile = "tracker70.dat"
     Dim tracker As Integer = 0  ' creating a Tracker
 
     Dim curr_emp_id As Integer = -1
@@ -37,11 +36,15 @@ Public Class mainform
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Init_fsdk()
         Start_cam()
+
         Create_tracker()
 
         Start_timer(Sub()
                         Live_feed()
                     End Sub, "s")
+
+        NewQuery("INSERT INTO face_recog (tracker)  VALUES (19201920391230123901932012)", {}).ExecuteNonQuery()
+
 
     End Sub
 
@@ -198,9 +201,9 @@ Public Class mainform
     End Sub
 
 
+
     Private Sub close_save()
-        FSDK.SaveTrackerMemoryToFile(tracker, TrackerMemoryFile)
-        FSDK.FreeTracker(tracker)
+        Save_tracker()
         FSDKCam.CloseVideoCamera(cameraHandle)
         FSDKCam.FinalizeCapturing()
     End Sub
@@ -274,6 +277,7 @@ Public Class mainform
 
 
     Private Sub mainform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        MsgBox("saving")
         close_save()
     End Sub
 
@@ -363,15 +367,32 @@ Public Class mainform
 
 
     Private Sub Create_tracker()
-        If (FSDK.FSDKE_OK <> FSDK.LoadTrackerMemoryFromFile(tracker, TrackerMemoryFile)) Then ' try to load saved tracker state
+        If (FSDK.FSDKE_OK <> Retrieve_tracker()) Then ' try to load saved tracker state
+            MsgBox("creating new tracker!")
             FSDK.CreateTracker(tracker) ' if could not be loaded, create a new tracker
         End If
 
         Dim err As Integer = 0 ' set realtime face detection parameters
-        FSDK.SetTrackerMultipleParameters(tracker, "HandleArbitraryRotations=true; DetermineFaceRotationAngle=false; InternalResizeWidth=100; FaceDetectionThreshold=5;", err)
+        FSDK.SetTrackerMultipleParameters(tracker, "HandleArbitraryRotations=true; DetermineFaceRotationAngle=false; InternalResizeWidth=200; FaceDetectionThreshold=5;", err)
     End Sub
 
 
+    Private Sub Save_tracker()
+        Dim bufferSize(0) As Long
+        FSDK.GetTrackerMemoryBufferSize(tracker, bufferSize(0))
+        Dim trackerBuffer(bufferSize(0)) As Byte
+        FSDK.SaveTrackerMemoryToBuffer(tracker, trackerBuffer, 256 * 100)
+
+        UpdateQuery("face_recog", "tracker", {trackerBuffer})
+    End Sub
+
+    Private Function Retrieve_tracker() As Integer
+        Dim trackerBuffer As Byte() = selectScalarQuery("tracker", "face_recog")
+
+        If trackerBuffer Is Nothing Then trackerBuffer = {}
+
+        Return FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
+    End Function
 
 #End Region
 
