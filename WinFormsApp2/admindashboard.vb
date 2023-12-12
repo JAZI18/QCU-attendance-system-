@@ -9,7 +9,8 @@ Public Class admindashboardform
 
     Private Sub updbranchstat(id As Integer)
         total_stat.Counter = selectScalarQuery("count(employee_id)", "employee_schedule", {id}, "emp_branc_id = @branch_id")
-        'present_stat.Counter = selectScalarQuery()
+
+
         'absent_stat.Counter = selectScalarQuery("count(employee_id))
         'leave_stat.Counter = 
     End Sub
@@ -199,22 +200,19 @@ Public Class admindashboardform
     End Sub
 
     Private Sub sanbartolome_branch_btn_Click(sender As Object, e As EventArgs) Handles sanbartolome_branch_btn.Click
-
         updbranchstat(3)
-
-
-
-
-
+        present_stat.Counter = selectScalarQuery("total", "San_bartolome_present")
     End Sub
 
     Private Sub batasan_branch_btn_Click(sender As Object, e As EventArgs) Handles batasan_branch_btn.Click
         updbranchstat(2)
+        present_stat.Counter = selectScalarQuery("total", "Batasan_present")
 
     End Sub
 
     Private Sub sanfrancisco_branch_btn_Click(sender As Object, e As EventArgs) Handles sanfrancisco_branch_btn.Click
         updbranchstat(1)
+        present_stat.Counter = selectScalarQuery("total", "san_francisco_present")
 
     End Sub
 End Class
