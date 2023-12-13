@@ -141,7 +141,7 @@ Partial Class mainform
         TableLayoutPanel1.Name = "TableLayoutPanel1"
         TableLayoutPanel1.RowCount = 1
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 100.0F))
-        TableLayoutPanel1.Size = New Size(1491, 762)
+        TableLayoutPanel1.Size = New Size(1334, 664)
         TableLayoutPanel1.TabIndex = 5
         ' 
         ' TableLayoutPanel6
@@ -233,8 +233,8 @@ Partial Class mainform
         Label23.AutoSize = True
         Label23.Dock = DockStyle.Fill
         Label23.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label23.Location = New Point(50, 0)
-        Label23.Margin = New Padding(5, 0, 5, 0)
+        Label23.Location = New Point(34, 96)
+        Label23.Margin = New Padding(4, 0, 4, 0)
         Label23.Name = "Label23"
         Label23.Size = New Size(335, 101)
         Label23.TabIndex = 4
@@ -254,18 +254,15 @@ Partial Class mainform
         ' 
         ' morning_in_tb
         ' 
-        Label18.AutoSize = True
-        Label18.BackColor = Color.Transparent
-        Label18.Dock = DockStyle.Fill
-        Label18.FlatStyle = FlatStyle.Flat
-        Label18.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label18.Location = New Point(545, 278)
-        Label18.Margin = New Padding(5, 0, 5, 0)
-        Label18.Name = "Label18"
-        Label18.Size = New Size(305, 83)
-        Label18.TabIndex = 6
-        Label18.Text = "OVERTIME OUT"
-        Label18.TextAlign = ContentAlignment.BottomLeft
+        morning_in_tb.BackColor = Color.LightGray
+        morning_in_tb.Dock = DockStyle.Fill
+        morning_in_tb.Font = New Font("Segoe UI", 27.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        morning_in_tb.Location = New Point(0, 0)
+        morning_in_tb.Margin = New Padding(0)
+        morning_in_tb.Name = "morning_in_tb"
+        morning_in_tb.Size = New Size(343, 43)
+        morning_in_tb.TabIndex = 1
+        morning_in_tb.TextAlign = HorizontalAlignment.Center
         ' 
         ' Panel10
         ' 
@@ -318,8 +315,8 @@ Partial Class mainform
         Label22.AutoSize = True
         Label22.Dock = DockStyle.Fill
         Label22.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label22.Location = New Point(50, 278)
-        Label22.Margin = New Padding(5, 0, 5, 0)
+        Label22.Location = New Point(34, 269)
+        Label22.Margin = New Padding(4, 0, 4, 0)
         Label22.Name = "Label22"
         Label22.Size = New Size(335, 56)
         Label22.TabIndex = 4
@@ -340,6 +337,18 @@ Partial Class mainform
         Label19.TabIndex = 6
         Label19.Text = "OVERTIME IN"
         Label19.TextAlign = ContentAlignment.BottomLeft
+        ' 
+        ' Dynamic_textb6
+        ' 
+        Dynamic_textb6.BackColor = Color.LightGray
+        Dynamic_textb6.Dock = DockStyle.Fill
+        Dynamic_textb6.Font = New Font("Segoe UI", 27.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        Dynamic_textb6.Location = New Point(0, 0)
+        Dynamic_textb6.Margin = New Padding(0)
+        Dynamic_textb6.Name = "Dynamic_textb6"
+        Dynamic_textb6.Size = New Size(343, 43)
+        Dynamic_textb6.TabIndex = 1
+        Dynamic_textb6.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label18
         ' 
@@ -401,9 +410,9 @@ Partial Class mainform
         ' 
         sched_lb.AutoSize = True
         sched_lb.Dock = DockStyle.Fill
-        sched_lb.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        sched_lb.Location = New Point(5, 113)
-        sched_lb.Margin = New Padding(5, 0, 5, 0)
+        sched_lb.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
+        sched_lb.Location = New Point(4, 123)
+        sched_lb.Margin = New Padding(4, 0, 4, 0)
         sched_lb.Name = "sched_lb"
         sched_lb.Size = New Size(802, 61)
         sched_lb.TabIndex = 4
@@ -414,9 +423,9 @@ Partial Class mainform
         ' 
         fullname_lb.AutoSize = True
         fullname_lb.Dock = DockStyle.Fill
-        fullname_lb.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        fullname_lb.Location = New Point(5, 0)
-        fullname_lb.Margin = New Padding(5, 0, 5, 0)
+        fullname_lb.Font = New Font("Segoe UI", 20.0F, FontStyle.Bold, GraphicsUnit.Point)
+        fullname_lb.Location = New Point(4, 0)
+        fullname_lb.Margin = New Padding(4, 0, 4, 0)
         fullname_lb.Name = "fullname_lb"
         fullname_lb.Size = New Size(802, 77)
         fullname_lb.TabIndex = 3
@@ -426,17 +435,17 @@ Partial Class mainform
         ' 
         ' branch_lb
         ' 
-        Label3.AutoSize = True
-        Label3.Dock = DockStyle.Fill
-        Label3.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.Location = New Point(5, 71)
-        Label3.Margin = New Padding(5, 0, 5, 0)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(893, 42)
-        Label3.TabIndex = 4
-        Label3.Text = "Quezon City University"
-        Label3.TextAlign = ContentAlignment.MiddleCenter
-        Label3.UseCompatibleTextRendering = True
+        branch_lb.AutoSize = True
+        branch_lb.Dock = DockStyle.Fill
+        branch_lb.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
+        branch_lb.Location = New Point(4, 77)
+        branch_lb.Margin = New Padding(4, 0, 4, 0)
+        branch_lb.Name = "branch_lb"
+        branch_lb.Size = New Size(802, 46)
+        branch_lb.TabIndex = 4
+        branch_lb.Text = "--BRANCH"
+        branch_lb.TextAlign = ContentAlignment.MiddleLeft
+        branch_lb.UseCompatibleTextRendering = True
         ' 
         ' TableLayoutPanel2
         ' 
@@ -490,7 +499,7 @@ Partial Class mainform
         ' 
         employee_id_tb.BackColor = Color.LightGray
         employee_id_tb.Dock = DockStyle.Fill
-        employee_id_tb.Font = New Font("Segoe UI", 41.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        employee_id_tb.Font = New Font("Segoe UI", 34.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         employee_id_tb.Location = New Point(0, 0)
         employee_id_tb.Margin = New Padding(0)
         employee_id_tb.Name = "employee_id_tb"
@@ -513,7 +522,7 @@ Partial Class mainform
         ' 
         employee_code_tb.BackColor = Color.LightGray
         employee_code_tb.Dock = DockStyle.Fill
-        employee_code_tb.Font = New Font("Segoe UI", 34.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        employee_code_tb.Font = New Font("Segoe UI", 29.0F, FontStyle.Regular, GraphicsUnit.Pixel)
         employee_code_tb.Location = New Point(0, 0)
         employee_code_tb.Margin = New Padding(0)
         employee_code_tb.Name = "employee_code_tb"
@@ -538,7 +547,7 @@ Partial Class mainform
         pic_border.RowStyles.Add(New RowStyle(SizeType.Percent, 10.0F))
         pic_border.RowStyles.Add(New RowStyle(SizeType.Percent, 80.0F))
         pic_border.RowStyles.Add(New RowStyle(SizeType.Percent, 10.0F))
-        pic_border.Size = New Size(554, 547)
+        pic_border.Size = New Size(498, 478)
         pic_border.TabIndex = 3
         ' 
         ' cam_pic_box
@@ -560,7 +569,7 @@ Partial Class mainform
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 1.99999988F))
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 96.0F))
         TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 1.99999988F))
-        TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 24.0F))
+        TableLayoutPanel5.ColumnStyles.Add(New ColumnStyle(SizeType.Absolute, 20.0F))
         TableLayoutPanel5.Controls.Add(TableLayoutPanel1, 1, 2)
         TableLayoutPanel5.Controls.Add(TableLayoutPanel13, 1, 1)
         TableLayoutPanel5.Controls.Add(mainform_back_btn, 1, 0)
@@ -590,8 +599,8 @@ Partial Class mainform
         TableLayoutPanel13.Name = "TableLayoutPanel13"
         TableLayoutPanel13.RowCount = 1
         TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Percent, 100.000008F))
-        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Absolute, 95.0F))
-        TableLayoutPanel13.Size = New Size(1491, 94)
+        TableLayoutPanel13.RowStyles.Add(New RowStyle(SizeType.Absolute, 78.0F))
+        TableLayoutPanel13.Size = New Size(1334, 83)
         TableLayoutPanel13.TabIndex = 6
         ' 
         ' wtf
@@ -1073,9 +1082,18 @@ Partial Class mainform
         debug_label.TabIndex = 3
         debug_label.Text = "Label4"
         ' 
+        ' debug_label
+        ' 
+        debug_label.AutoSize = True
+        debug_label.Location = New Point(22, 0)
+        debug_label.Name = "debug_label"
+        debug_label.Size = New Size(63, 25)
+        debug_label.TabIndex = 3
+        debug_label.Text = "Label4"
+        ' 
         ' mainform
         ' 
-        AutoScaleDimensions = New SizeF(12.0F, 30.0F)
+        AutoScaleDimensions = New SizeF(10.0F, 25.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1396, 810)
         Controls.Add(TableLayoutPanel5)
@@ -1108,6 +1126,7 @@ Partial Class mainform
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         pic_border.ResumeLayout(False)
+        pic_border.PerformLayout()
         CType(cam_pic_box, ComponentModel.ISupportInitialize).EndInit()
         TableLayoutPanel5.ResumeLayout(False)
         TableLayoutPanel13.ResumeLayout(False)

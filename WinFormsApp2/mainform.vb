@@ -100,8 +100,8 @@ Public Class mainform
 
             Dim id = IDs.First
 
-            trackerStateManager.Run(id)
 
+            trackerStateManager.Run(id)
 
             Draw_Rect(id, frameImage)
             Display_vid(frameImage)
@@ -171,25 +171,15 @@ Public Class mainform
     '                Dim image_tag_name As String = ""
     '                Dim res As Integer = FSDK.GetAllNames(tracker, id, image_tag_name, 100) ' maximum of 100 characters
 
-    '                If image_tag_name.Length > 0 Then
+    'If Curr_emp_id = -1 Then
     '                    'if face is recognized
-
-
-    If image_tag_name.Length > 0 Then
-    'if face is recognized
-
-
-    If tracker_state <> tracker_states.found_face Then
-                        'first time
-                        Face_detected(image_tag_name)
-
-                    Else
-    If prev_emp_id <> id Then
-                            Face_detected(image_tag_name)
-                        End If
-                        'not the same as last
-                        Stop_timer("unlocking face")
-                    End If
+    '                Else
+    '                   If prev_emp_id <> id Then
+    '                      Face_detected(image_tag_name)
+    '                 End If
+    '                'not the same as last
+    '               Stop_timer("unlocking face")
+    '          End If
 
     '                    pic_border.BackColor = Color.LightGreen
     '                    tracker_state = tracker_states.found_face
