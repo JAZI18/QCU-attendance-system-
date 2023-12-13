@@ -7,51 +7,73 @@ Public Class mainform
     Private timers As New Dictionary(Of String, Timer)
 
     Dim cameraHandle As Integer
-    Dim needClose As Boolean = True
-    Dim userName As String
-    Dim tracker As Integer = 0  ' creating a Tracker
+    Public tracker As Integer = 0  ' creating a Tracker
 
-    Dim curr_emp_id As Integer = -1
-    Dim prev_emp_id As Integer = -2
+    Private _curr_emp_id As Integer = -1
+    Public prev_emp_id As Integer = -2
 
-    Dim unenrolled_id As Integer = -1 'for testing
 
-#Region "enums and states"
-    Enum tracker_states
-        finding_face
-        unlocking_face
-        found_face
-    End Enum
-    Dim tracker_state As tracker_states = tracker_states.finding_face
-#End Region
+
+    Dim trackerStateManager As StateManager
+
+    Public Property Curr_emp_id As Integer
+        Get
+            Return _curr_emp_id
+        End Get
+
+        Set(value As Integer)
+            debug_label.Text = value
+            _curr_emp_id = value
+        End Set
+    End Property
+
+
+    '#Region "enums and states"
+    '    Enum tracker_states
+    '        finding_face
+    '        unlocking_face
+    '        found_face
+    '    End Enum
+    '    Dim tracker_state As tracker_states = tracker_states.finding_face
+    '#End Region
 
     ' WinAPI procedure to release HBITMAP handles returned by FSDKCam.GrabFrame
     Declare Auto Function DeleteObject Lib "gdi32.dll" (hObject As IntPtr) As Boolean
 
 
     Private Sub cam_pic_box_Click(sender As Object, e As EventArgs) Handles cam_pic_box.Click
-        Enroll_face(unenrolled_id)
+        Enroll_face(curr_emp_id)
     End Sub
+
 
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Init_fsdk()
         Start_cam()
 
+
+
+        trackerStateManager = New StateManager({
+                                               New FindingState(),
+                                               New UnrecognizedFaceFoundState(),
+                                               New RecognizedFaceFoundState(),
+                                               New FoundState(),
+                                               New UnlockingState()
+                                               }, Me)
         Create_tracker()
+
 
         Start_timer(Sub()
                         Live_feed()
                     End Sub, "s")
     End Sub
 
-    Private Sub Live_feed()
-        needClose = False
 
+    Private Sub Live_feed()
         Dim image As FSDK.CImage
         Dim frameImage As Image
 
 
-        While Not needClose
+        While True
             Dim ImageHandle As Integer
 
 
@@ -76,63 +98,111 @@ Public Class mainform
 
             Dim id = IDs.First
 
+            trackerStateManager.Run(id)
+
+
             Draw_Rect(id, frameImage)
             Display_vid(frameImage)
 
-
-            If id = 0 Then
-                'if no face detected
-
-                If curr_emp_id = -1 Then
-                    'if there is no recent face detected
-                    pic_border.BackColor = Color.Blue
-                Else
-                    If tracker_state = tracker_states.unlocking_face Then Continue While
-                    tracker_state = tracker_states.unlocking_face
-
-                    'find face again after 1 second
-                    Start_timer(Sub()
-                                    Refresh_fields()
-                                    curr_emp_id = -1
-                                    pic_border.BackColor = Color.Blue
-                                    tracker_state = tracker_states.finding_face
-                                End Sub, "unlocking face", 600)
-                End If
-                unenrolled_id = -1
-            Else
-                'face detected
-                Dim image_tag_name As String = ""
-                Dim res As Integer = FSDK.GetAllNames(tracker, id, image_tag_name, 100) ' maximum of 100 characters
-
-                If image_tag_name.Length > 0 Then
-                    'if face is recognized
-
-
-                    If tracker_state <> tracker_states.found_face Then
-                        'first time
-                        Face_detected(image_tag_name)
-
-                    Else
-                        If prev_emp_id <> id Then
-                            Face_detected(image_tag_name)
-                        End If
-                        'not the same as last
-                        Stop_timer("unlocking face")
-                    End If
-
-                    curr_emp_id = id 'set the curr_emp_id
-                    pic_border.BackColor = Color.LightGreen
-                    tracker_state = tracker_states.found_face
-                    unenrolled_id = -1
-                Else
-                    'face not recognized
-                    Refresh_fields()
-                    pic_border.BackColor = Color.Red
-                    unenrolled_id = id
-                End If
-            End If
         End While
+
     End Sub
+
+
+
+
+    '    Private Sub Live_feed()
+    '        needClose = False
+
+    '        Dim image As FSDK.CImage
+    '        Dim frameImage As Image
+
+
+    '        While Not needClose
+    '            Dim ImageHandle As Integer
+
+
+    '            ' grab the current frame from the camera
+    '            If (FSDKCam.GrabFrame(cameraHandle, ImageHandle) <> FSDK.FSDKE_OK) Then
+    '                Application.DoEvents()
+    '                Continue While
+    '            End If
+
+    '            image = New FSDK.CImage(ImageHandle)
+    '            frameImage = image.ToCLRImage()
+
+
+    '#Region "tracker api doing magic"
+    '            Dim IDs As Long()
+    '            ReDim IDs(0 To 256)
+    '            Dim faceCount As Long
+    '            Dim sizeOfLong = 8
+    '            FSDK.FeedFrame(tracker, 0, ImageHandle, faceCount, IDs, sizeOfLong) ' maximum 1 face detected
+    '#End Region
+
+
+    '            Dim id = IDs.First
+    '            Draw_Rect(id, frameImage)
+    '            Display_vid(frameImage)
+
+
+    '            If id = 0 Then
+    '                'if no face detected
+    '                If curr_emp_id = -1 Then
+    '                    'if there is no recent face detected
+    '                    pic_border.BackColor = Color.Blue
+    '                Else
+    '                    If tracker_state = tracker_states.unlocking_face Then Continue While
+    '                    tracker_state = tracker_states.unlocking_face
+
+    '                    'find face again after 1 second
+    '                    Start_timer(Sub()
+    '                                    Refresh_fields()
+    '                                    curr_emp_id = -1
+    '                                    pic_border.BackColor = Color.Blue
+    '                                    tracker_state = tracker_states.finding_face
+    '                                End Sub, "unlocking face", 600)
+    '                End If
+    '                unenrolled_id = -1
+    '            Else
+    '                'face detected
+    '                Dim image_tag_name As String = ""
+    '                Dim res As Integer = FSDK.GetAllNames(tracker, id, image_tag_name, 100) ' maximum of 100 characters
+
+    '                If image_tag_name.Length > 0 Then
+    '                    'if face is recognized
+
+
+    '                    If tracker_state <> tracker_states.found_face Then
+    '                        'first time
+    '                        prev_emp_id = curr_emp_id
+    '                        Face_detected(image_tag_name)
+
+    '                    Else
+    '                        'not the same as last
+    '                        If prev_emp_id <> id Then
+    '                            prev_emp_id = curr_emp_id
+
+    '                            'MsgBox("new face")      
+    '                            Face_detected(image_tag_name)
+    '                        End If
+
+    '                        Stop_timer("unlocking face")
+    '                    End If
+    '                    curr_emp_id = id 'set the curr_emp_id
+
+    '                    pic_border.BackColor = Color.LightGreen
+    '                    tracker_state = tracker_states.found_face
+    '                    unenrolled_id = -1
+    '                Else
+    '                    'face not recognized
+    '                    Refresh_fields()
+    '                    pic_border.BackColor = Color.Red
+    '                    unenrolled_id = id
+    '                End If
+    '            End If
+    '        End While
+    '    End Sub
 
 
     Private Sub Display_vid(frameImage As Image)
@@ -143,18 +213,19 @@ Public Class mainform
     End Sub
 
 
-    Private Sub Face_detected(image_tag_name)
+
+    Public Sub Face_detected(image_tag_name)
         employee_id_tb.Text = image_tag_name
         fetch_all()
     End Sub
 
     Private Sub employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_code_tb.KeyDown
         If e.KeyCode = Keys.Enter Then
-            insert_attendance()
+            Insert_attendance()
         End If
     End Sub
 
-    Private Sub insert_attendance()
+    Private Sub Insert_attendance()
         Throw New NotImplementedException()
     End Sub
 
@@ -175,15 +246,9 @@ Public Class mainform
     End Sub
 
     Private Sub Enroll_face(id As Integer)
-
-        If id = -1 Then
-            MsgBox("no face detected")
-            Exit Sub
-        End If
-
+        Dim username
 
         If (FSDK.FSDKE_OK = FSDK.LockID(tracker, id)) Then
-
             userName = InputBox("Your name:", "Enter your name") 'get the user name
             If userName Is Nothing Or userName.Length <= 0 Then
                 FSDK.SetName(tracker, id, "")
@@ -191,17 +256,18 @@ Public Class mainform
 
             Else
                 FSDK.SetName(tracker, id, userName)
-                unenrolled_id = -1
             End If
             FSDK.UnlockID(tracker, id)
+        Else
+            MsgBox("?")
         End If
 
-        Save_tracker()
+        'Save_tracker()
     End Sub
 
 
 
-    Private Sub close_save()
+    Private Sub Close_save()
         Save_tracker()
         FSDKCam.CloseVideoCamera(cameraHandle)
         FSDKCam.FinalizeCapturing()
@@ -258,7 +324,7 @@ Public Class mainform
         FSDK.PurgeID(tracker, curr_emp_id)
     End Sub
 
-    Private Sub Refresh_fields()
+    Public Sub Refresh_fields()
         employee_id_tb.Clear()
         morning_in_tb.Clear()
         fullname_lb.Text = "-------------------"
@@ -277,16 +343,15 @@ Public Class mainform
 
     Private Sub mainform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
-        close_save()
+        Close_save()
     End Sub
-
 
 
 
 
 #Region "helper functions"
 
-    Private Sub Start_timer(f As Action, t_name As String, Optional interval As Integer = 1000)
+    Public Sub Start_timer(f As Action, t_name As String, Optional interval As Integer = 1000, Optional repeat As Boolean = False)
 
 
         If timers.ContainsKey(t_name) Then
@@ -300,7 +365,7 @@ Public Class mainform
 
         Dim delay_timer As New Timer With {
             .Interval = interval,
-            .AutoReset = False
+            .AutoReset = repeat
         }
 
         AddHandler delay_timer.Elapsed, Sub()
@@ -317,7 +382,7 @@ Public Class mainform
     End Sub
 
 
-    Private Sub Stop_timer(t_name As String)
+    Public Sub Stop_timer(t_name As String)
         Try
             timers.Item(t_name).Dispose()
         Catch ex As Exception

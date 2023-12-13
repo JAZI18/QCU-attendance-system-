@@ -90,6 +90,7 @@ Partial Class mainform
         Dynamic_textb2 = New dynamic_textb()
         TableLayoutPanel12 = New TableLayoutPanel()
         PictureBox7 = New PictureBox()
+        debug_label = New Label()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel6.SuspendLayout()
         Panel9.SuspendLayout()
@@ -477,6 +478,7 @@ Partial Class mainform
         pic_border.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 90F))
         pic_border.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 5F))
         pic_border.Controls.Add(cam_pic_box, 1, 1)
+        pic_border.Controls.Add(debug_label, 1, 0)
         pic_border.Dock = DockStyle.Fill
         pic_border.Location = New Point(3, 3)
         pic_border.Name = "pic_border"
@@ -1010,6 +1012,15 @@ Partial Class mainform
         PictureBox7.TabIndex = 2
         PictureBox7.TabStop = False
         ' 
+        ' debug_label
+        ' 
+        debug_label.AutoSize = True
+        debug_label.Location = New Point(22, 0)
+        debug_label.Name = "debug_label"
+        debug_label.Size = New Size(63, 25)
+        debug_label.TabIndex = 3
+        debug_label.Text = "Label4"
+        ' 
         ' mainform
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
@@ -1037,6 +1048,7 @@ Partial Class mainform
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         pic_border.ResumeLayout(False)
+        pic_border.PerformLayout()
         CType(cam_pic_box, ComponentModel.ISupportInitialize).EndInit()
         TableLayoutPanel5.ResumeLayout(False)
         TableLayoutPanel13.ResumeLayout(False)
@@ -1131,4 +1143,5 @@ Partial Class mainform
     Friend WithEvents Label3 As Label
     Friend WithEvents Label22 As Label
     Friend WithEvents mainform_back_btn As Button
+    Friend WithEvents debug_label As Label
 End Class
