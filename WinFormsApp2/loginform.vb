@@ -9,7 +9,7 @@ Public Class loginform
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles login_btn.Click
-        If un_tb.Text Or pass_tb.Text = "" Then Exit Sub
+        If un_tb.Text = "" Or pass_tb.Text = "" Then Exit Sub
         ' Hash the entered password
         Dim hashedPassword As String = HashedPasswords(pass_tb.Text)
 
