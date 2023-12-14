@@ -48,10 +48,7 @@ Public Class mainform
 
 
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
         time_lb.Text = DateTime.Now.ToString("hh:mm:ss")
-
         Init_fsdk()
         Start_cam()
 
@@ -178,23 +175,21 @@ Public Class mainform
     '                    'if face is recognized
 
 
-    '                    If tracker_state <> tracker_states.found_face Then
-    '                        'first time
-    '                        prev_emp_id = curr_emp_id
-    '                        Face_detected(image_tag_name)
+    If image_tag_name.Length > 0 Then
+    'if face is recognized
 
-    '                    Else
-    '                        'not the same as last
-    '                        If prev_emp_id <> id Then
-    '                            prev_emp_id = curr_emp_id
 
-    '                            'MsgBox("new face")      
-    '                            Face_detected(image_tag_name)
-    '                        End If
+    If tracker_state <> tracker_states.found_face Then
+                        'first time
+                        Face_detected(image_tag_name)
 
-    '                        Stop_timer("unlocking face")
-    '                    End If
-    '                    curr_emp_id = id 'set the curr_emp_id
+                    Else
+    If prev_emp_id <> id Then
+                            Face_detected(image_tag_name)
+                        End If
+                        'not the same as last
+                        Stop_timer("unlocking face")
+                    End If
 
     '                    pic_border.BackColor = Color.LightGreen
     '                    tracker_state = tracker_states.found_face
