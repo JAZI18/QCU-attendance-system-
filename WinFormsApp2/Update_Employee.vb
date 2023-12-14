@@ -27,7 +27,7 @@ Public Class Update_Employee
         If reader.Read Then
             e_firstname.Text = reader("first_name")
             e_middlename.Text = reader("middle_name")
-            TextBox1.Text = reader("last_name")
+            e_lastname.Text = reader("last_name")
             e_email.Text = reader("email")
 
             ' Ensure that the value is not DBNull before assigning it to the DateTimePicker
@@ -39,25 +39,25 @@ Public Class Update_Employee
                 ' You may set a default value or handle it according to your application logic
             End If
 
-            ComboBox2.SelectedItem = reader("gender")
+            gender.SelectedItem = reader("gender")
             ListDepartment(reader.GetInt32("department_id"))
         End If
     End Sub
 
-    Private Sub submit_employees_btn_Click(sender As Object, e As EventArgs) Handles submit_employees_btn.Click
+    Private Sub submit_employees_btn_Click(sender As Object, e As EventArgs)
 
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this employee?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim result = MessageBox.Show("Are you sure you want to delete this employee?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If result = DialogResult.Yes Then
-            UpdateQuery("employee_info", "first_name,middle_name,last_name,dob,gender,department_id", {e_firstname.Text, e_middlename.Text, TextBox1.Text, e_date.Value.ToString("yyyy/MM/dd"), ComboBox2.SelectedItem, selectDepartment()}, "employee_id=" & _employeeCode)
-            e_date.Value = Date.Now()
+            UpdateQuery("employee_info", "first_name,middle_name,last_name,dob,gender,department_id", {e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"), gender.SelectedItem, selectDepartment()}, "employee_id=" & _employeeCode)
+            e_date.Value = Date.Now
             e_firstname.Clear()
             e_middlename.Clear()
-            TextBox1.Clear()
-            ComboBox1.Items.Clear()
-            ComboBox2.Items.Clear()
+            e_lastname.Clear()
+            department.Items.Clear()
+            gender.Items.Clear()
             MsgBox("Recorded Inserted")
-            Me.Close()
+            Close()
 
             admindashboardform.updateEmpployeeGrid()
         Else
@@ -68,11 +68,11 @@ Public Class Update_Employee
 
     Public Sub ListDepartment(number As Integer)
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department")
-        ComboBox1.Items.Clear()
+        department.Items.Clear()
         While reader.Read
-            ComboBox1.Items.Add(reader("department_name"))
+            department.Items.Add(reader("department_name"))
         End While
-        ComboBox1.SelectedIndex = number - 1
+        department.SelectedIndex = number - 1
         reader.Close()
     End Sub
 
@@ -81,7 +81,7 @@ Public Class Update_Employee
 
 
     Function selectDepartment() As Integer
-        Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", {ComboBox1.SelectedItem}, "department_name=@deparment")
+        Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", {department.SelectedItem}, "department_name=@deparment")
 
         If reader.Read Then
             If Not reader.IsDBNull(reader.GetOrdinal("department_id")) Then
@@ -95,5 +95,8 @@ Public Class Update_Employee
 
     End Function
 
+    Private Sub submit_employees_btn_Click_1(sender As Object, e As EventArgs) Handles submit_employees_btn.Click
+        If e_firstname.Text Or e_lastname.Text Or e_middlename.Text Or e_email.Text Or e_date.Text Or gender.Text Or department.Text = "" Then Exit Sub
 
+    End Sub
 End Class
