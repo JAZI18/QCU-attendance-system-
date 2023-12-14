@@ -1149,12 +1149,21 @@ Partial Class mainform
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+
+
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents TextBox5 As TextBox
     Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents TextBox11 As TextBox
+
+
+
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
@@ -1193,68 +1202,12 @@ Partial Class mainform
     Friend WithEvents morning_in_tb As TextBox
     Friend WithEvents debug_label As Label
 
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents employee_id_tb As dynamic_textb
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents employee_code_tb As dynamic_textb
-    Friend WithEvents pic_border As TableLayoutPanel
-    Friend WithEvents cam_pic_box As PictureBox
-    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label12 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents PictureBox5 As PictureBox
-    Friend WithEvents PictureBox6 As PictureBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents TableLayoutPanel8 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel9 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
-    Friend WithEvents Panel7 As Panel
-    Friend WithEvents Dynamic_textb1 As dynamic_textb
-    Friend WithEvents Panel8 As Panel
-    Friend WithEvents Dynamic_textb2 As dynamic_textb
-    Friend WithEvents TableLayoutPanel12 As TableLayoutPanel
-    Friend WithEvents PictureBox7 As PictureBox
-    Friend WithEvents Panel9 As Panel
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents TableLayoutPanel13 As TableLayoutPanel
-    Friend WithEvents wtf As Label
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label22 As Label
-    Friend WithEvents mainform_back_btn As Button
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents Label23 As Label
+
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel10 As Panel
     Friend WithEvents Panel11 As Panel
     Friend WithEvents Panel12 As Panel
     Friend WithEvents date_lb As Label
-    Friend WithEvents morning_in_tb As dynamic_textb
     Friend WithEvents Dynamic_textb4 As dynamic_textb
     Friend WithEvents Dynamic_textb5 As dynamic_textb
     Friend WithEvents Dynamic_textb6 As dynamic_textb
