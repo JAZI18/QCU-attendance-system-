@@ -249,18 +249,9 @@ Public Class mainform
             End If
             FSDK.UnlockID(tracker, id)
         Else
-            MsgBox("?")
+            MsgBox("no face found")
         End If
 
-        'Save_tracker()
-    End Sub
-
-
-
-    Private Sub Close_save()
-        Save_tracker()
-        FSDKCam.CloseVideoCamera(cameraHandle)
-        FSDKCam.FinalizeCapturing()
     End Sub
 
     Private Sub mainform_back_btn_(sender As Object, e As EventArgs) Handles mainform_back_btn.Click
@@ -334,9 +325,15 @@ Public Class mainform
     Private Sub mainform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         Close_save()
+        Close_save()
     End Sub
 
 
+    Private Sub Close_save()
+        Save_tracker()
+        FSDKCam.CloseVideoCamera(cameraHandle)
+        FSDKCam.FinalizeCapturing()
+    End Sub
 
 
 #Region "helper functions"
@@ -424,6 +421,7 @@ Public Class mainform
         If (FSDK.FSDKE_OK <> Retrieve_tracker()) Then ' try to load saved tracker state
             MsgBox("creating new tracker!")
             FSDK.CreateTracker(tracker) ' if could not be loaded, create a new tracker
+            Save_tracker()
         End If
 
         Dim err As Integer = 0 ' set realtime face detection parameters
@@ -446,6 +444,7 @@ Public Class mainform
             Return FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
         Catch ex As Exception
         End Try
+        MsgBox("tracker loaded from db")
         Return -1
     End Function
 
