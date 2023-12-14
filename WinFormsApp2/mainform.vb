@@ -211,7 +211,7 @@ Public Class mainform
         fetch_all()
     End Sub
 
-    Private Sub employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_code_tb.KeyDown
+    Private Sub employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs)
         If e.KeyCode = Keys.Enter Then
             Insert_attendance()
         End If
@@ -262,7 +262,7 @@ Public Class mainform
     End Sub
 
 
-    Private Sub employee_id_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_id_tb.KeyDown
+    Private Sub employee_id_tb_KeyDown(sender As Object, e As KeyEventArgs)
         If e.KeyCode = Keys.Enter Then
             fetch_all()
         End If
@@ -289,7 +289,7 @@ Public Class mainform
             Dim ntime_in = If(time_in = Nothing, Date.Now, CDate(time_in))
 
             If (time_in Is Nothing) Then
-                morning_in_tb.Text = ntime_in.ToString("hh:mm tt")
+                time_in_tb.Text = ntime_in.ToString("hh:mm tt")
             Else
 
             End If
@@ -309,7 +309,7 @@ Public Class mainform
 
     Public Sub Refresh_fields()
         employee_id_tb.Clear()
-        morning_in_tb.Clear()
+        time_in_tb.Clear()
         fullname_lb.Text = "-------------------"
         sched_lb.Text = "--:----- to --:----"
     End Sub
