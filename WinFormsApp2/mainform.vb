@@ -42,7 +42,7 @@ Public Class mainform
 
 
     Private Sub cam_pic_box_Click(sender As Object, e As EventArgs) Handles cam_pic_box.Click
-        Enroll_face(curr_emp_id)
+        Enroll_face(Curr_emp_id)
     End Sub
 
 
@@ -249,13 +249,13 @@ Public Class mainform
         Dim username
 
         If (FSDK.FSDKE_OK = FSDK.LockID(tracker, id)) Then
-            userName = InputBox("Your name:", "Enter your name") 'get the user name
-            If userName Is Nothing Or userName.Length <= 0 Then
+            username = InputBox("Your name:", "Enter your name") 'get the user name
+            If username Is Nothing Or username.Length <= 0 Then
                 FSDK.SetName(tracker, id, "")
                 FSDK.PurgeID(tracker, id)
 
             Else
-                FSDK.SetName(tracker, id, userName)
+                FSDK.SetName(tracker, id, username)
             End If
             FSDK.UnlockID(tracker, id)
         Else
@@ -320,8 +320,8 @@ Public Class mainform
         MsgBox("not found", MsgBoxStyle.Exclamation, "ooops!")
         Refresh_fields()
 
-        FSDK.SetName(tracker, curr_emp_id, "")
-        FSDK.PurgeID(tracker, curr_emp_id)
+        FSDK.SetName(tracker, Curr_emp_id, "")
+        FSDK.PurgeID(tracker, Curr_emp_id)
     End Sub
 
     Public Sub Refresh_fields()
@@ -364,7 +364,7 @@ Public Class mainform
         End If
 
         Dim delay_timer As New Timer With {
-            .Interval = interval,
+            .interval = interval,
             .AutoReset = repeat
         }
 
@@ -458,6 +458,11 @@ Public Class mainform
         End Try
         Return -1
     End Function
+
+
+
+
+
 
 #End Region
 
