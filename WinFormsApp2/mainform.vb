@@ -2,7 +2,6 @@
 Imports Luxand
 Imports System.Timers
 
-
 Public Class mainform
 
     Private timers As New Dictionary(Of String, Timer)
@@ -62,6 +61,8 @@ Public Class mainform
                                                New UnlockingState()
                                                }, Me)
         Create_tracker()
+
+
         Start_timer(Sub()
                         Live_feed()
                     End Sub, "s")
@@ -97,9 +98,6 @@ Public Class mainform
 
 
             Dim id = IDs.First
-
-            trackerStateManager.Run(id)
-
 
             trackerStateManager.Run(id)
 
@@ -176,21 +174,23 @@ Public Class mainform
     '                    'if face is recognized
 
 
-    If image_tag_name.Length > 0 Then
-    'if face is recognized
+    '                    If tracker_state <> tracker_states.found_face Then
+    '                        'first time
+    '                        prev_emp_id = curr_emp_id
+    '                        Face_detected(image_tag_name)
 
+    '                    Else
+    '                        'not the same as last
+    '                        If prev_emp_id <> id Then
+    '                            prev_emp_id = curr_emp_id
 
     If tracker_state <> tracker_states.found_face Then
-                        'first time
-                        Face_detected(image_tag_name)
+    '                            Face_detected(image_tag_name)
+    '                        End If
 
-                    Else
-    If prev_emp_id <> id Then
-                            Face_detected(image_tag_name)
-                        End If
-                        'not the same as last
-                        Stop_timer("unlocking face")
-                    End If
+    Else
+    '                    End If
+    '                    curr_emp_id = id 'set the curr_emp_id
 
     '                    pic_border.BackColor = Color.LightGreen
     '                    tracker_state = tracker_states.found_face
@@ -250,25 +250,22 @@ Public Class mainform
         Dim username
 
         If (FSDK.FSDKE_OK = FSDK.LockID(tracker, id)) Then
+
             username = InputBox("Your name:", "Enter your name") 'get the user name
             If username Is Nothing Or username.Length <= 0 Then
                 FSDK.SetName(tracker, id, "")
                 FSDK.PurgeID(tracker, id)
 
             Else
-                FSDK.SetName(tracker, id, username)
             End If
+            FSDK.UnlockID(tracker, id)
             FSDK.UnlockID(tracker, id)
         Else
             MsgBox("?")
         End If
 
         'Save_tracker()
-    End Sub
 
-
-
-    Private Sub Close_save()
         Save_tracker()
         FSDKCam.CloseVideoCamera(cameraHandle)
         FSDKCam.FinalizeCapturing()
@@ -366,7 +363,7 @@ Public Class mainform
 
         Dim delay_timer As New Timer With {
             .interval = interval,
-            .AutoReset = repeat
+            .AutoReset = False
         }
 
         AddHandler delay_timer.Elapsed, Sub()
@@ -377,8 +374,8 @@ Public Class mainform
                                             End With
                                             timers.Remove(t_name)
                                         End Sub
-
-        timers.Add(t_name, delay_timer)
+        End With
+        timers.Remove(t_name)
         delay_timer.Start()
     End Sub
 
