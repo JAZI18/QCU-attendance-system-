@@ -22,13 +22,16 @@ Public Class Update_department
 
     End Sub
 
-    Private Sub sub_btn_Click(sender As Object, e As EventArgs) Handles sub_btn.Click
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to Update this Department?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+    Private Sub sub_btn_Click(sender As Object, e As EventArgs)
+
+        If dep_name.Text = "" Or dep_desc.Text = "" Then Exit Sub
+
+        Dim result = MessageBox.Show("Are you sure you want to Update this Department?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
             UpdateQuery("qcu_department", "department_name,department_desc", {dep_name.Text, dep_desc.Text}, "department_id=" & _depId)
 
             MsgBox("Recorded Updated")
-            Me.Close()
+            Close()
 
             admindashboardform.UpdateDeptGridView2()
         Else
