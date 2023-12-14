@@ -166,6 +166,7 @@ Public Class admindashboardform
     Private Sub Admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dashboard_btn.PerformClick()
         LoadData()
+        loginform.timerCallAbsent()
     End Sub
 
 
