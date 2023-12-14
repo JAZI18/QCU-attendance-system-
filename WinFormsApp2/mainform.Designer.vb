@@ -30,6 +30,8 @@ Partial Class mainform
         Label18 = New Label()
         Label22 = New Label()
         Label19 = New Label()
+
+
         time_lb = New Label()
         date_lb = New Label()
         Panel1 = New Panel()
@@ -46,6 +48,8 @@ Partial Class mainform
         pic_border = New TableLayoutPanel()
         cam_pic_box = New PictureBox()
         debug_label = New Label()
+        time_lb = New Label()
+        date_lb = New Label()
         Panel2 = New Panel()
         time_in_tb = New dynamic_textb()
         Panel10 = New Panel()
@@ -459,6 +463,32 @@ Partial Class mainform
         debug_label.Size = New Size(63, 25)
         debug_label.TabIndex = 3
         debug_label.Text = "Label4"
+        ' 
+        ' time_lb
+        ' 
+        time_lb.BackColor = Color.Silver
+        time_lb.Dock = DockStyle.Fill
+        time_lb.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        time_lb.Location = New Point(0, 56)
+        time_lb.Margin = New Padding(0)
+        time_lb.Name = "time_lb"
+        time_lb.Size = New Size(808, 40)
+        time_lb.TabIndex = 12
+        time_lb.Text = "9:00:00 AM"
+        time_lb.TextAlign = ContentAlignment.TopCenter
+        ' 
+        ' date_lb
+        ' 
+        date_lb.BackColor = Color.Silver
+        date_lb.Dock = DockStyle.Fill
+        date_lb.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Bold, GraphicsUnit.Point)
+        date_lb.Location = New Point(0, 0)
+        date_lb.Margin = New Padding(0)
+        date_lb.Name = "date_lb"
+        date_lb.Size = New Size(808, 56)
+        date_lb.TabIndex = 11
+        date_lb.Text = "NOVEMBER 29,2003"
+        date_lb.TextAlign = ContentAlignment.BottomCenter
         ' 
         ' Panel2
         ' 
