@@ -67,7 +67,7 @@ Public Class addEmployee
     End Function
 
     Private Sub submit_employees_btn_Click(sender As Object, e As EventArgs) Handles submit_employees_btn.Click
-        If e_firstname.Text Or e_lastname.Text Or e_middlename.Text Or e_date.Text Or e_email.Text Or e_gender.Text Or e_dep.Text = "" Then Exit Sub
+        If e_firstname.Text = "" Or e_lastname.Text = "" Or e_middlename.Text = "" Or e_date.Text = "" Or e_email.Text = "" Or e_gender.Text = "" Or e_dep.Text = "" Then Exit Sub
     End Sub
 
     Private Sub addEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
