@@ -92,7 +92,7 @@ Public Class Update_Employee
         End If
 
 
-
+        Return Nothing
     End Function
 
     Private Sub submit_employees_btn_Click_1(sender As Object, e As EventArgs) Handles submit_employees_btn.Click

@@ -27,7 +27,7 @@ Public Class admindashboardform
         updateEmpployeeGrid()
     End Sub
 
-    Public Function updateEmpployeeGrid()
+    Public sub updateEmpployeeGrid()
         employee_grid_view.Rows.Clear()
 
         Dim command As MySqlCommand = NewQuery("SELECT e.employee_id, e.first_name, e.last_name, e.middle_name, e.department_id, e.gender, e.email, e.dob, d.department_name FROM employee_info e JOIN qcu_department d ON e.department_id = d.department_id", Nothing)
@@ -56,7 +56,7 @@ Public Class admindashboardform
 
         reader.Close()
 
-    End Function
+    End sub
     Private Sub employee_grid_view_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles employee_grid_view.CellContentClick
         ' Check if the clicked cell is in the "Actions" column (assuming it's the last column in your DataGridView)
         If e.ColumnIndex = employee_grid_view.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
@@ -141,7 +141,7 @@ Public Class admindashboardform
     End Sub
 
 
-    Function UpdateDeptGridView2()
+    Sub UpdateDeptGridView2()
         dept_gridview.Rows.Clear()
         TabControl1.SelectedTab = TabPage4
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", {"2"}, "department_id >= @username")
@@ -149,9 +149,8 @@ Public Class admindashboardform
         While reader.Read
             dept_gridview.Rows.Add(reader("department_id"), reader("department_name"), reader("department_desc"), " Modify ")
         End While
-
         reader.Close()
-    End Function
+    End Sub
     Private Sub department_btn_Click(sender As Object, e As EventArgs) Handles department_btn.Click
         UpdateDeptGridView2()
     End Sub

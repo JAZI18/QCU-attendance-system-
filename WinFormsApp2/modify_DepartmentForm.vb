@@ -23,7 +23,7 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         DeleteDepartment(_depname)
     End Sub
-    Function deleteDepartment(depname As String)
+    Sub deleteDepartment(depname As String)
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this Department?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If result = DialogResult.Yes Then
@@ -41,7 +41,7 @@
             MessageBox.Show("Deletion canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
-    End Function
+    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim dep As Update_department = New Update_department(_depname, _depId)
