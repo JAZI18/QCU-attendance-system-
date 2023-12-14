@@ -21,34 +21,30 @@ Public Class adminAdd
         Dim hashedPasswords As String = HashedPassword(e_password.Text)
         Dim reader As MySqlDataReader = SelectQuery("*", "admin_account", {_employeeCode}, "employee_info = @params")
 
-        If e_password.Text = "" Or e_firstname.Text = "" Then Exit Sub
+        If e_password.Text = "" Or e_firstname.Text = "" Then
+            MsgBox("Please fill all empty field")
 
-        MsgBox("Please fill all empty field")
-        Else
-            If reader.Read Then
-                MsgBox("It has already an admin account")
-                Me.Close()
-            Else
-
-                Try
-                    InsertQuery("admin_account", "username,password,employee_info", {e_firstname.Text, hashedPasswords, _employeeCode})
-                    MessageBox.Show("Record inserted successfully.")
-                    admindashboardform.Enabled = True
-                    Me.Close()
-
-                Catch ex As Exception
-                    e_firstname.Clear()
-                    e_password.Clear()
-                    MessageBox.Show("An error occurred: ")
-                End Try
-            End If
-
+            Exit Sub
         End If
 
 
+        If reader.Read Then
+            MsgBox("It has already an admin account")
+            Me.Close()
+        Else
 
+            Try
+                InsertQuery("admin_account", "username,password,employee_info", {e_firstname.Text, hashedPasswords, _employeeCode})
+                MessageBox.Show("Record inserted successfully.")
+                admindashboardform.Enabled = True
+                Me.Close()
 
-
+            Catch ex As Exception
+                e_firstname.Clear()
+                e_password.Clear()
+                MessageBox.Show("An error occurred: ")
+            End Try
+        End If
     End Sub
 
     Public Function HashedPassword(password As String)

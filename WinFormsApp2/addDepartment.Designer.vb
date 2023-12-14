@@ -22,8 +22,6 @@ Partial Class addDepartment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Label1 = New Label()
-        Label3 = New Label()
         Label2 = New Label()
         dep_name = New TextBox()
         dep_desc = New TextBox()
@@ -31,41 +29,20 @@ Partial Class addDepartment
         sub_btn = New Button()
         SuspendLayout()
         ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(23, 9)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(165, 25)
-        Label1.TabIndex = 5
-        Label1.Text = "Add Department"
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.ForeColor = Color.Red
-        Label3.Location = New Point(223, 9)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(24, 25)
-        Label3.TabIndex = 14
-        Label3.Text = "X"
-        ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(23, 59)
+        Label2.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label2.Location = New Point(40, 33)
         Label2.Name = "Label2"
-        Label2.Size = New Size(145, 21)
+        Label2.Size = New Size(139, 21)
         Label2.TabIndex = 15
         Label2.Text = "Department Name"
         ' 
         ' dep_name
         ' 
         dep_name.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        dep_name.Location = New Point(23, 94)
+        dep_name.Location = New Point(44, 57)
         dep_name.Name = "dep_name"
         dep_name.Size = New Size(235, 29)
         dep_name.TabIndex = 16
@@ -73,7 +50,7 @@ Partial Class addDepartment
         ' dep_desc
         ' 
         dep_desc.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        dep_desc.Location = New Point(23, 171)
+        dep_desc.Location = New Point(44, 134)
         dep_desc.Name = "dep_desc"
         dep_desc.Size = New Size(235, 29)
         dep_desc.TabIndex = 17
@@ -81,42 +58,43 @@ Partial Class addDepartment
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.Location = New Point(31, 147)
+        Label4.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label4.Location = New Point(40, 110)
         Label4.Name = "Label4"
-        Label4.Size = New Size(137, 21)
+        Label4.Size = New Size(130, 21)
         Label4.TabIndex = 18
         Label4.Text = "Department Desc"
         ' 
         ' sub_btn
         ' 
-        sub_btn.Location = New Point(146, 224)
+        sub_btn.BackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
+        sub_btn.FlatStyle = FlatStyle.Flat
+        sub_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        sub_btn.ForeColor = SystemColors.ButtonHighlight
+        sub_btn.Location = New Point(40, 196)
         sub_btn.Name = "sub_btn"
-        sub_btn.Size = New Size(112, 33)
+        sub_btn.Size = New Size(99, 33)
         sub_btn.TabIndex = 19
         sub_btn.Text = "Submit"
-        sub_btn.UseVisualStyleBackColor = True
+        sub_btn.UseVisualStyleBackColor = False
         ' 
         ' addDepartment
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(291, 280)
+        BackColor = Color.FromArgb(CByte(223), CByte(223), CByte(223))
+        ClientSize = New Size(326, 264)
         Controls.Add(sub_btn)
         Controls.Add(Label4)
         Controls.Add(dep_desc)
         Controls.Add(dep_name)
         Controls.Add(Label2)
-        Controls.Add(Label3)
-        Controls.Add(Label1)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "addDepartment"
         Text = "addDepartment"
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents dep_name As TextBox
     Friend WithEvents dep_desc As TextBox

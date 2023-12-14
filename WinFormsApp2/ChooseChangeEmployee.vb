@@ -50,7 +50,7 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        Dim employee As Employee = New Employee(_employeeCode, _name, _depname)
+        Dim employee As Update_Employee = New Update_Employee(_employeeCode, _name, _depname)
 
         employee.Show()
 
