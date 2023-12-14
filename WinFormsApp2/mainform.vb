@@ -2,6 +2,7 @@
 Imports Luxand
 Imports System.Timers
 
+
 Public Class mainform
 
     Private timers As New Dictionary(Of String, Timer)
@@ -34,6 +35,10 @@ Public Class mainform
     End Sub
 
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        time_lb.Text = DateTime.Now.ToString("hh:mm:ss")
+
         Init_fsdk()
         Start_cam()
 
@@ -397,7 +402,6 @@ Public Class mainform
         End Try
         Return -1
     End Function
-
 
 
 
