@@ -76,6 +76,10 @@ Public Class mainform
 
             Dim id = IDs.First
 
+            MsgBox(id)
+
+
+
             Draw_Rect(id, frameImage)
             Display_vid(frameImage)
 
@@ -393,6 +397,11 @@ Public Class mainform
         End Try
         Return -1
     End Function
+
+
+
+
+
 
 #End Region
 
