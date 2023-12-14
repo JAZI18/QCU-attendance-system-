@@ -18,12 +18,12 @@ Public Class adminAdd
 
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim hashedPasswords As String = HashedPassword(TextBox1.Text)
+        Dim hashedPasswords As String = HashedPassword(e_password.Text)
         Dim reader As MySqlDataReader = SelectQuery("*", "admin_account", {_employeeCode}, "employee_info = @params")
 
-        If TextBox1.Text = "" Or e_firstname.Text = "" Then
+        If e_password.Text = "" Or e_firstname.Text = "" Then Exit Sub
 
-            MsgBox("Please fill all empty field")
+        MsgBox("Please fill all empty field")
         Else
             If reader.Read Then
                 MsgBox("It has already an admin account")
@@ -38,7 +38,7 @@ Public Class adminAdd
 
                 Catch ex As Exception
                     e_firstname.Clear()
-                    TextBox1.Clear()
+                    e_password.Clear()
                     MessageBox.Show("An error occurred: ")
                 End Try
             End If

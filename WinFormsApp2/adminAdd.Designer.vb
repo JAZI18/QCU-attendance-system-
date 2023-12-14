@@ -22,39 +22,27 @@ Partial Class adminAdd
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Label1 = New Label()
         Label2 = New Label()
         e_firstname = New TextBox()
         f = New Label()
-        TextBox1 = New TextBox()
+        e_password = New TextBox()
         Button1 = New Button()
-        Label3 = New Label()
         SuspendLayout()
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(12, 9)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(115, 25)
-        Label1.TabIndex = 3
-        Label1.Text = "Add Admin"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(30, 74)
+        Label2.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label2.Location = New Point(38, 29)
         Label2.Name = "Label2"
-        Label2.Size = New Size(83, 21)
+        Label2.Size = New Size(81, 21)
         Label2.TabIndex = 7
         Label2.Text = "Username"
         ' 
         ' e_firstname
         ' 
         e_firstname.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_firstname.Location = New Point(30, 98)
+        e_firstname.Location = New Point(41, 53)
         e_firstname.Name = "e_firstname"
         e_firstname.Size = New Size(235, 29)
         e_firstname.TabIndex = 8
@@ -62,64 +50,54 @@ Partial Class adminAdd
         ' f
         ' 
         f.AutoSize = True
-        f.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        f.Location = New Point(34, 155)
+        f.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        f.Location = New Point(39, 99)
         f.Name = "f"
-        f.Size = New Size(79, 21)
+        f.Size = New Size(76, 21)
         f.TabIndex = 9
         f.Text = "Password"
         ' 
-        ' TextBox1
+        ' e_password
         ' 
-        TextBox1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox1.Location = New Point(30, 179)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(235, 29)
-        TextBox1.TabIndex = 10
+        e_password.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        e_password.Location = New Point(41, 123)
+        e_password.Name = "e_password"
+        e_password.Size = New Size(235, 29)
+        e_password.TabIndex = 10
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(150, 237)
+        Button1.BackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Button1.ForeColor = Color.White
+        Button1.Location = New Point(42, 184)
         Button1.Name = "Button1"
-        Button1.Size = New Size(115, 29)
+        Button1.Size = New Size(89, 35)
         Button1.TabIndex = 11
         Button1.Text = "Submit"
-        Button1.UseVisualStyleBackColor = True
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI Symbol", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.ForeColor = Color.Red
-        Label3.Location = New Point(268, 9)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(24, 25)
-        Label3.TabIndex = 12
-        Label3.Text = "X"
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' adminAdd
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(295, 313)
-        Controls.Add(Label3)
+        BackColor = Color.FromArgb(CByte(223), CByte(223), CByte(223))
+        ClientSize = New Size(322, 252)
         Controls.Add(Button1)
-        Controls.Add(TextBox1)
+        Controls.Add(e_password)
         Controls.Add(f)
         Controls.Add(e_firstname)
         Controls.Add(Label2)
-        Controls.Add(Label1)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "adminAdd"
         Text = "adminAdd"
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents e_firstname As TextBox
     Friend WithEvents f As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents e_password As TextBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents Label3 As Label
 End Class
