@@ -1,6 +1,6 @@
 ﻿Imports System.Text
 Imports MySql.Data.MySqlClient
-
+Imports System.Timers
 
 Imports System.Security.Cryptography
 
@@ -21,6 +21,7 @@ Public Class loginform
             un_tb.Clear()
             pass_tb.Clear()
             Exit Sub
+
         End If
 
         ' Compare hashed passwords
@@ -43,9 +44,7 @@ Public Class loginform
         End Using
     End Function
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
-    End Sub
 
     Private Sub mainform_back_btn_Click(sender As Object, e As EventArgs) Handles mainform_back_btn.Click
 
@@ -53,4 +52,49 @@ Public Class loginform
         Me.Close()
 
     End Sub
+
+
+
+
+
+    Private Sub loginform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        timerCallAbsent()
+    End Sub
+
+    Private midnightTimer As Timer
+
+    Function timerCallAbsent()
+        ' Initialize and configure the timer
+        midnightTimer = New Timer()
+        midnightTimer.Interval = CalculateTimeToMidnight()
+        midnightTimer.AutoReset = True ' Set to true if you want the timer to repeat
+
+        ' Add an event handler for the Elapsed event
+        AddHandler midnightTimer.Elapsed, AddressOf MidnightTimerElapsed
+
+        ' Start the timer
+        midnightTimer.Start()
+    End Function
+
+    Private Sub MidnightTimerElapsed(sender As Object, e As ElapsedEventArgs)
+        ' Call the function at midnight
+        AbsenceFunction.AddAbsenceForAllEmployees()
+
+        ' Calculate the interval for the next midnight
+        midnightTimer.Interval = CalculateTimeToMidnight()
+    End Sub
+
+    Private Function CalculateTimeToMidnight() As Double
+        ' Calculate the time until the next midnight
+        Dim now = DateTime.Now
+        Dim midnight = now.Date.AddDays(1)
+        Dim timeToMidnight = midnight.Subtract(now).TotalMilliseconds
+
+        Return timeToMidnight
+    End Function
+
+
 End Class
+
