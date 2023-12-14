@@ -35,15 +35,10 @@ Public Class mainform
     End Sub
 
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
         time_lb.Text = DateTime.Now.ToString("hh:mm:ss")
-
         Init_fsdk()
         Start_cam()
-
         Create_tracker()
-
         Start_timer(Sub()
                         Live_feed()
                     End Sub, "s")
@@ -115,12 +110,9 @@ Public Class mainform
 
                 If image_tag_name.Length > 0 Then
                     'if face is recognized
-
-
                     If tracker_state <> tracker_states.found_face Then
                         'first time
                         Face_detected(image_tag_name)
-
                     Else
                         If prev_emp_id <> id Then
                             Face_detected(image_tag_name)
