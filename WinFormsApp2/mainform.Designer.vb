@@ -30,14 +30,10 @@ Partial Class mainform
         Label19 = New Label()
         Label23 = New Label()
         Panel2 = New Panel()
-        morning_in_tb = New dynamic_textb()
         Panel10 = New Panel()
-        Dynamic_textb4 = New dynamic_textb()
         Panel11 = New Panel()
-        Dynamic_textb5 = New dynamic_textb()
         Label22 = New Label()
         Panel12 = New Panel()
-        Dynamic_textb6 = New dynamic_textb()
         Label18 = New Label()
         date_lb = New Label()
         Panel1 = New Panel()
@@ -48,9 +44,7 @@ Partial Class mainform
         TableLayoutPanel2 = New TableLayoutPanel()
         TableLayoutPanel4 = New TableLayoutPanel()
         Panel3 = New Panel()
-        employee_id_tb = New dynamic_textb()
         Panel4 = New Panel()
-        employee_code_tb = New dynamic_textb()
         pic_border = New TableLayoutPanel()
         cam_pic_box = New PictureBox()
         TableLayoutPanel5 = New TableLayoutPanel()
@@ -87,9 +81,7 @@ Partial Class mainform
         TableLayoutPanel10 = New TableLayoutPanel()
         TableLayoutPanel11 = New TableLayoutPanel()
         Panel7 = New Panel()
-        Dynamic_textb1 = New dynamic_textb()
         Panel8 = New Panel()
-        Dynamic_textb2 = New dynamic_textb()
         TableLayoutPanel12 = New TableLayoutPanel()
         PictureBox7 = New PictureBox()
         debug_label = New Label()
@@ -98,16 +90,10 @@ Partial Class mainform
         TableLayoutPanel6.SuspendLayout()
         Panel9.SuspendLayout()
         TableLayoutPanel3.SuspendLayout()
-        Panel2.SuspendLayout()
-        Panel10.SuspendLayout()
-        Panel11.SuspendLayout()
-        Panel12.SuspendLayout()
         Panel1.SuspendLayout()
         TableLayoutPanel14.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
         TableLayoutPanel4.SuspendLayout()
-        Panel3.SuspendLayout()
-        Panel4.SuspendLayout()
         pic_border.SuspendLayout()
         CType(cam_pic_box, ComponentModel.ISupportInitialize).BeginInit()
         TableLayoutPanel5.SuspendLayout()
@@ -123,8 +109,6 @@ Partial Class mainform
         TableLayoutPanel8.SuspendLayout()
         TableLayoutPanel10.SuspendLayout()
         TableLayoutPanel11.SuspendLayout()
-        Panel7.SuspendLayout()
-        Panel8.SuspendLayout()
         TableLayoutPanel12.SuspendLayout()
         CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -244,7 +228,6 @@ Partial Class mainform
         ' Panel2
         ' 
         Panel2.BackColor = SystemColors.ActiveCaptionText
-        Panel2.Controls.Add(morning_in_tb)
         Panel2.Dock = DockStyle.Fill
         Panel2.Location = New Point(30, 197)
         Panel2.Margin = New Padding(0)
@@ -267,7 +250,6 @@ Partial Class mainform
         ' Panel10
         ' 
         Panel10.BackColor = SystemColors.ActiveCaptionText
-        Panel10.Controls.Add(Dynamic_textb4)
         Panel10.Dock = DockStyle.Fill
         Panel10.Location = New Point(432, 197)
         Panel10.Margin = New Padding(0)
@@ -298,7 +280,6 @@ Partial Class mainform
         Panel11.Size = New Size(343, 44)
         Panel11.TabIndex = 9
         ' 
-        ' Dynamic_textb5
         ' 
         Dynamic_textb5.BackColor = Color.LightGray
         Dynamic_textb5.Dock = DockStyle.Fill
@@ -325,17 +306,17 @@ Partial Class mainform
         ' 
         ' Panel12
         ' 
-        Label19.AutoSize = True
-        Label19.BackColor = Color.Transparent
-        Label19.Dock = DockStyle.Fill
-        Label19.FlatStyle = FlatStyle.Flat
-        Label19.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label19.Location = New Point(545, 0)
-        Label19.Margin = New Padding(5, 0, 5, 0)
-        Label19.Name = "Label19"
-        Label19.Size = New Size(305, 83)
-        Label19.TabIndex = 6
-        Label19.Text = "OVERTIME IN"
+        Panel12.BackColor = SystemColors.ActiveCaptionText
+        Panel12.Controls.Add(Dynamic_textb6)
+        Panel12.Dock = DockStyle.Fill
+        Panel12.Location = New Point(432, 325)
+        Panel12.Margin = New Padding(0)
+        Panel12.Name = "Panel12"
+        Panel12.Size = New Size(343, 44)
+        Panel12.TabIndex = 10
+        ' 
+        ' Dynamic_textb6
+        ' 
         Label19.TextAlign = ContentAlignment.BottomLeft
         ' 
         ' Dynamic_textb6
@@ -487,7 +468,6 @@ Partial Class mainform
         ' Panel3
         ' 
         Panel3.BackColor = Color.Black
-        Panel3.Controls.Add(employee_id_tb)
         Panel3.Dock = DockStyle.Fill
         Panel3.Location = New Point(14, 22)
         Panel3.Margin = New Padding(0)
@@ -510,7 +490,6 @@ Partial Class mainform
         ' 
         ' Panel4
         ' 
-        Panel4.Controls.Add(employee_code_tb)
         Panel4.Dock = DockStyle.Fill
         Panel4.Location = New Point(14, 90)
         Panel4.Margin = New Padding(0)
@@ -876,7 +855,7 @@ Partial Class mainform
         Label16.Name = "Label16"
         Label16.Size = New Size(224, 25)
         Label16.TabIndex = 3
-        Label16.Text = "Mangmang, Jay Prince T." + vbCrLf
+        Label16.Text = "Mangmang, Jay Prince T." & vbCrLf
         ' 
         ' Button1
         ' 
@@ -1001,7 +980,6 @@ Partial Class mainform
         ' Panel7
         ' 
         Panel7.BackColor = Color.Black
-        Panel7.Controls.Add(Dynamic_textb1)
         Panel7.Dock = DockStyle.Fill
         Panel7.Location = New Point(1, 24)
         Panel7.Margin = New Padding(0)
@@ -1023,7 +1001,6 @@ Partial Class mainform
         ' 
         ' Panel8
         ' 
-        Panel8.Controls.Add(Dynamic_textb2)
         Panel8.Dock = DockStyle.Fill
         Panel8.Location = New Point(1, 98)
         Panel8.Margin = New Padding(0)
@@ -1040,6 +1017,7 @@ Partial Class mainform
         Dynamic_textb2.Name = "Dynamic_textb2"
         Dynamic_textb2.PlaceholderText = "code"
         Dynamic_textb2.Size = New Size(60, 50)
+        Dynamic_textb2.Size = New Size(60, 50)
         Dynamic_textb2.TabIndex = 1
         Dynamic_textb2.TextAlign = HorizontalAlignment.Center
         ' 
@@ -1051,7 +1029,6 @@ Partial Class mainform
         TableLayoutPanel12.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 90.0F))
         TableLayoutPanel12.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 5.0F))
         TableLayoutPanel12.Controls.Add(PictureBox7, 1, 1)
-        TableLayoutPanel12.Dock = DockStyle.Fill
         TableLayoutPanel12.Location = New Point(3, 3)
         TableLayoutPanel12.Name = "TableLayoutPanel12"
         TableLayoutPanel12.RowCount = 3
@@ -1108,23 +1085,11 @@ Partial Class mainform
         Panel9.ResumeLayout(False)
         TableLayoutPanel3.ResumeLayout(False)
         TableLayoutPanel3.PerformLayout()
-        Panel2.ResumeLayout(False)
-        Panel2.PerformLayout()
-        Panel10.ResumeLayout(False)
-        Panel10.PerformLayout()
-        Panel11.ResumeLayout(False)
-        Panel11.PerformLayout()
-        Panel12.ResumeLayout(False)
-        Panel12.PerformLayout()
         Panel1.ResumeLayout(False)
         TableLayoutPanel14.ResumeLayout(False)
         TableLayoutPanel14.PerformLayout()
         TableLayoutPanel2.ResumeLayout(False)
         TableLayoutPanel4.ResumeLayout(False)
-        Panel3.ResumeLayout(False)
-        Panel3.PerformLayout()
-        Panel4.ResumeLayout(False)
-        Panel4.PerformLayout()
         pic_border.ResumeLayout(False)
         pic_border.PerformLayout()
         CType(cam_pic_box, ComponentModel.ISupportInitialize).EndInit()
@@ -1144,10 +1109,6 @@ Partial Class mainform
         TableLayoutPanel8.ResumeLayout(False)
         TableLayoutPanel10.ResumeLayout(False)
         TableLayoutPanel11.ResumeLayout(False)
-        Panel7.ResumeLayout(False)
-        Panel7.PerformLayout()
-        Panel8.ResumeLayout(False)
-        Panel8.PerformLayout()
         TableLayoutPanel12.ResumeLayout(False)
         CType(PictureBox7, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

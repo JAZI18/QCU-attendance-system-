@@ -48,7 +48,9 @@ Public Class mainform
 
 
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        time_lb.Text = DateTime.Now.ToString("hh:mm:ss")
+        time_lb.Text = DateTime.Now.ToString("hh:mm:ss tt")
+        date_lb.Text = Date.Now.ToString("MMMM dd, yyyy")
+
         Init_fsdk()
         Start_cam()
 
@@ -447,9 +449,6 @@ Public Class mainform
         MsgBox("tracker loaded from db")
         Return -1
     End Function
-
-
-
 
 
 #End Region
