@@ -22,6 +22,7 @@ Partial Class loginform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         Panel1 = New Panel()
         Panel5 = New Panel()
         pass_tb = New TextBox()
@@ -35,6 +36,7 @@ Partial Class loginform
         Label1 = New Label()
         Panel2 = New Panel()
         PictureBox1 = New PictureBox()
+        Timer1 = New Timer(components)
         Panel1.SuspendLayout()
         Panel5.SuspendLayout()
         Panel4.SuspendLayout()
@@ -117,9 +119,9 @@ Partial Class loginform
         ' invalid_lb
         ' 
         invalid_lb.AutoSize = True
-        invalid_lb.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point)
-        invalid_lb.ForeColor = Color.Red
-        invalid_lb.Location = New Point(203, 305)
+        invalid_lb.Font = New Font("Segoe UI", 9.0F, FontStyle.Italic, GraphicsUnit.Point)
+        invalid_lb.ForeColor = Color.Firebrick
+        invalid_lb.Location = New Point(298, 336)
         invalid_lb.Margin = New Padding(2, 0, 2, 0)
         invalid_lb.Name = "invalid_lb"
         invalid_lb.Size = New Size(179, 15)
@@ -133,14 +135,26 @@ Partial Class loginform
         login_btn.BackColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
         login_btn.FlatAppearance.BorderColor = Color.Black
         login_btn.FlatStyle = FlatStyle.Flat
-        login_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point)
+        login_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point)
         login_btn.ForeColor = Color.White
-        login_btn.Location = New Point(213, 331)
+        login_btn.Location = New Point(308, 363)
         login_btn.Name = "login_btn"
         login_btn.Size = New Size(133, 41)
         login_btn.TabIndex = 6
         login_btn.Text = "Login"
         login_btn.UseVisualStyleBackColor = False
+        ' 
+        ' pass_tb
+        ' 
+        pass_tb.BackColor = SystemColors.ButtonShadow
+        pass_tb.BorderStyle = BorderStyle.None
+        pass_tb.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
+        pass_tb.ForeColor = Color.White
+        pass_tb.Location = New Point(276, 308)
+        pass_tb.Name = "pass_tb"
+        pass_tb.PasswordChar = "*"c
+        pass_tb.Size = New Size(254, 28)
+        pass_tb.TabIndex = 5
         ' 
         ' PictureBox3
         ' 
@@ -162,11 +176,22 @@ Partial Class loginform
         PictureBox2.TabIndex = 3
         PictureBox2.TabStop = False
         ' 
+        ' un_tb
+        ' 
+        un_tb.BackColor = SystemColors.ButtonShadow
+        un_tb.BorderStyle = BorderStyle.None
+        un_tb.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
+        un_tb.ForeColor = Color.White
+        un_tb.Location = New Point(276, 252)
+        un_tb.Name = "un_tb"
+        un_tb.Size = New Size(254, 28)
+        un_tb.TabIndex = 1
+        ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
-        Label1.Font = New Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Font = New Font("Segoe UI", 24.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.White
         Label1.Location = New Point(213, 138)
         Label1.Name = "Label1"
@@ -182,12 +207,20 @@ Partial Class loginform
         Panel2.Size = New Size(250, 600)
         Panel2.TabIndex = 1
         ' 
+        ' Panel3
+        ' 
+        Panel3.BackColor = Color.FromArgb(CByte(209), CByte(210), CByte(210))
+        Panel3.Location = New Point(-600, 0)
+        Panel3.Name = "Panel3"
+        Panel3.Size = New Size(850, 50)
+        Panel3.TabIndex = 1
+        ' 
         ' PictureBox1
         ' 
         PictureBox1.BackColor = Color.Transparent
         PictureBox1.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox1.Location = New Point(28, 19)
+        PictureBox1.Location = New Point(35, 100)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(180, 500)
         PictureBox1.TabIndex = 0
@@ -195,7 +228,7 @@ Partial Class loginform
         ' 
         ' loginform
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(970, 473)
         Controls.Add(Panel2)
@@ -231,4 +264,5 @@ Partial Class loginform
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel5 As Panel
 
+    Friend WithEvents Timer1 As Timer
 End Class
