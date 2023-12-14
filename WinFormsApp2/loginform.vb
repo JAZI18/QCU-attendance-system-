@@ -58,14 +58,12 @@ Public Class loginform
 
 
     Private Sub loginform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
         timerCallAbsent()
     End Sub
 
     Private midnightTimer As Timer
 
-    Function timerCallAbsent()
+    Sub timerCallAbsent()
         ' Initialize and configure the timer
         midnightTimer = New Timer()
         midnightTimer.Interval = CalculateTimeToMidnight()
@@ -76,7 +74,7 @@ Public Class loginform
 
         ' Start the timer
         midnightTimer.Start()
-    End Function
+    End Sub
 
     Private Sub MidnightTimerElapsed(sender As Object, e As ElapsedEventArgs)
         ' Call the function at midnight

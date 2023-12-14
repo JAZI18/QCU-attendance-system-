@@ -47,9 +47,7 @@ Public Class addEmployee
                 Return departmentId
             End If
         End If
-
-
-
+        Return Nothing
     End Function
 
     Public Function GenerateEmployeeCode() As String
