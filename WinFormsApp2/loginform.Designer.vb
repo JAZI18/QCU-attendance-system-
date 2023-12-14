@@ -60,59 +60,67 @@ Partial Class loginform
         Panel1.Dock = DockStyle.Left
         Panel1.ForeColor = Color.White
         Panel1.Location = New Point(0, 0)
+        Panel1.Margin = New Padding(4, 5, 4, 5)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(510, 473)
+        Panel1.Size = New Size(729, 788)
         Panel1.TabIndex = 0
         ' 
         ' Panel5
         ' 
         Panel5.BackColor = Color.Silver
         Panel5.Controls.Add(pass_tb)
-        Panel5.Location = New Point(181, 272)
+        Panel5.Location = New Point(259, 453)
+        Panel5.Margin = New Padding(4, 5, 4, 5)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(270, 34)
+        Panel5.Size = New Size(386, 57)
         Panel5.TabIndex = 10
         ' 
         ' pass_tb
         ' 
-        pass_tb.BackColor = Color.Silver
+        pass_tb.BackColor = SystemColors.ButtonShadow
         pass_tb.BorderStyle = BorderStyle.None
-        pass_tb.Font = New Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point)
-        pass_tb.ForeColor = Color.Black
-        pass_tb.Location = New Point(10, 8)
+        pass_tb.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
+        pass_tb.ForeColor = Color.White
+        pass_tb.Location = New Point(12, 7)
+        pass_tb.Margin = New Padding(4, 5, 4, 5)
         pass_tb.Name = "pass_tb"
         pass_tb.PasswordChar = "*"c
-        pass_tb.Size = New Size(254, 23)
-        pass_tb.TabIndex = 5
+        pass_tb.PlaceholderText = "PASSWORD"
+        pass_tb.Size = New Size(363, 42)
+        pass_tb.TabIndex = 6
         ' 
         ' Panel4
         ' 
         Panel4.BackColor = Color.Silver
         Panel4.Controls.Add(un_tb)
-        Panel4.Location = New Point(181, 210)
+        Panel4.Location = New Point(259, 350)
+        Panel4.Margin = New Padding(4, 5, 4, 5)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(270, 34)
+        Panel4.Size = New Size(386, 57)
         Panel4.TabIndex = 9
         ' 
         ' un_tb
         ' 
-        un_tb.BackColor = Color.Silver
+        un_tb.BackColor = SystemColors.ButtonShadow
         un_tb.BorderStyle = BorderStyle.None
-        un_tb.Font = New Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point)
-        un_tb.ForeColor = Color.Black
-        un_tb.Location = New Point(8, 6)
+        un_tb.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
+        un_tb.ForeColor = Color.White
+        un_tb.Location = New Point(12, 7)
+        un_tb.Margin = New Padding(4, 5, 4, 5)
         un_tb.Name = "un_tb"
+        un_tb.PlaceholderText = "USERNAME"
         un_tb.ShortcutsEnabled = False
-        un_tb.Size = New Size(254, 23)
-        un_tb.TabIndex = 1
+        un_tb.Size = New Size(363, 42)
+        un_tb.TabIndex = 2
         ' 
         ' mainform_back_btn
         ' 
         mainform_back_btn.FlatAppearance.BorderSize = 0
         mainform_back_btn.FlatStyle = FlatStyle.Flat
-        mainform_back_btn.Location = New Point(21, 19)
+        mainform_back_btn.Location = New Point(30, 32)
+        mainform_back_btn.Margin = New Padding(4, 5, 4, 5)
         mainform_back_btn.Name = "mainform_back_btn"
-        mainform_back_btn.Size = New Size(38, 31)
+        mainform_back_btn.Size = New Size(54, 52)
         mainform_back_btn.TabIndex = 5
         mainform_back_btn.UseVisualStyleBackColor = True
         ' 
@@ -121,10 +129,9 @@ Partial Class loginform
         invalid_lb.AutoSize = True
         invalid_lb.Font = New Font("Segoe UI", 9.0F, FontStyle.Italic, GraphicsUnit.Point)
         invalid_lb.ForeColor = Color.Firebrick
-        invalid_lb.Location = New Point(298, 336)
-        invalid_lb.Margin = New Padding(2, 0, 2, 0)
+        invalid_lb.Location = New Point(426, 560)
         invalid_lb.Name = "invalid_lb"
-        invalid_lb.Size = New Size(179, 15)
+        invalid_lb.Size = New Size(266, 25)
         invalid_lb.TabIndex = 8
         invalid_lb.Text = "Invalid Username and Password."
         invalid_lb.UseWaitCursor = True
@@ -137,32 +144,22 @@ Partial Class loginform
         login_btn.FlatStyle = FlatStyle.Flat
         login_btn.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold Or FontStyle.Italic, GraphicsUnit.Point)
         login_btn.ForeColor = Color.White
-        login_btn.Location = New Point(308, 363)
+        login_btn.Location = New Point(440, 605)
+        login_btn.Margin = New Padding(4, 5, 4, 5)
         login_btn.Name = "login_btn"
-        login_btn.Size = New Size(133, 41)
+        login_btn.Size = New Size(190, 68)
         login_btn.TabIndex = 6
         login_btn.Text = "Login"
         login_btn.UseVisualStyleBackColor = False
-        ' 
-        ' pass_tb
-        ' 
-        pass_tb.BackColor = SystemColors.ButtonShadow
-        pass_tb.BorderStyle = BorderStyle.None
-        pass_tb.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
-        pass_tb.ForeColor = Color.White
-        pass_tb.Location = New Point(276, 308)
-        pass_tb.Name = "pass_tb"
-        pass_tb.PasswordChar = "*"c
-        pass_tb.Size = New Size(254, 28)
-        pass_tb.TabIndex = 5
         ' 
         ' PictureBox3
         ' 
         PictureBox3.BackgroundImage = My.Resources.Resources.lock
         PictureBox3.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox3.Location = New Point(125, 269)
+        PictureBox3.Location = New Point(179, 448)
+        PictureBox3.Margin = New Padding(4, 5, 4, 5)
         PictureBox3.Name = "PictureBox3"
-        PictureBox3.Size = New Size(50, 40)
+        PictureBox3.Size = New Size(71, 67)
         PictureBox3.TabIndex = 4
         PictureBox3.TabStop = False
         ' 
@@ -170,22 +167,12 @@ Partial Class loginform
         ' 
         PictureBox2.BackgroundImage = My.Resources.Resources.user__2_
         PictureBox2.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox2.Location = New Point(125, 208)
+        PictureBox2.Location = New Point(179, 347)
+        PictureBox2.Margin = New Padding(4, 5, 4, 5)
         PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(50, 40)
+        PictureBox2.Size = New Size(71, 67)
         PictureBox2.TabIndex = 3
         PictureBox2.TabStop = False
-        ' 
-        ' un_tb
-        ' 
-        un_tb.BackColor = SystemColors.ButtonShadow
-        un_tb.BorderStyle = BorderStyle.None
-        un_tb.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
-        un_tb.ForeColor = Color.White
-        un_tb.Location = New Point(276, 252)
-        un_tb.Name = "un_tb"
-        un_tb.Size = New Size(254, 28)
-        un_tb.TabIndex = 1
         ' 
         ' Label1
         ' 
@@ -193,47 +180,43 @@ Partial Class loginform
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Segoe UI", 24.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(213, 138)
+        Label1.Location = New Point(304, 230)
+        Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(133, 45)
+        Label1.Size = New Size(196, 65)
         Label1.TabIndex = 0
         Label1.Text = "ADMIN"
         ' 
         ' Panel2
         ' 
         Panel2.Controls.Add(PictureBox1)
-        Panel2.Location = New Point(750, 0)
+        Panel2.Location = New Point(1071, 0)
+        Panel2.Margin = New Padding(4, 5, 4, 5)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(250, 600)
+        Panel2.Size = New Size(357, 1000)
         Panel2.TabIndex = 1
-        ' 
-        ' Panel3
-        ' 
-        Panel3.BackColor = Color.FromArgb(CByte(209), CByte(210), CByte(210))
-        Panel3.Location = New Point(-600, 0)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(850, 50)
-        Panel3.TabIndex = 1
         ' 
         ' PictureBox1
         ' 
         PictureBox1.BackColor = Color.Transparent
         PictureBox1.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox1.Location = New Point(35, 100)
+        PictureBox1.Location = New Point(50, 167)
+        PictureBox1.Margin = New Padding(4, 5, 4, 5)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(180, 500)
+        PictureBox1.Size = New Size(257, 833)
         PictureBox1.TabIndex = 0
         PictureBox1.TabStop = False
         ' 
         ' loginform
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(10.0F, 25.0F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(970, 473)
+        ClientSize = New Size(1386, 788)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
         FormBorderStyle = FormBorderStyle.None
+        Margin = New Padding(4, 5, 4, 5)
         Name = "loginform"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Form1"
@@ -256,8 +239,6 @@ Partial Class loginform
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents un_tb As TextBox
-    Friend WithEvents pass_tb As TextBox
     Friend WithEvents login_btn As Button
     Friend WithEvents invalid_lb As Label
     Friend WithEvents mainform_back_btn As Button
@@ -265,4 +246,6 @@ Partial Class loginform
     Friend WithEvents Panel5 As Panel
 
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents pass_tb As TextBox
+    Friend WithEvents un_tb As TextBox
 End Class

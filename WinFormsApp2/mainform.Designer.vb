@@ -26,14 +26,19 @@ Partial Class mainform
         TableLayoutPanel6 = New TableLayoutPanel()
         Panel9 = New Panel()
         TableLayoutPanel3 = New TableLayoutPanel()
+        o_o_p = New Panel()
+        overtime_out_tb = New dynamic_textb()
+        t_o_p = New Panel()
+        time_out_tb = New dynamic_textb()
         Label23 = New Label()
         Label18 = New Label()
         Label22 = New Label()
         Label19 = New Label()
-
-
-        time_lb = New Label()
         date_lb = New Label()
+        time_lb = New Label()
+        m_i_p = New Panel()
+        o_i_p = New Panel()
+        overtime_in_tb = New dynamic_textb()
         Panel1 = New Panel()
         TableLayoutPanel14 = New TableLayoutPanel()
         sched_lb = New Label()
@@ -48,14 +53,13 @@ Partial Class mainform
         pic_border = New TableLayoutPanel()
         cam_pic_box = New PictureBox()
         debug_label = New Label()
-        time_lb = New Label()
-        date_lb = New Label()
+        Dynamic_textb3 = New dynamic_textb()
+        Dynamic_textb1 = New dynamic_textb()
         Panel2 = New Panel()
         time_in_tb = New dynamic_textb()
         Panel10 = New Panel()
         Dynamic_textb10 = New dynamic_textb()
         Panel11 = New Panel()
-        time_out_tb = New dynamic_textb()
         Panel12 = New Panel()
         Dynamic_textb11 = New dynamic_textb()
         TableLayoutPanel5 = New TableLayoutPanel()
@@ -95,10 +99,16 @@ Partial Class mainform
         Panel8 = New Panel()
         TableLayoutPanel12 = New TableLayoutPanel()
         PictureBox7 = New PictureBox()
+        Dynamic_textb2 = New dynamic_textb()
+        Dynamic_textb4 = New dynamic_textb()
         TableLayoutPanel1.SuspendLayout()
         TableLayoutPanel6.SuspendLayout()
         Panel9.SuspendLayout()
         TableLayoutPanel3.SuspendLayout()
+        o_o_p.SuspendLayout()
+        t_o_p.SuspendLayout()
+        m_i_p.SuspendLayout()
+        o_i_p.SuspendLayout()
         Panel1.SuspendLayout()
         TableLayoutPanel14.SuspendLayout()
         TableLayoutPanel2.SuspendLayout()
@@ -153,8 +163,8 @@ Partial Class mainform
         TableLayoutPanel6.Location = New Point(513, 3)
         TableLayoutPanel6.Name = "TableLayoutPanel6"
         TableLayoutPanel6.RowCount = 2
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 29.2063484F))
-        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 70.79365F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 23.8601818F))
+        TableLayoutPanel6.RowStyles.Add(New RowStyle(SizeType.Percent, 76.13982F))
         TableLayoutPanel6.Size = New Size(818, 658)
         TableLayoutPanel6.TabIndex = 10
         ' 
@@ -163,11 +173,10 @@ Partial Class mainform
         Panel9.BackgroundImageLayout = ImageLayout.None
         Panel9.BorderStyle = BorderStyle.FixedSingle
         Panel9.Controls.Add(TableLayoutPanel3)
-        Panel9.Dock = DockStyle.Fill
-        Panel9.Location = New Point(4, 197)
+        Panel9.Location = New Point(4, 162)
         Panel9.Margin = New Padding(4, 5, 4, 5)
         Panel9.Name = "Panel9"
-        Panel9.Size = New Size(810, 456)
+        Panel9.Size = New Size(810, 491)
         Panel9.TabIndex = 8
         ' 
         ' TableLayoutPanel3
@@ -178,31 +187,80 @@ Partial Class mainform
         TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 20.0F))
         TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 35.0F))
         TableLayoutPanel3.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 5.0F))
-        TableLayoutPanel3.Controls.Add(Label23, 1, 0)
-        TableLayoutPanel3.Controls.Add(Label18, 3, 2)
-        TableLayoutPanel3.Controls.Add(Label22, 1, 2)
-        TableLayoutPanel3.Controls.Add(Label19, 3, 0)
+        TableLayoutPanel3.Controls.Add(o_o_p, 3, 6)
+        TableLayoutPanel3.Controls.Add(t_o_p, 1, 6)
+        TableLayoutPanel3.Controls.Add(Label23, 1, 2)
+        TableLayoutPanel3.Controls.Add(Label18, 3, 5)
+        TableLayoutPanel3.Controls.Add(Label22, 1, 5)
+        TableLayoutPanel3.Controls.Add(Label19, 3, 2)
+        TableLayoutPanel3.Controls.Add(date_lb, 0, 0)
+        TableLayoutPanel3.Controls.Add(time_lb, 0, 1)
+        TableLayoutPanel3.Controls.Add(m_i_p, 1, 3)
+        TableLayoutPanel3.Controls.Add(o_i_p, 3, 3)
         TableLayoutPanel3.Dock = DockStyle.Fill
         TableLayoutPanel3.Location = New Point(0, 0)
         TableLayoutPanel3.Margin = New Padding(2)
         TableLayoutPanel3.Name = "TableLayoutPanel3"
-        TableLayoutPanel3.RowCount = 4
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 15.0F))
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 35.0F))
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 15.0F))
-        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 35.0F))
-        TableLayoutPanel3.Size = New Size(808, 454)
+        TableLayoutPanel3.RowCount = 8
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 7.9858613F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 8.771357F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 23.5173817F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 11.2474442F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 4.49897766F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 9.815951F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 11.4519424F))
+        TableLayoutPanel3.RowStyles.Add(New RowStyle(SizeType.Percent, 22.4948883F))
+        TableLayoutPanel3.Size = New Size(808, 489)
         TableLayoutPanel3.TabIndex = 7
+        ' 
+        ' o_o_p
+        ' 
+        o_o_p.BackColor = Color.Black
+        o_o_p.Controls.Add(overtime_out_tb)
+        o_o_p.Location = New Point(483, 321)
+        o_o_p.Margin = New Padding(0)
+        o_o_p.Name = "o_o_p"
+        o_o_p.Size = New Size(282, 54)
+        o_o_p.TabIndex = 14
+        ' 
+        ' overtime_out_tb
+        ' 
+        overtime_out_tb.Dock = DockStyle.Fill
+        overtime_out_tb.Font = New Font("Segoe UI", 34.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        overtime_out_tb.Location = New Point(0, 0)
+        overtime_out_tb.Name = "overtime_out_tb"
+        overtime_out_tb.PlaceholderText = "EMPLOYEE ID"
+        overtime_out_tb.Size = New Size(282, 53)
+        overtime_out_tb.TabIndex = 0
+        ' 
+        ' t_o_p
+        ' 
+        t_o_p.BackColor = Color.Black
+        t_o_p.Controls.Add(Dynamic_textb4)
+        t_o_p.Location = New Point(40, 321)
+        t_o_p.Margin = New Padding(0)
+        t_o_p.Name = "t_o_p"
+        t_o_p.Size = New Size(282, 54)
+        t_o_p.TabIndex = 14
+        ' 
+        ' time_out_tb
+        ' 
+        time_out_tb.Dock = DockStyle.Fill
+        time_out_tb.Font = New Font("Segoe UI", 27.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        time_out_tb.Location = New Point(0, 0)
+        time_out_tb.Name = "time_out_tb"
+        time_out_tb.Size = New Size(343, 43)
+        time_out_tb.TabIndex = 1
         ' 
         ' Label23
         ' 
         Label23.AutoSize = True
         Label23.Dock = DockStyle.Fill
         Label23.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label23.Location = New Point(44, 0)
+        Label23.Location = New Point(44, 81)
         Label23.Margin = New Padding(4, 0, 4, 0)
         Label23.Name = "Label23"
-        Label23.Size = New Size(274, 68)
+        Label23.Size = New Size(274, 115)
         Label23.TabIndex = 4
         Label23.Text = "TIME IN"
         Label23.TextAlign = ContentAlignment.BottomLeft
@@ -214,10 +272,10 @@ Partial Class mainform
         Label18.Dock = DockStyle.Fill
         Label18.FlatStyle = FlatStyle.Flat
         Label18.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label18.Location = New Point(487, 226)
+        Label18.Location = New Point(487, 273)
         Label18.Margin = New Padding(4, 0, 4, 0)
         Label18.Name = "Label18"
-        Label18.Size = New Size(274, 68)
+        Label18.Size = New Size(274, 48)
         Label18.TabIndex = 6
         Label18.Text = "OVERTIME OUT"
         Label18.TextAlign = ContentAlignment.BottomLeft
@@ -227,10 +285,10 @@ Partial Class mainform
         Label22.AutoSize = True
         Label22.Dock = DockStyle.Fill
         Label22.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label22.Location = New Point(44, 226)
+        Label22.Location = New Point(44, 273)
         Label22.Margin = New Padding(4, 0, 4, 0)
         Label22.Name = "Label22"
-        Label22.Size = New Size(274, 68)
+        Label22.Size = New Size(274, 48)
         Label22.TabIndex = 4
         Label22.Text = "TIME OUT"
         Label22.TextAlign = ContentAlignment.BottomLeft
@@ -242,39 +300,71 @@ Partial Class mainform
         Label19.Dock = DockStyle.Fill
         Label19.FlatStyle = FlatStyle.Flat
         Label19.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point)
-        Label19.Location = New Point(487, 0)
+        Label19.Location = New Point(487, 81)
         Label19.Margin = New Padding(4, 0, 4, 0)
         Label19.Name = "Label19"
-        Label19.Size = New Size(274, 68)
+        Label19.Size = New Size(274, 115)
         Label19.TabIndex = 6
         Label19.Text = "OVERTIME IN"
         Label19.TextAlign = ContentAlignment.BottomLeft
         ' 
-        ' time_lb
-        ' 
-        time_lb.BackColor = Color.Silver
-        time_lb.Dock = DockStyle.Fill
-        time_lb.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
-        time_lb.Location = New Point(0, 56)
-        time_lb.Margin = New Padding(0)
-        time_lb.Name = "time_lb"
-        time_lb.Size = New Size(808, 40)
-        time_lb.TabIndex = 12
-        time_lb.Text = "9:00:00 AM"
-        time_lb.TextAlign = ContentAlignment.TopCenter
-        ' 
         ' date_lb
         ' 
         date_lb.BackColor = Color.Silver
+        TableLayoutPanel3.SetColumnSpan(date_lb, 5)
         date_lb.Dock = DockStyle.Fill
         date_lb.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Bold, GraphicsUnit.Point)
         date_lb.Location = New Point(0, 0)
         date_lb.Margin = New Padding(0)
         date_lb.Name = "date_lb"
-        date_lb.Size = New Size(808, 56)
+        date_lb.Size = New Size(808, 39)
         date_lb.TabIndex = 11
         date_lb.Text = "NOVEMBER 29,2003"
         date_lb.TextAlign = ContentAlignment.BottomCenter
+        ' 
+        ' time_lb
+        ' 
+        time_lb.BackColor = Color.Silver
+        TableLayoutPanel3.SetColumnSpan(time_lb, 5)
+        time_lb.Dock = DockStyle.Fill
+        time_lb.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
+        time_lb.Location = New Point(0, 39)
+        time_lb.Margin = New Padding(0)
+        time_lb.Name = "time_lb"
+        time_lb.Size = New Size(808, 42)
+        time_lb.TabIndex = 12
+        time_lb.Text = "9:00:00 AM"
+        time_lb.TextAlign = ContentAlignment.TopCenter
+        ' 
+        ' m_i_p
+        ' 
+        m_i_p.BackColor = Color.Black
+        m_i_p.Controls.Add(Dynamic_textb2)
+        m_i_p.Location = New Point(40, 196)
+        m_i_p.Margin = New Padding(0)
+        m_i_p.Name = "m_i_p"
+        m_i_p.Size = New Size(282, 54)
+        m_i_p.TabIndex = 13
+        ' 
+        ' o_i_p
+        ' 
+        o_i_p.BackColor = Color.Black
+        o_i_p.Controls.Add(overtime_in_tb)
+        o_i_p.Location = New Point(483, 196)
+        o_i_p.Margin = New Padding(0)
+        o_i_p.Name = "o_i_p"
+        o_i_p.Size = New Size(282, 54)
+        o_i_p.TabIndex = 14
+        ' 
+        ' overtime_in_tb
+        ' 
+        overtime_in_tb.Dock = DockStyle.Fill
+        overtime_in_tb.Font = New Font("Segoe UI", 34.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        overtime_in_tb.Location = New Point(0, 0)
+        overtime_in_tb.Name = "overtime_in_tb"
+        overtime_in_tb.PlaceholderText = "EMPLOYEE ID"
+        overtime_in_tb.Size = New Size(282, 53)
+        overtime_in_tb.TabIndex = 0
         ' 
         ' Panel1
         ' 
@@ -283,7 +373,7 @@ Partial Class mainform
         Panel1.Dock = DockStyle.Fill
         Panel1.Location = New Point(3, 3)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(812, 186)
+        Panel1.Size = New Size(812, 151)
         Panel1.TabIndex = 9
         ' 
         ' TableLayoutPanel14
@@ -300,7 +390,7 @@ Partial Class mainform
         TableLayoutPanel14.RowStyles.Add(New RowStyle(SizeType.Percent, 41.9642868F))
         TableLayoutPanel14.RowStyles.Add(New RowStyle(SizeType.Percent, 25.0F))
         TableLayoutPanel14.RowStyles.Add(New RowStyle(SizeType.Percent, 33.0357132F))
-        TableLayoutPanel14.Size = New Size(810, 184)
+        TableLayoutPanel14.Size = New Size(810, 149)
         TableLayoutPanel14.TabIndex = 6
         ' 
         ' sched_lb
@@ -308,10 +398,10 @@ Partial Class mainform
         sched_lb.AutoSize = True
         sched_lb.Dock = DockStyle.Fill
         sched_lb.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
-        sched_lb.Location = New Point(4, 123)
+        sched_lb.Location = New Point(4, 99)
         sched_lb.Margin = New Padding(4, 0, 4, 0)
         sched_lb.Name = "sched_lb"
-        sched_lb.Size = New Size(802, 61)
+        sched_lb.Size = New Size(802, 50)
         sched_lb.TabIndex = 4
         sched_lb.Text = "00:00 -- to 00:00 --"
         sched_lb.UseCompatibleTextRendering = True
@@ -324,7 +414,7 @@ Partial Class mainform
         fullname_lb.Location = New Point(4, 0)
         fullname_lb.Margin = New Padding(4, 0, 4, 0)
         fullname_lb.Name = "fullname_lb"
-        fullname_lb.Size = New Size(802, 77)
+        fullname_lb.Size = New Size(802, 62)
         fullname_lb.TabIndex = 3
         fullname_lb.Text = "---------------"
         fullname_lb.TextAlign = ContentAlignment.BottomLeft
@@ -335,10 +425,10 @@ Partial Class mainform
         branch_lb.AutoSize = True
         branch_lb.Dock = DockStyle.Fill
         branch_lb.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
-        branch_lb.Location = New Point(4, 77)
+        branch_lb.Location = New Point(4, 62)
         branch_lb.Margin = New Padding(4, 0, 4, 0)
         branch_lb.Name = "branch_lb"
-        branch_lb.Size = New Size(802, 46)
+        branch_lb.Size = New Size(802, 37)
         branch_lb.TabIndex = 4
         branch_lb.Text = "--BRANCH"
         branch_lb.TextAlign = ContentAlignment.MiddleLeft
@@ -464,31 +554,25 @@ Partial Class mainform
         debug_label.TabIndex = 3
         debug_label.Text = "Label4"
         ' 
-        ' time_lb
+        ' Dynamic_textb3
         ' 
-        time_lb.BackColor = Color.Silver
-        time_lb.Dock = DockStyle.Fill
-        time_lb.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
-        time_lb.Location = New Point(0, 56)
-        time_lb.Margin = New Padding(0)
-        time_lb.Name = "time_lb"
-        time_lb.Size = New Size(808, 40)
-        time_lb.TabIndex = 12
-        time_lb.Text = "9:00:00 AM"
-        time_lb.TextAlign = ContentAlignment.TopCenter
+        Dynamic_textb3.Dock = DockStyle.Fill
+        Dynamic_textb3.Font = New Font("Segoe UI", 34.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        Dynamic_textb3.Location = New Point(0, 0)
+        Dynamic_textb3.Name = "Dynamic_textb3"
+        Dynamic_textb3.PlaceholderText = "EMPLOYEE ID"
+        Dynamic_textb3.Size = New Size(282, 53)
+        Dynamic_textb3.TabIndex = 0
         ' 
-        ' date_lb
+        ' Dynamic_textb1
         ' 
-        date_lb.BackColor = Color.Silver
-        date_lb.Dock = DockStyle.Fill
-        date_lb.Font = New Font("Microsoft Sans Serif", 16.0F, FontStyle.Bold, GraphicsUnit.Point)
-        date_lb.Location = New Point(0, 0)
-        date_lb.Margin = New Padding(0)
-        date_lb.Name = "date_lb"
-        date_lb.Size = New Size(808, 56)
-        date_lb.TabIndex = 11
-        date_lb.Text = "NOVEMBER 29,2003"
-        date_lb.TextAlign = ContentAlignment.BottomCenter
+        Dynamic_textb1.Dock = DockStyle.Fill
+        Dynamic_textb1.Font = New Font("Segoe UI", 34.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        Dynamic_textb1.Location = New Point(0, 0)
+        Dynamic_textb1.Name = "Dynamic_textb1"
+        Dynamic_textb1.PlaceholderText = "EMPLOYEE ID"
+        Dynamic_textb1.Size = New Size(282, 53)
+        Dynamic_textb1.TabIndex = 0
         ' 
         ' Panel2
         ' 
@@ -540,15 +624,6 @@ Partial Class mainform
         Panel11.Name = "Panel11"
         Panel11.Size = New Size(343, 44)
         Panel11.TabIndex = 9
-        ' 
-        ' time_out_tb
-        ' 
-        time_out_tb.Dock = DockStyle.Fill
-        time_out_tb.Font = New Font("Segoe UI", 27.0F, FontStyle.Regular, GraphicsUnit.Pixel)
-        time_out_tb.Location = New Point(0, 0)
-        time_out_tb.Name = "time_out_tb"
-        time_out_tb.Size = New Size(343, 43)
-        time_out_tb.TabIndex = 1
         ' 
         ' Panel12
         ' 
@@ -1054,6 +1129,26 @@ Partial Class mainform
         PictureBox7.TabIndex = 2
         PictureBox7.TabStop = False
         ' 
+        ' Dynamic_textb2
+        ' 
+        Dynamic_textb2.Dock = DockStyle.Fill
+        Dynamic_textb2.Font = New Font("Segoe UI", 34.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        Dynamic_textb2.Location = New Point(0, 0)
+        Dynamic_textb2.Name = "Dynamic_textb2"
+        Dynamic_textb2.PlaceholderText = "EMPLOYEE ID"
+        Dynamic_textb2.Size = New Size(282, 53)
+        Dynamic_textb2.TabIndex = 1
+        ' 
+        ' Dynamic_textb4
+        ' 
+        Dynamic_textb4.Dock = DockStyle.Fill
+        Dynamic_textb4.Font = New Font("Segoe UI", 34.0F, FontStyle.Regular, GraphicsUnit.Pixel)
+        Dynamic_textb4.Location = New Point(0, 0)
+        Dynamic_textb4.Name = "Dynamic_textb4"
+        Dynamic_textb4.PlaceholderText = "EMPLOYEE ID"
+        Dynamic_textb4.Size = New Size(282, 53)
+        Dynamic_textb4.TabIndex = 1
+        ' 
         ' mainform
         ' 
         AutoScaleDimensions = New SizeF(10.0F, 25.0F)
@@ -1071,6 +1166,14 @@ Partial Class mainform
         Panel9.ResumeLayout(False)
         TableLayoutPanel3.ResumeLayout(False)
         TableLayoutPanel3.PerformLayout()
+        o_o_p.ResumeLayout(False)
+        o_o_p.PerformLayout()
+        t_o_p.ResumeLayout(False)
+        t_o_p.PerformLayout()
+        m_i_p.ResumeLayout(False)
+        m_i_p.PerformLayout()
+        o_i_p.ResumeLayout(False)
+        o_i_p.PerformLayout()
         Panel1.ResumeLayout(False)
         TableLayoutPanel14.ResumeLayout(False)
         TableLayoutPanel14.PerformLayout()
@@ -1124,7 +1227,6 @@ Partial Class mainform
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
 
 
     Friend WithEvents TextBox1 As TextBox
@@ -1159,7 +1261,7 @@ Partial Class mainform
     Friend WithEvents Panel7 As Panel
     Friend WithEvents Dynamic_textb1 As dynamic_textb
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents Dynamic_textb2 As dynamic_textb
+    Friend WithEvents overtime_in_tb As dynamic_textb
     Friend WithEvents TableLayoutPanel12 As TableLayoutPanel
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents Panel9 As Panel
@@ -1183,19 +1285,27 @@ Partial Class mainform
     Friend WithEvents Panel11 As Panel
     Friend WithEvents Panel12 As Panel
     Friend WithEvents date_lb As Label
+    Friend WithEvents time_lb As Label
+
     Friend WithEvents time_in_tb As dynamic_textb
-    Friend WithEvents Dynamic_textb4 As dynamic_textb
+    Friend WithEvents overtime_out_tb As dynamic_textb
     Friend WithEvents Dynamic_textb5 As dynamic_textb
     Friend WithEvents Dynamic_textb6 As dynamic_textb
     Friend WithEvents TableLayoutPanel14 As TableLayoutPanel
     Friend WithEvents sched_lb As Label
     Friend WithEvents fullname_lb As Label
     Friend WithEvents branch_lb As Label
-    Friend WithEvents time_lb As Label
     Friend WithEvents Dynamic_textb10 As dynamic_textb
     Friend WithEvents time_out_tb As dynamic_textb
     Friend WithEvents Dynamic_textb11 As dynamic_textb
     Friend WithEvents employee_id_tb As dynamic_textb
     Friend WithEvents Panel4 As Panel
     Friend WithEvents employee_code_tb As dynamic_textb
+    Friend WithEvents o_o_p As Panel
+    Friend WithEvents t_o_p As Panel
+    Friend WithEvents Dynamic_textb3 As dynamic_textb
+    Friend WithEvents m_i_p As Panel
+    Friend WithEvents o_i_p As Panel
+    Friend WithEvents Dynamic_textb4 As dynamic_textb
+    Friend WithEvents Dynamic_textb2 As dynamic_textb
 End Class
