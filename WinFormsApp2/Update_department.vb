@@ -51,4 +51,8 @@ Public Class Update_department
 
         End If
     End Sub
+
+    Private Sub sub_btn_Click_1(sender As Object, e As EventArgs) Handles sub_btn.Click
+
+    End Sub
 End Class
