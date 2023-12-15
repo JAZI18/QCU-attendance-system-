@@ -35,7 +35,7 @@ Partial Class ChooseChangeEmployee
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Rockwell", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label1.Location = New Point(68, 18)
+        Label1.Location = New Point(12, 42)
         Label1.Name = "Label1"
         Label1.Size = New Size(253, 76)
         Label1.TabIndex = 0
@@ -43,10 +43,11 @@ Partial Class ChooseChangeEmployee
         ' 
         ' Button1
         ' 
-        Button1.BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
+        Button1.BackColor = Color.Blue
+        Button1.FlatStyle = FlatStyle.Flat
         Button1.Font = New Font("Rockwell", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Button1.ForeColor = Color.White
-        Button1.Location = New Point(33, 97)
+        Button1.Location = New Point(108, 199)
         Button1.Name = "Button1"
         Button1.Size = New Size(100, 38)
         Button1.TabIndex = 1
@@ -56,9 +57,10 @@ Partial Class ChooseChangeEmployee
         ' Button2
         ' 
         Button2.BackColor = Color.Red
+        Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Rockwell", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(168, 97)
+        Button2.Location = New Point(236, 199)
         Button2.Name = "Button2"
         Button2.Size = New Size(100, 38)
         Button2.TabIndex = 2
@@ -67,22 +69,24 @@ Partial Class ChooseChangeEmployee
         ' 
         ' Button3
         ' 
-        Button3.BackColor = Color.FromArgb(CByte(128), CByte(128), CByte(255))
+        Button3.BackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
+        Button3.FlatStyle = FlatStyle.Flat
         Button3.Font = New Font("Rockwell", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Button3.ForeColor = Color.White
-        Button3.Location = New Point(129, 141)
+        Button3.Location = New Point(492, 3)
         Button3.Name = "Button3"
-        Button3.Size = New Size(139, 38)
+        Button3.Size = New Size(73, 32)
         Button3.TabIndex = 3
-        Button3.Text = "Add As Admin"
+        Button3.Text = "+ ADMIN"
         Button3.UseVisualStyleBackColor = False
         ' 
         ' Button4
         ' 
-        Button4.BackColor = Color.FromArgb(CByte(255), CByte(192), CByte(192))
+        Button4.BackColor = Color.White
+        Button4.FlatStyle = FlatStyle.Flat
         Button4.Font = New Font("Rockwell", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Button4.ForeColor = Color.White
-        Button4.Location = New Point(284, 97)
+        Button4.ForeColor = Color.Red
+        Button4.Location = New Point(359, 199)
         Button4.Name = "Button4"
         Button4.Size = New Size(100, 38)
         Button4.TabIndex = 4
@@ -101,7 +105,7 @@ Partial Class ChooseChangeEmployee
         Label2.AutoSize = True
         Label2.Font = New Font("Rockwell", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
-        Label2.Location = New Point(129, 56)
+        Label2.Location = New Point(73, 80)
         Label2.Name = "Label2"
         Label2.Size = New Size(56, 19)
         Label2.TabIndex = 5
@@ -111,15 +115,17 @@ Partial Class ChooseChangeEmployee
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(396, 189)
+        ClientSize = New Size(568, 262)
         Controls.Add(Label2)
         Controls.Add(Button4)
         Controls.Add(Button3)
         Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(Label1)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "ChooseChangeEmployee"
-        Text = "ChooseChangeEmployee"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Change Employee"
         ResumeLayout(False)
         PerformLayout()
     End Sub
