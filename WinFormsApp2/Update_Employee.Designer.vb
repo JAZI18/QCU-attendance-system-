@@ -206,7 +206,6 @@ Partial Class Update_Employee
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "Update_Employee"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Update"
         ResumeLayout(False)
         PerformLayout()
     End Sub
