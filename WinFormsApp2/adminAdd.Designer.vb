@@ -80,6 +80,7 @@ Partial Class adminAdd
         ' 
         ' adminAdd
         ' 
+        AcceptButton = Button1
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(223), CByte(223), CByte(223))
@@ -91,7 +92,7 @@ Partial Class adminAdd
         Controls.Add(Label2)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "adminAdd"
-        Text = "adminAdd"
+        StartPosition = FormStartPosition.CenterScreen
         ResumeLayout(False)
         PerformLayout()
     End Sub
