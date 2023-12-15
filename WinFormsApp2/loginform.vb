@@ -24,15 +24,16 @@ Public Class loginform
 
         End If
 
-        ' Compare hashed passwords
-        If reader("password") = hashedPassword Then
-            Me.Hide()
-            admindashboardform.Show()
-        Else
-            invalid_lb.Visible = True
-        End If
+            ' Compare hashed passwords
+            If reader("password") = hashedPassword Then
+                Me.Hide()
+                admindashboardform.Show()
+            Else
+                invalid_lb.Visible = True
 
-        un_tb.Clear()
+            End If
+
+            un_tb.Clear()
         pass_tb.Clear()
 
     End Sub
