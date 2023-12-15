@@ -353,7 +353,7 @@ Public Class mainform
         End If
 
         Dim delay_timer As New Timer With {
-            .interval = interval,
+            .Interval = interval,
             .AutoReset = repeat
         }
 
