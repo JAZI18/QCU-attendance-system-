@@ -125,7 +125,6 @@ Partial Class ChooseChangeEmployee
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "ChooseChangeEmployee"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Change Employee"
         ResumeLayout(False)
         PerformLayout()
     End Sub

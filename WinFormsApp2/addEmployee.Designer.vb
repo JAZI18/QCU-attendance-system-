@@ -218,6 +218,7 @@ Partial Class addEmployee
         ' 
         ' addEmployee
         ' 
+        AcceptButton = submit_employees_btn
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(223), CByte(223), CByte(223))
@@ -241,8 +242,7 @@ Partial Class addEmployee
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Margin = New Padding(2)
         Name = "addEmployee"
-        StartPosition = FormStartPosition.CenterParent
-        Text = "addEmployee"
+        StartPosition = FormStartPosition.CenterScreen
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()

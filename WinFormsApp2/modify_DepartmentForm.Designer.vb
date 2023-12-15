@@ -99,7 +99,6 @@ Partial Class modify_DepartmentForm
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "modify_DepartmentForm"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Modify"
         ResumeLayout(False)
         PerformLayout()
     End Sub
