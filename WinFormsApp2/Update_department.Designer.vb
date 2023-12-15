@@ -96,7 +96,6 @@ Partial Class Update_department
         Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "Update_department"
-        Text = "Update"
         ResumeLayout(False)
         PerformLayout()
     End Sub
