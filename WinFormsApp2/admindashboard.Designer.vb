@@ -916,11 +916,11 @@ Partial Class admindashboardform
         DataGridView1.AllowUserToResizeRows = False
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(34, 209)
+        DataGridView1.Location = New Point(20, 115)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersWidth = 62
         DataGridView1.RowTemplate.Height = 33
-        DataGridView1.Size = New Size(1145, 490)
+        DataGridView1.Size = New Size(798, 374)
         DataGridView1.TabIndex = 19
         ' 
         ' TextBox1
