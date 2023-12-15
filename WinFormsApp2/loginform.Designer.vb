@@ -77,7 +77,7 @@ Partial Class loginform
         ' 
         ' pass_tb
         ' 
-        pass_tb.BackColor = SystemColors.ButtonShadow
+        pass_tb.BackColor = Color.Silver
         pass_tb.BorderStyle = BorderStyle.None
         pass_tb.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
         pass_tb.ForeColor = Color.White
@@ -101,7 +101,7 @@ Partial Class loginform
         ' 
         ' un_tb
         ' 
-        un_tb.BackColor = SystemColors.ButtonShadow
+        un_tb.BackColor = Color.Silver
         un_tb.BorderStyle = BorderStyle.None
         un_tb.Font = New Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point)
         un_tb.ForeColor = Color.White
