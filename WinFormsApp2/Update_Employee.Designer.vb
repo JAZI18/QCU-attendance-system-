@@ -183,6 +183,7 @@ Partial Class Update_Employee
         ' 
         ' Update_Employee
         ' 
+        AcceptButton = submit_employees_btn
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(223), CByte(223), CByte(223))
@@ -204,7 +205,8 @@ Partial Class Update_Employee
         Controls.Add(f)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "Update_Employee"
-        Text = "Update_Employee"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Update"
         ResumeLayout(False)
         PerformLayout()
     End Sub
