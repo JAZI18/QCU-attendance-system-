@@ -55,11 +55,10 @@ Public Class mainform
         Start_cam()
 
 
-
         trackerStateManager = New StateManager({
-                                               New FindingState(),
-                                               New UnrecognizedFaceFoundState(),
-                                               New RecognizedFaceFoundState(),
+                                               New FindingStateMain(),
+                                               New UnrecognizedFaceFoundMain(),
+                                               New RecognizedFaceFoundMain(),
                                                New FoundState(),
                                                New UnlockingState()
                                                }, Me)
@@ -83,7 +82,9 @@ Public Class mainform
 
             ' grab the current frame from the camera
             If (FSDKCam.GrabFrame(cameraHandle, ImageHandle) <> FSDK.FSDKE_OK) Then
+                MsgBox("??")
                 Application.DoEvents()
+
                 Continue While
             End If
 

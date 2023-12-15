@@ -3,7 +3,7 @@
     Public curr_state As State = Nothing
     Public prev_state As State = Nothing
 
-    Public parent As mainform
+    Public parent As Object
     Private ReadOnly states As New Dictionary(Of String, State)
 
 
@@ -18,7 +18,6 @@
     Private Function StateFromArr(stateArr) As Dictionary(Of String, State)
         Dim stateDic As New Dictionary(Of String, State)
 
-
         For Each state As State In stateArr
             stateDic.Add(state.key, state)
             state.Manager = Me
@@ -29,8 +28,7 @@
 
     Public Sub SetState(key As String)
 
-        'MsgBox(key)
-
+        MsgBox(key)
         If (prev_state IsNot Nothing) Then curr_state.before = prev_state
         prev_state = curr_state
         curr_state = states.Item(key)

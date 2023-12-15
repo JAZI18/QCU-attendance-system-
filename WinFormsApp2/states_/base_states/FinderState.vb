@@ -3,7 +3,7 @@
     'states that needs to check if there is face found
 
     Public Overrides Sub Run()
-        If (FindFace(face_id)) Then ChangeState("FoundState")
+        If (FindFace(face_id)) Then ChangeState("found")
     End Sub
 
     Protected Function FindFace(id As Integer) As Boolean

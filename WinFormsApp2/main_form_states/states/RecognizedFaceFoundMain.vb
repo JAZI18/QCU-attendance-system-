@@ -1,7 +1,6 @@
-﻿Imports Luxand
-
-Public Class RecognizedFaceFoundState
-    Inherits FaceFound
+﻿
+Public Class RecognizedFaceFoundMain
+    Inherits RecognizedFaceFoundState
 
     Public Overrides Sub Enter()
 
@@ -13,15 +12,4 @@ Public Class RecognizedFaceFoundState
         form.pic_border.BackColor = Color.LightGreen
         form.Face_detected(Face_name())
     End Sub
-
-
-
-    Public Overrides Sub Run()
-        If (FindFace(face_id)) Then
-            ChangeState("FoundState")
-            Exit Sub
-        End If
-        ChangeState("UnlockingState")
-    End Sub
-
 End Class

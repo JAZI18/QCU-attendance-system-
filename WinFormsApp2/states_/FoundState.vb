@@ -3,13 +3,18 @@
 Public Class FoundState
     Inherits State
 
+
+
+    Public Sub New()
+        key = "found"
+    End Sub
     Public Overrides Sub Enter()
         form.Stop_timer("unlocking face")
         'check if face is recognized or not
         If Not IsRecognized() Then
-            ChangeState("UnrecognizedFaceFoundState")
+            ChangeState("unrecognizedFaceFound")
         Else
-            ChangeState("RecognizedFaceFoundState")
+            ChangeState("recognizedFaceFound")
         End If
     End Sub
 

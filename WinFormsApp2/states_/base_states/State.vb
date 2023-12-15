@@ -1,10 +1,10 @@
 ﻿Public MustInherit Class State
 
-    Public ReadOnly key As String
     Private _manager1 As StateManager
     Protected form As mainform
     Public face_id As Integer = -10
     Public before As State
+    Public key As String
 
     Public Property Curr_emp_id As Object
         Get
@@ -14,11 +14,6 @@
             form.curr_emp_id = value
         End Set
     End Property
-
-
-    Public Sub New()
-        key = Me.GetType.Name
-    End Sub
 
     Public Property Manager As StateManager
         Get
