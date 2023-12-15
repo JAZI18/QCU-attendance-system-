@@ -83,6 +83,7 @@ Partial Class Update_department
         ' 
         ' Update_department
         ' 
+        AcceptButton = sub_btn
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(223), CByte(223), CByte(223))
@@ -95,7 +96,7 @@ Partial Class Update_department
         Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "Update_department"
-        Text = "Update_department"
+        Text = "Update"
         ResumeLayout(False)
         PerformLayout()
     End Sub
