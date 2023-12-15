@@ -52,10 +52,10 @@ Partial Class modify_DepartmentForm
         ' 
         ' Button1
         ' 
-        Button1.BackColor = Color.FromArgb(CByte(192), CByte(192), CByte(255))
+        Button1.BackColor = Color.Blue
         Button1.Font = New Font("Rockwell", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Button1.ForeColor = Color.White
-        Button1.Location = New Point(12, 110)
+        Button1.Location = New Point(78, 196)
         Button1.Name = "Button1"
         Button1.Size = New Size(100, 38)
         Button1.TabIndex = 7
@@ -67,7 +67,7 @@ Partial Class modify_DepartmentForm
         Button2.BackColor = Color.Red
         Button2.Font = New Font("Rockwell", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(118, 110)
+        Button2.Location = New Point(190, 196)
         Button2.Name = "Button2"
         Button2.Size = New Size(100, 38)
         Button2.TabIndex = 8
@@ -76,10 +76,10 @@ Partial Class modify_DepartmentForm
         ' 
         ' Button4
         ' 
-        Button4.BackColor = Color.FromArgb(CByte(255), CByte(192), CByte(192))
+        Button4.BackColor = Color.White
         Button4.Font = New Font("Rockwell", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Button4.ForeColor = Color.White
-        Button4.Location = New Point(236, 110)
+        Button4.ForeColor = Color.Red
+        Button4.Location = New Point(302, 196)
         Button4.Name = "Button4"
         Button4.Size = New Size(100, 38)
         Button4.TabIndex = 9
@@ -90,14 +90,16 @@ Partial Class modify_DepartmentForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(362, 173)
+        ClientSize = New Size(495, 257)
         Controls.Add(Button4)
         Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(Label2)
         Controls.Add(Label1)
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "modify_DepartmentForm"
-        Text = "modify_DepartmentForm"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Modify"
         ResumeLayout(False)
         PerformLayout()
     End Sub
