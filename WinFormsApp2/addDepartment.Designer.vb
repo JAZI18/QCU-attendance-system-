@@ -80,6 +80,7 @@ Partial Class addDepartment
         ' 
         ' addDepartment
         ' 
+        AcceptButton = sub_btn
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(223), CByte(223), CByte(223))
@@ -91,7 +92,7 @@ Partial Class addDepartment
         Controls.Add(Label2)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "addDepartment"
-        Text = "addDepartment"
+        StartPosition = FormStartPosition.CenterScreen
         ResumeLayout(False)
         PerformLayout()
     End Sub
