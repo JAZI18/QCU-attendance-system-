@@ -28,16 +28,6 @@ Public Class mainform
         End Set
     End Property
 
-
-    '#Region "enums and states"
-    '    Enum tracker_states
-    '        finding_face
-    '        unlocking_face
-    '        found_face
-    '    End Enum
-    '    Dim tracker_state As tracker_states = tracker_states.finding_face
-    '#End Region
-
     ' WinAPI procedure to release HBITMAP handles returned by FSDKCam.GrabFrame
     Declare Auto Function DeleteObject Lib "gdi32.dll" (hObject As IntPtr) As Boolean
 
@@ -111,91 +101,6 @@ Public Class mainform
         End While
 
     End Sub
-
-
-
-
-    '    Private Sub Live_feed()
-    '        needClose = False
-
-    '        Dim image As FSDK.CImage
-    '        Dim frameImage As Image
-
-
-    '        While Not needClose
-    '            Dim ImageHandle As Integer
-
-
-    '            ' grab the current frame from the camera
-    '            If (FSDKCam.GrabFrame(cameraHandle, ImageHandle) <> FSDK.FSDKE_OK) Then
-    '                Application.DoEvents()
-    '                Continue While
-    '            End If
-
-    '            image = New FSDK.CImage(ImageHandle)
-    '            frameImage = image.ToCLRImage()
-
-
-    '#Region "tracker api doing magic"
-    '            Dim IDs As Long()
-    '            ReDim IDs(0 To 256)
-    '            Dim faceCount As Long
-    '            Dim sizeOfLong = 8
-    '            FSDK.FeedFrame(tracker, 0, ImageHandle, faceCount, IDs, sizeOfLong) ' maximum 1 face detected
-    '#End Region
-
-
-    '            Dim id = IDs.First
-    '            Draw_Rect(id, frameImage)
-    '            Display_vid(frameImage)
-
-
-    '            If id = 0 Then
-    '                'if no face detected
-    '                If curr_emp_id = -1 Then
-    '                    'if there is no recent face detected
-    '                    pic_border.BackColor = Color.Blue
-    '                Else
-    '                    If tracker_state = tracker_states.unlocking_face Then Continue While
-    '                    tracker_state = tracker_states.unlocking_face
-
-    '                    'find face again after 1 second
-    '                    Start_timer(Sub()
-    '                                    Refresh_fields()
-    '                                    curr_emp_id = -1
-    '                                    pic_border.BackColor = Color.Blue
-    '                                    tracker_state = tracker_states.finding_face
-    '                                End Sub, "unlocking face", 600)
-    '                End If
-    '                unenrolled_id = -1
-    '            Else
-    '                'face detected
-    '                Dim image_tag_name As String = ""
-    '                Dim res As Integer = FSDK.GetAllNames(tracker, id, image_tag_name, 100) ' maximum of 100 characters
-
-    'If Curr_emp_id = -1 Then
-    '                    'if face is recognized
-    '                Else
-    '                   If prev_emp_id <> id Then
-    '                      Face_detected(image_tag_name)
-    '                 End If
-    '                'not the same as last
-    '               Stop_timer("unlocking face")
-    '          End If
-
-    '                    pic_border.BackColor = Color.LightGreen
-    '                    tracker_state = tracker_states.found_face
-    '                    unenrolled_id = -1
-    '                Else
-    '                    'face not recognized
-    '                    Refresh_fields()
-    '                    pic_border.BackColor = Color.Red
-    '                    unenrolled_id = id
-    '                End If
-    '            End If
-    '        End While
-    '    End Sub
-
 
     Private Sub Display_vid(frameImage As Image)
         frameImage.RotateFlip(RotateFlipType.RotateNoneFlipX)
