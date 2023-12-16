@@ -53,8 +53,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="face recog\" />
-  </ItemGroup>
-
 </Project>
