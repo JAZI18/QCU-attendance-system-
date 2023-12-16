@@ -1,6 +1,14 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.IO
+Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+Imports MySql.Data.MySqlClient
+Imports Mysqlx.XDevAPI.Relational
+Imports System.Drawing.Printing
 
 Public Class admindashboardform
+
+    Private WithEvents printDocument As New Printing.PrintDocument
+    Private rowIndex As Integer = 0
 
     Private Sub dashboard_btn_(sender As Object, e As EventArgs) Handles dashboard_btn.Click
         TabControl1.SelectedTab = TabPage1
@@ -27,7 +35,7 @@ Public Class admindashboardform
         updateEmpployeeGrid()
     End Sub
 
-    Public sub updateEmpployeeGrid()
+    Public Sub updateEmpployeeGrid()
         employee_grid_view.Rows.Clear()
 
         Dim command As MySqlCommand = NewQuery("SELECT e.employee_id, e.first_name, e.last_name, e.middle_name, e.department_id, e.gender, e.email, e.dob, d.department_name FROM employee_info e JOIN qcu_department d ON e.department_id = d.department_id", Nothing)
@@ -56,7 +64,7 @@ Public Class admindashboardform
 
         reader.Close()
 
-    End sub
+    End Sub
     Private Sub employee_grid_view_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles employee_grid_view.CellContentClick
         ' Check if the clicked cell is in the "Actions" column (assuming it's the last column in your DataGridView)
         If e.ColumnIndex = employee_grid_view.Columns.Count - 1 AndAlso e.RowIndex >= 0 Then
@@ -81,7 +89,15 @@ Public Class admindashboardform
             Dim startDate As String = DateTimePicker1.Value.ToString("yyyy-MM-dd")
             Dim endDate As String = DateTimePicker2.Value.ToString("yyyy-MM-dd")
 
-            Dim cmd As MySqlCommand = NewQuery($"SELECT employee_id AS 'Employee ID', employee_Name AS 'Employee Name', workday AS 'Workday', att_date AS 'Attendance Date', attendance_time AS 'Attendance Time', departure_time AS 'Departure Time', overtime_in AS 'Overtime In', overtime_out AS 'Overtime Out', schedule_start_time AS 'Time IN', schedule_end_time AS 'Time OUT', minutes_late AS 'Minutes Late', minutes_early_departure AS 'Minutes Early Departure' FROM emp_report WHERE att_date BETWEEN '{startDate}' AND '{endDate}'", Nothing)
+            Dim selectedBranch As String = If(ComboBox1.SelectedItem IsNot Nothing, ComboBox1.SelectedItem.ToString(), Nothing)
+
+            Dim cmd As MySqlCommand
+
+            If selectedBranch IsNot Nothing Then
+                cmd = NewQuery($"SELECT employee_id AS 'Employee ID', employee_Name AS 'Employee Name', branch_name AS 'Branch Name', workday AS 'Workday', att_date AS 'Attendance Date', attendance_time AS 'Attendance Time', departure_time AS 'Departure Time', overtime_in AS 'Overtime In', overtime_out AS 'Overtime Out', schedule_start_time AS 'Time IN', schedule_end_time AS 'Time OUT', minutes_late AS 'Minutes Late', minutes_early_departure AS 'Minutes Early Departure' FROM emp_report WHERE att_date BETWEEN '{startDate}' AND '{endDate}' AND branch_name = @branchName", New String() {selectedBranch})
+            Else
+                cmd = NewQuery($"SELECT employee_id AS 'Employee ID', employee_Name AS 'Employee Name', branch_name AS 'Branch Name', workday AS 'Workday', att_date AS 'Attendance Date', attendance_time AS 'Attendance Time', departure_time AS 'Departure Time', overtime_in AS 'Overtime In', overtime_out AS 'Overtime Out', schedule_start_time AS 'Time IN', schedule_end_time AS 'Time OUT', minutes_late AS 'Minutes Late', minutes_early_departure AS 'Minutes Early Departure' FROM emp_report WHERE att_date BETWEEN '{startDate}' AND '{endDate}'", Nothing)
+            End If
 
             Using adapter As New MySqlDataAdapter(cmd)
                 Using dataSet As New DataSet()
@@ -100,6 +116,10 @@ Public Class admindashboardform
     End Sub
 
     Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+        LoadData()
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         LoadData()
     End Sub
 
@@ -166,6 +186,22 @@ Public Class admindashboardform
         dashboard_btn.PerformClick()
         LoadData()
         loginform.timerCallAbsent()
+
+        ComboBox1.Items.Add("San Bartolome")
+        ComboBox1.Items.Add("Batasan")
+        ComboBox1.Items.Add("San Francisco")
+        ComboBox1.SelectedItem = "San Bartolome"
+        ' Set the minimum and maximum dates in DateTimePickers
+        DateTimePicker1.MinDate = New Date(2023, 1, 1)
+        DateTimePicker1.MaxDate = New Date(2023, 12, 31)
+
+        DateTimePicker2.MinDate = New Date(2023, 1, 1)
+        DateTimePicker2.MaxDate = New Date(2023, 12, 31)
+
+        ' Set the default values to the minimum and maximum dates
+        DateTimePicker1.Value = DateTimePicker1.MinDate
+        DateTimePicker2.Value = DateTimePicker2.MaxDate
+
     End Sub
 
 
@@ -214,6 +250,77 @@ Public Class admindashboardform
         updbranchstat(1)
         present_stat.Counter = selectScalarQuery("total", "san_francisco_present")
 
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        rowIndex = 0 ' Reset rowIndex before printing
+        Dim printDialog As New PrintDialog()
+        printDialog.Document = printDocument
+
+        If printDialog.ShowDialog() = DialogResult.OK Then
+            printDocument.Print()
+        End If
+    End Sub
+
+    'Private Sub printDocument_PrintPage(sender As Object, e As PrintPageEventArgs) Handles printDocument.PrintPage
+    '    Dim dataGridViewSize As Size = DataGridView1.Size
+    '    Dim bitmap As New Bitmap(dataGridViewSize.Width, dataGridViewSize.Height)
+    '    DataGridView1.DrawToBitmap(bitmap, New Rectangle(0, 0, dataGridViewSize.Width, dataGridViewSize.Height))
+
+    '    e.Graphics.DrawImage(bitmap, 50, 50) ' Adjust the position as needed
+
+    '    rowIndex += 1
+    '    If rowIndex < DataGridView1.Rows.Count Then
+    '        e.HasMorePages = True
+    '    Else
+    '        e.HasMorePages = False
+    '        rowIndex = 0
+    '    End If
+    'End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ExportToPDF(DataGridView1, "Report.pdf")
+    End Sub
+
+    Private Sub ExportToPDF(dataGridView As DataGridView, filename As String)
+        Dim document As New Document()
+        Dim writer As PdfWriter = PdfWriter.GetInstance(document, New FileStream(filename, FileMode.Create))
+        document.Open()
+
+        ' Create a table with the same number of columns as the DataGridView
+        Dim pdfTable As New PdfPTable(dataGridView.Columns.Count)
+        pdfTable.DefaultCell.Padding = 3
+        pdfTable.WidthPercentage = 100
+        pdfTable.HorizontalAlignment = Element.ALIGN_LEFT
+
+        ' Add column headers from the DataGridView to the PDF table
+        For Each column As DataGridViewColumn In dataGridView.Columns
+            Dim cell As New PdfPCell(New Phrase(column.HeaderText))
+            pdfTable.AddCell(cell)
+        Next
+
+        ' Add data rows from the DataGridView to the PDF table
+        For Each row As DataGridViewRow In dataGridView.Rows
+            For Each cell As DataGridViewCell In row.Cells
+                pdfTable.AddCell(cell.Value.ToString())
+            Next
+        Next
+
+        ' Add the PDF table to the document
+        document.Add(pdfTable)
+        document.Close()
+
+        MessageBox.Show("PDF exported successfully!")
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        DateTimePicker1.Value = DateTimePicker1.MinDate
+        DateTimePicker2.Value = DateTimePicker2.MaxDate
+
+        ComboBox1.SelectedItem = Nothing
+
+
+        LoadData()
     End Sub
 End Class
 
