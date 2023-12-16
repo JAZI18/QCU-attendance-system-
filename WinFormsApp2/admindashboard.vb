@@ -322,6 +322,15 @@ Public Class admindashboardform
 
         LoadData()
     End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+
+    Private Sub v_absent_Click_1(sender As Object, e As EventArgs) Handles v_absent.Click
+        viewAbsent.Show()
+    End Sub
 End Class
 
 '
