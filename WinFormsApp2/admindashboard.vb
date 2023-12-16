@@ -4,8 +4,19 @@ Imports iTextSharp.text.pdf
 Imports MySql.Data.MySqlClient
 Imports Mysqlx.XDevAPI.Relational
 Imports System.Drawing.Printing
+Imports WinFormsApp2.Erenjhun.Utils
 
 Public Class admindashboardform
+
+
+    Friend facerecog As FaceRecognition = New FaceRecognition({
+                                        New AddEmpformStates.FindingState(),
+                                        New AddEmpformStates.UnrecognizedFaceFoundState(),
+                                        New AddEmpformStates.RecognizedFaceFoundState(),
+                                        New FoundState(),
+                                        New UnlockingState()
+                                        }, addEmployee, addEmployee.cam_pic_box)
+
 
     Private WithEvents printDocument As New Printing.PrintDocument
     Private rowIndex As Integer = 0
@@ -17,7 +28,6 @@ Public Class admindashboardform
 
     Private Sub updbranchstat(id As Integer)
         total_stat.Counter = selectScalarQuery("count(employee_id)", "employee_schedule", {id}, "emp_branc_id = @branch_id")
-
 
         'absent_stat.Counter = selectScalarQuery("count(employee_id))
         'leave_stat.Counter = 
@@ -76,9 +86,6 @@ Public Class admindashboardform
             Dim chooseChangeEmployeeForm As New ChooseChangeEmployee(employeeCode, name, depname)
             Me.Enabled = False
             chooseChangeEmployeeForm.Show()
-
-
-
         End If
     End Sub
 
@@ -184,6 +191,12 @@ Public Class admindashboardform
 
     Private Sub Admindashboardform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dashboard_btn.PerformClick()
+
+
+        facerecog.Init()
+        facerecog.Create_tracker()
+
+        loginform.timerCallAbsent()
         LoadData()
         loginform.timerCallAbsent()
 
