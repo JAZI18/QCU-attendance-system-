@@ -35,8 +35,7 @@ Public Class admindashboardform
     Private Sub UpdateStats()
         main_total_stat.Counter = selectScalarQuery("total", "total_emp")
         main_leave_stat.Counter = selectScalarQuery("count(employee_id)", "late_emp")
-        main_present_stat.Counter = selectScalarQuery("Present", "branch_emp_present")
-
+        main_present_stat.Counter = selectScalarQuery("Present", "present_emp")
     End Sub
 
 
