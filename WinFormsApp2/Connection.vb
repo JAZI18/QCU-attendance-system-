@@ -7,7 +7,7 @@ Module Connection
 
 
     'Private conString = "server=localhost;user=root;password=;database=qcu_attendance_db;charset=utf8;Allow User Variables=True; convert zero datetime=True "
-    Private conString = "server=localhost;user=root;password=;database=sql12669578;charset=utf8;Allow User Variables=True; convert zero datetime=True;"
+    Private conString = "server=sql12.freesqldatabase.com;user=sql12671822;password=ahMPy8FFfH;database=sql12671822;charset=utf8;Allow User Variables=True; convert zero datetime=True;"
     Public con As New MySqlConnection(conString)
 
     Sub openCon()

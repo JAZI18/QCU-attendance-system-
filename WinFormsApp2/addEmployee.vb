@@ -88,4 +88,7 @@ Public Class addEmployee
         MsgBox("saving!")
     End Sub
 
+    Private Sub e_Click(sender As Object, e As EventArgs) Handles e.Click
+
+    End Sub
 End Class

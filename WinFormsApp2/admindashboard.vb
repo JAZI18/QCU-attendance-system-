@@ -340,6 +340,10 @@ Public Class admindashboardform
     Private Sub v_absent_Click_1(sender As Object, e As EventArgs) Handles v_absent.Click
         viewAbsent.Show()
     End Sub
+
+    Private Sub TabPage4_Click(sender As Object, e As EventArgs) Handles TabPage4.Click
+
+    End Sub
 End Class
 
 '

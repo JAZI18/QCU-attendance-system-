@@ -29,6 +29,7 @@ Partial Class ChooseChangeEmployee
         Button4 = New Button()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
         Label2 = New Label()
+        Button5 = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -47,7 +48,7 @@ Partial Class ChooseChangeEmployee
         Button1.FlatStyle = FlatStyle.Flat
         Button1.Font = New Font("Rockwell", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Button1.ForeColor = Color.White
-        Button1.Location = New Point(108, 199)
+        Button1.Location = New Point(73, 199)
         Button1.Name = "Button1"
         Button1.Size = New Size(100, 38)
         Button1.TabIndex = 1
@@ -60,7 +61,7 @@ Partial Class ChooseChangeEmployee
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Rockwell", 9F, FontStyle.Bold, GraphicsUnit.Point)
         Button2.ForeColor = Color.White
-        Button2.Location = New Point(236, 199)
+        Button2.Location = New Point(190, 199)
         Button2.Name = "Button2"
         Button2.Size = New Size(100, 38)
         Button2.TabIndex = 2
@@ -86,7 +87,7 @@ Partial Class ChooseChangeEmployee
         Button4.FlatStyle = FlatStyle.Flat
         Button4.Font = New Font("Rockwell", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Button4.ForeColor = Color.Red
-        Button4.Location = New Point(359, 199)
+        Button4.Location = New Point(419, 199)
         Button4.Name = "Button4"
         Button4.Size = New Size(100, 38)
         Button4.TabIndex = 4
@@ -111,11 +112,25 @@ Partial Class ChooseChangeEmployee
         Label2.TabIndex = 5
         Label2.Text = "Name"
         ' 
+        ' Button5
+        ' 
+        Button5.BackColor = Color.Green
+        Button5.FlatStyle = FlatStyle.Flat
+        Button5.Font = New Font("Rockwell", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        Button5.ForeColor = Color.White
+        Button5.Location = New Point(313, 199)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(100, 38)
+        Button5.TabIndex = 6
+        Button5.Text = "Add Schedule"
+        Button5.UseVisualStyleBackColor = False
+        ' 
         ' ChooseChangeEmployee
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(568, 262)
+        Controls.Add(Button5)
         Controls.Add(Label2)
         Controls.Add(Button4)
         Controls.Add(Button3)
@@ -136,4 +151,5 @@ Partial Class ChooseChangeEmployee
     Friend WithEvents Button4 As Button
     Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand
     Friend WithEvents Label2 As Label
+    Friend WithEvents Button5 As Button
 End Class
