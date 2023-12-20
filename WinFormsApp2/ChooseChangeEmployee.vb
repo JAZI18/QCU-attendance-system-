@@ -79,5 +79,6 @@
 
         Dim addSchedule As addSchedule = New addSchedule(_employeeCode)
         addSchedule.Show()
+        Me.Close()
     End Sub
 End Class

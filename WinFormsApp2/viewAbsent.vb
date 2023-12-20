@@ -27,6 +27,4 @@ Public Class viewAbsent
         absentLoad(search)
     End Sub
 
-
-
 End Class
