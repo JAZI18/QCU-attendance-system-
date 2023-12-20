@@ -43,8 +43,6 @@ Public Class mainform
         Refresh_fields()
     End Sub
 
-
-
     Private Sub update_date_time_labels()
         Dim date_timer As New Timer()
 
@@ -103,17 +101,31 @@ Public Class mainform
                     End Sub, "s")
     End Sub
 
-
-
     Public Sub Face_detected(image_tag_name)
         employee_id_tb.Text = image_tag_name
         fetch_all()
     End Sub
 
     Private Sub employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_code_tb.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            Insert_attendance()
+
+        Dim emp_code As String = ""
+
+        Try
+            emp_code = selectScalarQuery("employee_code", "employee_info", {employee_id_tb.Text}, "employee_id = @id")
+        Catch ex As Exception
+            MessageBox.Show("something went wrong :" & ex.Message, "oops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End Try
+
+        If e.KeyCode <> Keys.Enter Or employee_code_tb.Text = "" Then Exit Sub
+
+        If employee_code_tb.Text <> emp_code Then
+            MessageBox.Show("incorrect employee code", "ATTENDANCE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            employee_code_tb.Clear()
+            Exit Sub
         End If
+
+        Insert_attendance()
+
     End Sub
 
 
