@@ -161,8 +161,7 @@ Namespace Erenjhun.Utils
             If (FSDK.FSDKE_OK <> Retrieve_tracker(tracker)) Then ' try to load saved tracker state
 
                 FSDK.CreateTracker(tracker) ' if could not be loaded, create a new tracker
-                MsgBox("new tracker", "start up")
-                Save_tracker()
+                MsgBox("new tracker", MessageBoxButtons.OK, "start up")
             End If
 
             Dim err As Integer = 0 ' set realtime face detection parameters
@@ -182,8 +181,16 @@ Namespace Erenjhun.Utils
 
         Private Function Retrieve_tracker(tracker) As Integer
             Dim res = -1
-            Dim trackerBuffer As Byte() = selectScalarQuery("tracker", "face_recog")
-            Return FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
+
+            Try
+                Dim trackerBuffer As Byte() = selectScalarQuery("tracker", "face_recog")
+                res = FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
+            Catch ex As Exception
+
+            End Try
+
+
+            Return res
         End Function
 
         Friend Sub Unenroll_face(Optional id As Integer = Nothing)
