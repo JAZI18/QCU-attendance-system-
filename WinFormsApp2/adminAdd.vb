@@ -15,7 +15,6 @@ Public Class adminAdd
     Public Sub New(employeeCode As String)
         InitializeComponent()
         _employeeCode = employeeCode
-
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim hashedPasswords As String = HashedPassword(e_password.Text)
@@ -38,7 +37,6 @@ Public Class adminAdd
                 MessageBox.Show("Record inserted successfully.")
                 admindashboardform.Enabled = True
                 Me.Close()
-
             Catch ex As Exception
                 e_firstname.Clear()
                 e_password.Clear()
@@ -51,7 +49,6 @@ Public Class adminAdd
         Using sha256 As New SHA256Managed()
             Dim hashedBytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(password))
             Return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower()
-
         End Using
     End Function
 

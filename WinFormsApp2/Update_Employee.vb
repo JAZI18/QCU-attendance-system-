@@ -3,11 +3,9 @@ Imports Org.BouncyCastle.Asn1
 
 Public Class Update_Employee
 
-    Private _employeeCode As String
-
-    Private _name As String
-
-    Private _depname As String
+    Friend _employeeCode As String
+    Friend _name As String
+    Friend _depname As String
 
 
     ' Modify the constructor to accept employeeCode as a parameter
@@ -44,26 +42,26 @@ Public Class Update_Employee
         End If
     End Sub
 
-    Private Sub submit_employees_btn_Click(sender As Object, e As EventArgs)
+    Private Sub submit_employees_btn_Click(sender As Object, e As EventArgs) Handles submit_employees_btn.Click
+        Dim result = MessageBox.Show("Are you sure you want to Update this employee?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
-        Dim result = MessageBox.Show("Are you sure you want to delete this employee?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
+        MsgBox(_employeeCode)
         If result = DialogResult.Yes Then
-            UpdateQuery("employee_info", "first_name,middle_name,last_name,dob,gender,department_id", {e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"), gender.SelectedItem, selectDepartment()}, "employee_id=" & _employeeCode)
+            Dim s = UpdateQuery("employee_info", "first_name,middle_name,last_name,dob,gender,department_id", {e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"), gender.SelectedItem, selectDepartment(), _employeeCode.Trim}, "employee_id = @id")
             e_date.Value = Date.Now
             e_firstname.Clear()
             e_middlename.Clear()
             e_lastname.Clear()
             department.Items.Clear()
             gender.Items.Clear()
-            MsgBox("Recorded Inserted")
-            Close()
-
             admindashboardform.updateEmpployeeGrid()
-        Else
-            MessageBox.Show("Deletion canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
 
+            Dim employee As ChooseChangeEmployee = New ChooseChangeEmployee(_employeeCode, _name, _depname)
+            employee.Show()
+            Close()
+        Else
+            MessageBox.Show("update canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 
     Public Sub ListDepartment(number As Integer)
@@ -75,9 +73,6 @@ Public Class Update_Employee
         department.SelectedIndex = number - 1
         reader.Close()
     End Sub
-
-
-
 
 
     Function selectDepartment() As Integer
@@ -95,8 +90,5 @@ Public Class Update_Employee
         Return Nothing
     End Function
 
-    Private Sub submit_employees_btn_Click_1(sender As Object, e As EventArgs) Handles submit_employees_btn.Click
-        If e_firstname.Text = "" Or e_lastname.Text = "" Or e_middlename.Text = "" Or e_email.Text = "" Or e_date.Text = "" Or gender.Text = "" Or department.Text = "" Then Exit Sub
 
-    End Sub
 End Class

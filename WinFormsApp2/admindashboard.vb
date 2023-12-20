@@ -241,10 +241,7 @@ Public Class admindashboardform
 
 
     Private Sub search_btn_dept_Click(sender As Object, e As EventArgs) Handles search_btn_dept.Click
-
-
         Dim read As MySqlDataReader = SelectQuery("*", "")
-
     End Sub
 
     Private Sub sanbartolome_branch_btn_Click(sender As Object, e As EventArgs) Handles sanbartolome_branch_btn.Click

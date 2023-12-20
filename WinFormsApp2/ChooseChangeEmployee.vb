@@ -1,7 +1,6 @@
 ﻿Public Class ChooseChangeEmployee
 
     Private _employeeCode As String
-
     Private _name As String
     Private _depname As String
 
@@ -15,8 +14,6 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-
         DeleteEmployee(_employeeCode)
     End Sub
 
@@ -45,15 +42,12 @@
 
     Private Sub ChooseChangeEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label2.Text = _name
-
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
         Dim employee As Update_Employee = New Update_Employee(_employeeCode, _name, _depname)
-
         employee.Show()
-
+        Close()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -62,10 +56,9 @@
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-
-
         Dim addAdmin As adminAdd = New adminAdd(_employeeCode)
         addAdmin.Show()
+        admindashboardform.Enabled = True
     End Sub
     Private Sub ChooseChangeEmployee_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         ' Check if the close button was clicked
