@@ -12,6 +12,39 @@ Public Class mainform
     ' WinAPI procedure to release HBITMAP handles returned by FSDKCam.GrabFrame
     Declare Auto Function DeleteObject Lib "gdi32.dll" (hObject As IntPtr) As Boolean
 
+    Private Sub Insert_attendance()
+
+        Dim tin = time_in_tb.Text
+        Dim tout = time_out_tb.Text
+
+        Try
+            InsertQuery("emp_attendance", "employee_id,workday,date,time_in,time_out,over_time_in,over_time_out", {
+              employee_id_tb.Text, Now.ToString("dddd"), Now, tin, tout,
+              overtime_in_tb.Text, overtime_out_tb.Text
+        })
+            MessageBox.Show(Me, $"SUCCESS!!! TIME {If(tout = "", "IN", "OUT")} : {If(tout = "", tin, tout)}", $"TIME {If(tout = "", "IN", "OUT")}", MessageBoxButtons.OK)
+        Catch ex As Exception
+            MessageBox.Show(Me, $"OOPS!!! SOMETHING WENT WRONG : {ex.Message} {vbCrLf} enter code to try again", $"TIME {If(tout = "", "IN", "OUT")}", MessageBoxButtons.OK)
+            employee_code_tb.Clear()
+        End Try
+        Refresh_fields()
+    End Sub
+
+
+
+    Private Sub update_date_time_labels()
+        Dim date_timer As New Timer()
+
+        'date_timer.Interval =  Now.to
+
+        date_timer.Interval = 600
+        date_timer.Start()
+
+        AddHandler date_timer.Tick, Sub()
+                                        time_lb.Text = Now.ToString("hh:mm:ss tt")
+                                        date_lb.Text = Now.ToString("MMMM dd, yyyy")
+                                    End Sub
+    End Sub
 
     Private Sub cam_pic_box_Click(sender As Object, e As EventArgs) Handles cam_pic_box.Click
         Dim username = InputBox("Your name:", "Enter your name") 'get the user name
@@ -20,9 +53,9 @@ Public Class mainform
 
 
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        time_lb.Text = DateTime.Now.ToString("hh:mm:ss tt")
-        date_lb.Text = Date.Now.ToString("MMMM dd, yyyy")
 
+
+        update_date_time_labels()
 
         facerecog = New FaceRecognition({
                                         New MainformStates.FindingState(),
@@ -32,12 +65,13 @@ Public Class mainform
                                         New UnlockingState()
                                         }, Me, cam_pic_box)
 
-        facerecog.Init()
-        facerecog.Create_tracker()
+
+
 
         Start_timer(Sub()
                         facerecog.Start_cam()
                         facerecog.Run()
+
                     End Sub, "s")
     End Sub
 
@@ -48,14 +82,10 @@ Public Class mainform
         fetch_all()
     End Sub
 
-    Private Sub employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs)
+    Private Sub employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_code_tb.KeyDown
         If e.KeyCode = Keys.Enter Then
             Insert_attendance()
         End If
-    End Sub
-
-    Private Sub Insert_attendance()
-        Throw New NotImplementedException()
     End Sub
 
 
@@ -65,7 +95,7 @@ Public Class mainform
     End Sub
 
 
-    Private Sub employee_id_tb_KeyDown(sender As Object, e As KeyEventArgs)
+    Private Sub employee_id_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_id_tb.KeyDown
         If e.KeyCode = Keys.Enter Then
             fetch_all()
         End If
@@ -89,13 +119,10 @@ Public Class mainform
         If reader.Read() Then
             fullname_lb.Text = $"{reader("last_name")}, {reader("first_name")} {reader("middle_name").substring(0, 1)}."
             Dim time_in = selectScalarQuery("CASE WHEN time_in IS  NULL THEN  'null'  ELSE time_in  END AS timed_in", "emp_attendance", {id}, "employee_id  = @eid AND emp_attendance.date = CURDATE()")
-            Dim ntime_in = If(time_in = Nothing, Date.Now, CDate(time_in))
+            Dim ntime_in = If(time_in = Nothing, Now, CDate(time_in))
 
-            If (time_in Is Nothing) Then
-                time_in_tb.Text = ntime_in.ToString("hh:mm tt")
-            Else
-
-            End If
+            time_in_tb.Text = ntime_in.ToString("hh:mm tt")
+            time_out_tb.Text = If(time_in = Nothing, "", Now)
             Exit Sub
         End If
         EmpNotFound()
@@ -110,6 +137,8 @@ Public Class mainform
 
     Public Sub Refresh_fields()
         employee_id_tb.Clear()
+        employee_code_tb.Clear()
+
         time_in_tb.Clear()
         fullname_lb.Text = "--------,----- ------"
         sched_lb.Text = "--:-- -- to --:-- --"
@@ -117,7 +146,6 @@ Public Class mainform
 
 
     Sub Fetch_employee_scheds(id As String)
-
         Dim reader As MySqlDataReader = SelectQuery("*", "employee_schedule", {id}, "employee_id = @id")
         If reader.Read() Then
             sched_lb.Text = $"{New DateTime(1, 1, 1).Add(reader("shift_start_time")).ToString("hh:mm tt")} to {New DateTime(1, 1, 1).Add(reader("shift_end_time")).ToString("hh:mm tt")}"
@@ -130,8 +158,10 @@ Public Class mainform
     End Sub
 
     Private Sub Close_save()
+
         facerecog.Save_tracker()
-        facerecog.Close_cam()
+
+            facerecog.Close_cam()
     End Sub
 
 End Class
