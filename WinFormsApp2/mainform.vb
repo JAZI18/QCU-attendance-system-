@@ -1,5 +1,4 @@
-﻿Imports Luxand
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 Imports WinFormsApp2.Erenjhun.Utils
 
 
@@ -9,18 +8,13 @@ Public Class mainform
     Dim facerecog As FaceRecognition
     Dim last_attendance_id = -1
 
-    ' WinAPI procedure to release HBITMAP handles returned by FSDKCam.GrabFrame
-    Declare Auto Function DeleteObject Lib "gdi32.dll" (hObject As IntPtr) As Boolean
-
     Private Sub Insert_attendance()
 
         Dim tin = time_in_tb.Text
         Dim tout = time_out_tb.Text
         Dim id = employee_id_tb.Text
 
-
         Try
-
             If tout <> "" Then
                 'assume that the record has already the time in
                 'sojust update the timeout part

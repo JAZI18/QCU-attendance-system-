@@ -15,6 +15,10 @@ Namespace Erenjhun.Utils
         Friend form As Form
         Private active As Boolean = False
 
+        ' WinAPI procedure to release HBITMAP handles returned by FSDKCam.GrabFrame
+        Declare Auto Function DeleteObject Lib "gdi32.dll" (hObject As IntPtr) As Boolean
+
+
         Public Sub New(statesarr As State(), form As Form, Optional cam_pic_box As PictureBox = Nothing)
             Me.trackerStateManager = New StateManager(statesarr, Me)
             Me.form = form
