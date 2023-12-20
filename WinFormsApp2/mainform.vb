@@ -1,207 +1,106 @@
-﻿Imports MySql.Data.MySqlClient
-Imports Luxand
-Imports System.Timers
+﻿Imports Luxand
+Imports MySql.Data.MySqlClient
+Imports WinFormsApp2.Erenjhun.Utils
 
 
 Public Class mainform
 
-    Private timers As New Dictionary(Of String, Timer)
 
-    Dim cameraHandle As Integer
-    Public tracker As Integer = 0  ' creating a Tracker
-
-    Private _curr_emp_id As Integer = -1
-    Public prev_emp_id As Integer = -2
-
-
-
-    Dim trackerStateManager As StateManager
-
-    Public Property Curr_emp_id As Integer
-        Get
-            Return _curr_emp_id
-        End Get
-
-        Set(value As Integer)
-            debug_label.Text = value
-            _curr_emp_id = value
-        End Set
-    End Property
-
-
-    '#Region "enums and states"
-    '    Enum tracker_states
-    '        finding_face
-    '        unlocking_face
-    '        found_face
-    '    End Enum
-    '    Dim tracker_state As tracker_states = tracker_states.finding_face
-    '#End Region
+    Dim facerecog As FaceRecognition
+    Dim last_attendance_id = -1
 
     ' WinAPI procedure to release HBITMAP handles returned by FSDKCam.GrabFrame
     Declare Auto Function DeleteObject Lib "gdi32.dll" (hObject As IntPtr) As Boolean
 
+    Private Sub Insert_attendance()
+
+        Dim tin = time_in_tb.Text
+        Dim tout = time_out_tb.Text
+        Dim id = employee_id_tb.Text
+
+
+        Try
+
+            If tout <> "" Then
+                'assume that the record has already the time in
+                'sojust update the timeout part
+                UpdateQuery("emp_attendance",
+                            "time_out", {tout, id},
+                             "employee_id = @id AND emp_attendance.date = CURDATE()")
+                Exit Try
+            End If
+
+            InsertQuery("emp_attendance", "employee_id,workday,date,time_in,time_out,over_time_in,over_time_out", {
+              id, Now.ToString("dddd"), Now, tin, tout,
+              overtime_in_tb.Text, overtime_out_tb.Text
+        })
+
+            MessageBox.Show(Me, $"SUCCESS!!! TIME {If(tout = "", "IN", "OUT")} : {If(tout = "", tin, tout)}", $"TIME {If(tout = "", "IN", "OUT")}", MessageBoxButtons.OK)
+        Catch ex As Exception
+            MessageBox.Show(Me, $"OOPS!!! SOMETHING WENT WRONG : {ex.Message} {vbCrLf} enter code to try again", $"TIME {If(tout = "", "IN", "OUT")}", MessageBoxButtons.OK)
+            employee_code_tb.Clear()
+        End Try
+        Refresh_fields()
+    End Sub
+
+
+
+    Private Sub update_date_time_labels()
+        Dim date_timer As New Timer()
+
+        'date_timer.Interval =  Now.to
+
+        date_timer.Interval = 600
+        date_timer.Start()
+
+        AddHandler date_timer.Tick, Sub()
+                                        time_lb.Text = Now.ToString("hh:mm:ss tt")
+                                        date_lb.Text = Now.ToString("MMMM dd, yyyy")
+                                    End Sub
+    End Sub
 
     Private Sub cam_pic_box_Click(sender As Object, e As EventArgs) Handles cam_pic_box.Click
-        Enroll_face(Curr_emp_id)
+        Dim username = InputBox("Your name:", "Enter your name") 'get the user name
+        facerecog.Enroll_face(facerecog.face_id, username)
     End Sub
 
 
     Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        time_lb.Text = DateTime.Now.ToString("hh:mm:ss tt")
-        date_lb.Text = Date.Now.ToString("MMMM dd, yyyy")
-
-        Init_fsdk()
-        Start_cam()
 
 
+        update_date_time_labels()
 
-        trackerStateManager = New StateManager({
-                                               New FindingState(),
-                                               New UnrecognizedFaceFoundState(),
-                                               New RecognizedFaceFoundState(),
-                                               New FoundState(),
-                                               New UnlockingState()
-                                               }, Me)
-        Create_tracker()
+        facerecog = New FaceRecognition({
+                                        New MainformStates.FindingState(),
+                                        New MainformStates.UnrecognizedFaceFoundState(),
+                                        New MainformStates.RecognizedFaceFoundState(),
+                                        New FoundState(),
+                                        New UnlockingState()
+                                        }, Me, cam_pic_box)
+
+        facerecog.Init()
+
+        While True
+            Try
+                facerecog.Create_tracker()
+
+                Exit While
+            Catch ex As Exception
+                Dim res As Integer = MessageBox.Show($"{ex.Message}", "oops!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+                If res = DialogResult.Cancel Then
+                    staffadminbtns.Show()
+                    Me.Close()
+                End If
+            End Try
+        End While
+
 
 
         Start_timer(Sub()
-                        Live_feed()
+                        facerecog.Start_cam()
+                        facerecog.Run()
+
                     End Sub, "s")
-    End Sub
-
-
-    Private Sub Live_feed()
-        Dim image As FSDK.CImage
-        Dim frameImage As Image
-
-
-        While True
-            Dim ImageHandle As Integer
-
-
-            ' grab the current frame from the camera
-            If (FSDKCam.GrabFrame(cameraHandle, ImageHandle) <> FSDK.FSDKE_OK) Then
-                Application.DoEvents()
-                Continue While
-            End If
-
-            image = New FSDK.CImage(ImageHandle)
-            frameImage = image.ToCLRImage()
-
-
-#Region "tracker api doing magic"
-            Dim IDs As Long()
-            ReDim IDs(0 To 256)
-            Dim faceCount As Long
-            Dim sizeOfLong = 8
-            FSDK.FeedFrame(tracker, 0, ImageHandle, faceCount, IDs, sizeOfLong) ' maximum 1 face detected
-#End Region
-
-
-            Dim id = IDs.First
-
-
-            trackerStateManager.Run(id)
-
-            Draw_Rect(id, frameImage)
-            Display_vid(frameImage)
-
-        End While
-
-    End Sub
-
-
-
-
-    '    Private Sub Live_feed()
-    '        needClose = False
-
-    '        Dim image As FSDK.CImage
-    '        Dim frameImage As Image
-
-
-    '        While Not needClose
-    '            Dim ImageHandle As Integer
-
-
-    '            ' grab the current frame from the camera
-    '            If (FSDKCam.GrabFrame(cameraHandle, ImageHandle) <> FSDK.FSDKE_OK) Then
-    '                Application.DoEvents()
-    '                Continue While
-    '            End If
-
-    '            image = New FSDK.CImage(ImageHandle)
-    '            frameImage = image.ToCLRImage()
-
-
-    '#Region "tracker api doing magic"
-    '            Dim IDs As Long()
-    '            ReDim IDs(0 To 256)
-    '            Dim faceCount As Long
-    '            Dim sizeOfLong = 8
-    '            FSDK.FeedFrame(tracker, 0, ImageHandle, faceCount, IDs, sizeOfLong) ' maximum 1 face detected
-    '#End Region
-
-
-    '            Dim id = IDs.First
-    '            Draw_Rect(id, frameImage)
-    '            Display_vid(frameImage)
-
-
-    '            If id = 0 Then
-    '                'if no face detected
-    '                If curr_emp_id = -1 Then
-    '                    'if there is no recent face detected
-    '                    pic_border.BackColor = Color.Blue
-    '                Else
-    '                    If tracker_state = tracker_states.unlocking_face Then Continue While
-    '                    tracker_state = tracker_states.unlocking_face
-
-    '                    'find face again after 1 second
-    '                    Start_timer(Sub()
-    '                                    Refresh_fields()
-    '                                    curr_emp_id = -1
-    '                                    pic_border.BackColor = Color.Blue
-    '                                    tracker_state = tracker_states.finding_face
-    '                                End Sub, "unlocking face", 600)
-    '                End If
-    '                unenrolled_id = -1
-    '            Else
-    '                'face detected
-    '                Dim image_tag_name As String = ""
-    '                Dim res As Integer = FSDK.GetAllNames(tracker, id, image_tag_name, 100) ' maximum of 100 characters
-
-    'If Curr_emp_id = -1 Then
-    '                    'if face is recognized
-    '                Else
-    '                   If prev_emp_id <> id Then
-    '                      Face_detected(image_tag_name)
-    '                 End If
-    '                'not the same as last
-    '               Stop_timer("unlocking face")
-    '          End If
-
-    '                    pic_border.BackColor = Color.LightGreen
-    '                    tracker_state = tracker_states.found_face
-    '                    unenrolled_id = -1
-    '                Else
-    '                    'face not recognized
-    '                    Refresh_fields()
-    '                    pic_border.BackColor = Color.Red
-    '                    unenrolled_id = id
-    '                End If
-    '            End If
-    '        End While
-    '    End Sub
-
-
-    Private Sub Display_vid(frameImage As Image)
-        frameImage.RotateFlip(RotateFlipType.RotateNoneFlipX)
-        cam_pic_box.Image = frameImage ' display current frame
-        GC.Collect() ' collect the garbage after the deletion
-        Application.DoEvents() ' make UI controls accessible
     End Sub
 
 
@@ -211,50 +110,12 @@ Public Class mainform
         fetch_all()
     End Sub
 
-    Private Sub employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs)
+    Private Sub employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_code_tb.KeyDown
         If e.KeyCode = Keys.Enter Then
             Insert_attendance()
         End If
     End Sub
 
-    Private Sub Insert_attendance()
-        Throw New NotImplementedException()
-    End Sub
-
-    Private Sub Draw_Rect(id As Integer, frameimage As Image)
-        If id = 0 Then Exit Sub ' dont draw if id = 0 because no face found
-        Dim gr As Graphics
-        gr = Graphics.FromImage(frameimage)
-
-        Dim facePosition As FSDK.TFacePosition = New FSDK.TFacePosition
-        FSDK.GetTrackerFacePosition(tracker, 0, id, facePosition)
-
-        Dim left As Integer = facePosition.xc - CInt(facePosition.w * 0.6)
-        Dim top As Integer = facePosition.yc - CInt(facePosition.w * 0.5)
-        Dim w As Integer = facePosition.w * 1.2
-
-        Dim pen As New Pen(Color.LightGreen, 6)
-        gr.DrawRectangle(pen, left, top, w, w)
-    End Sub
-
-    Private Sub Enroll_face(id As Integer)
-        Dim username
-
-        If (FSDK.FSDKE_OK = FSDK.LockID(tracker, id)) Then
-            username = InputBox("Your name:", "Enter your name") 'get the user name
-            If username Is Nothing Or username.Length <= 0 Then
-                FSDK.SetName(tracker, id, "")
-                FSDK.PurgeID(tracker, id)
-
-            Else
-                FSDK.SetName(tracker, id, username)
-            End If
-            FSDK.UnlockID(tracker, id)
-        Else
-            MsgBox("no face found")
-        End If
-
-    End Sub
 
     Private Sub mainform_back_btn_(sender As Object, e As EventArgs) Handles mainform_back_btn.Click
         staffadminbtns.Show()
@@ -262,7 +123,7 @@ Public Class mainform
     End Sub
 
 
-    Private Sub employee_id_tb_KeyDown(sender As Object, e As KeyEventArgs)
+    Private Sub employee_id_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_id_tb.KeyDown
         If e.KeyCode = Keys.Enter Then
             fetch_all()
         End If
@@ -281,18 +142,41 @@ Public Class mainform
 
     Sub Fetch_employee_details(id As String)
 
+        Dim time_out = selectScalarQuery("time_out", "emp_attendance", {id}, "employee_id  = @eid AND emp_attendance.date = CURDATE()")
+
+        Try
+            If time_out.ToString() <> "00:00:00" Then
+                cam_pic_box.Image = My.Resources.roblox
+
+                Dim res = MessageBox.Show($"You have already TIMED OUT{vbCrLf}Do you want to continue?", "time out warning", MessageBoxButtons.YesNo)
+
+                If res = DialogResult.No Then
+                    Refresh_fields()
+                    Exit Sub
+                End If
+
+            End If
+        Catch ex As Exception
+
+        End Try
+
+
         Dim reader As MySqlDataReader = SelectQuery("*", "employee_info", {id}, "employee_id = @id")
 
         If reader.Read() Then
+
+
+
+
+
             fullname_lb.Text = $"{reader("last_name")}, {reader("first_name")} {reader("middle_name").substring(0, 1)}."
             Dim time_in = selectScalarQuery("CASE WHEN time_in IS  NULL THEN  'null'  ELSE time_in  END AS timed_in", "emp_attendance", {id}, "employee_id  = @eid AND emp_attendance.date = CURDATE()")
-            Dim ntime_in = If(time_in = Nothing, Date.Now, CDate(time_in))
+            Dim ntime_in = If(time_in = Nothing, Now, CDate(time_in)).ToString("hh:mm tt")
 
-            If (time_in Is Nothing) Then
-                time_in_tb.Text = ntime_in.ToString("hh:mm tt")
-            Else
 
-            End If
+
+            time_in_tb.Text = ntime_in
+            time_out_tb.Text = If(time_in = Nothing, "", Now.ToString("hh:mm tt"))
             Exit Sub
         End If
         EmpNotFound()
@@ -302,155 +186,39 @@ Public Class mainform
     Sub EmpNotFound()
         MsgBox("not found", MsgBoxStyle.Exclamation, "ooops!")
         Refresh_fields()
-
-        FSDK.SetName(tracker, Curr_emp_id, "")
-        FSDK.PurgeID(tracker, Curr_emp_id)
+        facerecog.unenroll_face()
     End Sub
 
     Public Sub Refresh_fields()
         employee_id_tb.Clear()
+        employee_code_tb.Clear()
+
         time_in_tb.Clear()
-        fullname_lb.Text = "-------------------"
-        sched_lb.Text = "--:----- to --:----"
+        time_out_tb.Clear()
+        fullname_lb.Text = "--------,----- ------"
+        sched_lb.Text = "--:-- -- to --:-- --"
+        facerecog.Refresh()
     End Sub
 
 
     Sub Fetch_employee_scheds(id As String)
-
-        Dim reader As MySqlDataReader = SelectQuery("*", "employee_schedule", {id}, "employee_id = @id")
+        Dim reader As MySqlDataReader = SelectQuery("*", "employee_schedule", {id}, "employee_id     = @id")
         If reader.Read() Then
             sched_lb.Text = $"{New DateTime(1, 1, 1).Add(reader("shift_start_time")).ToString("hh:mm tt")} to {New DateTime(1, 1, 1).Add(reader("shift_end_time")).ToString("hh:mm tt")}"
         End If
     End Sub
 
-
     Private Sub mainform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         Close_save()
-        Close_save()
     End Sub
-
 
     Private Sub Close_save()
-        Save_tracker()
-        FSDKCam.CloseVideoCamera(cameraHandle)
-        FSDKCam.FinalizeCapturing()
+
+        facerecog.Save_tracker()
+
+        facerecog.Close_cam()
     End Sub
 
-
-#Region "helper functions"
-
-    Public Sub Start_timer(f As Action, t_name As String, Optional interval As Integer = 1000, Optional repeat As Boolean = False)
-
-
-        If timers.ContainsKey(t_name) Then
-            With timers.Item(t_name)
-                .Stop()
-                .Dispose()
-            End With
-
-            timers.Remove(t_name)
-        End If
-
-        Dim delay_timer As New Timer With {
-            .Interval = interval,
-            .AutoReset = repeat
-        }
-
-        AddHandler delay_timer.Elapsed, Sub()
-                                            f()
-                                            With delay_timer
-                                                .Stop()
-                                                .Dispose()
-                                            End With
-                                            timers.Remove(t_name)
-                                        End Sub
-
-        timers.Add(t_name, delay_timer)
-        delay_timer.Start()
-    End Sub
-
-
-    Public Sub Stop_timer(t_name As String)
-        Try
-            timers.Item(t_name).Dispose()
-        Catch ex As Exception
-        End Try
-
-        timers.Remove(t_name)
-    End Sub
-
-    Private Sub Init_fsdk()
-        If (FSDK.ActivateLibrary("fVrFCzYC5wOtEVspKM/zfLWVcSIZA4RNqx74s+QngdvRiCC7z7MHlSf2w3+OUyAZkTFeD4kSpfVPcRVIqAKWUZzJG975b/P4HNNzpl11edXGIyGrTO/DImoZksDSRs6wktvgr8lnNCB5IukIPV5j/jBKlgL5aqiwSfyCR8UdC9s=") <> FSDK.FSDKE_OK) Then
-            MessageBox.Show("Please run the License Key Wizard (Start - Luxand - FaceSDK - License Key Wizard)", "Error activating FaceSDK")
-            Close()
-        End If
-
-        FSDK.InitializeLibrary()
-    End Sub
-
-
-    Private Sub Start_cam()
-        FSDKCam.InitializeCapturing()
-
-        Dim cameralist() As String = Nothing
-        Dim count As Integer
-        FSDKCam.GetCameraList(cameralist, count)
-
-
-        If (0 = count) Then
-            MessageBox.Show("Please attach a camera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Close()
-        End If
-
-        Dim formatList() As FSDKCam.VideoFormatInfo = Nothing
-
-
-        FSDKCam.GetVideoFormatList(cameralist(0), formatList, count)
-
-
-
-        Dim cameraName As String
-        cameraName = cameralist(0)
-        If (FSDKCam.OpenVideoCamera(cameraName, cameraHandle) <> FSDK.FSDKE_OK) Then
-            MessageBox.Show("Error opening the first camera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Close()
-        End If
-    End Sub
-
-
-    Private Sub Create_tracker()
-        If (FSDK.FSDKE_OK <> Retrieve_tracker()) Then ' try to load saved tracker state
-            MsgBox("creating new tracker!")
-            FSDK.CreateTracker(tracker) ' if could not be loaded, create a new tracker
-            Save_tracker()
-        End If
-
-        Dim err As Integer = 0 ' set realtime face detection parameters
-        FSDK.SetTrackerMultipleParameters(tracker, "HandleArbitraryRotations=true; DetermineFaceRotationAngle=false; InternalResizeWidth=200; FaceDetectionThreshold=5;", err)
-    End Sub
-
-
-    Private Sub Save_tracker()
-        Dim bufferSize(0) As Long
-        FSDK.GetTrackerMemoryBufferSize(tracker, bufferSize(0))
-        Dim trackerBuffer(bufferSize(0)) As Byte
-        FSDK.SaveTrackerMemoryToBuffer(tracker, trackerBuffer, 256 * 5000)
-
-        UpdateQuery("face_recog", "tracker", {trackerBuffer})
-    End Sub
-
-    Private Function Retrieve_tracker() As Integer
-        Try
-            Dim trackerBuffer As Byte() = selectScalarQuery("tracker", "face_recog")
-            Return FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
-        Catch ex As Exception
-        End Try
-        MsgBox("tracker loaded from db")
-        Return -1
-    End Function
-
-
-#End Region
 
 End Class
