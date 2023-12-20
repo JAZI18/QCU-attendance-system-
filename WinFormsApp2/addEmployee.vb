@@ -49,7 +49,7 @@ Public Class addEmployee
         End If
         Dim empcode As String = GenerateEmployeeCode()
         Try
-            InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
+            InsertQuery("employee_info", "employee_id,first_name,middle_name,last_name,dob,gender,department_id,email",
         {empcode, e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
          e_gender.SelectedItem.ToString, selectDepartment(), e_email.Text})
             MessageBox.Show("Record inserted successfully.", "add", MessageBoxButtons.OK)
@@ -58,7 +58,6 @@ Public Class addEmployee
             admindashboardform.Enabled = True
             facerecog.Enroll_face(facerecog.face_id, empcode)
         Catch ex As Exception
-
             MessageBox.Show("An error occurred: " & vbCrLf & ex.Message, "add", MessageBoxButtons.OK)
         End Try
         e_firstname.Clear()
@@ -86,6 +85,7 @@ Public Class addEmployee
     Private Sub addEmployee_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         facerecog.Close_cam()
         facerecog.Save_tracker()
+        MsgBox("saving!")
     End Sub
 
 End Class
