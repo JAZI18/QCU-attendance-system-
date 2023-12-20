@@ -29,7 +29,7 @@ Partial Class mainform
         o_o_p = New Panel()
         overtime_out_tb = New dynamic_textb()
         t_o_p = New Panel()
-        Dynamic_textb4 = New dynamic_textb()
+        time_out_tb = New dynamic_textb()
         Label23 = New Label()
         Label18 = New Label()
         Label22 = New Label()
@@ -54,7 +54,6 @@ Partial Class mainform
         pic_border = New TableLayoutPanel()
         cam_pic_box = New PictureBox()
         debug_label = New Label()
-        time_out_tb = New dynamic_textb()
         Dynamic_textb3 = New dynamic_textb()
         Dynamic_textb1 = New dynamic_textb()
         Panel2 = New Panel()
@@ -117,7 +116,6 @@ Partial Class mainform
         pic_border.SuspendLayout()
         CType(cam_pic_box, ComponentModel.ISupportInitialize).BeginInit()
         Panel10.SuspendLayout()
-        Panel11.SuspendLayout()
         Panel12.SuspendLayout()
         TableLayoutPanel5.SuspendLayout()
         TableLayoutPanel13.SuspendLayout()
@@ -236,7 +234,7 @@ Partial Class mainform
         ' t_o_p
         ' 
         t_o_p.BackColor = Color.Black
-        t_o_p.Controls.Add(Dynamic_textb4)
+        t_o_p.Controls.Add(time_out_tb)
         t_o_p.Dock = DockStyle.Fill
         t_o_p.Location = New Point(42, 321)
         t_o_p.Margin = New Padding(0)
@@ -244,15 +242,15 @@ Partial Class mainform
         t_o_p.Size = New Size(297, 56)
         t_o_p.TabIndex = 14
         ' 
-        ' Dynamic_textb4
+        ' time_out_tb
         ' 
-        Dynamic_textb4.Dock = DockStyle.Fill
-        Dynamic_textb4.Font = New Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Pixel)
-        Dynamic_textb4.Location = New Point(0, 0)
-        Dynamic_textb4.Name = "Dynamic_textb4"
-        Dynamic_textb4.PlaceholderText = "EMPLOYEE ID"
-        Dynamic_textb4.Size = New Size(297, 55)
-        Dynamic_textb4.TabIndex = 1
+        time_out_tb.Dock = DockStyle.Fill
+        time_out_tb.Font = New Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Pixel)
+        time_out_tb.Location = New Point(0, 0)
+        time_out_tb.Name = "time_out_tb"
+        time_out_tb.PlaceholderText = "EMPLOYEE ID"
+        time_out_tb.Size = New Size(297, 55)
+        time_out_tb.TabIndex = 1
         ' 
         ' Label23
         ' 
@@ -526,6 +524,7 @@ Partial Class mainform
         employee_code_tb.PlaceholderText = "EMPLOYEE CODE"
         employee_code_tb.Size = New Size(468, 46)
         employee_code_tb.TabIndex = 1
+        employee_code_tb.UseSystemPasswordChar = True
         ' 
         ' pic_border
         ' 
@@ -567,15 +566,6 @@ Partial Class mainform
         debug_label.Size = New Size(63, 25)
         debug_label.TabIndex = 3
         debug_label.Text = "Label4"
-        ' 
-        ' time_out_tb
-        ' 
-        time_out_tb.Dock = DockStyle.Fill
-        time_out_tb.Font = New Font("Segoe UI", 27F, FontStyle.Regular, GraphicsUnit.Pixel)
-        time_out_tb.Location = New Point(0, 0)
-        time_out_tb.Name = "time_out_tb"
-        time_out_tb.Size = New Size(343, 43)
-        time_out_tb.TabIndex = 1
         ' 
         ' Dynamic_textb3
         ' 
@@ -630,7 +620,6 @@ Partial Class mainform
         ' Panel11
         ' 
         Panel11.BackColor = SystemColors.ActiveCaptionText
-        Panel11.Controls.Add(time_out_tb)
         Panel11.Dock = DockStyle.Fill
         Panel11.Location = New Point(30, 325)
         Panel11.Margin = New Padding(0)
@@ -971,7 +960,7 @@ Partial Class mainform
         Label16.Name = "Label16"
         Label16.Size = New Size(224, 25)
         Label16.TabIndex = 3
-        Label16.Text = "Mangmang, Jay Prince T." & vbCrLf
+        Label16.Text = "Mangmang, Jay Prince T." + vbCrLf
         ' 
         ' Button1
         ' 
@@ -1181,8 +1170,6 @@ Partial Class mainform
         CType(cam_pic_box, ComponentModel.ISupportInitialize).EndInit()
         Panel10.ResumeLayout(False)
         Panel10.PerformLayout()
-        Panel11.ResumeLayout(False)
-        Panel11.PerformLayout()
         Panel12.ResumeLayout(False)
         Panel12.PerformLayout()
         TableLayoutPanel5.ResumeLayout(False)
@@ -1286,7 +1273,6 @@ Partial Class mainform
     Friend WithEvents fullname_lb As Label
     Friend WithEvents branch_lb As Label
     Friend WithEvents Dynamic_textb10 As dynamic_textb
-    Friend WithEvents time_out_tb As dynamic_textb
     Friend WithEvents Dynamic_textb11 As dynamic_textb
     Friend WithEvents employee_id_tb As dynamic_textb
     Friend WithEvents Panel4 As Panel
@@ -1296,6 +1282,6 @@ Partial Class mainform
     Friend WithEvents Dynamic_textb3 As dynamic_textb
     Friend WithEvents m_i_p As Panel
     Friend WithEvents o_i_p As Panel
-    Friend WithEvents Dynamic_textb4 As dynamic_textb
+    Friend WithEvents time_out_tb As dynamic_textb
     Friend WithEvents time_in_tb As dynamic_textb
 End Class
