@@ -158,9 +158,10 @@ Namespace Erenjhun.Utils
 
 #Region "Trackers"
         Friend Sub Create_tracker(Optional tracker As Integer = 0)
-            If (FSDK.FSDKE_OK <> Retrieve_tracker()) Then ' try to load saved tracker state
-                MsgBox("creating new tracker!")
+            If (FSDK.FSDKE_OK <> Retrieve_tracker(tracker)) Then ' try to load saved tracker state
+
                 FSDK.CreateTracker(tracker) ' if could not be loaded, create a new tracker
+                MsgBox("new tracker", "start up")
                 Save_tracker()
             End If
 
@@ -173,29 +174,26 @@ Namespace Erenjhun.Utils
             Dim bufferSize(0) As Long
             FSDK.GetTrackerMemoryBufferSize(tracker, bufferSize(0))
             Dim trackerBuffer(bufferSize(0)) As Byte
-            FSDK.SaveTrackerMemoryToBuffer(tracker, trackerBuffer, 256 * 5000)
+            FSDK.SaveTrackerMemoryToBuffer(tracker, trackerBuffer, 256 * 50000)
 
-            UpdateQuery("face_recog", "tracker", {trackerBuffer})
+            NewQuery("INSERT INTO face_recog (id,tracker) VALUES (1,@tracker)
+                                  oN DUPLICATE KEY UPDATE tracker = @tracker", {trackerBuffer}).ExecuteNonQuery()
         End Sub
 
-        Private Function Retrieve_tracker() As Integer
-
+        Private Function Retrieve_tracker(tracker) As Integer
             Dim res = -1
-            Try
-                Dim trackerBuffer As Byte() = selectScalarQuery("tracker", "face_recog")
-                res = FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
-                MsgBox("tracker loaded from db")
-            Catch ex As Exception
-
-            End Try
-
-            Return res
+            Dim trackerBuffer As Byte() = selectScalarQuery("tracker", "face_recog")
+            Return FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
         End Function
 
         Friend Sub Unenroll_face(Optional id As Integer = Nothing)
             If IsNothing(id) Then id = curr_face_id
             FSDK.SetName(tracker, curr_face_id, "")
             FSDK.PurgeID(tracker, curr_face_id)
+        End Sub
+
+        Friend Sub Refresh()
+            trackerStateManager.SetState("UnlockingState")
         End Sub
 #End Region
     End Class
