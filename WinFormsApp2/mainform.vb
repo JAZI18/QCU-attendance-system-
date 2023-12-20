@@ -24,9 +24,8 @@ Public Class mainform
                 Exit Try
             End If
 
-            InsertQuery("emp_attendance", "employee_id,workday,date,time_in,time_out,over_time_in,over_time_out", {
-              id, Now.ToString("dddd"), Now, tin, tout,
-              overtime_in_tb.Text, overtime_out_tb.Text
+            InsertQuery("emp_attendance", "employee_id,workday,date,time_in,time_out", {
+              id, Now.ToString("dddd"), Now, tin, tout
         })
 
             MessageBox.Show(Me, $"SUCCESS!!! TIME {If(tout = "", "IN", "OUT")} : {If(tout = "", tin, tout)}", $"TIME {If(tout = "", "IN", "OUT")}", MessageBoxButtons.OK)
