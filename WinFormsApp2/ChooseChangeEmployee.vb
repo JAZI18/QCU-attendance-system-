@@ -73,4 +73,11 @@
             admindashboardform.Enabled = True
         End If
     End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+
+
+        Dim addSchedule As addSchedule = New addSchedule(_employeeCode)
+        addSchedule.Show()
+    End Sub
 End Class
