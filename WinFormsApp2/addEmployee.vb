@@ -1,6 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports WinFormsApp2.Erenjhun.Utils
 
 Public Class addEmployee
+
+    Private facerecog As FaceRecognition
+
 
     Public Sub ListDepartment()
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department")
@@ -42,32 +46,46 @@ Public Class addEmployee
     Private Sub submit_employees_btn_Click(sender As Object, e As EventArgs) Handles submit_employees_btn.Click
         If e_firstname.Text = "" Or e_lastname.Text = "" Or e_middlename.Text = "" Or e_date.Text = "" Or e_email.Text = "" Or e_gender.Text = "" Or e_dep.Text = "" Then
 
-            MsgBox(e_dep.SelectedItem)
-            Try
-                InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
-        {GenerateEmployeeCode(), e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
-         e_gender.SelectedItem.ToString, selectDepartment(), e_email.Text})
-                MessageBox.Show("Record inserted successfully.")
-
-                admindashboardform.updateEmpployeeGrid()
-                admindashboardform.Enabled = True
-                Close()
-
-            Catch ex As Exception
-                e_firstname.Clear()
-                e_middlename.Clear()
-                e_lastname.Clear()
-                e_email.Clear()
-                e_gender.SelectedItem = Nothing
-                e_date.Value = Date.Now
-                MessageBox.Show("An error occurred: ")
-            End Try
-            Exit Sub
         End If
+        Dim empcode As String = GenerateEmployeeCode()
+        Try
+            InsertQuery("employee_info", "employee_code,first_name,middle_name,last_name,dob,gender,department_id,email",
+        {empcode, e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
+         e_gender.SelectedItem.ToString, selectDepartment(), e_email.Text})
+            MessageBox.Show("Record inserted successfully.", "add", MessageBoxButtons.OK)
+
+            admindashboardform.updateEmpployeeGrid()
+            admindashboardform.Enabled = True
+            facerecog.Enroll_face(facerecog.face_id, empcode)
+        Catch ex As Exception
+
+            MessageBox.Show("An error occurred: " & vbCrLf & ex.Message, "add", MessageBoxButtons.OK)
+        End Try
+        e_firstname.Clear()
+        e_middlename.Clear()
+        e_lastname.Clear()
+        e_email.Clear()
+        e_gender.SelectedItem = Nothing
+        e_date.Value = Date.Now
+        Exit Sub
     End Sub
 
     Private Sub addEmployee_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ListDepartment()
         e_gender.SelectedIndex = 0
+
+
+        facerecog = admindashboardform.facerecog
+
+        Start_timer(Sub()
+                        facerecog.Start_cam()
+                        facerecog.Run()
+                    End Sub, "s2")
     End Sub
+
+    Private Sub addEmployee_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        facerecog.Close_cam()
+        facerecog.Save_tracker()
+    End Sub
+
 End Class
