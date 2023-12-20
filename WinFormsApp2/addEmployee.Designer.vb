@@ -50,14 +50,17 @@ Partial Class addEmployee
         ' 
         submit_employees_btn.BackColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
         submit_employees_btn.Dock = DockStyle.Bottom
-        submit_employees_btn.FlatStyle = FlatStyle.Flat
+        submit_employees_btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(CByte(120), CByte(0), CByte(0))
+        submit_employees_btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(200), CByte(90), CByte(90))
         submit_employees_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         submit_employees_btn.ForeColor = SystemColors.ButtonHighlight
-        submit_employees_btn.Location = New Point(0, 361)
+        submit_employees_btn.Location = New Point(0, 602)
+        submit_employees_btn.Margin = New Padding(4, 5, 4, 5)
         submit_employees_btn.Name = "submit_employees_btn"
-        submit_employees_btn.Size = New Size(346, 56)
+        submit_employees_btn.Size = New Size(494, 93)
         submit_employees_btn.TabIndex = 30
         submit_employees_btn.Text = "Submit"
+        submit_employees_btn.UseCompatibleTextRendering = True
         submit_employees_btn.UseVisualStyleBackColor = False
         ' 
         ' e_dep
@@ -66,10 +69,10 @@ Partial Class addEmployee
         e_dep.Dock = DockStyle.Fill
         e_dep.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
         e_dep.FormattingEnabled = True
-        e_dep.Location = New Point(119, 369)
-        e_dep.Margin = New Padding(84, 3, 84, 3)
+        e_dep.Location = New Point(170, 615)
+        e_dep.Margin = New Padding(120, 5, 120, 5)
         e_dep.Name = "e_dep"
-        e_dep.Size = New Size(284, 29)
+        e_dep.Size = New Size(406, 40)
         e_dep.TabIndex = 29
         ' 
         ' dep
@@ -78,9 +81,11 @@ Partial Class addEmployee
         TableLayoutPanel1.SetColumnSpan(dep, 3)
         dep.Dock = DockStyle.Fill
         dep.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        dep.Location = New Point(38, 318)
+        dep.Location = New Point(54, 530)
+        dep.Margin = New Padding(4, 0, 4, 0)
         dep.Name = "dep"
-        dep.Size = New Size(446, 48)
+        dep.Padding = New Padding(110, 0, 0, 0)
+        dep.Size = New Size(638, 80)
         dep.TabIndex = 28
         dep.Text = "Department"
         dep.TextAlign = ContentAlignment.BottomLeft
@@ -90,9 +95,10 @@ Partial Class addEmployee
         e.AutoSize = True
         e.Dock = DockStyle.Fill
         e.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e.Location = New Point(292, 30)
+        e.Location = New Point(418, 50)
+        e.Margin = New Padding(4, 0, 4, 0)
         e.Name = "e"
-        e.Size = New Size(192, 48)
+        e.Size = New Size(274, 80)
         e.TabIndex = 27
         e.Text = "Email"
         e.TextAlign = ContentAlignment.BottomLeft
@@ -100,33 +106,37 @@ Partial Class addEmployee
         ' e_email
         ' 
         e_email.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_email.Location = New Point(292, 81)
+        e_email.Location = New Point(418, 135)
+        e_email.Margin = New Padding(4, 5, 4, 5)
         e_email.Name = "e_email"
-        e_email.Size = New Size(192, 29)
+        e_email.Size = New Size(273, 39)
         e_email.TabIndex = 26
         ' 
         ' e_lastname
         ' 
         e_lastname.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_lastname.Location = New Point(38, 273)
+        e_lastname.Location = New Point(54, 455)
+        e_lastname.Margin = New Padding(4, 5, 4, 5)
         e_lastname.Name = "e_lastname"
-        e_lastname.Size = New Size(190, 29)
+        e_lastname.Size = New Size(270, 39)
         e_lastname.TabIndex = 18
         ' 
         ' e_middlename
         ' 
         e_middlename.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_middlename.Location = New Point(38, 177)
+        e_middlename.Location = New Point(54, 295)
+        e_middlename.Margin = New Padding(4, 5, 4, 5)
         e_middlename.Name = "e_middlename"
-        e_middlename.Size = New Size(185, 29)
+        e_middlename.Size = New Size(263, 39)
         e_middlename.TabIndex = 17
         ' 
         ' e_firstname
         ' 
         e_firstname.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_firstname.Location = New Point(38, 81)
+        e_firstname.Location = New Point(54, 135)
+        e_firstname.Margin = New Padding(4, 5, 4, 5)
         e_firstname.Name = "e_firstname"
-        e_firstname.Size = New Size(190, 29)
+        e_firstname.Size = New Size(270, 39)
         e_firstname.TabIndex = 16
         ' 
         ' d
@@ -134,9 +144,10 @@ Partial Class addEmployee
         d.AutoSize = True
         d.Dock = DockStyle.Fill
         d.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        d.Location = New Point(292, 222)
+        d.Location = New Point(418, 370)
+        d.Margin = New Padding(4, 0, 4, 0)
         d.Name = "d"
-        d.Size = New Size(192, 48)
+        d.Size = New Size(274, 80)
         d.TabIndex = 25
         d.Text = "Dob"
         d.TextAlign = ContentAlignment.BottomLeft
@@ -146,9 +157,10 @@ Partial Class addEmployee
         e_gender.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
         e_gender.FormattingEnabled = True
         e_gender.Items.AddRange(New Object() {"Male", "Female", "Binary", "Non-Binary", "Optimus Prime", "World Ender", "Others"})
-        e_gender.Location = New Point(292, 177)
+        e_gender.Location = New Point(418, 295)
+        e_gender.Margin = New Padding(4, 5, 4, 5)
         e_gender.Name = "e_gender"
-        e_gender.Size = New Size(192, 29)
+        e_gender.Size = New Size(273, 40)
         e_gender.TabIndex = 24
         ' 
         ' Label17
@@ -156,9 +168,10 @@ Partial Class addEmployee
         Label17.AutoSize = True
         Label17.Dock = DockStyle.Fill
         Label17.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        Label17.Location = New Point(292, 126)
+        Label17.Location = New Point(418, 210)
+        Label17.Margin = New Padding(4, 0, 4, 0)
         Label17.Name = "Label17"
-        Label17.Size = New Size(192, 48)
+        Label17.Size = New Size(274, 80)
         Label17.TabIndex = 23
         Label17.Text = "Gender"
         Label17.TextAlign = ContentAlignment.BottomLeft
@@ -168,9 +181,10 @@ Partial Class addEmployee
         l.AutoSize = True
         l.Dock = DockStyle.Fill
         l.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        l.Location = New Point(38, 222)
+        l.Location = New Point(54, 370)
+        l.Margin = New Padding(4, 0, 4, 0)
         l.Name = "l"
-        l.Size = New Size(190, 48)
+        l.Size = New Size(272, 80)
         l.TabIndex = 22
         l.Text = "Last name"
         l.TextAlign = ContentAlignment.BottomLeft
@@ -180,9 +194,10 @@ Partial Class addEmployee
         m.AutoSize = True
         m.Dock = DockStyle.Fill
         m.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        m.Location = New Point(38, 126)
+        m.Location = New Point(54, 210)
+        m.Margin = New Padding(4, 0, 4, 0)
         m.Name = "m"
-        m.Size = New Size(190, 48)
+        m.Size = New Size(272, 80)
         m.TabIndex = 21
         m.Text = "Middle name"
         m.TextAlign = ContentAlignment.BottomLeft
@@ -192,9 +207,10 @@ Partial Class addEmployee
         f.AutoSize = True
         f.Dock = DockStyle.Fill
         f.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        f.Location = New Point(38, 30)
+        f.Location = New Point(54, 50)
+        f.Margin = New Padding(4, 0, 4, 0)
         f.Name = "f"
-        f.Size = New Size(190, 48)
+        f.Size = New Size(272, 80)
         f.TabIndex = 19
         f.Text = "First name"
         f.TextAlign = ContentAlignment.BottomLeft
@@ -202,9 +218,10 @@ Partial Class addEmployee
         ' e_date
         ' 
         e_date.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        e_date.Location = New Point(292, 273)
+        e_date.Location = New Point(418, 455)
+        e_date.Margin = New Padding(4, 5, 4, 5)
         e_date.Name = "e_date"
-        e_date.Size = New Size(191, 29)
+        e_date.Size = New Size(271, 39)
         e_date.TabIndex = 20
         ' 
         ' Panel1
@@ -214,9 +231,10 @@ Partial Class addEmployee
         Panel1.Controls.Add(submit_employees_btn)
         Panel1.Controls.Add(cam_pic_box)
         Panel1.Dock = DockStyle.Right
-        Panel1.Location = New Point(522, 0)
+        Panel1.Location = New Point(746, 0)
+        Panel1.Margin = New Padding(4, 5, 4, 5)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(346, 417)
+        Panel1.Size = New Size(494, 695)
         Panel1.TabIndex = 31
         ' 
         ' status_lb
@@ -224,9 +242,10 @@ Partial Class addEmployee
         status_lb.Dock = DockStyle.Bottom
         status_lb.Font = New Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point)
         status_lb.ForeColor = Color.Lime
-        status_lb.Location = New Point(0, 311)
+        status_lb.Location = New Point(0, 509)
+        status_lb.Margin = New Padding(4, 0, 4, 0)
         status_lb.Name = "status_lb"
-        status_lb.Size = New Size(346, 50)
+        status_lb.Size = New Size(494, 93)
         status_lb.TabIndex = 33
         status_lb.Text = "READY"
         status_lb.TextAlign = ContentAlignment.TopCenter
@@ -236,10 +255,11 @@ Partial Class addEmployee
         cam_pic_box.BackColor = Color.White
         cam_pic_box.BorderStyle = BorderStyle.FixedSingle
         cam_pic_box.Image = My.Resources.Resources.user
-        cam_pic_box.Location = New Point(11, 24)
+        cam_pic_box.Location = New Point(16, 40)
+        cam_pic_box.Margin = New Padding(4, 5, 4, 5)
         cam_pic_box.Name = "cam_pic_box"
-        cam_pic_box.Padding = New Padding(7, 6, 7, 6)
-        cam_pic_box.Size = New Size(327, 264)
+        cam_pic_box.Padding = New Padding(10)
+        cam_pic_box.Size = New Size(466, 439)
         cam_pic_box.SizeMode = PictureBoxSizeMode.Zoom
         cam_pic_box.TabIndex = 32
         cam_pic_box.TabStop = False
@@ -266,9 +286,9 @@ Partial Class addEmployee
         TableLayoutPanel1.Controls.Add(e_dep, 0, 7)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(0, 0)
-        TableLayoutPanel1.Margin = New Padding(2, 30, 2, 2)
+        TableLayoutPanel1.Margin = New Padding(3, 50, 3, 3)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
-        TableLayoutPanel1.Padding = New Padding(35, 30, 35, 0)
+        TableLayoutPanel1.Padding = New Padding(50, 50, 50, 0)
         TableLayoutPanel1.RowCount = 8
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 12.5F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 12.5F))
@@ -278,21 +298,20 @@ Partial Class addEmployee
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 12.5F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 12.5F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 12.5F))
-        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 12F))
-        TableLayoutPanel1.Size = New Size(522, 417)
+        TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Absolute, 20F))
+        TableLayoutPanel1.Size = New Size(746, 695)
         TableLayoutPanel1.TabIndex = 32
         ' 
         ' addEmployee
         ' 
         AcceptButton = submit_employees_btn
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(223), CByte(223), CByte(223))
-        ClientSize = New Size(868, 417)
+        ClientSize = New Size(1240, 695)
         Controls.Add(TableLayoutPanel1)
         Controls.Add(Panel1)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
-        Margin = New Padding(2)
         Name = "addEmployee"
         StartPosition = FormStartPosition.CenterScreen
         Panel1.ResumeLayout(False)
