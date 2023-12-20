@@ -11,7 +11,9 @@ Namespace AddEmpformStates
             'if new recognized face is detected
             Dim addform As addEmployee = Form
             addform.status_lb.Text = "READY"
-            curr_face_id = Face_id
+            curr_face_id = face_id
+            addform.submit_employees_btn.Enabled = True
+
         End Sub
 
 
@@ -24,6 +26,9 @@ Namespace AddEmpformStates
             If manager.prev_state.before.key = key Then Exit Sub
             Dim addform As addEmployee = Form
             addform.cam_pic_box.BackColor = Color.Red
+            addform.status_lb.Text = "NO FACE DETECTED"
+            addform.status_lb.ForeColor = Color.Red
+            addform.submit_employees_btn.Enabled = False
         End Sub
     End Class
 
@@ -35,6 +40,8 @@ Namespace AddEmpformStates
             Dim addform As addEmployee = Form
             addform.cam_pic_box.BackColor = Color.LightGreen
             addform.status_lb.Text = "READY"
+            addform.submit_employees_btn.Enabled = True
+
         End Sub
     End Class
 End Namespace
