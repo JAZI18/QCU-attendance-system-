@@ -105,7 +105,7 @@ Public Class admindashboardform
             If selectedBranch IsNot Nothing Then
                 cmd = NewQuery($"SELECT * FROM emp_report having date BETWEEN {startDate} AND {endDate} AND branch = @branchName", New String() {selectedBranch})
             Else
-                cmd = NewQuery($"SELECT * FROM emp_repor having date BETWEEN {startDate} AND {endDate}", Nothing)
+                cmd = NewQuery($"SELECT * FROM emp_report having date BETWEEN {startDate} AND {endDate}", Nothing)
             End If
 
             Using adapter As New MySqlDataAdapter(cmd)
