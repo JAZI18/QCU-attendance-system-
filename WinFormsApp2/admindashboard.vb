@@ -24,6 +24,9 @@ Public Class admindashboardform
     Private Sub dashboard_btn_(sender As Object, e As EventArgs) Handles dashboard_btn.Click
         TabControl1.SelectedTab = dashboard_tab
         UpdateStats()
+
+
+
     End Sub
 
     Private Sub updbranchstat(id As Integer)
@@ -100,9 +103,9 @@ Public Class admindashboardform
             Dim cmd As MySqlCommand
 
             If selectedBranch IsNot Nothing Then
-                cmd = NewQuery($"SELECT employee_id AS 'Employee ID', employee_Name AS 'Employee Name', branch_name AS 'Branch Name', workday AS 'Workday', att_date AS 'Attendance Date', attendance_time AS 'Attendance Time', departure_time AS 'Departure Time', overtime_in AS 'Overtime In', overtime_out AS 'Overtime Out', schedule_start_time AS 'Time IN', schedule_end_time AS 'Time OUT', minutes_late AS 'Minutes Late', minutes_early_departure AS 'Minutes Early Departure' FROM emp_report WHERE att_date BETWEEN '{startDate}' AND '{endDate}' AND branch_name = @branchName", New String() {selectedBranch})
+                cmd = NewQuery($"SELECT * FROM emp_report having date BETWEEN '{startDate}' AND '{endDate}' AND branch = @branchName", New String() {selectedBranch})
             Else
-                cmd = NewQuery($"SELECT employee_id AS 'Employee ID', employee_Name AS 'Employee Name', branch_name AS 'Branch Name', workday AS 'Workday', att_date AS 'Attendance Date', attendance_time AS 'Attendance Time', departure_time AS 'Departure Time', overtime_in AS 'Overtime In', overtime_out AS 'Overtime Out', schedule_start_time AS 'Time IN', schedule_end_time AS 'Time OUT', minutes_late AS 'Minutes Late', minutes_early_departure AS 'Minutes Early Departure' FROM emp_report WHERE att_date BETWEEN '{startDate}' AND '{endDate}'", Nothing)
+                cmd = NewQuery($"SELECT * having date BETWEEN '{startDate}' AND '{endDate}'", Nothing)
             End If
 
             Using adapter As New MySqlDataAdapter(cmd)
