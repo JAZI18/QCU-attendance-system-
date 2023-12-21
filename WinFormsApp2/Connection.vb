@@ -56,7 +56,7 @@ Module Connection
 
     Private Function FindParams(sql As String) As String()
         Dim myStr As String = sql
-        Dim pattern As String = "@([A-Za-z])\w+"
+        Dim pattern As String = "@\w+"
         Dim regex As New Regex(pattern)
 
 
