@@ -100,7 +100,7 @@ Partial Class admindashboardform
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
         Panel1 = New Panel()
-        Button5 = New Button()
+        leave_btn = New Button()
         leave_tab = New TabPage()
         leave_reset_btn = New Button()
         leave_export_btn = New Button()
@@ -152,7 +152,7 @@ Partial Class admindashboardform
         ' 
         ' Nav1
         ' 
-        Nav1.Controls.Add(Button5)
+        Nav1.Controls.Add(leave_btn)
         Nav1.Controls.Add(printreport_btn)
         Nav1.Controls.Add(branch_btn)
         Nav1.Controls.Add(department_btn)
@@ -1051,26 +1051,26 @@ Partial Class admindashboardform
         Panel1.Size = New Size(810, 60)
         Panel1.TabIndex = 3
         ' 
-        ' Button5
+        ' leave_btn
         ' 
-        Button5.BackColor = SystemColors.ControlDark
-        Button5.Dock = DockStyle.Top
-        Button5.FlatAppearance.BorderSize = 0
-        Button5.FlatStyle = FlatStyle.Flat
-        Button5.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Button5.Image = My.Resources.Resources.report_card
-        Button5.ImageAlign = ContentAlignment.MiddleLeft
-        Button5.Location = New Point(0, 326)
-        Button5.Margin = New Padding(0)
-        Button5.Name = "Button5"
-        Button5.Padding = New Padding(10, 0, 0, 0)
-        Button5.Size = New Size(160, 55)
-        Button5.TabIndex = 8
-        Button5.Text = "  Leave"
-        Button5.TextAlign = ContentAlignment.MiddleLeft
-        Button5.TextImageRelation = TextImageRelation.ImageBeforeText
-        Button5.UseCompatibleTextRendering = True
-        Button5.UseVisualStyleBackColor = False
+        leave_btn.BackColor = SystemColors.ControlDark
+        leave_btn.Dock = DockStyle.Top
+        leave_btn.FlatAppearance.BorderSize = 0
+        leave_btn.FlatStyle = FlatStyle.Flat
+        leave_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        leave_btn.Image = My.Resources.Resources.report_card
+        leave_btn.ImageAlign = ContentAlignment.MiddleLeft
+        leave_btn.Location = New Point(0, 326)
+        leave_btn.Margin = New Padding(0)
+        leave_btn.Name = "leave_btn"
+        leave_btn.Padding = New Padding(10, 0, 0, 0)
+        leave_btn.Size = New Size(160, 55)
+        leave_btn.TabIndex = 8
+        leave_btn.Text = "  Leave"
+        leave_btn.TextAlign = ContentAlignment.MiddleLeft
+        leave_btn.TextImageRelation = TextImageRelation.ImageBeforeText
+        leave_btn.UseCompatibleTextRendering = True
+        leave_btn.UseVisualStyleBackColor = False
         ' 
         ' leave_tab
         ' 
@@ -1320,7 +1320,7 @@ Partial Class admindashboardform
     Friend WithEvents Button4 As Button
     Friend WithEvents v_absent As Button
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button5 As Button
+    Friend WithEvents leave_btn As Button
     Friend WithEvents leave_tab As TabPage
     Friend WithEvents add_leave_btn As Button
     Friend WithEvents leave_reset_btn As Button

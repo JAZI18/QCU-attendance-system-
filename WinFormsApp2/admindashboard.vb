@@ -327,8 +327,6 @@ Public Class admindashboardform
         DateTimePicker2.Value = DateTimePicker2.MaxDate
 
         ComboBox1.SelectedItem = Nothing
-
-
         LoadData()
     End Sub
 
@@ -341,8 +339,9 @@ Public Class admindashboardform
         viewAbsent.Show()
     End Sub
 
-    Private Sub TabPage4_Click(sender As Object, e As EventArgs) Handles dept_tab.Click
 
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles leave_btn.Click
+        TabControl1.SelectedTab = leave_tab
     End Sub
 End Class
 
