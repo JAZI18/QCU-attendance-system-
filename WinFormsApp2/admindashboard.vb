@@ -181,7 +181,7 @@ Public Class admindashboardform
         reader.Close()
     End Sub
     Private Sub department_btn_Click(sender As Object, e As EventArgs) Handles department_btn.Click
-        UpdateDeptGridView2()
+        UpdateDeptGridView()
     End Sub
 
 
@@ -244,8 +244,34 @@ Public Class admindashboardform
 
 
     Private Sub search_btn_dept_Click(sender As Object, e As EventArgs) Handles search_btn_dept.Click
-        Dim read As MySqlDataReader = SelectQuery("*", "")
+
+
+        ' Call the SelectQuery function with the search term for the department name
+
+
+        UpdateDeptGridView()
     End Sub
+
+    Sub UpdateDeptGridView()
+
+
+        TabControl1.SelectedTab = TabPage4
+        dept_gridview.Rows.Clear()
+
+        'Dim command As MySqlCommand = NewQuery("SELECT * FROM qcu_department WHERE department_id >= 2 AND department_name LIKE '%" & id_dept_tb.Text & "%' OR department_desc LIKE '%" & id_dept_tb.Text & "'%", Nothing)
+        Dim command As MySqlCommand = NewQuery("SELECT * FROM qcu_department WHERE department_id >= 2 AND (department_name LIKE '%" & id_dept_tb.Text & "%' OR department_desc LIKE '%" & id_dept_tb.Text & "%')", Nothing)
+
+        Dim reader As MySqlDataReader = command.ExecuteReader()
+
+
+        ' Create a while loop to fetch all data from the database'
+        While reader.Read
+            dept_gridview.Rows.Add(reader("department_id"), reader("department_name"), reader("department_desc"), " Modify ")
+        End While
+        con.Close()
+        reader.Close()
+    End Sub
+
 
     Private Sub sanbartolome_branch_btn_Click(sender As Object, e As EventArgs) Handles sanbartolome_branch_btn.Click
         updbranchstat(3)
@@ -345,6 +371,10 @@ Public Class admindashboardform
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles leave_btn.Click
         TabControl1.SelectedTab = leave_tab
+    End Sub
+
+    Private Sub id_dept_tb_TextChanged_1(sender As Object, e As EventArgs) Handles id_dept_tb.TextChanged
+
     End Sub
 End Class
 
