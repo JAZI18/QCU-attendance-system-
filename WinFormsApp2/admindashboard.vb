@@ -22,7 +22,7 @@ Public Class admindashboardform
     Private rowIndex As Integer = 0
 
     Private Sub dashboard_btn_(sender As Object, e As EventArgs) Handles dashboard_btn.Click
-        TabControl1.SelectedTab = TabPage1
+        TabControl1.SelectedTab = dashboard_tab
         UpdateStats()
     End Sub
 
@@ -40,7 +40,7 @@ Public Class admindashboardform
 
 
     Private Sub employee_btn_(sender As Object, e As EventArgs) Handles employee_btn.Click
-        TabControl1.SelectedTab = TabPage2
+        TabControl1.SelectedTab = employees_tab
         updateEmpployeeGrid()
     End Sub
 
@@ -131,7 +131,7 @@ Public Class admindashboardform
 
 
     Private Sub branch_btn_(sender As Object, e As EventArgs) Handles branch_btn.Click
-        TabControl1.SelectedTab = TabPage3
+        TabControl1.SelectedTab = brach_tab
     End Sub
 
 
@@ -151,7 +151,7 @@ Public Class admindashboardform
 
 
         dept_gridview.Rows.Clear()
-        TabControl1.SelectedTab = TabPage4
+        TabControl1.SelectedTab = dept_tab
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", vals, where)
         ' Create a while loop to fetch all data from the database'
         While reader.Read
@@ -169,7 +169,7 @@ Public Class admindashboardform
 
     Sub UpdateDeptGridView2()
         dept_gridview.Rows.Clear()
-        TabControl1.SelectedTab = TabPage4
+        TabControl1.SelectedTab = dept_tab
         Dim reader As MySqlDataReader = SelectQuery("*", "qcu_department", {"2"}, "department_id >= @username")
         ' Create a while loop to fetch all data from the database'
         While reader.Read
@@ -183,7 +183,7 @@ Public Class admindashboardform
 
 
     Private Sub printreport_btn_(sender As Object, e As EventArgs) Handles printreport_btn.Click
-        TabControl1.SelectedTab = TabPage5
+        TabControl1.SelectedTab = report_tab
     End Sub
 
 
@@ -341,7 +341,7 @@ Public Class admindashboardform
         viewAbsent.Show()
     End Sub
 
-    Private Sub TabPage4_Click(sender As Object, e As EventArgs) Handles TabPage4.Click
+    Private Sub TabPage4_Click(sender As Object, e As EventArgs) Handles dept_tab.Click
 
     End Sub
 End Class
