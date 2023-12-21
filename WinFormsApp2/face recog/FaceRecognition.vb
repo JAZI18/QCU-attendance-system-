@@ -177,9 +177,9 @@ Namespace Erenjhun.Utils
             Dim bufferSize(0) As Long
             FSDK.GetTrackerMemoryBufferSize(tracker, bufferSize(0))
             Dim trackerBuffer(bufferSize(0)) As Byte
-            FSDK.SaveTrackerMemoryToBuffer(tracker, trackerBuffer, 256 * 50000)
+            FSDK.SaveTrackerMemoryToBuffer(tracker, trackerBuffer, 256 * 5000)
 
-            NewQuery("INSERT INTO face_recog (id,tracker) VALUES (1,@tracker)
+            NewQuery("INSERT INTO face_recog VALUES (1,@tracker)
                                   oN DUPLICATE KEY UPDATE tracker = @tracker", {trackerBuffer}).ExecuteNonQuery()
         End Sub
 
