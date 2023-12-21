@@ -47,10 +47,16 @@ Public Class admindashboardform
         updateEmpployeeGrid()
     End Sub
 
+
+    Private Sub id_employees_tb_TextChanged(sender As Object, e As EventArgs) Handles id_employees_tb.TextChanged
+        updateEmpployeeGrid()
+    End Sub
+
     Public Sub updateEmpployeeGrid()
         employee_grid_view.Rows.Clear()
 
-        Dim command As MySqlCommand = NewQuery("SELECT e.employee_id, e.first_name, e.last_name, e.middle_name, e.department_id, e.gender, e.email, e.dob, d.department_name FROM employee_info e JOIN qcu_department d ON e.department_id = d.department_id", Nothing)
+        Dim command As MySqlCommand =
+            NewQuery("SELECT e.employee_id, e.first_name, e.last_name, e.middle_name, e.department_id, e.gender, e.email, e.dob, d.department_name FROM employee_info e JOIN qcu_department d ON e.department_id = d.department_id Where employee_code LIKE  '%" & id_employees_tb.Text & "%' OR first_name LIKE  '%" & id_employees_tb.Text & "%' OR middle_name LIKE  '%" & id_employees_tb.Text & "%' OR last_name LIKE  '%" & id_employees_tb.Text & "%' OR email LIKE  '%" & id_employees_tb.Text & "%' OR gender LIKE  '%" & id_employees_tb.Text & "%' OR dob LIKE  '%" & id_employees_tb.Text & "%' OR department_name LIKE  '%" & id_employees_tb.Text & "%'", Nothing)
 
         ' Execute the command to get the reader
         Dim reader As MySqlDataReader = command.ExecuteReader()
