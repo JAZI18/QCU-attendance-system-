@@ -164,10 +164,6 @@ Public Class admindashboardform
         reader.Close()
     End Sub
 
-    Private Sub id_dept_tb_TextChanged(sender As Object, e As EventArgs)
-        UpdateDeptGridView({$"{id_dept_tb.Text}%"}, " department_name LIKE @department_name ")
-        If (dept_gridview.RowCount < 1) Then UpdateDeptGridView()
-    End Sub
 
 
     Sub UpdateDeptGridView2()
@@ -243,19 +239,18 @@ Public Class admindashboardform
 
 
 
-    Private Sub search_btn_dept_Click(sender As Object, e As EventArgs) Handles search_btn_dept.Click
 
 
-        ' Call the SelectQuery function with the search term for the department name
-
-
+    Private Sub id_dept_tb_TextChanged(sender As Object, e As EventArgs) Handles id_dept_tb.TextChanged
+        ' Call the method to update the DataGridView based on the search term
         UpdateDeptGridView()
     End Sub
+
 
     Sub UpdateDeptGridView()
 
 
-        TabControl1.SelectedTab = TabPage4
+        TabControl1.SelectedTab = dept_tab
         dept_gridview.Rows.Clear()
 
         'Dim command As MySqlCommand = NewQuery("SELECT * FROM qcu_department WHERE department_id >= 2 AND department_name LIKE '%" & id_dept_tb.Text & "%' OR department_desc LIKE '%" & id_dept_tb.Text & "'%", Nothing)
@@ -373,9 +368,7 @@ Public Class admindashboardform
         TabControl1.SelectedTab = leave_tab
     End Sub
 
-    Private Sub id_dept_tb_TextChanged_1(sender As Object, e As EventArgs) Handles id_dept_tb.TextChanged
 
-    End Sub
 End Class
 
 '
