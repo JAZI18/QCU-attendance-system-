@@ -34,7 +34,7 @@ Partial Class admindashboardform
         PictureBox1 = New PictureBox()
         Panel2 = New Panel()
         Button1 = New Button()
-        TabPage3 = New TabPage()
+        brach_tab = New TabPage()
         absent_stat = New stats_button()
         leave_stat = New stats_button()
         present_stat = New stats_button()
@@ -47,7 +47,7 @@ Partial Class admindashboardform
         Panel8 = New Panel()
         Label9 = New Label()
         PictureBox4 = New PictureBox()
-        TabPage2 = New TabPage()
+        employees_tab = New TabPage()
         Panel7 = New Panel()
         v_absent = New Button()
         clear_filter_btn = New Button()
@@ -65,7 +65,7 @@ Partial Class admindashboardform
         hired_col = New DataGridViewTextBoxColumn()
         act_col = New DataGridViewButtonColumn()
         PictureBox3 = New PictureBox()
-        TabPage1 = New TabPage()
+        dashboard_tab = New TabPage()
         Panel4 = New Panel()
         main_absent_stat = New stats_button()
         Label6 = New Label()
@@ -76,7 +76,7 @@ Partial Class admindashboardform
         Column2 = New DataGridViewTextBoxColumn()
         Column1 = New DataGridViewTextBoxColumn()
         TabControl1 = New TabControl()
-        TabPage4 = New TabPage()
+        dept_tab = New TabPage()
         Panel12 = New Panel()
         id_dept_tb = New TextBox()
         search_btn_dept = New Button()
@@ -88,7 +88,7 @@ Partial Class admindashboardform
         action_col = New DataGridViewButtonColumn()
         Label11 = New Label()
         PictureBox5 = New PictureBox()
-        TabPage5 = New TabPage()
+        report_tab = New TabPage()
         Button4 = New Button()
         Button3 = New Button()
         Button2 = New Button()
@@ -99,27 +99,43 @@ Partial Class admindashboardform
         Label12 = New Label()
         PictureBox2 = New PictureBox()
         MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
+        Panel1 = New Panel()
+        leave_btn = New Button()
+        leave_tab = New TabPage()
+        leave_reset_btn = New Button()
+        leave_export_btn = New Button()
+        leave_print_btn = New Button()
+        DataGridView2 = New DataGridView()
+        ComboBox2 = New ComboBox()
+        DateTimePicker3 = New DateTimePicker()
+        DateTimePicker4 = New DateTimePicker()
+        Label1 = New Label()
+        PictureBox7 = New PictureBox()
+        add_leave_btn = New Button()
         nav_panel.SuspendLayout()
         Nav1.SuspendLayout()
         Panel3.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
-        TabPage3.SuspendLayout()
+        brach_tab.SuspendLayout()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
-        TabPage2.SuspendLayout()
+        employees_tab.SuspendLayout()
         Panel7.SuspendLayout()
         CType(employee_grid_view, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
-        TabPage1.SuspendLayout()
+        dashboard_tab.SuspendLayout()
         CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
         TabControl1.SuspendLayout()
-        TabPage4.SuspendLayout()
+        dept_tab.SuspendLayout()
         Panel12.SuspendLayout()
         CType(dept_gridview, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
-        TabPage5.SuspendLayout()
+        report_tab.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        leave_tab.SuspendLayout()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' nav_panel
@@ -129,12 +145,14 @@ Partial Class admindashboardform
         nav_panel.Controls.Add(Panel3)
         nav_panel.Dock = DockStyle.Left
         nav_panel.Location = New Point(0, 0)
+        nav_panel.Margin = New Padding(0)
         nav_panel.Name = "nav_panel"
-        nav_panel.Size = New Size(161, 473)
+        nav_panel.Size = New Size(160, 473)
         nav_panel.TabIndex = 0
         ' 
         ' Nav1
         ' 
+        Nav1.Controls.Add(leave_btn)
         Nav1.Controls.Add(printreport_btn)
         Nav1.Controls.Add(branch_btn)
         Nav1.Controls.Add(department_btn)
@@ -144,10 +162,10 @@ Partial Class admindashboardform
         Nav1.Dock = DockStyle.Bottom
         Nav1.HighlightBackColor = Color.White
         Nav1.Location = New Point(0, 40)
-        Nav1.Margin = New Padding(2)
+        Nav1.Margin = New Padding(0)
         Nav1.Name = "Nav1"
         Nav1.NormalBackColor = SystemColors.ControlDark
-        Nav1.Size = New Size(161, 433)
+        Nav1.Size = New Size(160, 433)
         Nav1.TabIndex = 3
         Nav1.Text = "Nav1"
         ' 
@@ -164,7 +182,7 @@ Partial Class admindashboardform
         printreport_btn.Margin = New Padding(0)
         printreport_btn.Name = "printreport_btn"
         printreport_btn.Padding = New Padding(10, 0, 0, 0)
-        printreport_btn.Size = New Size(161, 55)
+        printreport_btn.Size = New Size(160, 55)
         printreport_btn.TabIndex = 6
         printreport_btn.Text = "  Reports"
         printreport_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -185,7 +203,7 @@ Partial Class admindashboardform
         branch_btn.Margin = New Padding(0)
         branch_btn.Name = "branch_btn"
         branch_btn.Padding = New Padding(10, 0, 0, 0)
-        branch_btn.Size = New Size(161, 55)
+        branch_btn.Size = New Size(160, 55)
         branch_btn.TabIndex = 7
         branch_btn.Text = "  Branch"
         branch_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -206,7 +224,7 @@ Partial Class admindashboardform
         department_btn.Margin = New Padding(0)
         department_btn.Name = "department_btn"
         department_btn.Padding = New Padding(10, 0, 0, 0)
-        department_btn.Size = New Size(161, 55)
+        department_btn.Size = New Size(160, 55)
         department_btn.TabIndex = 4
         department_btn.Text = "  Department"
         department_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -227,7 +245,7 @@ Partial Class admindashboardform
         employee_btn.Margin = New Padding(0)
         employee_btn.Name = "employee_btn"
         employee_btn.Padding = New Padding(10, 0, 0, 0)
-        employee_btn.Size = New Size(161, 55)
+        employee_btn.Size = New Size(160, 55)
         employee_btn.TabIndex = 5
         employee_btn.Text = "  Employee"
         employee_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -249,7 +267,7 @@ Partial Class admindashboardform
         dashboard_btn.Margin = New Padding(0)
         dashboard_btn.Name = "dashboard_btn"
         dashboard_btn.Padding = New Padding(10, 0, 0, 0)
-        dashboard_btn.Size = New Size(161, 55)
+        dashboard_btn.Size = New Size(160, 55)
         dashboard_btn.TabIndex = 0
         dashboard_btn.Text = "  Dash Board"
         dashboard_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -264,7 +282,7 @@ Partial Class admindashboardform
         Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.Location = New Point(0, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(161, 51)
+        Label2.Size = New Size(160, 51)
         Label2.TabIndex = 0
         Label2.Text = "C.C.F"
         Label2.TextAlign = ContentAlignment.TopCenter
@@ -312,27 +330,27 @@ Partial Class admindashboardform
         Button1.TabIndex = 1
         Button1.UseVisualStyleBackColor = True
         ' 
-        ' TabPage3
+        ' brach_tab
         ' 
-        TabPage3.Controls.Add(absent_stat)
-        TabPage3.Controls.Add(leave_stat)
-        TabPage3.Controls.Add(present_stat)
-        TabPage3.Controls.Add(total_stat)
-        TabPage3.Controls.Add(sanfrancisco_branch_btn)
-        TabPage3.Controls.Add(batasan_branch_btn)
-        TabPage3.Controls.Add(sanbartolome_branch_btn)
-        TabPage3.Controls.Add(Panel10)
-        TabPage3.Controls.Add(Panel9)
-        TabPage3.Controls.Add(Panel8)
-        TabPage3.Controls.Add(Label9)
-        TabPage3.Controls.Add(PictureBox4)
-        TabPage3.Location = New Point(4, 24)
-        TabPage3.Name = "TabPage3"
-        TabPage3.Padding = New Padding(3)
-        TabPage3.Size = New Size(842, 503)
-        TabPage3.TabIndex = 2
-        TabPage3.Text = "TabPage3"
-        TabPage3.UseVisualStyleBackColor = True
+        brach_tab.Controls.Add(absent_stat)
+        brach_tab.Controls.Add(leave_stat)
+        brach_tab.Controls.Add(present_stat)
+        brach_tab.Controls.Add(total_stat)
+        brach_tab.Controls.Add(sanfrancisco_branch_btn)
+        brach_tab.Controls.Add(batasan_branch_btn)
+        brach_tab.Controls.Add(sanbartolome_branch_btn)
+        brach_tab.Controls.Add(Panel10)
+        brach_tab.Controls.Add(Panel9)
+        brach_tab.Controls.Add(Panel8)
+        brach_tab.Controls.Add(Label9)
+        brach_tab.Controls.Add(PictureBox4)
+        brach_tab.Location = New Point(4, 24)
+        brach_tab.Name = "brach_tab"
+        brach_tab.Padding = New Padding(3)
+        brach_tab.Size = New Size(842, 503)
+        brach_tab.TabIndex = 2
+        brach_tab.Text = "TabPage3"
+        brach_tab.UseVisualStyleBackColor = True
         ' 
         ' absent_stat
         ' 
@@ -465,19 +483,19 @@ Partial Class admindashboardform
         PictureBox4.TabIndex = 1
         PictureBox4.TabStop = False
         ' 
-        ' TabPage2
+        ' employees_tab
         ' 
-        TabPage2.Controls.Add(Panel7)
-        TabPage2.Controls.Add(Label7)
-        TabPage2.Controls.Add(employee_grid_view)
-        TabPage2.Controls.Add(PictureBox3)
-        TabPage2.Location = New Point(4, 24)
-        TabPage2.Name = "TabPage2"
-        TabPage2.Padding = New Padding(3)
-        TabPage2.Size = New Size(842, 503)
-        TabPage2.TabIndex = 1
-        TabPage2.Text = "TabPage2"
-        TabPage2.UseVisualStyleBackColor = True
+        employees_tab.Controls.Add(Panel7)
+        employees_tab.Controls.Add(Label7)
+        employees_tab.Controls.Add(employee_grid_view)
+        employees_tab.Controls.Add(PictureBox3)
+        employees_tab.Location = New Point(4, 24)
+        employees_tab.Name = "employees_tab"
+        employees_tab.Padding = New Padding(3)
+        employees_tab.Size = New Size(842, 503)
+        employees_tab.TabIndex = 1
+        employees_tab.Text = "TabPage2"
+        employees_tab.UseVisualStyleBackColor = True
         ' 
         ' Panel7
         ' 
@@ -655,22 +673,22 @@ Partial Class admindashboardform
         PictureBox3.TabIndex = 1
         PictureBox3.TabStop = False
         ' 
-        ' TabPage1
+        ' dashboard_tab
         ' 
-        TabPage1.Controls.Add(Panel4)
-        TabPage1.Controls.Add(main_absent_stat)
-        TabPage1.Controls.Add(Label6)
-        TabPage1.Controls.Add(main_leave_stat)
-        TabPage1.Controls.Add(main_present_stat)
-        TabPage1.Controls.Add(main_total_stat)
-        TabPage1.Controls.Add(PictureBox6)
-        TabPage1.Location = New Point(4, 24)
-        TabPage1.Name = "TabPage1"
-        TabPage1.Padding = New Padding(3)
-        TabPage1.Size = New Size(842, 503)
-        TabPage1.TabIndex = 0
-        TabPage1.Text = "TabPage1"
-        TabPage1.UseVisualStyleBackColor = True
+        dashboard_tab.Controls.Add(Panel4)
+        dashboard_tab.Controls.Add(main_absent_stat)
+        dashboard_tab.Controls.Add(Label6)
+        dashboard_tab.Controls.Add(main_leave_stat)
+        dashboard_tab.Controls.Add(main_present_stat)
+        dashboard_tab.Controls.Add(main_total_stat)
+        dashboard_tab.Controls.Add(PictureBox6)
+        dashboard_tab.Location = New Point(4, 24)
+        dashboard_tab.Name = "dashboard_tab"
+        dashboard_tab.Padding = New Padding(3)
+        dashboard_tab.Size = New Size(842, 503)
+        dashboard_tab.TabIndex = 0
+        dashboard_tab.Text = "TabPage1"
+        dashboard_tab.UseVisualStyleBackColor = True
         ' 
         ' Panel4
         ' 
@@ -765,30 +783,31 @@ Partial Class admindashboardform
         ' 
         ' TabControl1
         ' 
-        TabControl1.Controls.Add(TabPage1)
-        TabControl1.Controls.Add(TabPage2)
-        TabControl1.Controls.Add(TabPage3)
-        TabControl1.Controls.Add(TabPage4)
-        TabControl1.Controls.Add(TabPage5)
+        TabControl1.Controls.Add(leave_tab)
+        TabControl1.Controls.Add(dashboard_tab)
+        TabControl1.Controls.Add(employees_tab)
+        TabControl1.Controls.Add(brach_tab)
+        TabControl1.Controls.Add(dept_tab)
+        TabControl1.Controls.Add(report_tab)
         TabControl1.Location = New Point(160, 26)
         TabControl1.Name = "TabControl1"
         TabControl1.SelectedIndex = 0
         TabControl1.Size = New Size(850, 531)
         TabControl1.TabIndex = 2
         ' 
-        ' TabPage4
+        ' dept_tab
         ' 
-        TabPage4.Controls.Add(Panel12)
-        TabPage4.Controls.Add(dept_gridview)
-        TabPage4.Controls.Add(Label11)
-        TabPage4.Controls.Add(PictureBox5)
-        TabPage4.Location = New Point(4, 24)
-        TabPage4.Name = "TabPage4"
-        TabPage4.Padding = New Padding(3)
-        TabPage4.Size = New Size(842, 503)
-        TabPage4.TabIndex = 3
-        TabPage4.Text = "TabPage4"
-        TabPage4.UseVisualStyleBackColor = True
+        dept_tab.Controls.Add(Panel12)
+        dept_tab.Controls.Add(dept_gridview)
+        dept_tab.Controls.Add(Label11)
+        dept_tab.Controls.Add(PictureBox5)
+        dept_tab.Location = New Point(4, 24)
+        dept_tab.Name = "dept_tab"
+        dept_tab.Padding = New Padding(3)
+        dept_tab.Size = New Size(842, 503)
+        dept_tab.TabIndex = 3
+        dept_tab.Text = "TabPage4"
+        dept_tab.UseVisualStyleBackColor = True
         ' 
         ' Panel12
         ' 
@@ -906,24 +925,24 @@ Partial Class admindashboardform
         PictureBox5.TabIndex = 2
         PictureBox5.TabStop = False
         ' 
-        ' TabPage5
+        ' report_tab
         ' 
-        TabPage5.Controls.Add(Button4)
-        TabPage5.Controls.Add(Button3)
-        TabPage5.Controls.Add(Button2)
-        TabPage5.Controls.Add(DataGridView1)
-        TabPage5.Controls.Add(ComboBox1)
-        TabPage5.Controls.Add(DateTimePicker2)
-        TabPage5.Controls.Add(DateTimePicker1)
-        TabPage5.Controls.Add(Label12)
-        TabPage5.Controls.Add(PictureBox2)
-        TabPage5.Location = New Point(4, 24)
-        TabPage5.Name = "TabPage5"
-        TabPage5.Padding = New Padding(3)
-        TabPage5.Size = New Size(842, 503)
-        TabPage5.TabIndex = 4
-        TabPage5.Text = "TabPage5"
-        TabPage5.UseVisualStyleBackColor = True
+        report_tab.Controls.Add(Button4)
+        report_tab.Controls.Add(Button3)
+        report_tab.Controls.Add(Button2)
+        report_tab.Controls.Add(DataGridView1)
+        report_tab.Controls.Add(ComboBox1)
+        report_tab.Controls.Add(DateTimePicker2)
+        report_tab.Controls.Add(DateTimePicker1)
+        report_tab.Controls.Add(Label12)
+        report_tab.Controls.Add(PictureBox2)
+        report_tab.Location = New Point(4, 24)
+        report_tab.Name = "report_tab"
+        report_tab.Padding = New Padding(3)
+        report_tab.Size = New Size(842, 503)
+        report_tab.TabIndex = 4
+        report_tab.Text = "TabPage5"
+        report_tab.UseVisualStyleBackColor = True
         ' 
         ' Button4
         ' 
@@ -942,7 +961,7 @@ Partial Class admindashboardform
         Button3.Name = "Button3"
         Button3.Size = New Size(97, 31)
         Button3.TabIndex = 21
-        Button3.Text = "Export Report"
+        Button3.Text = "Export"
         Button3.UseVisualStyleBackColor = True
         ' 
         ' Button2
@@ -952,7 +971,7 @@ Partial Class admindashboardform
         Button2.Name = "Button2"
         Button2.Size = New Size(90, 31)
         Button2.TabIndex = 20
-        Button2.Text = "Print Report"
+        Button2.Text = "Print"
         Button2.UseVisualStyleBackColor = True
         ' 
         ' DataGridView1
@@ -1022,12 +1041,164 @@ Partial Class admindashboardform
         MySqlCommand1.EnableCaching = False
         MySqlCommand1.Transaction = Nothing
         ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = Color.Transparent
+        Panel1.Dock = DockStyle.Top
+        Panel1.Location = New Point(160, 0)
+        Panel1.Margin = New Padding(0)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(810, 60)
+        Panel1.TabIndex = 3
+        ' 
+        ' leave_btn
+        ' 
+        leave_btn.BackColor = SystemColors.ControlDark
+        leave_btn.Dock = DockStyle.Top
+        leave_btn.FlatAppearance.BorderSize = 0
+        leave_btn.FlatStyle = FlatStyle.Flat
+        leave_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        leave_btn.Image = My.Resources.Resources.report_card
+        leave_btn.ImageAlign = ContentAlignment.MiddleLeft
+        leave_btn.Location = New Point(0, 326)
+        leave_btn.Margin = New Padding(0)
+        leave_btn.Name = "leave_btn"
+        leave_btn.Padding = New Padding(10, 0, 0, 0)
+        leave_btn.Size = New Size(160, 55)
+        leave_btn.TabIndex = 8
+        leave_btn.Text = "  Leave"
+        leave_btn.TextAlign = ContentAlignment.MiddleLeft
+        leave_btn.TextImageRelation = TextImageRelation.ImageBeforeText
+        leave_btn.UseCompatibleTextRendering = True
+        leave_btn.UseVisualStyleBackColor = False
+        ' 
+        ' leave_tab
+        ' 
+        leave_tab.Controls.Add(add_leave_btn)
+        leave_tab.Controls.Add(leave_reset_btn)
+        leave_tab.Controls.Add(leave_export_btn)
+        leave_tab.Controls.Add(leave_print_btn)
+        leave_tab.Controls.Add(DataGridView2)
+        leave_tab.Controls.Add(ComboBox2)
+        leave_tab.Controls.Add(DateTimePicker3)
+        leave_tab.Controls.Add(DateTimePicker4)
+        leave_tab.Controls.Add(Label1)
+        leave_tab.Controls.Add(PictureBox7)
+        leave_tab.Location = New Point(4, 24)
+        leave_tab.Name = "leave_tab"
+        leave_tab.Padding = New Padding(3)
+        leave_tab.Size = New Size(842, 503)
+        leave_tab.TabIndex = 5
+        leave_tab.Text = "TabPage5"
+        leave_tab.UseVisualStyleBackColor = True
+        ' 
+        ' leave_reset_btn
+        ' 
+        leave_reset_btn.Location = New Point(556, 77)
+        leave_reset_btn.Margin = New Padding(2)
+        leave_reset_btn.Name = "leave_reset_btn"
+        leave_reset_btn.Size = New Size(78, 20)
+        leave_reset_btn.TabIndex = 22
+        leave_reset_btn.Text = "Reset"
+        leave_reset_btn.UseVisualStyleBackColor = True
+        ' 
+        ' leave_export_btn
+        ' 
+        leave_export_btn.Location = New Point(424, 70)
+        leave_export_btn.Margin = New Padding(2)
+        leave_export_btn.Name = "leave_export_btn"
+        leave_export_btn.Size = New Size(97, 31)
+        leave_export_btn.TabIndex = 21
+        leave_export_btn.Text = "Export"
+        leave_export_btn.UseVisualStyleBackColor = True
+        ' 
+        ' leave_print_btn
+        ' 
+        leave_print_btn.Location = New Point(321, 70)
+        leave_print_btn.Margin = New Padding(2)
+        leave_print_btn.Name = "leave_print_btn"
+        leave_print_btn.Size = New Size(90, 31)
+        leave_print_btn.TabIndex = 20
+        leave_print_btn.Text = "Print"
+        leave_print_btn.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView2
+        ' 
+        DataGridView2.AllowUserToAddRows = False
+        DataGridView2.AllowUserToDeleteRows = False
+        DataGridView2.AllowUserToOrderColumns = True
+        DataGridView2.AllowUserToResizeColumns = False
+        DataGridView2.AllowUserToResizeRows = False
+        DataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView2.Location = New Point(20, 115)
+        DataGridView2.Name = "DataGridView2"
+        DataGridView2.RowHeadersWidth = 62
+        DataGridView2.RowTemplate.Height = 33
+        DataGridView2.Size = New Size(798, 374)
+        DataGridView2.TabIndex = 19
+        ' 
+        ' ComboBox2
+        ' 
+        ComboBox2.FormattingEnabled = True
+        ComboBox2.Location = New Point(148, 76)
+        ComboBox2.Name = "ComboBox2"
+        ComboBox2.Size = New Size(106, 23)
+        ComboBox2.TabIndex = 14
+        ComboBox2.Text = "San, Bartolome"
+        ' 
+        ' DateTimePicker3
+        ' 
+        DateTimePicker3.Location = New Point(212, 47)
+        DateTimePicker3.Name = "DateTimePicker3"
+        DateTimePicker3.Size = New Size(200, 23)
+        DateTimePicker3.TabIndex = 13
+        ' 
+        ' DateTimePicker4
+        ' 
+        DateTimePicker4.Location = New Point(6, 47)
+        DateTimePicker4.Name = "DateTimePicker4"
+        DateTimePicker4.Size = New Size(200, 23)
+        DateTimePicker4.TabIndex = 12
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.Location = New Point(12, 16)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(62, 25)
+        Label1.TabIndex = 11
+        Label1.Text = "Leave"
+        ' 
+        ' PictureBox7
+        ' 
+        PictureBox7.BackColor = Color.Transparent
+        PictureBox7.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
+        PictureBox7.BackgroundImageLayout = ImageLayout.Stretch
+        PictureBox7.Location = New Point(631, 50)
+        PictureBox7.Name = "PictureBox7"
+        PictureBox7.Size = New Size(180, 500)
+        PictureBox7.TabIndex = 3
+        PictureBox7.TabStop = False
+        ' 
+        ' add_leave_btn
+        ' 
+        add_leave_btn.Location = New Point(424, 35)
+        add_leave_btn.Margin = New Padding(2)
+        add_leave_btn.Name = "add_leave_btn"
+        add_leave_btn.Size = New Size(90, 31)
+        add_leave_btn.TabIndex = 23
+        add_leave_btn.Text = "Add"
+        add_leave_btn.UseVisualStyleBackColor = True
+        ' 
         ' admindashboardform
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         AutoSize = True
         ClientSize = New Size(970, 473)
+        Controls.Add(Panel1)
         Controls.Add(TabControl1)
         Controls.Add(nav_panel)
         FormBorderStyle = FormBorderStyle.None
@@ -1039,29 +1210,33 @@ Partial Class admindashboardform
         Panel3.ResumeLayout(False)
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
-        TabPage3.ResumeLayout(False)
-        TabPage3.PerformLayout()
+        brach_tab.ResumeLayout(False)
+        brach_tab.PerformLayout()
         CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
-        TabPage2.ResumeLayout(False)
-        TabPage2.PerformLayout()
+        employees_tab.ResumeLayout(False)
+        employees_tab.PerformLayout()
         Panel7.ResumeLayout(False)
         Panel7.PerformLayout()
         CType(employee_grid_view, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
-        TabPage1.ResumeLayout(False)
-        TabPage1.PerformLayout()
+        dashboard_tab.ResumeLayout(False)
+        dashboard_tab.PerformLayout()
         CType(PictureBox6, ComponentModel.ISupportInitialize).EndInit()
         TabControl1.ResumeLayout(False)
-        TabPage4.ResumeLayout(False)
-        TabPage4.PerformLayout()
+        dept_tab.ResumeLayout(False)
+        dept_tab.PerformLayout()
         Panel12.ResumeLayout(False)
         Panel12.PerformLayout()
         CType(dept_gridview, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
-        TabPage5.ResumeLayout(False)
-        TabPage5.PerformLayout()
+        report_tab.ResumeLayout(False)
+        report_tab.PerformLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        leave_tab.ResumeLayout(False)
+        leave_tab.PerformLayout()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox7, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -1070,7 +1245,7 @@ Partial Class admindashboardform
     Friend WithEvents Button1 As Button
     Friend WithEvents dashboard_btn As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents brach_tab As TabPage
     Friend WithEvents sanfrancisco_branch_btn As Button
     Friend WithEvents batasan_branch_btn As Button
     Friend WithEvents sanbartolome_branch_btn As Button
@@ -1079,19 +1254,19 @@ Partial Class admindashboardform
     Friend WithEvents Panel8 As Panel
     Friend WithEvents Label9 As Label
     Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents employees_tab As TabPage
     Friend WithEvents Panel7 As Panel
     Friend WithEvents add_employees_btn As Button
     Friend WithEvents id_employees_tb As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents employee_grid_view As DataGridView
     Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents dashboard_tab As TabPage
     Friend WithEvents Label6 As Label
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents TabPage4 As TabPage
-    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents dept_tab As TabPage
+    Friend WithEvents report_tab As TabPage
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Panel12 As Panel
@@ -1144,4 +1319,17 @@ Partial Class admindashboardform
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents v_absent As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents leave_btn As Button
+    Friend WithEvents leave_tab As TabPage
+    Friend WithEvents add_leave_btn As Button
+    Friend WithEvents leave_reset_btn As Button
+    Friend WithEvents leave_export_btn As Button
+    Friend WithEvents leave_print_btn As Button
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents DateTimePicker3 As DateTimePicker
+    Friend WithEvents DateTimePicker4 As DateTimePicker
+    Friend WithEvents Label1 As Label
+    Friend WithEvents PictureBox7 As PictureBox
 End Class
