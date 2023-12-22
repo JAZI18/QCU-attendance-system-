@@ -47,7 +47,6 @@ Partial Class mainform
         employee_code_tb = New dynamic_textb()
         pic_border = New TableLayoutPanel()
         cam_pic_box = New PictureBox()
-        debug_label = New Label()
         Dynamic_textb3 = New dynamic_textb()
         Dynamic_textb1 = New dynamic_textb()
         Panel2 = New Panel()
@@ -449,7 +448,6 @@ Partial Class mainform
         pic_border.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 90F))
         pic_border.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 5F))
         pic_border.Controls.Add(cam_pic_box, 1, 1)
-        pic_border.Controls.Add(debug_label, 1, 0)
         pic_border.Dock = DockStyle.Fill
         pic_border.Location = New Point(3, 3)
         pic_border.Name = "pic_border"
@@ -472,15 +470,6 @@ Partial Class mainform
         cam_pic_box.SizeMode = PictureBoxSizeMode.Zoom
         cam_pic_box.TabIndex = 2
         cam_pic_box.TabStop = False
-        ' 
-        ' debug_label
-        ' 
-        debug_label.AutoSize = True
-        debug_label.Location = New Point(27, 0)
-        debug_label.Name = "debug_label"
-        debug_label.Size = New Size(63, 25)
-        debug_label.TabIndex = 3
-        debug_label.Text = "Label4"
         ' 
         ' Dynamic_textb3
         ' 
@@ -649,7 +638,6 @@ Partial Class mainform
         mainform_back_btn.BackgroundImageLayout = ImageLayout.Center
         mainform_back_btn.FlatAppearance.BorderSize = 0
         mainform_back_btn.FlatStyle = FlatStyle.Flat
-        mainform_back_btn.Image = My.Resources.Resources.back
         mainform_back_btn.Location = New Point(1304, 5)
         mainform_back_btn.Margin = New Padding(4, 5, 4, 5)
         mainform_back_btn.Name = "mainform_back_btn"
@@ -1077,7 +1065,6 @@ Partial Class mainform
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         pic_border.ResumeLayout(False)
-        pic_border.PerformLayout()
         CType(cam_pic_box, ComponentModel.ISupportInitialize).EndInit()
         Panel10.ResumeLayout(False)
         Panel10.PerformLayout()
@@ -1163,7 +1150,6 @@ Partial Class mainform
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents Label23 As Label
     Friend WithEvents morning_in_tb As TextBox
-    Friend WithEvents debug_label As Label
 
 
     Friend WithEvents Panel2 As Panel

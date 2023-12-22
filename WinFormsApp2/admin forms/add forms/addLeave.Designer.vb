@@ -40,9 +40,10 @@ Partial Class addLeave
         Label1.AutoSize = True
         Label1.Dock = DockStyle.Fill
         Label1.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(23, 0)
+        Label1.Location = New Point(33, 0)
+        Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(347, 72)
+        Label1.Size = New Size(496, 121)
         Label1.TabIndex = 2
         Label1.Text = "CODE"
         Label1.TextAlign = ContentAlignment.BottomLeft
@@ -52,9 +53,10 @@ Partial Class addLeave
         Label2.AutoSize = True
         Label2.Dock = DockStyle.Fill
         Label2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(23, 118)
+        Label2.Location = New Point(33, 199)
+        Label2.Margin = New Padding(4, 0, 4, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(347, 43)
+        Label2.Size = New Size(496, 72)
         Label2.TabIndex = 3
         Label2.Text = "BRANCH"
         Label2.TextAlign = ContentAlignment.BottomLeft
@@ -64,9 +66,10 @@ Partial Class addLeave
         Label3.AutoSize = True
         Label3.Dock = DockStyle.Fill
         Label3.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.Location = New Point(441, 118)
+        Label3.Location = New Point(629, 199)
+        Label3.Margin = New Padding(4, 0, 4, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(348, 43)
+        Label3.Size = New Size(498, 72)
         Label3.TabIndex = 4
         Label3.Text = "DATE"
         Label3.TextAlign = ContentAlignment.BottomLeft
@@ -75,9 +78,10 @@ Partial Class addLeave
         ' 
         date_picker.Dock = DockStyle.Fill
         date_picker.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point)
-        date_picker.Location = New Point(441, 164)
+        date_picker.Location = New Point(629, 276)
+        date_picker.Margin = New Padding(4, 5, 4, 5)
         date_picker.Name = "date_picker"
-        date_picker.Size = New Size(348, 34)
+        date_picker.Size = New Size(498, 47)
         date_picker.TabIndex = 5
         ' 
         ' TableLayoutPanel1
@@ -97,9 +101,9 @@ Partial Class addLeave
         TableLayoutPanel1.Controls.Add(add_leave_btn, 2, 5)
         TableLayoutPanel1.Dock = DockStyle.Fill
         TableLayoutPanel1.Location = New Point(0, 0)
-        TableLayoutPanel1.Margin = New Padding(20, 3, 20, 3)
+        TableLayoutPanel1.Margin = New Padding(29, 5, 29, 5)
         TableLayoutPanel1.Name = "TableLayoutPanel1"
-        TableLayoutPanel1.Padding = New Padding(20, 0, 20, 0)
+        TableLayoutPanel1.Padding = New Padding(29, 0, 29, 0)
         TableLayoutPanel1.RowCount = 6
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 25.2525253F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 13.8047142F))
@@ -107,7 +111,7 @@ Partial Class addLeave
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 15.0349646F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 20.62937F))
         TableLayoutPanel1.RowStyles.Add(New RowStyle(SizeType.Percent, 22.0279713F))
-        TableLayoutPanel1.Size = New Size(812, 286)
+        TableLayoutPanel1.Size = New Size(1160, 477)
         TableLayoutPanel1.TabIndex = 6
         ' 
         ' branch_tb
@@ -116,9 +120,10 @@ Partial Class addLeave
         branch_tb.AutoCompleteSource = AutoCompleteSource.CustomSource
         branch_tb.Dock = DockStyle.Fill
         branch_tb.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point)
-        branch_tb.Location = New Point(23, 164)
+        branch_tb.Location = New Point(33, 276)
+        branch_tb.Margin = New Padding(4, 5, 4, 5)
         branch_tb.Name = "branch_tb"
-        branch_tb.Size = New Size(347, 34)
+        branch_tb.Size = New Size(496, 47)
         branch_tb.TabIndex = 15
         ' 
         ' code_tb
@@ -127,19 +132,21 @@ Partial Class addLeave
         code_tb.AutoCompleteSource = AutoCompleteSource.CustomSource
         code_tb.Dock = DockStyle.Fill
         code_tb.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point)
-        code_tb.Location = New Point(23, 75)
+        code_tb.Location = New Point(33, 126)
+        code_tb.Margin = New Padding(4, 5, 4, 5)
         code_tb.Name = "code_tb"
-        code_tb.Size = New Size(347, 34)
+        code_tb.Size = New Size(496, 47)
         code_tb.TabIndex = 9
         ' 
         ' emp_name_tb
         ' 
         emp_name_tb.Dock = DockStyle.Fill
         emp_name_tb.Font = New Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point)
-        emp_name_tb.Location = New Point(441, 75)
+        emp_name_tb.Location = New Point(629, 126)
+        emp_name_tb.Margin = New Padding(4, 5, 4, 5)
         emp_name_tb.Name = "emp_name_tb"
         emp_name_tb.ReadOnly = True
-        emp_name_tb.Size = New Size(348, 34)
+        emp_name_tb.Size = New Size(498, 47)
         emp_name_tb.TabIndex = 6
         ' 
         ' Label4
@@ -147,9 +154,10 @@ Partial Class addLeave
         Label4.AutoSize = True
         Label4.Dock = DockStyle.Fill
         Label4.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.Location = New Point(441, 0)
+        Label4.Location = New Point(629, 0)
+        Label4.Margin = New Padding(4, 0, 4, 0)
         Label4.Name = "Label4"
-        Label4.Size = New Size(348, 72)
+        Label4.Size = New Size(498, 121)
         Label4.TabIndex = 2
         Label4.Text = "NAME"
         Label4.TextAlign = ContentAlignment.BottomLeft
@@ -159,20 +167,22 @@ Partial Class addLeave
         add_leave_btn.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         add_leave_btn.BackColor = Color.Red
         add_leave_btn.ForeColor = SystemColors.ButtonFace
-        add_leave_btn.Location = New Point(441, 223)
+        add_leave_btn.Location = New Point(630, 374)
+        add_leave_btn.Margin = New Padding(4, 5, 4, 5)
         add_leave_btn.Name = "add_leave_btn"
-        add_leave_btn.Size = New Size(348, 42)
+        add_leave_btn.Size = New Size(497, 70)
         add_leave_btn.TabIndex = 7
         add_leave_btn.Text = "ADD"
         add_leave_btn.UseVisualStyleBackColor = False
         ' 
         ' addLeave
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(812, 286)
+        ClientSize = New Size(1160, 477)
         Controls.Add(TableLayoutPanel1)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
+        Margin = New Padding(4, 5, 4, 5)
         Name = "addLeave"
         Text = "addLeave"
         TableLayoutPanel1.ResumeLayout(False)
