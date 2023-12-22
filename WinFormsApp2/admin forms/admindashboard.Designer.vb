@@ -1169,7 +1169,7 @@ Partial Class admindashboardform
         Panel1.Location = New Point(160, 0)
         Panel1.Margin = New Padding(0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(810, 60)
+        Panel1.Size = New Size(810, 23)
         Panel1.TabIndex = 3
         ' 
         ' admindashboardform
