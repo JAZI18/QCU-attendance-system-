@@ -82,10 +82,10 @@ Partial Class admindashboardform
         leave_reset_btn = New Button()
         leave_export_btn = New Button()
         leave_print_btn = New Button()
-        DataGridView2 = New DataGridView()
-        ComboBox2 = New ComboBox()
-        DateTimePicker3 = New DateTimePicker()
-        DateTimePicker4 = New DateTimePicker()
+        leave_datagrid = New DataGridView()
+        leave_branch_cb = New ComboBox()
+        leave_end_date = New DateTimePicker()
+        leave_start_date = New DateTimePicker()
         Label1 = New Label()
         PictureBox7 = New PictureBox()
         dept_tab = New TabPage()
@@ -102,14 +102,13 @@ Partial Class admindashboardform
         report_tab = New TabPage()
         Button4 = New Button()
         Button3 = New Button()
-        Button2 = New Button()
-        DataGridView1 = New DataGridView()
-        ComboBox1 = New ComboBox()
-        DateTimePicker2 = New DateTimePicker()
-        DateTimePicker1 = New DateTimePicker()
+        report_print_btn = New Button()
+        report_grid_view = New DataGridView()
+        report_brach_cb = New ComboBox()
+        report_end_date = New DateTimePicker()
+        report_start_date = New DateTimePicker()
         Label12 = New Label()
         PictureBox2 = New PictureBox()
-        MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
         Panel1 = New Panel()
         nav_panel.SuspendLayout()
         Nav1.SuspendLayout()
@@ -126,14 +125,14 @@ Partial Class admindashboardform
         CType(PictureBox6, ComponentModel.ISupportInitialize).BeginInit()
         TabControl1.SuspendLayout()
         leave_tab.SuspendLayout()
-        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(leave_datagrid, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
         dept_tab.SuspendLayout()
         Panel12.SuspendLayout()
         CType(dept_gridview, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
         report_tab.SuspendLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(report_grid_view, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -821,10 +820,10 @@ Partial Class admindashboardform
         leave_tab.Controls.Add(leave_reset_btn)
         leave_tab.Controls.Add(leave_export_btn)
         leave_tab.Controls.Add(leave_print_btn)
-        leave_tab.Controls.Add(DataGridView2)
-        leave_tab.Controls.Add(ComboBox2)
-        leave_tab.Controls.Add(DateTimePicker3)
-        leave_tab.Controls.Add(DateTimePicker4)
+        leave_tab.Controls.Add(leave_datagrid)
+        leave_tab.Controls.Add(leave_branch_cb)
+        leave_tab.Controls.Add(leave_end_date)
+        leave_tab.Controls.Add(leave_start_date)
         leave_tab.Controls.Add(Label1)
         leave_tab.Controls.Add(PictureBox7)
         leave_tab.Location = New Point(4, 24)
@@ -837,7 +836,7 @@ Partial Class admindashboardform
         ' 
         ' add_leave_btn
         ' 
-        add_leave_btn.Location = New Point(424, 35)
+        add_leave_btn.Location = New Point(708, 82)
         add_leave_btn.Margin = New Padding(2)
         add_leave_btn.Name = "add_leave_btn"
         add_leave_btn.Size = New Size(90, 31)
@@ -847,27 +846,27 @@ Partial Class admindashboardform
         ' 
         ' leave_reset_btn
         ' 
-        leave_reset_btn.Location = New Point(556, 77)
+        leave_reset_btn.Location = New Point(529, 47)
         leave_reset_btn.Margin = New Padding(2)
         leave_reset_btn.Name = "leave_reset_btn"
-        leave_reset_btn.Size = New Size(78, 20)
+        leave_reset_btn.Size = New Size(78, 23)
         leave_reset_btn.TabIndex = 22
         leave_reset_btn.Text = "Reset"
         leave_reset_btn.UseVisualStyleBackColor = True
         ' 
         ' leave_export_btn
         ' 
-        leave_export_btn.Location = New Point(424, 70)
+        leave_export_btn.Location = New Point(708, 47)
         leave_export_btn.Margin = New Padding(2)
         leave_export_btn.Name = "leave_export_btn"
-        leave_export_btn.Size = New Size(97, 31)
+        leave_export_btn.Size = New Size(90, 31)
         leave_export_btn.TabIndex = 21
         leave_export_btn.Text = "Export"
         leave_export_btn.UseVisualStyleBackColor = True
         ' 
         ' leave_print_btn
         ' 
-        leave_print_btn.Location = New Point(321, 70)
+        leave_print_btn.Location = New Point(708, 12)
         leave_print_btn.Margin = New Padding(2)
         leave_print_btn.Name = "leave_print_btn"
         leave_print_btn.Size = New Size(90, 31)
@@ -875,44 +874,43 @@ Partial Class admindashboardform
         leave_print_btn.Text = "Print"
         leave_print_btn.UseVisualStyleBackColor = True
         ' 
-        ' DataGridView2
+        ' leave_datagrid
         ' 
-        DataGridView2.AllowUserToAddRows = False
-        DataGridView2.AllowUserToDeleteRows = False
-        DataGridView2.AllowUserToOrderColumns = True
-        DataGridView2.AllowUserToResizeColumns = False
-        DataGridView2.AllowUserToResizeRows = False
-        DataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView2.Location = New Point(20, 115)
-        DataGridView2.Name = "DataGridView2"
-        DataGridView2.RowHeadersWidth = 62
-        DataGridView2.RowTemplate.Height = 33
-        DataGridView2.Size = New Size(798, 374)
-        DataGridView2.TabIndex = 19
+        leave_datagrid.AllowUserToAddRows = False
+        leave_datagrid.AllowUserToDeleteRows = False
+        leave_datagrid.AllowUserToResizeColumns = False
+        leave_datagrid.AllowUserToResizeRows = False
+        leave_datagrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        leave_datagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        leave_datagrid.Location = New Point(20, 115)
+        leave_datagrid.Name = "leave_datagrid"
+        leave_datagrid.RowHeadersWidth = 62
+        leave_datagrid.RowTemplate.Height = 33
+        leave_datagrid.Size = New Size(798, 374)
+        leave_datagrid.TabIndex = 19
         ' 
-        ' ComboBox2
+        ' leave_branch_cb
         ' 
-        ComboBox2.FormattingEnabled = True
-        ComboBox2.Location = New Point(148, 76)
-        ComboBox2.Name = "ComboBox2"
-        ComboBox2.Size = New Size(106, 23)
-        ComboBox2.TabIndex = 14
-        ComboBox2.Text = "San, Bartolome"
+        leave_branch_cb.FormattingEnabled = True
+        leave_branch_cb.Location = New Point(418, 47)
+        leave_branch_cb.Name = "leave_branch_cb"
+        leave_branch_cb.Size = New Size(106, 23)
+        leave_branch_cb.TabIndex = 14
+        leave_branch_cb.Text = "San, Bartolome"
         ' 
-        ' DateTimePicker3
+        ' leave_end_date
         ' 
-        DateTimePicker3.Location = New Point(212, 47)
-        DateTimePicker3.Name = "DateTimePicker3"
-        DateTimePicker3.Size = New Size(200, 23)
-        DateTimePicker3.TabIndex = 13
+        leave_end_date.Location = New Point(212, 47)
+        leave_end_date.Name = "leave_end_date"
+        leave_end_date.Size = New Size(200, 23)
+        leave_end_date.TabIndex = 13
         ' 
-        ' DateTimePicker4
+        ' leave_start_date
         ' 
-        DateTimePicker4.Location = New Point(6, 47)
-        DateTimePicker4.Name = "DateTimePicker4"
-        DateTimePicker4.Size = New Size(200, 23)
-        DateTimePicker4.TabIndex = 12
+        leave_start_date.Location = New Point(6, 47)
+        leave_start_date.Name = "leave_start_date"
+        leave_start_date.Size = New Size(200, 23)
+        leave_start_date.TabIndex = 12
         ' 
         ' Label1
         ' 
@@ -995,19 +993,23 @@ Partial Class admindashboardform
         ' 
         ' Id
         ' 
+        Id.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Id.FillWeight = 10F
         Id.HeaderText = "ID"
         Id.MinimumWidth = 8
         Id.Name = "Id"
         Id.ReadOnly = True
-        Id.Width = 150
+        Id.Resizable = DataGridViewTriState.False
         ' 
         ' dep_col
         ' 
         dep_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        dep_col.FillWeight = 60F
         dep_col.HeaderText = "Department Name"
         dep_col.MinimumWidth = 8
         dep_col.Name = "dep_col"
         dep_col.ReadOnly = True
+        dep_col.Resizable = DataGridViewTriState.False
         ' 
         ' dep_desc
         ' 
@@ -1017,16 +1019,17 @@ Partial Class admindashboardform
         dep_desc.MinimumWidth = 50
         dep_desc.Name = "dep_desc"
         dep_desc.ReadOnly = True
+        dep_desc.Resizable = DataGridViewTriState.False
         ' 
         ' action_col
         ' 
         action_col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        action_col.FillWeight = 50F
+        action_col.FillWeight = 20F
         action_col.HeaderText = "Action"
         action_col.MinimumWidth = 50
         action_col.Name = "action_col"
         action_col.ReadOnly = True
-        action_col.Resizable = DataGridViewTriState.True
+        action_col.Resizable = DataGridViewTriState.False
         action_col.SortMode = DataGridViewColumnSortMode.Automatic
         ' 
         ' Label11
@@ -1054,11 +1057,11 @@ Partial Class admindashboardform
         ' 
         report_tab.Controls.Add(Button4)
         report_tab.Controls.Add(Button3)
-        report_tab.Controls.Add(Button2)
-        report_tab.Controls.Add(DataGridView1)
-        report_tab.Controls.Add(ComboBox1)
-        report_tab.Controls.Add(DateTimePicker2)
-        report_tab.Controls.Add(DateTimePicker1)
+        report_tab.Controls.Add(report_print_btn)
+        report_tab.Controls.Add(report_grid_view)
+        report_tab.Controls.Add(report_brach_cb)
+        report_tab.Controls.Add(report_end_date)
+        report_tab.Controls.Add(report_start_date)
         report_tab.Controls.Add(Label12)
         report_tab.Controls.Add(PictureBox2)
         report_tab.Location = New Point(4, 24)
@@ -1071,17 +1074,17 @@ Partial Class admindashboardform
         ' 
         ' Button4
         ' 
-        Button4.Location = New Point(556, 77)
+        Button4.Location = New Point(529, 48)
         Button4.Margin = New Padding(2)
         Button4.Name = "Button4"
-        Button4.Size = New Size(78, 20)
+        Button4.Size = New Size(78, 23)
         Button4.TabIndex = 22
         Button4.Text = "Reset"
         Button4.UseVisualStyleBackColor = True
         ' 
         ' Button3
         ' 
-        Button3.Location = New Point(424, 70)
+        Button3.Location = New Point(702, 30)
         Button3.Margin = New Padding(2)
         Button3.Name = "Button3"
         Button3.Size = New Size(97, 31)
@@ -1089,54 +1092,54 @@ Partial Class admindashboardform
         Button3.Text = "Export"
         Button3.UseVisualStyleBackColor = True
         ' 
-        ' Button2
+        ' report_print_btn
         ' 
-        Button2.Location = New Point(321, 70)
-        Button2.Margin = New Padding(2)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(90, 31)
-        Button2.TabIndex = 20
-        Button2.Text = "Print"
-        Button2.UseVisualStyleBackColor = True
+        report_print_btn.Location = New Point(702, 65)
+        report_print_btn.Margin = New Padding(2)
+        report_print_btn.Name = "report_print_btn"
+        report_print_btn.Size = New Size(97, 31)
+        report_print_btn.TabIndex = 20
+        report_print_btn.Text = "Print"
+        report_print_btn.UseVisualStyleBackColor = True
         ' 
-        ' DataGridView1
+        ' report_grid_view
         ' 
-        DataGridView1.AllowUserToAddRows = False
-        DataGridView1.AllowUserToDeleteRows = False
-        DataGridView1.AllowUserToOrderColumns = True
-        DataGridView1.AllowUserToResizeColumns = False
-        DataGridView1.AllowUserToResizeRows = False
-        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(20, 115)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersWidth = 62
-        DataGridView1.RowTemplate.Height = 33
-        DataGridView1.Size = New Size(798, 374)
-        DataGridView1.TabIndex = 19
+        report_grid_view.AllowUserToAddRows = False
+        report_grid_view.AllowUserToDeleteRows = False
+        report_grid_view.AllowUserToOrderColumns = True
+        report_grid_view.AllowUserToResizeColumns = False
+        report_grid_view.AllowUserToResizeRows = False
+        report_grid_view.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        report_grid_view.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        report_grid_view.Location = New Point(20, 115)
+        report_grid_view.Name = "report_grid_view"
+        report_grid_view.RowHeadersWidth = 62
+        report_grid_view.RowTemplate.Height = 33
+        report_grid_view.Size = New Size(798, 374)
+        report_grid_view.TabIndex = 19
         ' 
-        ' ComboBox1
+        ' report_brach_cb
         ' 
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(148, 76)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(106, 23)
-        ComboBox1.TabIndex = 14
-        ComboBox1.Text = "San, Bartolome"
+        report_brach_cb.FormattingEnabled = True
+        report_brach_cb.Location = New Point(418, 47)
+        report_brach_cb.Name = "report_brach_cb"
+        report_brach_cb.Size = New Size(106, 23)
+        report_brach_cb.TabIndex = 14
+        report_brach_cb.Text = "San, Bartolome"
         ' 
-        ' DateTimePicker2
+        ' report_end_date
         ' 
-        DateTimePicker2.Location = New Point(212, 47)
-        DateTimePicker2.Name = "DateTimePicker2"
-        DateTimePicker2.Size = New Size(200, 23)
-        DateTimePicker2.TabIndex = 13
+        report_end_date.Location = New Point(212, 47)
+        report_end_date.Name = "report_end_date"
+        report_end_date.Size = New Size(200, 23)
+        report_end_date.TabIndex = 13
         ' 
-        ' DateTimePicker1
+        ' report_start_date
         ' 
-        DateTimePicker1.Location = New Point(6, 47)
-        DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(200, 23)
-        DateTimePicker1.TabIndex = 12
+        report_start_date.Location = New Point(6, 47)
+        report_start_date.Name = "report_start_date"
+        report_start_date.Size = New Size(200, 23)
+        report_start_date.TabIndex = 12
         ' 
         ' Label12
         ' 
@@ -1159,13 +1162,6 @@ Partial Class admindashboardform
         PictureBox2.TabIndex = 3
         PictureBox2.TabStop = False
         ' 
-        ' MySqlCommand1
-        ' 
-        MySqlCommand1.CacheAge = 0
-        MySqlCommand1.Connection = Nothing
-        MySqlCommand1.EnableCaching = False
-        MySqlCommand1.Transaction = Nothing
-        ' 
         ' Panel1
         ' 
         Panel1.BackColor = Color.Transparent
@@ -1178,17 +1174,17 @@ Partial Class admindashboardform
         ' 
         ' admindashboardform
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
-        AutoScaleMode = AutoScaleMode.Font
+        AutoScaleDimensions = New SizeF(96F, 96F)
+        AutoScaleMode = AutoScaleMode.Dpi
         AutoSize = True
         ClientSize = New Size(970, 473)
         Controls.Add(Panel1)
         Controls.Add(TabControl1)
         Controls.Add(nav_panel)
-        FormBorderStyle = FormBorderStyle.None
+        FormBorderStyle = FormBorderStyle.FixedToolWindow
+        MaximizeBox = False
         Name = "admindashboardform"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "form2"
         nav_panel.ResumeLayout(False)
         Nav1.ResumeLayout(False)
         Panel3.ResumeLayout(False)
@@ -1209,7 +1205,7 @@ Partial Class admindashboardform
         TabControl1.ResumeLayout(False)
         leave_tab.ResumeLayout(False)
         leave_tab.PerformLayout()
-        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
+        CType(leave_datagrid, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox7, ComponentModel.ISupportInitialize).EndInit()
         dept_tab.ResumeLayout(False)
         dept_tab.PerformLayout()
@@ -1219,7 +1215,7 @@ Partial Class admindashboardform
         CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
         report_tab.ResumeLayout(False)
         report_tab.PerformLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(report_grid_view, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
@@ -1258,10 +1254,9 @@ Partial Class admindashboardform
     Friend WithEvents DataGridView7 As DataGridView
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand
+    Friend WithEvents report_start_date As DateTimePicker
+    Friend WithEvents report_end_date As DateTimePicker
+    Friend WithEvents report_brach_cb As ComboBox
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents depa As DataGridView
@@ -1286,10 +1281,6 @@ Partial Class admindashboardform
     Friend WithEvents present_stat As stats_button
     Friend WithEvents total_stat As stats_button
     Friend WithEvents clear_filter_btn As Button
-    Friend WithEvents Id As DataGridViewTextBoxColumn
-    Friend WithEvents dep_col As DataGridViewTextBoxColumn
-    Friend WithEvents dep_desc As DataGridViewTextBoxColumn
-    Friend WithEvents action_col As DataGridViewButtonColumn
     Friend WithEvents id_col As DataGridViewTextBoxColumn
     Friend WithEvents name_col As DataGridViewTextBoxColumn
     Friend WithEvents shift_col As DataGridViewTextBoxColumn
@@ -1297,8 +1288,8 @@ Partial Class admindashboardform
     Friend WithEvents dob_col As DataGridViewTextBoxColumn
     Friend WithEvents hired_col As DataGridViewTextBoxColumn
     Friend WithEvents act_col As DataGridViewButtonColumn
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Button2 As Button
+    Friend WithEvents report_grid_view As DataGridView
+    Friend WithEvents report_print_btn As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents v_absent As Button
@@ -1309,10 +1300,14 @@ Partial Class admindashboardform
     Friend WithEvents leave_reset_btn As Button
     Friend WithEvents leave_export_btn As Button
     Friend WithEvents leave_print_btn As Button
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents DateTimePicker3 As DateTimePicker
-    Friend WithEvents DateTimePicker4 As DateTimePicker
+    Friend WithEvents leave_datagrid As DataGridView
+    Friend WithEvents leave_branch_cb As ComboBox
+    Friend WithEvents leave_end_date As DateTimePicker
+    Friend WithEvents leave_start_date As DateTimePicker
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox7 As PictureBox
+    Friend WithEvents Id As DataGridViewTextBoxColumn
+    Friend WithEvents dep_col As DataGridViewTextBoxColumn
+    Friend WithEvents dep_desc As DataGridViewTextBoxColumn
+    Friend WithEvents action_col As DataGridViewButtonColumn
 End Class

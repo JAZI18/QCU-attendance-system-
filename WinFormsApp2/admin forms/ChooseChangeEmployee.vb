@@ -13,7 +13,7 @@
         _depname = depname
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles del_btn.Click
         DeleteEmployee(_employeeCode)
     End Sub
 
@@ -33,7 +33,6 @@
             MessageBox.Show("Employee deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             admindashboardform.Enabled = True
             Me.Close()
-
         Else
             ' User canceled deletion
             MessageBox.Show("Deletion canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -44,19 +43,19 @@
         Label2.Text = _name
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim employee As Update_Employee = New Update_Employee(_employeeCode, _name, _depname)
+    Private Sub Update_tbn_Click(sender As Object, e As EventArgs) Handles update_tbn.Click
+        Dim employee As New Update_Employee(_employeeCode, _name, _depname)
         employee.Show()
         Close()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Cancel_btn_Click(sender As Object, e As EventArgs) Handles cancel_btn.Click
         admindashboardform.Enabled = True
         Me.Close()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim addAdmin As adminAdd = New adminAdd(_employeeCode)
+    Private Sub Set_as_admin_btn_Click(sender As Object, e As EventArgs) Handles set_as_admin_btn.Click
+        Dim addAdmin As New adminAdd(_employeeCode)
         addAdmin.Show()
         admindashboardform.Enabled = True
     End Sub
@@ -67,10 +66,8 @@
         End If
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-
-
-        Dim addSchedule As addSchedule = New addSchedule(_employeeCode)
+    Private Sub Addsched_btn_Click(sender As Object, e As EventArgs) Handles addsched_btn.Click
+        Dim addSchedule As New addSchedule(_employeeCode, _name)
         addSchedule.Show()
         Me.Close()
     End Sub

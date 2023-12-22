@@ -33,7 +33,7 @@ Public Class Update_department
             MsgBox("Recorded Updated")
             Close()
 
-            admindashboardform.UpdateDeptGridView2()
+            admindashboardform.UpdateDeptGridView()
         Else
             MessageBox.Show("Updating canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If

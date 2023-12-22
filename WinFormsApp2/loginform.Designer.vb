@@ -49,11 +49,11 @@ Partial Class loginform
         ' Panel1
         ' 
         Panel1.BackColor = Color.FromArgb(CByte(134), CByte(134), CByte(134))
+        Panel1.Controls.Add(login_btn)
         Panel1.Controls.Add(Panel5)
         Panel1.Controls.Add(Panel4)
         Panel1.Controls.Add(mainform_back_btn)
         Panel1.Controls.Add(invalid_lb)
-        Panel1.Controls.Add(login_btn)
         Panel1.Controls.Add(PictureBox3)
         Panel1.Controls.Add(PictureBox2)
         Panel1.Controls.Add(Label1)
@@ -79,12 +79,12 @@ Partial Class loginform
         pass_tb.BorderStyle = BorderStyle.None
         pass_tb.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point)
         pass_tb.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
-        pass_tb.Location = New Point(8, 4)
+        pass_tb.Location = New Point(8, 3)
         pass_tb.Name = "pass_tb"
-        pass_tb.PasswordChar = "*"c
         pass_tb.PlaceholderText = "Password"
         pass_tb.Size = New Size(254, 28)
-        pass_tb.TabIndex = 6
+        pass_tb.TabIndex = 2
+        pass_tb.UseSystemPasswordChar = True
         ' 
         ' Panel4
         ' 
@@ -93,7 +93,7 @@ Partial Class loginform
         Panel4.Location = New Point(150, 170)
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(270, 34)
-        Panel4.TabIndex = 9
+        Panel4.TabIndex = 1
         ' 
         ' un_tb
         ' 
@@ -106,7 +106,7 @@ Partial Class loginform
         un_tb.PlaceholderText = "Username"
         un_tb.ShortcutsEnabled = False
         un_tb.Size = New Size(254, 28)
-        un_tb.TabIndex = 2
+        un_tb.TabIndex = 1
         ' 
         ' mainform_back_btn
         ' 
@@ -116,6 +116,7 @@ Partial Class loginform
         mainform_back_btn.Name = "mainform_back_btn"
         mainform_back_btn.Size = New Size(38, 31)
         mainform_back_btn.TabIndex = 5
+        mainform_back_btn.TabStop = False
         mainform_back_btn.UseVisualStyleBackColor = True
         ' 
         ' invalid_lb
@@ -142,7 +143,7 @@ Partial Class loginform
         login_btn.Location = New Point(182, 313)
         login_btn.Name = "login_btn"
         login_btn.Size = New Size(133, 41)
-        login_btn.TabIndex = 6
+        login_btn.TabIndex = 5
         login_btn.Text = "Login"
         login_btn.UseVisualStyleBackColor = False
         ' 
@@ -202,6 +203,7 @@ Partial Class loginform
         AcceptButton = login_btn
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        CancelButton = mainform_back_btn
         ClientSize = New Size(970, 473)
         Controls.Add(Panel2)
         Controls.Add(Panel1)

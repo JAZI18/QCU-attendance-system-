@@ -32,7 +32,7 @@
             DeleteQuery("qcu_department", "department_id=@id", {_depId})
 
 
-            admindashboardform.UpdateDeptGridView2()
+            admindashboardform.UpdateDeptGridView()
             MessageBox.Show("Department Data deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
             Me.Close()

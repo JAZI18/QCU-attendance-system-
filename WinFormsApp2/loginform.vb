@@ -8,8 +8,21 @@ Imports System.Security.Cryptography
 Public Class loginform
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles login_btn.Click
+    Private Sub login_Click(sender As Object, e As EventArgs) Handles login_btn.Click
         If un_tb.Text = "" Or pass_tb.Text = "" Then Exit Sub
+
+        Try
+            login()
+        Catch ex As Exception
+            MessageBox.Show("No internet connection", "Oops!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            pass_tb.Clear()
+            un_tb.Clear()
+
+        End Try
+
+    End Sub
+
+    Private Sub login()
         ' Hash the entered password
         Dim hashedPassword As String = HashedPasswords(pass_tb.Text)
 
@@ -24,18 +37,17 @@ Public Class loginform
 
         End If
 
-            ' Compare hashed passwords
-            If reader("password") = hashedPassword Then
-                Me.Hide()
-                admindashboardform.Show()
-            Else
-                invalid_lb.Visible = True
+        ' Compare hashed passwords
+        If reader("password") = hashedPassword Then
+            Me.Hide()
+            admindashboardform.Show()
+        Else
+            invalid_lb.Visible = True
 
-            End If
+        End If
 
-            un_tb.Clear()
+        un_tb.Clear()
         pass_tb.Clear()
-
     End Sub
 
     Public Function HashedPasswords(password As String)
@@ -53,8 +65,6 @@ Public Class loginform
         Me.Close()
 
     End Sub
-
-
 
 
 
