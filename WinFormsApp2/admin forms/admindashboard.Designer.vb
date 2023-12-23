@@ -145,7 +145,7 @@ Partial Class admindashboardform
         nav_panel.Location = New Point(0, 0)
         nav_panel.Margin = New Padding(0)
         nav_panel.Name = "nav_panel"
-        nav_panel.Size = New Size(160, 473)
+        nav_panel.Size = New Size(240, 710)
         nav_panel.TabIndex = 0
         ' 
         ' Nav1
@@ -159,11 +159,11 @@ Partial Class admindashboardform
         Nav1.Controls.Add(Label2)
         Nav1.Dock = DockStyle.Bottom
         Nav1.HighlightBackColor = Color.White
-        Nav1.Location = New Point(0, 40)
+        Nav1.Location = New Point(0, 60)
         Nav1.Margin = New Padding(0)
         Nav1.Name = "Nav1"
         Nav1.NormalBackColor = SystemColors.ControlDark
-        Nav1.Size = New Size(160, 433)
+        Nav1.Size = New Size(240, 650)
         Nav1.TabIndex = 3
         Nav1.Text = "Nav1"
         ' 
@@ -176,11 +176,11 @@ Partial Class admindashboardform
         leave_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         leave_btn.Image = My.Resources.Resources.report_card
         leave_btn.ImageAlign = ContentAlignment.MiddleLeft
-        leave_btn.Location = New Point(0, 326)
+        leave_btn.Location = New Point(0, 486)
         leave_btn.Margin = New Padding(0)
         leave_btn.Name = "leave_btn"
-        leave_btn.Padding = New Padding(10, 0, 0, 0)
-        leave_btn.Size = New Size(160, 55)
+        leave_btn.Padding = New Padding(15, 0, 0, 0)
+        leave_btn.Size = New Size(240, 82)
         leave_btn.TabIndex = 8
         leave_btn.Text = "  Leave"
         leave_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -197,11 +197,11 @@ Partial Class admindashboardform
         printreport_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         printreport_btn.Image = My.Resources.Resources.report_card
         printreport_btn.ImageAlign = ContentAlignment.MiddleLeft
-        printreport_btn.Location = New Point(0, 271)
+        printreport_btn.Location = New Point(0, 404)
         printreport_btn.Margin = New Padding(0)
         printreport_btn.Name = "printreport_btn"
-        printreport_btn.Padding = New Padding(10, 0, 0, 0)
-        printreport_btn.Size = New Size(160, 55)
+        printreport_btn.Padding = New Padding(15, 0, 0, 0)
+        printreport_btn.Size = New Size(240, 82)
         printreport_btn.TabIndex = 6
         printreport_btn.Text = "  Reports"
         printreport_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -218,11 +218,11 @@ Partial Class admindashboardform
         branch_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         branch_btn.Image = My.Resources.Resources.branch
         branch_btn.ImageAlign = ContentAlignment.MiddleLeft
-        branch_btn.Location = New Point(0, 216)
+        branch_btn.Location = New Point(0, 322)
         branch_btn.Margin = New Padding(0)
         branch_btn.Name = "branch_btn"
-        branch_btn.Padding = New Padding(10, 0, 0, 0)
-        branch_btn.Size = New Size(160, 55)
+        branch_btn.Padding = New Padding(15, 0, 0, 0)
+        branch_btn.Size = New Size(240, 82)
         branch_btn.TabIndex = 7
         branch_btn.Text = "  Branch"
         branch_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -239,11 +239,11 @@ Partial Class admindashboardform
         department_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         department_btn.Image = My.Resources.Resources.department
         department_btn.ImageAlign = ContentAlignment.MiddleLeft
-        department_btn.Location = New Point(0, 161)
+        department_btn.Location = New Point(0, 240)
         department_btn.Margin = New Padding(0)
         department_btn.Name = "department_btn"
-        department_btn.Padding = New Padding(10, 0, 0, 0)
-        department_btn.Size = New Size(160, 55)
+        department_btn.Padding = New Padding(15, 0, 0, 0)
+        department_btn.Size = New Size(240, 82)
         department_btn.TabIndex = 4
         department_btn.Text = "  Department"
         department_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -260,11 +260,11 @@ Partial Class admindashboardform
         employee_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         employee_btn.Image = My.Resources.Resources.user__1_1
         employee_btn.ImageAlign = ContentAlignment.MiddleLeft
-        employee_btn.Location = New Point(0, 106)
+        employee_btn.Location = New Point(0, 158)
         employee_btn.Margin = New Padding(0)
         employee_btn.Name = "employee_btn"
-        employee_btn.Padding = New Padding(10, 0, 0, 0)
-        employee_btn.Size = New Size(160, 55)
+        employee_btn.Padding = New Padding(15, 0, 0, 0)
+        employee_btn.Size = New Size(240, 82)
         employee_btn.TabIndex = 5
         employee_btn.Text = "  Employee"
         employee_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -282,11 +282,11 @@ Partial Class admindashboardform
         dashboard_btn.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         dashboard_btn.Image = My.Resources.Resources.home
         dashboard_btn.ImageAlign = ContentAlignment.MiddleLeft
-        dashboard_btn.Location = New Point(0, 51)
+        dashboard_btn.Location = New Point(0, 76)
         dashboard_btn.Margin = New Padding(0)
         dashboard_btn.Name = "dashboard_btn"
-        dashboard_btn.Padding = New Padding(10, 0, 0, 0)
-        dashboard_btn.Size = New Size(160, 55)
+        dashboard_btn.Padding = New Padding(15, 0, 0, 0)
+        dashboard_btn.Size = New Size(240, 82)
         dashboard_btn.TabIndex = 0
         dashboard_btn.Text = "  Dash Board"
         dashboard_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -300,8 +300,9 @@ Partial Class admindashboardform
         Label2.Dock = DockStyle.Top
         Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.Location = New Point(0, 0)
+        Label2.Margin = New Padding(4, 0, 4, 0)
         Label2.Name = "Label2"
-        Label2.Size = New Size(160, 51)
+        Label2.Size = New Size(240, 76)
         Label2.TabIndex = 0
         Label2.Text = "C.C.F"
         Label2.TextAlign = ContentAlignment.TopCenter
@@ -310,9 +311,10 @@ Partial Class admindashboardform
         ' 
         Panel3.BackColor = Color.FromArgb(CByte(209), CByte(210), CByte(210))
         Panel3.Controls.Add(PictureBox1)
-        Panel3.Location = New Point(10, 10)
+        Panel3.Location = New Point(15, 15)
+        Panel3.Margin = New Padding(4, 4, 4, 4)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(130, 110)
+        Panel3.Size = New Size(195, 165)
         Panel3.TabIndex = 0
         ' 
         ' PictureBox1
@@ -321,8 +323,9 @@ Partial Class admindashboardform
         PictureBox1.Dock = DockStyle.Fill
         PictureBox1.Image = My.Resources.Resources.qcu
         PictureBox1.Location = New Point(0, 0)
+        PictureBox1.Margin = New Padding(4, 4, 4, 4)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(130, 110)
+        PictureBox1.Size = New Size(195, 165)
         PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
         PictureBox1.TabIndex = 0
         PictureBox1.TabStop = False
@@ -363,10 +366,11 @@ Partial Class admindashboardform
         brach_tab.Controls.Add(Panel8)
         brach_tab.Controls.Add(Label9)
         brach_tab.Controls.Add(PictureBox4)
-        brach_tab.Location = New Point(4, 24)
+        brach_tab.Location = New Point(4, 34)
+        brach_tab.Margin = New Padding(4, 4, 4, 4)
         brach_tab.Name = "brach_tab"
-        brach_tab.Padding = New Padding(3)
-        brach_tab.Size = New Size(842, 503)
+        brach_tab.Padding = New Padding(4, 4, 4, 4)
+        brach_tab.Size = New Size(1267, 758)
         brach_tab.TabIndex = 2
         brach_tab.Text = "TabPage3"
         brach_tab.UseVisualStyleBackColor = True
@@ -376,10 +380,10 @@ Partial Class admindashboardform
         absent_stat.BackColor = Color.FromArgb(CByte(242), CByte(200), CByte(200))
         absent_stat.Counter = "200"
         absent_stat.Label = "ABSENT:"
-        absent_stat.Location = New Point(458, 327)
+        absent_stat.Location = New Point(687, 490)
         absent_stat.Margin = New Padding(0)
         absent_stat.Name = "absent_stat"
-        absent_stat.Size = New Size(310, 151)
+        absent_stat.Size = New Size(465, 226)
         absent_stat.TabIndex = 20
         ' 
         ' leave_stat
@@ -387,10 +391,10 @@ Partial Class admindashboardform
         leave_stat.BackColor = Color.FromArgb(CByte(233), CByte(193), CByte(240))
         leave_stat.Counter = "200"
         leave_stat.Label = "LEAVE:"
-        leave_stat.Location = New Point(79, 327)
+        leave_stat.Location = New Point(118, 490)
         leave_stat.Margin = New Padding(0)
         leave_stat.Name = "leave_stat"
-        leave_stat.Size = New Size(310, 151)
+        leave_stat.Size = New Size(465, 226)
         leave_stat.TabIndex = 19
         ' 
         ' present_stat
@@ -398,10 +402,10 @@ Partial Class admindashboardform
         present_stat.BackColor = Color.FromArgb(CByte(205), CByte(241), CByte(197))
         present_stat.Counter = "200"
         present_stat.Label = "PRESENT:"
-        present_stat.Location = New Point(458, 138)
+        present_stat.Location = New Point(687, 207)
         present_stat.Margin = New Padding(0)
         present_stat.Name = "present_stat"
-        present_stat.Size = New Size(310, 151)
+        present_stat.Size = New Size(465, 226)
         present_stat.TabIndex = 18
         ' 
         ' total_stat
@@ -409,10 +413,10 @@ Partial Class admindashboardform
         total_stat.BackColor = Color.FromArgb(CByte(240), CByte(239), CByte(193))
         total_stat.Counter = "200"
         total_stat.Label = "TOTAL:"
-        total_stat.Location = New Point(79, 138)
+        total_stat.Location = New Point(118, 207)
         total_stat.Margin = New Padding(0)
         total_stat.Name = "total_stat"
-        total_stat.Size = New Size(310, 151)
+        total_stat.Size = New Size(465, 226)
         total_stat.TabIndex = 17
         ' 
         ' sanfrancisco_branch_btn
@@ -420,9 +424,10 @@ Partial Class admindashboardform
         sanfrancisco_branch_btn.FlatAppearance.BorderSize = 0
         sanfrancisco_branch_btn.FlatStyle = FlatStyle.Flat
         sanfrancisco_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        sanfrancisco_branch_btn.Location = New Point(448, 50)
+        sanfrancisco_branch_btn.Location = New Point(672, 75)
+        sanfrancisco_branch_btn.Margin = New Padding(4, 4, 4, 4)
         sanfrancisco_branch_btn.Name = "sanfrancisco_branch_btn"
-        sanfrancisco_branch_btn.Size = New Size(170, 60)
+        sanfrancisco_branch_btn.Size = New Size(255, 90)
         sanfrancisco_branch_btn.TabIndex = 15
         sanfrancisco_branch_btn.Text = "QCU" & vbCrLf & "San. Francisco"
         sanfrancisco_branch_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -433,9 +438,10 @@ Partial Class admindashboardform
         batasan_branch_btn.FlatAppearance.BorderSize = 0
         batasan_branch_btn.FlatStyle = FlatStyle.Flat
         batasan_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        batasan_branch_btn.Location = New Point(265, 50)
+        batasan_branch_btn.Location = New Point(398, 75)
+        batasan_branch_btn.Margin = New Padding(4, 4, 4, 4)
         batasan_branch_btn.Name = "batasan_branch_btn"
-        batasan_branch_btn.Size = New Size(170, 60)
+        batasan_branch_btn.Size = New Size(255, 90)
         batasan_branch_btn.TabIndex = 14
         batasan_branch_btn.Text = "QCU" & vbCrLf & "Batasan"
         batasan_branch_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -446,9 +452,10 @@ Partial Class admindashboardform
         sanbartolome_branch_btn.FlatAppearance.BorderSize = 0
         sanbartolome_branch_btn.FlatStyle = FlatStyle.Flat
         sanbartolome_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        sanbartolome_branch_btn.Location = New Point(82, 50)
+        sanbartolome_branch_btn.Location = New Point(123, 75)
+        sanbartolome_branch_btn.Margin = New Padding(4, 4, 4, 4)
         sanbartolome_branch_btn.Name = "sanbartolome_branch_btn"
-        sanbartolome_branch_btn.Size = New Size(170, 60)
+        sanbartolome_branch_btn.Size = New Size(255, 90)
         sanbartolome_branch_btn.TabIndex = 13
         sanbartolome_branch_btn.Text = "QCU" & vbCrLf & "San. Bartolome"
         sanbartolome_branch_btn.TextAlign = ContentAlignment.MiddleLeft
@@ -458,36 +465,40 @@ Partial Class admindashboardform
         ' 
         Panel10.BackColor = Color.Red
         Panel10.ForeColor = Color.Black
-        Panel10.Location = New Point(441, 50)
+        Panel10.Location = New Point(662, 75)
+        Panel10.Margin = New Padding(4, 4, 4, 4)
         Panel10.Name = "Panel10"
-        Panel10.Size = New Size(5, 60)
+        Panel10.Size = New Size(8, 90)
         Panel10.TabIndex = 12
         ' 
         ' Panel9
         ' 
         Panel9.BackColor = Color.Yellow
         Panel9.ForeColor = Color.Black
-        Panel9.Location = New Point(258, 50)
+        Panel9.Location = New Point(387, 75)
+        Panel9.Margin = New Padding(4, 4, 4, 4)
         Panel9.Name = "Panel9"
-        Panel9.Size = New Size(5, 60)
+        Panel9.Size = New Size(8, 90)
         Panel9.TabIndex = 12
         ' 
         ' Panel8
         ' 
         Panel8.BackColor = Color.Blue
         Panel8.ForeColor = Color.Black
-        Panel8.Location = New Point(77, 50)
+        Panel8.Location = New Point(116, 75)
+        Panel8.Margin = New Padding(4, 4, 4, 4)
         Panel8.Name = "Panel8"
-        Panel8.Size = New Size(5, 60)
+        Panel8.Size = New Size(8, 90)
         Panel8.TabIndex = 11
         ' 
         ' Label9
         ' 
         Label9.AutoSize = True
         Label9.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label9.Location = New Point(6, 10)
+        Label9.Location = New Point(9, 15)
+        Label9.Margin = New Padding(4, 0, 4, 0)
         Label9.Name = "Label9"
-        Label9.Size = New Size(74, 25)
+        Label9.Size = New Size(113, 40)
         Label9.TabIndex = 10
         Label9.Text = "Branch"
         ' 
@@ -496,9 +507,10 @@ Partial Class admindashboardform
         PictureBox4.BackColor = Color.Transparent
         PictureBox4.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox4.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox4.Location = New Point(631, 50)
+        PictureBox4.Location = New Point(946, 75)
+        PictureBox4.Margin = New Padding(4, 4, 4, 4)
         PictureBox4.Name = "PictureBox4"
-        PictureBox4.Size = New Size(180, 500)
+        PictureBox4.Size = New Size(270, 750)
         PictureBox4.TabIndex = 1
         PictureBox4.TabStop = False
         ' 
@@ -508,10 +520,11 @@ Partial Class admindashboardform
         employees_tab.Controls.Add(Label7)
         employees_tab.Controls.Add(employee_grid_view)
         employees_tab.Controls.Add(PictureBox3)
-        employees_tab.Location = New Point(4, 24)
+        employees_tab.Location = New Point(4, 34)
+        employees_tab.Margin = New Padding(4, 4, 4, 4)
         employees_tab.Name = "employees_tab"
-        employees_tab.Padding = New Padding(3)
-        employees_tab.Size = New Size(842, 503)
+        employees_tab.Padding = New Padding(4, 4, 4, 4)
+        employees_tab.Size = New Size(1267, 758)
         employees_tab.TabIndex = 1
         employees_tab.Text = "TabPage2"
         employees_tab.UseVisualStyleBackColor = True
@@ -524,9 +537,10 @@ Partial Class admindashboardform
         Panel7.Controls.Add(branch_filter_lb)
         Panel7.Controls.Add(add_employees_btn)
         Panel7.Controls.Add(id_employees_tb)
-        Panel7.Location = New Point(20, 61)
+        Panel7.Location = New Point(30, 92)
+        Panel7.Margin = New Padding(4, 4, 4, 4)
         Panel7.Name = "Panel7"
-        Panel7.Size = New Size(801, 40)
+        Panel7.Size = New Size(1202, 60)
         Panel7.TabIndex = 10
         ' 
         ' v_absent
@@ -536,18 +550,20 @@ Partial Class admindashboardform
         v_absent.FlatStyle = FlatStyle.Flat
         v_absent.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         v_absent.ForeColor = Color.White
-        v_absent.Location = New Point(611, 8)
+        v_absent.Location = New Point(916, 12)
+        v_absent.Margin = New Padding(4, 4, 4, 4)
         v_absent.Name = "v_absent"
-        v_absent.Size = New Size(98, 24)
+        v_absent.Size = New Size(147, 36)
         v_absent.TabIndex = 14
         v_absent.Text = "View Absent"
         v_absent.UseVisualStyleBackColor = False
         ' 
         ' clear_filter_btn
         ' 
-        clear_filter_btn.Location = New Point(530, 8)
+        clear_filter_btn.Location = New Point(795, 12)
+        clear_filter_btn.Margin = New Padding(4, 4, 4, 4)
         clear_filter_btn.Name = "clear_filter_btn"
-        clear_filter_btn.Size = New Size(75, 23)
+        clear_filter_btn.Size = New Size(112, 34)
         clear_filter_btn.TabIndex = 13
         clear_filter_btn.Text = "clear filters"
         clear_filter_btn.UseVisualStyleBackColor = True
@@ -556,9 +572,10 @@ Partial Class admindashboardform
         ' 
         dep_filter_btn.AutoSize = True
         dep_filter_btn.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        dep_filter_btn.Location = New Point(326, 10)
+        dep_filter_btn.Location = New Point(489, 15)
+        dep_filter_btn.Margin = New Padding(4, 0, 4, 0)
         dep_filter_btn.Name = "dep_filter_btn"
-        dep_filter_btn.Size = New Size(103, 19)
+        dep_filter_btn.Size = New Size(144, 28)
         dep_filter_btn.TabIndex = 12
         dep_filter_btn.Text = "department ---"
         ' 
@@ -566,9 +583,10 @@ Partial Class admindashboardform
         ' 
         branch_filter_lb.AutoSize = True
         branch_filter_lb.Font = New Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point)
-        branch_filter_lb.Location = New Point(228, 10)
+        branch_filter_lb.Location = New Point(342, 15)
+        branch_filter_lb.Margin = New Padding(4, 0, 4, 0)
         branch_filter_lb.Name = "branch_filter_lb"
-        branch_filter_lb.Size = New Size(73, 19)
+        branch_filter_lb.Size = New Size(101, 28)
         branch_filter_lb.TabIndex = 11
         branch_filter_lb.Text = "branch ---"
         ' 
@@ -579,28 +597,31 @@ Partial Class admindashboardform
         add_employees_btn.FlatStyle = FlatStyle.Flat
         add_employees_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         add_employees_btn.ForeColor = Color.White
-        add_employees_btn.Location = New Point(715, 10)
+        add_employees_btn.Location = New Point(1072, 15)
+        add_employees_btn.Margin = New Padding(4, 4, 4, 4)
         add_employees_btn.Name = "add_employees_btn"
-        add_employees_btn.Size = New Size(75, 23)
+        add_employees_btn.Size = New Size(112, 34)
         add_employees_btn.TabIndex = 3
         add_employees_btn.Text = "Add"
         add_employees_btn.UseVisualStyleBackColor = False
         ' 
         ' id_employees_tb
         ' 
-        id_employees_tb.Location = New Point(3, 9)
+        id_employees_tb.Location = New Point(4, 14)
+        id_employees_tb.Margin = New Padding(4, 4, 4, 4)
         id_employees_tb.Name = "id_employees_tb"
         id_employees_tb.PlaceholderText = "search"
-        id_employees_tb.Size = New Size(218, 23)
+        id_employees_tb.Size = New Size(325, 31)
         id_employees_tb.TabIndex = 1
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.Location = New Point(6, 10)
+        Label7.Location = New Point(9, 15)
+        Label7.Margin = New Padding(4, 0, 4, 0)
         Label7.Name = "Label7"
-        Label7.Size = New Size(106, 25)
+        Label7.Size = New Size(164, 40)
         Label7.TabIndex = 9
         Label7.Text = "Employees"
         ' 
@@ -610,11 +631,12 @@ Partial Class admindashboardform
         employee_grid_view.AllowUserToDeleteRows = False
         employee_grid_view.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         employee_grid_view.Columns.AddRange(New DataGridViewColumn() {id_col, name_col, shift_col, gender_col, dob_col, hired_col, act_col})
-        employee_grid_view.Location = New Point(20, 100)
+        employee_grid_view.Location = New Point(30, 150)
+        employee_grid_view.Margin = New Padding(4, 4, 4, 4)
         employee_grid_view.Name = "employee_grid_view"
         employee_grid_view.ReadOnly = True
         employee_grid_view.RowHeadersWidth = 62
-        employee_grid_view.Size = New Size(801, 400)
+        employee_grid_view.Size = New Size(1202, 600)
         employee_grid_view.TabIndex = 2
         ' 
         ' id_col
@@ -686,9 +708,10 @@ Partial Class admindashboardform
         ' 
         PictureBox3.BackColor = Color.Transparent
         PictureBox3.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
-        PictureBox3.Location = New Point(631, 50)
+        PictureBox3.Location = New Point(946, 75)
+        PictureBox3.Margin = New Padding(4, 4, 4, 4)
         PictureBox3.Name = "PictureBox3"
-        PictureBox3.Size = New Size(180, 500)
+        PictureBox3.Size = New Size(270, 750)
         PictureBox3.TabIndex = 1
         PictureBox3.TabStop = False
         ' 
@@ -701,10 +724,11 @@ Partial Class admindashboardform
         dashboard_tab.Controls.Add(main_present_stat)
         dashboard_tab.Controls.Add(main_total_stat)
         dashboard_tab.Controls.Add(PictureBox6)
-        dashboard_tab.Location = New Point(4, 24)
+        dashboard_tab.Location = New Point(4, 34)
+        dashboard_tab.Margin = New Padding(4, 4, 4, 4)
         dashboard_tab.Name = "dashboard_tab"
-        dashboard_tab.Padding = New Padding(3)
-        dashboard_tab.Size = New Size(842, 503)
+        dashboard_tab.Padding = New Padding(4, 4, 4, 4)
+        dashboard_tab.Size = New Size(1267, 758)
         dashboard_tab.TabIndex = 0
         dashboard_tab.Text = "TabPage1"
         dashboard_tab.UseVisualStyleBackColor = True
@@ -712,11 +736,10 @@ Partial Class admindashboardform
         ' Panel4
         ' 
         Panel4.BackColor = SystemColors.ControlLight
-        Panel4.Location = New Point(79, 50)
-        Panel4.Margin = New Padding(2)
+        Panel4.Location = New Point(118, 75)
         Panel4.Name = "Panel4"
-        Panel4.Padding = New Padding(7, 0, 0, 0)
-        Panel4.Size = New Size(690, 80)
+        Panel4.Padding = New Padding(10, 0, 0, 0)
+        Panel4.Size = New Size(1035, 120)
         Panel4.TabIndex = 17
         ' 
         ' main_absent_stat
@@ -724,19 +747,20 @@ Partial Class admindashboardform
         main_absent_stat.BackColor = Color.FromArgb(CByte(242), CByte(200), CByte(200))
         main_absent_stat.Counter = "200"
         main_absent_stat.Label = "ABSENT:"
-        main_absent_stat.Location = New Point(458, 328)
+        main_absent_stat.Location = New Point(687, 492)
         main_absent_stat.Margin = New Padding(0)
         main_absent_stat.Name = "main_absent_stat"
-        main_absent_stat.Size = New Size(310, 151)
+        main_absent_stat.Size = New Size(465, 226)
         main_absent_stat.TabIndex = 16
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label6.Location = New Point(14, 10)
+        Label6.Location = New Point(21, 15)
+        Label6.Margin = New Padding(4, 0, 4, 0)
         Label6.Name = "Label6"
-        Label6.Size = New Size(114, 25)
+        Label6.Size = New Size(175, 40)
         Label6.TabIndex = 8
         Label6.Text = "Dash Board"
         ' 
@@ -745,10 +769,10 @@ Partial Class admindashboardform
         main_leave_stat.BackColor = Color.FromArgb(CByte(233), CByte(193), CByte(240))
         main_leave_stat.Counter = "200"
         main_leave_stat.Label = "LEAVE:"
-        main_leave_stat.Location = New Point(79, 328)
+        main_leave_stat.Location = New Point(118, 492)
         main_leave_stat.Margin = New Padding(0)
         main_leave_stat.Name = "main_leave_stat"
-        main_leave_stat.Size = New Size(310, 151)
+        main_leave_stat.Size = New Size(465, 226)
         main_leave_stat.TabIndex = 15
         ' 
         ' main_present_stat
@@ -756,10 +780,10 @@ Partial Class admindashboardform
         main_present_stat.BackColor = Color.FromArgb(CByte(205), CByte(241), CByte(197))
         main_present_stat.Counter = "200"
         main_present_stat.Label = "PRESENT:"
-        main_present_stat.Location = New Point(458, 139)
+        main_present_stat.Location = New Point(687, 208)
         main_present_stat.Margin = New Padding(0)
         main_present_stat.Name = "main_present_stat"
-        main_present_stat.Size = New Size(310, 151)
+        main_present_stat.Size = New Size(465, 226)
         main_present_stat.TabIndex = 14
         ' 
         ' main_total_stat
@@ -767,19 +791,20 @@ Partial Class admindashboardform
         main_total_stat.BackColor = Color.FromArgb(CByte(240), CByte(239), CByte(193))
         main_total_stat.Counter = "200"
         main_total_stat.Label = "TOTAL:"
-        main_total_stat.Location = New Point(79, 139)
+        main_total_stat.Location = New Point(118, 208)
         main_total_stat.Margin = New Padding(0)
         main_total_stat.Name = "main_total_stat"
-        main_total_stat.Size = New Size(310, 151)
+        main_total_stat.Size = New Size(465, 226)
         main_total_stat.TabIndex = 13
         ' 
         ' PictureBox6
         ' 
         PictureBox6.BackColor = Color.Transparent
         PictureBox6.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
-        PictureBox6.Location = New Point(631, 50)
+        PictureBox6.Location = New Point(946, 75)
+        PictureBox6.Margin = New Padding(4, 4, 4, 4)
         PictureBox6.Name = "PictureBox6"
-        PictureBox6.Size = New Size(180, 500)
+        PictureBox6.Size = New Size(270, 750)
         PictureBox6.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox6.TabIndex = 1
         PictureBox6.TabStop = False
@@ -808,10 +833,11 @@ Partial Class admindashboardform
         TabControl1.Controls.Add(brach_tab)
         TabControl1.Controls.Add(dept_tab)
         TabControl1.Controls.Add(report_tab)
-        TabControl1.Location = New Point(160, 26)
+        TabControl1.Location = New Point(240, 39)
+        TabControl1.Margin = New Padding(4, 4, 4, 4)
         TabControl1.Name = "TabControl1"
         TabControl1.SelectedIndex = 0
-        TabControl1.Size = New Size(850, 531)
+        TabControl1.Size = New Size(1275, 796)
         TabControl1.TabIndex = 2
         ' 
         ' leave_tab
@@ -826,50 +852,47 @@ Partial Class admindashboardform
         leave_tab.Controls.Add(leave_start_date)
         leave_tab.Controls.Add(Label1)
         leave_tab.Controls.Add(PictureBox7)
-        leave_tab.Location = New Point(4, 24)
+        leave_tab.Location = New Point(4, 34)
+        leave_tab.Margin = New Padding(4, 4, 4, 4)
         leave_tab.Name = "leave_tab"
-        leave_tab.Padding = New Padding(3)
-        leave_tab.Size = New Size(842, 503)
+        leave_tab.Padding = New Padding(4, 4, 4, 4)
+        leave_tab.Size = New Size(1267, 758)
         leave_tab.TabIndex = 5
         leave_tab.Text = "TabPage5"
         leave_tab.UseVisualStyleBackColor = True
         ' 
         ' add_leave_btn
         ' 
-        add_leave_btn.Location = New Point(708, 82)
-        add_leave_btn.Margin = New Padding(2)
+        add_leave_btn.Location = New Point(1062, 123)
         add_leave_btn.Name = "add_leave_btn"
-        add_leave_btn.Size = New Size(90, 31)
+        add_leave_btn.Size = New Size(135, 46)
         add_leave_btn.TabIndex = 23
         add_leave_btn.Text = "Add"
         add_leave_btn.UseVisualStyleBackColor = True
         ' 
         ' leave_reset_btn
         ' 
-        leave_reset_btn.Location = New Point(529, 47)
-        leave_reset_btn.Margin = New Padding(2)
+        leave_reset_btn.Location = New Point(794, 70)
         leave_reset_btn.Name = "leave_reset_btn"
-        leave_reset_btn.Size = New Size(78, 23)
+        leave_reset_btn.Size = New Size(117, 34)
         leave_reset_btn.TabIndex = 22
         leave_reset_btn.Text = "Reset"
         leave_reset_btn.UseVisualStyleBackColor = True
         ' 
         ' leave_export_btn
         ' 
-        leave_export_btn.Location = New Point(708, 47)
-        leave_export_btn.Margin = New Padding(2)
+        leave_export_btn.Location = New Point(1062, 70)
         leave_export_btn.Name = "leave_export_btn"
-        leave_export_btn.Size = New Size(90, 31)
+        leave_export_btn.Size = New Size(135, 46)
         leave_export_btn.TabIndex = 21
         leave_export_btn.Text = "Export"
         leave_export_btn.UseVisualStyleBackColor = True
         ' 
         ' leave_print_btn
         ' 
-        leave_print_btn.Location = New Point(708, 12)
-        leave_print_btn.Margin = New Padding(2)
+        leave_print_btn.Location = New Point(1062, 18)
         leave_print_btn.Name = "leave_print_btn"
-        leave_print_btn.Size = New Size(90, 31)
+        leave_print_btn.Size = New Size(135, 46)
         leave_print_btn.TabIndex = 20
         leave_print_btn.Text = "Print"
         leave_print_btn.UseVisualStyleBackColor = True
@@ -882,43 +905,48 @@ Partial Class admindashboardform
         leave_datagrid.AllowUserToResizeRows = False
         leave_datagrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         leave_datagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        leave_datagrid.Location = New Point(20, 115)
+        leave_datagrid.Location = New Point(30, 172)
+        leave_datagrid.Margin = New Padding(4, 4, 4, 4)
         leave_datagrid.Name = "leave_datagrid"
         leave_datagrid.RowHeadersWidth = 62
         leave_datagrid.RowTemplate.Height = 33
-        leave_datagrid.Size = New Size(798, 374)
+        leave_datagrid.Size = New Size(1197, 561)
         leave_datagrid.TabIndex = 19
         ' 
         ' leave_branch_cb
         ' 
         leave_branch_cb.FormattingEnabled = True
-        leave_branch_cb.Location = New Point(418, 47)
+        leave_branch_cb.Location = New Point(627, 70)
+        leave_branch_cb.Margin = New Padding(4, 4, 4, 4)
         leave_branch_cb.Name = "leave_branch_cb"
-        leave_branch_cb.Size = New Size(106, 23)
+        leave_branch_cb.Size = New Size(157, 33)
         leave_branch_cb.TabIndex = 14
         leave_branch_cb.Text = "San, Bartolome"
         ' 
         ' leave_end_date
         ' 
-        leave_end_date.Location = New Point(212, 47)
+        leave_end_date.Location = New Point(318, 70)
+        leave_end_date.Margin = New Padding(4, 4, 4, 4)
         leave_end_date.Name = "leave_end_date"
-        leave_end_date.Size = New Size(200, 23)
+        leave_end_date.Size = New Size(298, 31)
         leave_end_date.TabIndex = 13
         ' 
         ' leave_start_date
         ' 
-        leave_start_date.Location = New Point(6, 47)
+        leave_start_date.Location = New Point(9, 70)
+        leave_start_date.Margin = New Padding(4, 4, 4, 4)
         leave_start_date.Name = "leave_start_date"
-        leave_start_date.Size = New Size(200, 23)
+        leave_start_date.Size = New Size(298, 31)
         leave_start_date.TabIndex = 12
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(12, 16)
+        Label1.Location = New Point(18, 24)
+        Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
-        Label1.Size = New Size(62, 25)
+        Label1.Size = New Size(96, 40)
         Label1.TabIndex = 11
         Label1.Text = "Leave"
         ' 
@@ -927,9 +955,10 @@ Partial Class admindashboardform
         PictureBox7.BackColor = Color.Transparent
         PictureBox7.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox7.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox7.Location = New Point(631, 50)
+        PictureBox7.Location = New Point(946, 75)
+        PictureBox7.Margin = New Padding(4, 4, 4, 4)
         PictureBox7.Name = "PictureBox7"
-        PictureBox7.Size = New Size(180, 500)
+        PictureBox7.Size = New Size(270, 750)
         PictureBox7.TabIndex = 3
         PictureBox7.TabStop = False
         ' 
@@ -939,10 +968,11 @@ Partial Class admindashboardform
         dept_tab.Controls.Add(dept_gridview)
         dept_tab.Controls.Add(Label11)
         dept_tab.Controls.Add(PictureBox5)
-        dept_tab.Location = New Point(4, 24)
+        dept_tab.Location = New Point(4, 34)
+        dept_tab.Margin = New Padding(4, 4, 4, 4)
         dept_tab.Name = "dept_tab"
-        dept_tab.Padding = New Padding(3)
-        dept_tab.Size = New Size(842, 503)
+        dept_tab.Padding = New Padding(4, 4, 4, 4)
+        dept_tab.Size = New Size(1267, 758)
         dept_tab.TabIndex = 3
         dept_tab.Text = "TabPage4"
         dept_tab.UseVisualStyleBackColor = True
@@ -951,17 +981,19 @@ Partial Class admindashboardform
         ' 
         Panel12.Controls.Add(id_dept_tb)
         Panel12.Controls.Add(add_dept_btn)
-        Panel12.Location = New Point(20, 61)
+        Panel12.Location = New Point(30, 92)
+        Panel12.Margin = New Padding(4, 4, 4, 4)
         Panel12.Name = "Panel12"
-        Panel12.Size = New Size(801, 40)
+        Panel12.Size = New Size(1202, 60)
         Panel12.TabIndex = 13
         ' 
         ' id_dept_tb
         ' 
-        id_dept_tb.Location = New Point(3, 9)
+        id_dept_tb.Location = New Point(4, 14)
+        id_dept_tb.Margin = New Padding(4, 4, 4, 4)
         id_dept_tb.Name = "id_dept_tb"
         id_dept_tb.PlaceholderText = "search"
-        id_dept_tb.Size = New Size(218, 23)
+        id_dept_tb.Size = New Size(325, 31)
         id_dept_tb.TabIndex = 5
         ' 
         ' add_dept_btn
@@ -971,9 +1003,10 @@ Partial Class admindashboardform
         add_dept_btn.FlatStyle = FlatStyle.Flat
         add_dept_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         add_dept_btn.ForeColor = Color.White
-        add_dept_btn.Location = New Point(715, 10)
+        add_dept_btn.Location = New Point(1072, 15)
+        add_dept_btn.Margin = New Padding(4, 4, 4, 4)
         add_dept_btn.Name = "add_dept_btn"
-        add_dept_btn.Size = New Size(75, 23)
+        add_dept_btn.Size = New Size(112, 34)
         add_dept_btn.TabIndex = 3
         add_dept_btn.Text = "Add"
         add_dept_btn.UseVisualStyleBackColor = False
@@ -984,11 +1017,12 @@ Partial Class admindashboardform
         dept_gridview.AllowUserToDeleteRows = False
         dept_gridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dept_gridview.Columns.AddRange(New DataGridViewColumn() {Id, dep_col, dep_desc, action_col})
-        dept_gridview.Location = New Point(20, 101)
+        dept_gridview.Location = New Point(30, 152)
+        dept_gridview.Margin = New Padding(4, 4, 4, 4)
         dept_gridview.Name = "dept_gridview"
         dept_gridview.ReadOnly = True
         dept_gridview.RowHeadersWidth = 62
-        dept_gridview.Size = New Size(801, 391)
+        dept_gridview.Size = New Size(1202, 586)
         dept_gridview.TabIndex = 12
         ' 
         ' Id
@@ -1036,9 +1070,10 @@ Partial Class admindashboardform
         ' 
         Label11.AutoSize = True
         Label11.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label11.Location = New Point(6, 10)
+        Label11.Location = New Point(9, 15)
+        Label11.Margin = New Padding(4, 0, 4, 0)
         Label11.Name = "Label11"
-        Label11.Size = New Size(120, 25)
+        Label11.Size = New Size(184, 40)
         Label11.TabIndex = 11
         Label11.Text = "Department"
         ' 
@@ -1047,9 +1082,10 @@ Partial Class admindashboardform
         PictureBox5.BackColor = Color.Transparent
         PictureBox5.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox5.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox5.Location = New Point(631, 50)
+        PictureBox5.Location = New Point(946, 75)
+        PictureBox5.Margin = New Padding(4, 4, 4, 4)
         PictureBox5.Name = "PictureBox5"
-        PictureBox5.Size = New Size(180, 500)
+        PictureBox5.Size = New Size(270, 750)
         PictureBox5.TabIndex = 2
         PictureBox5.TabStop = False
         ' 
@@ -1064,40 +1100,38 @@ Partial Class admindashboardform
         report_tab.Controls.Add(report_start_date)
         report_tab.Controls.Add(Label12)
         report_tab.Controls.Add(PictureBox2)
-        report_tab.Location = New Point(4, 24)
+        report_tab.Location = New Point(4, 34)
+        report_tab.Margin = New Padding(4, 4, 4, 4)
         report_tab.Name = "report_tab"
-        report_tab.Padding = New Padding(3)
-        report_tab.Size = New Size(842, 503)
+        report_tab.Padding = New Padding(4, 4, 4, 4)
+        report_tab.Size = New Size(1267, 758)
         report_tab.TabIndex = 4
         report_tab.Text = "TabPage5"
         report_tab.UseVisualStyleBackColor = True
         ' 
         ' Button4
         ' 
-        Button4.Location = New Point(529, 48)
-        Button4.Margin = New Padding(2)
+        Button4.Location = New Point(794, 72)
         Button4.Name = "Button4"
-        Button4.Size = New Size(78, 23)
+        Button4.Size = New Size(117, 34)
         Button4.TabIndex = 22
         Button4.Text = "Reset"
         Button4.UseVisualStyleBackColor = True
         ' 
         ' Button3
         ' 
-        Button3.Location = New Point(702, 30)
-        Button3.Margin = New Padding(2)
+        Button3.Location = New Point(1053, 45)
         Button3.Name = "Button3"
-        Button3.Size = New Size(97, 31)
+        Button3.Size = New Size(146, 46)
         Button3.TabIndex = 21
         Button3.Text = "Export"
         Button3.UseVisualStyleBackColor = True
         ' 
         ' report_print_btn
         ' 
-        report_print_btn.Location = New Point(702, 65)
-        report_print_btn.Margin = New Padding(2)
+        report_print_btn.Location = New Point(1053, 98)
         report_print_btn.Name = "report_print_btn"
-        report_print_btn.Size = New Size(97, 31)
+        report_print_btn.Size = New Size(146, 46)
         report_print_btn.TabIndex = 20
         report_print_btn.Text = "Print"
         report_print_btn.UseVisualStyleBackColor = True
@@ -1111,43 +1145,48 @@ Partial Class admindashboardform
         report_grid_view.AllowUserToResizeRows = False
         report_grid_view.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         report_grid_view.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        report_grid_view.Location = New Point(20, 115)
+        report_grid_view.Location = New Point(30, 172)
+        report_grid_view.Margin = New Padding(4, 4, 4, 4)
         report_grid_view.Name = "report_grid_view"
         report_grid_view.RowHeadersWidth = 62
         report_grid_view.RowTemplate.Height = 33
-        report_grid_view.Size = New Size(798, 374)
+        report_grid_view.Size = New Size(1197, 561)
         report_grid_view.TabIndex = 19
         ' 
         ' report_brach_cb
         ' 
         report_brach_cb.FormattingEnabled = True
-        report_brach_cb.Location = New Point(418, 47)
+        report_brach_cb.Location = New Point(627, 70)
+        report_brach_cb.Margin = New Padding(4, 4, 4, 4)
         report_brach_cb.Name = "report_brach_cb"
-        report_brach_cb.Size = New Size(106, 23)
+        report_brach_cb.Size = New Size(157, 33)
         report_brach_cb.TabIndex = 14
         report_brach_cb.Text = "San, Bartolome"
         ' 
         ' report_end_date
         ' 
-        report_end_date.Location = New Point(212, 47)
+        report_end_date.Location = New Point(318, 70)
+        report_end_date.Margin = New Padding(4, 4, 4, 4)
         report_end_date.Name = "report_end_date"
-        report_end_date.Size = New Size(200, 23)
+        report_end_date.Size = New Size(298, 31)
         report_end_date.TabIndex = 13
         ' 
         ' report_start_date
         ' 
-        report_start_date.Location = New Point(6, 47)
+        report_start_date.Location = New Point(9, 70)
+        report_start_date.Margin = New Padding(4, 4, 4, 4)
         report_start_date.Name = "report_start_date"
-        report_start_date.Size = New Size(200, 23)
+        report_start_date.Size = New Size(298, 31)
         report_start_date.TabIndex = 12
         ' 
         ' Label12
         ' 
         Label12.AutoSize = True
         Label12.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
-        Label12.Location = New Point(9, 13)
+        Label12.Location = New Point(14, 20)
+        Label12.Margin = New Padding(4, 0, 4, 0)
         Label12.Name = "Label12"
-        Label12.Size = New Size(74, 25)
+        Label12.Size = New Size(111, 40)
         Label12.TabIndex = 11
         Label12.Text = "Report"
         ' 
@@ -1156,9 +1195,10 @@ Partial Class admindashboardform
         PictureBox2.BackColor = Color.Transparent
         PictureBox2.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox2.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBox2.Location = New Point(631, 50)
+        PictureBox2.Location = New Point(946, 75)
+        PictureBox2.Margin = New Padding(4, 4, 4, 4)
         PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(180, 500)
+        PictureBox2.Size = New Size(270, 750)
         PictureBox2.TabIndex = 3
         PictureBox2.TabStop = False
         ' 
@@ -1166,22 +1206,23 @@ Partial Class admindashboardform
         ' 
         Panel1.BackColor = Color.Transparent
         Panel1.Dock = DockStyle.Top
-        Panel1.Location = New Point(160, 0)
+        Panel1.Location = New Point(240, 0)
         Panel1.Margin = New Padding(0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(810, 23)
+        Panel1.Size = New Size(1215, 74)
         Panel1.TabIndex = 3
         ' 
         ' admindashboardform
         ' 
-        AutoScaleDimensions = New SizeF(96F, 96F)
+        AutoScaleDimensions = New SizeF(144F, 144F)
         AutoScaleMode = AutoScaleMode.Dpi
         AutoSize = True
-        ClientSize = New Size(970, 473)
+        ClientSize = New Size(1455, 710)
         Controls.Add(Panel1)
         Controls.Add(TabControl1)
         Controls.Add(nav_panel)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
+        Margin = New Padding(4, 4, 4, 4)
         MaximizeBox = False
         Name = "admindashboardform"
         StartPosition = FormStartPosition.CenterScreen

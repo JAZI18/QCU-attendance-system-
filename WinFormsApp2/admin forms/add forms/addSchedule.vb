@@ -94,6 +94,8 @@ Public Class addSchedule
         Catch ex As Exception
             MsgBox("Error during database insertion: " & ex.Message)
         End Try
+
+        FillDatagrid(sched_datagrid, NewQuery("select * from emp_sched_view where `Employee ID` = @id ", {empid}))
     End Sub
 
     Private Function ValidateTime(timeString As String) As Boolean
@@ -175,7 +177,6 @@ Public Class addSchedule
         ' Hide the panel
         start_time_selector_panel.Visible = False
 
-        FillDatagrid(sched_datagrid, NewQuery("select * from emp_sched_view where `Employee ID` = @id ", {empid}))
     End Sub
 
 
@@ -202,7 +203,6 @@ Public Class addSchedule
         ' Hide the panel
         end_time_selector_panel.Visible = False
 
-        FillDatagrid(sched_datagrid, NewQuery("select * from emp_sched_view where `Employee ID` = @id ", {empid}))
     End Sub
 
 
