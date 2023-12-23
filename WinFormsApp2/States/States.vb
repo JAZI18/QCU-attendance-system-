@@ -92,7 +92,7 @@ Namespace Erenjhun.Utils
         Public Overrides Sub Enter()
             Start_timer(Sub()
                             ChangeState("FindingState")
-                        End Sub, "unlocking face", 500)
+                        End Sub, "unlocking face", 700)
         End Sub
     End Class
 

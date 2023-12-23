@@ -1,12 +1,16 @@
-﻿Imports MySql.Data.MySqlClient
+﻿
+Imports MySql.Data.MySqlClient
 Imports WinFormsApp2.Erenjhun.Utils
 
 
-Public Class mainform
+Public Class Mainform
 
 
     Dim facerecog As FaceRecognition
-    Dim last_attendance_id = -1
+    Friend Shared BRANCH As String
+    Const SCHED_LB_TXT As String = "--:-- -- to --:-- --"
+
+
 
     Private Sub Insert_attendance()
 
@@ -24,9 +28,14 @@ Public Class mainform
                 Exit Try
             End If
 
-            InsertQuery("emp_attendance", "employee_id,workday,date,time_in,time_out", {
-              id, Now.ToString("dddd"), Now, tin, tout
-        })
+            NewQuery("insert into emp_attendance (employee_id,workday,date,time_in,time_out,branch_id)
+                        values (@ei,@wd,@d,@ti,@to, (select branch_id from qcu_branches where branch_name = @bn limit 1)   )
+                ", {id, Now.ToString("dddd"), Now, tin, tout, branch_lb.Text}).ExecuteNonQuery()
+
+
+            '    InsertQuery("emp_attendance", "employee_id,workday,date,time_in,time_out,branch_id", {
+            '      id, Now.ToString("dddd"), Now, tin, tout
+            '})
 
             MessageBox.Show(Me, $"SUCCESS!!! TIME {If(tout = "", "IN", "OUT")} : {If(tout = "", tin, tout)}", $"TIME {If(tout = "", "IN", "OUT")}", MessageBoxButtons.OK)
         Catch ex As Exception
@@ -50,16 +59,18 @@ Public Class mainform
                                     End Sub
     End Sub
 
-    Private Sub cam_pic_box_Click(sender As Object, e As EventArgs) Handles cam_pic_box.Click
+    Private Sub Cam_pic_box_Click(sender As Object, e As EventArgs) Handles cam_pic_box.Click
         Dim username = InputBox("Your name:", "Enter your name") 'get the user name
         facerecog.Enroll_face(facerecog.face_id, username)
     End Sub
 
 
-    Private Sub mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub Mainform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         update_date_time_labels()
+        branch_lb.Text = BRANCH
+
+
 
         facerecog = New FaceRecognition({
                                         New MainformStates.FindingState(),
@@ -68,7 +79,6 @@ Public Class mainform
                                         New FoundState(),
                                         New UnlockingState()
                                         }, Me, cam_pic_box)
-
         facerecog.Init()
 
         While True
@@ -96,10 +106,10 @@ Public Class mainform
 
     Public Sub Face_detected(image_tag_name)
         employee_id_tb.Text = image_tag_name
-        fetch_all()
+        Fetch_all()
     End Sub
 
-    Private Sub employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_code_tb.KeyDown
+    Private Sub Employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_code_tb.KeyDown
 
         Dim emp_code As String = ""
 
@@ -122,24 +132,25 @@ Public Class mainform
     End Sub
 
 
-    Private Sub mainform_back_btn_(sender As Object, e As EventArgs) Handles mainform_back_btn.Click
+    Private Sub Mainform_back_btn_(sender As Object, e As EventArgs) Handles mainform_back_btn.Click
         staffadminbtns.Show()
         Close()
     End Sub
 
 
-    Private Sub employee_id_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_id_tb.KeyDown
+    Private Sub Employee_id_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_id_tb.KeyDown
         If e.KeyCode = Keys.Enter Then
-            fetch_all()
+            Fetch_all()
         End If
     End Sub
 
-    Private Sub fetch_all()
+    Private Sub Fetch_all()
         Try
+            'check first if the employee has a schedule today in this branch
             Fetch_employee_details(employee_id_tb.Text)
             Fetch_employee_scheds(employee_id_tb.Text)
         Catch ex As Exception
-            MsgBox($"ooops cannot load details! \n {ex.Message}", MsgBoxStyle.OkOnly, "something went wrong!")
+            MessageBox.Show(ex.Message, "FETCH DETAILS", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Refresh_fields()
         End Try
 
@@ -157,6 +168,7 @@ Public Class mainform
 
                 If res = DialogResult.No Then
                     Refresh_fields()
+                    facerecog.Refresh()
                     Exit Sub
                 End If
 
@@ -169,29 +181,22 @@ Public Class mainform
         Dim reader As MySqlDataReader = SelectQuery("*", "employee_info", {id}, "employee_id = @id")
 
         If reader.Read() Then
-
-
-
-
-
             fullname_lb.Text = $"{reader("last_name")}, {reader("first_name")} {reader("middle_name").substring(0, 1)}."
             Dim time_in = selectScalarQuery("CASE WHEN time_in IS  NULL THEN  'null'  ELSE time_in  END AS timed_in", "emp_attendance", {id}, "employee_id  = @eid AND emp_attendance.date = CURDATE()")
             Dim ntime_in = If(time_in = Nothing, Now, CDate(time_in)).ToString("hh:mm tt")
-
-
-
             time_in_tb.Text = ntime_in
             time_out_tb.Text = If(time_in = Nothing, "", Now.ToString("hh:mm tt"))
             Exit Sub
         End If
+
         EmpNotFound()
     End Sub
 
 
     Sub EmpNotFound()
-        MsgBox("not found", MsgBoxStyle.Exclamation, "ooops!")
         Refresh_fields()
-        facerecog.unenroll_face()
+        facerecog.Unenroll_face()
+        Throw New Exception("NOT FOUND!")
     End Sub
 
     Public Sub Refresh_fields()
@@ -201,15 +206,28 @@ Public Class mainform
         time_in_tb.Clear()
         time_out_tb.Clear()
         fullname_lb.Text = "--------,----- ------"
-        sched_lb.Text = "--:-- -- to --:-- --"
-        facerecog.Refresh()
+        sched_lb.Text = SCHED_LB_TXT
     End Sub
 
 
     Sub Fetch_employee_scheds(id As String)
-        Dim reader As MySqlDataReader = SelectQuery("*", "employee_schedule", {id}, "employee_id     = @id")
+        Dim reader As MySqlDataReader = SelectQuery("*", "emp_sched_view", {id}, "'Employee ID' = @id and workday = dayname(curdate())")
+
+        Dim branch_t As String = ""
+
         If reader.Read() Then
-            sched_lb.Text = $"{New DateTime(1, 1, 1).Add(reader("shift_start_time")).ToString("hh:mm tt")} to {New DateTime(1, 1, 1).Add(reader("shift_end_time")).ToString("hh:mm tt")}"
+            branch_t = reader("branch")
+
+            If (String.Compare(BRANCH, branch_t, True) <> 0) Then
+                Throw New Exception("You have no schedule in this branch today branch do not match")
+                Return
+            End If
+
+            sched_lb.Text = $"{reader("shift start time")} to {reader("shift end time")}"
+        End If
+
+        If (branch_lb.Text = sched_lb.Text = SCHED_LB_TXT) Then
+            Throw New Exception("You have no schedule in this branch today nonono")
         End If
     End Sub
 
