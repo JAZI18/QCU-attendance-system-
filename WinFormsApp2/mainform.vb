@@ -218,15 +218,16 @@ Public Class Mainform
         If reader.Read() Then
             branch_t = reader("branch")
 
-            If (String.Compare(BRANCH, branch_t, True) <> 0) Then
-                Throw New Exception("You have no schedule in this branch today branch do not match")
-                Return
-            End If
+           
 
             sched_lb.Text = $"{reader("shift start time")} to {reader("shift end time")}"
         End If
 
-        If (branch_lb.Text = sched_lb.Text = SCHED_LB_TXT) Then
+          If (String.Compare(BRANCH, branch_t, True) <> 0) Then
+                Throw New Exception("You have no schedule in this branch today branch do not match")
+                Return
+            End If                                   
+        If (sched_lb.Text = SCHED_LB_TXT) Then
             Throw New Exception("You have no schedule in this branch today nonono")
         End If
     End Sub
