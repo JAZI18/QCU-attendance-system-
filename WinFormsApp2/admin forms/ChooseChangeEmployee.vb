@@ -32,6 +32,7 @@
             admindashboardform.updateEmpployeeGrid()
             MessageBox.Show("Employee deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
             admindashboardform.Enabled = True
+            admindashboardform.Focus()
             Me.Close()
         Else
             ' User canceled deletion

@@ -312,7 +312,7 @@ Partial Class admindashboardform
         Panel3.BackColor = Color.FromArgb(CByte(209), CByte(210), CByte(210))
         Panel3.Controls.Add(PictureBox1)
         Panel3.Location = New Point(15, 15)
-        Panel3.Margin = New Padding(4, 4, 4, 4)
+        Panel3.Margin = New Padding(4)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(195, 165)
         Panel3.TabIndex = 0
@@ -323,7 +323,7 @@ Partial Class admindashboardform
         PictureBox1.Dock = DockStyle.Fill
         PictureBox1.Image = My.Resources.Resources.qcu
         PictureBox1.Location = New Point(0, 0)
-        PictureBox1.Margin = New Padding(4, 4, 4, 4)
+        PictureBox1.Margin = New Padding(4)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(195, 165)
         PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
@@ -367,9 +367,9 @@ Partial Class admindashboardform
         brach_tab.Controls.Add(Label9)
         brach_tab.Controls.Add(PictureBox4)
         brach_tab.Location = New Point(4, 34)
-        brach_tab.Margin = New Padding(4, 4, 4, 4)
+        brach_tab.Margin = New Padding(4)
         brach_tab.Name = "brach_tab"
-        brach_tab.Padding = New Padding(4, 4, 4, 4)
+        brach_tab.Padding = New Padding(4)
         brach_tab.Size = New Size(1267, 758)
         brach_tab.TabIndex = 2
         brach_tab.Text = "TabPage3"
@@ -425,7 +425,7 @@ Partial Class admindashboardform
         sanfrancisco_branch_btn.FlatStyle = FlatStyle.Flat
         sanfrancisco_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         sanfrancisco_branch_btn.Location = New Point(672, 75)
-        sanfrancisco_branch_btn.Margin = New Padding(4, 4, 4, 4)
+        sanfrancisco_branch_btn.Margin = New Padding(4)
         sanfrancisco_branch_btn.Name = "sanfrancisco_branch_btn"
         sanfrancisco_branch_btn.Size = New Size(255, 90)
         sanfrancisco_branch_btn.TabIndex = 15
@@ -439,7 +439,7 @@ Partial Class admindashboardform
         batasan_branch_btn.FlatStyle = FlatStyle.Flat
         batasan_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         batasan_branch_btn.Location = New Point(398, 75)
-        batasan_branch_btn.Margin = New Padding(4, 4, 4, 4)
+        batasan_branch_btn.Margin = New Padding(4)
         batasan_branch_btn.Name = "batasan_branch_btn"
         batasan_branch_btn.Size = New Size(255, 90)
         batasan_branch_btn.TabIndex = 14
@@ -453,7 +453,7 @@ Partial Class admindashboardform
         sanbartolome_branch_btn.FlatStyle = FlatStyle.Flat
         sanbartolome_branch_btn.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
         sanbartolome_branch_btn.Location = New Point(123, 75)
-        sanbartolome_branch_btn.Margin = New Padding(4, 4, 4, 4)
+        sanbartolome_branch_btn.Margin = New Padding(4)
         sanbartolome_branch_btn.Name = "sanbartolome_branch_btn"
         sanbartolome_branch_btn.Size = New Size(255, 90)
         sanbartolome_branch_btn.TabIndex = 13
@@ -466,7 +466,7 @@ Partial Class admindashboardform
         Panel10.BackColor = Color.Red
         Panel10.ForeColor = Color.Black
         Panel10.Location = New Point(662, 75)
-        Panel10.Margin = New Padding(4, 4, 4, 4)
+        Panel10.Margin = New Padding(4)
         Panel10.Name = "Panel10"
         Panel10.Size = New Size(8, 90)
         Panel10.TabIndex = 12
@@ -476,7 +476,7 @@ Partial Class admindashboardform
         Panel9.BackColor = Color.Yellow
         Panel9.ForeColor = Color.Black
         Panel9.Location = New Point(387, 75)
-        Panel9.Margin = New Padding(4, 4, 4, 4)
+        Panel9.Margin = New Padding(4)
         Panel9.Name = "Panel9"
         Panel9.Size = New Size(8, 90)
         Panel9.TabIndex = 12
@@ -486,7 +486,7 @@ Partial Class admindashboardform
         Panel8.BackColor = Color.Blue
         Panel8.ForeColor = Color.Black
         Panel8.Location = New Point(116, 75)
-        Panel8.Margin = New Padding(4, 4, 4, 4)
+        Panel8.Margin = New Padding(4)
         Panel8.Name = "Panel8"
         Panel8.Size = New Size(8, 90)
         Panel8.TabIndex = 11
@@ -508,7 +508,7 @@ Partial Class admindashboardform
         PictureBox4.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox4.BackgroundImageLayout = ImageLayout.Stretch
         PictureBox4.Location = New Point(946, 75)
-        PictureBox4.Margin = New Padding(4, 4, 4, 4)
+        PictureBox4.Margin = New Padding(4)
         PictureBox4.Name = "PictureBox4"
         PictureBox4.Size = New Size(270, 750)
         PictureBox4.TabIndex = 1
@@ -521,9 +521,9 @@ Partial Class admindashboardform
         employees_tab.Controls.Add(employee_grid_view)
         employees_tab.Controls.Add(PictureBox3)
         employees_tab.Location = New Point(4, 34)
-        employees_tab.Margin = New Padding(4, 4, 4, 4)
+        employees_tab.Margin = New Padding(4)
         employees_tab.Name = "employees_tab"
-        employees_tab.Padding = New Padding(4, 4, 4, 4)
+        employees_tab.Padding = New Padding(4)
         employees_tab.Size = New Size(1267, 758)
         employees_tab.TabIndex = 1
         employees_tab.Text = "TabPage2"
@@ -538,7 +538,7 @@ Partial Class admindashboardform
         Panel7.Controls.Add(add_employees_btn)
         Panel7.Controls.Add(id_employees_tb)
         Panel7.Location = New Point(30, 92)
-        Panel7.Margin = New Padding(4, 4, 4, 4)
+        Panel7.Margin = New Padding(4)
         Panel7.Name = "Panel7"
         Panel7.Size = New Size(1202, 60)
         Panel7.TabIndex = 10
@@ -551,7 +551,7 @@ Partial Class admindashboardform
         v_absent.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         v_absent.ForeColor = Color.White
         v_absent.Location = New Point(916, 12)
-        v_absent.Margin = New Padding(4, 4, 4, 4)
+        v_absent.Margin = New Padding(4)
         v_absent.Name = "v_absent"
         v_absent.Size = New Size(147, 36)
         v_absent.TabIndex = 14
@@ -561,7 +561,7 @@ Partial Class admindashboardform
         ' clear_filter_btn
         ' 
         clear_filter_btn.Location = New Point(795, 12)
-        clear_filter_btn.Margin = New Padding(4, 4, 4, 4)
+        clear_filter_btn.Margin = New Padding(4)
         clear_filter_btn.Name = "clear_filter_btn"
         clear_filter_btn.Size = New Size(112, 34)
         clear_filter_btn.TabIndex = 13
@@ -598,7 +598,7 @@ Partial Class admindashboardform
         add_employees_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         add_employees_btn.ForeColor = Color.White
         add_employees_btn.Location = New Point(1072, 15)
-        add_employees_btn.Margin = New Padding(4, 4, 4, 4)
+        add_employees_btn.Margin = New Padding(4)
         add_employees_btn.Name = "add_employees_btn"
         add_employees_btn.Size = New Size(112, 34)
         add_employees_btn.TabIndex = 3
@@ -608,7 +608,7 @@ Partial Class admindashboardform
         ' id_employees_tb
         ' 
         id_employees_tb.Location = New Point(4, 14)
-        id_employees_tb.Margin = New Padding(4, 4, 4, 4)
+        id_employees_tb.Margin = New Padding(4)
         id_employees_tb.Name = "id_employees_tb"
         id_employees_tb.PlaceholderText = "search"
         id_employees_tb.Size = New Size(325, 31)
@@ -632,7 +632,7 @@ Partial Class admindashboardform
         employee_grid_view.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         employee_grid_view.Columns.AddRange(New DataGridViewColumn() {id_col, name_col, shift_col, gender_col, dob_col, hired_col, act_col})
         employee_grid_view.Location = New Point(30, 150)
-        employee_grid_view.Margin = New Padding(4, 4, 4, 4)
+        employee_grid_view.Margin = New Padding(4)
         employee_grid_view.Name = "employee_grid_view"
         employee_grid_view.ReadOnly = True
         employee_grid_view.RowHeadersWidth = 62
@@ -709,7 +709,7 @@ Partial Class admindashboardform
         PictureBox3.BackColor = Color.Transparent
         PictureBox3.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox3.Location = New Point(946, 75)
-        PictureBox3.Margin = New Padding(4, 4, 4, 4)
+        PictureBox3.Margin = New Padding(4)
         PictureBox3.Name = "PictureBox3"
         PictureBox3.Size = New Size(270, 750)
         PictureBox3.TabIndex = 1
@@ -725,9 +725,9 @@ Partial Class admindashboardform
         dashboard_tab.Controls.Add(main_total_stat)
         dashboard_tab.Controls.Add(PictureBox6)
         dashboard_tab.Location = New Point(4, 34)
-        dashboard_tab.Margin = New Padding(4, 4, 4, 4)
+        dashboard_tab.Margin = New Padding(4)
         dashboard_tab.Name = "dashboard_tab"
-        dashboard_tab.Padding = New Padding(4, 4, 4, 4)
+        dashboard_tab.Padding = New Padding(4)
         dashboard_tab.Size = New Size(1267, 758)
         dashboard_tab.TabIndex = 0
         dashboard_tab.Text = "TabPage1"
@@ -802,7 +802,7 @@ Partial Class admindashboardform
         PictureBox6.BackColor = Color.Transparent
         PictureBox6.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox6.Location = New Point(946, 75)
-        PictureBox6.Margin = New Padding(4, 4, 4, 4)
+        PictureBox6.Margin = New Padding(4)
         PictureBox6.Name = "PictureBox6"
         PictureBox6.Size = New Size(270, 750)
         PictureBox6.SizeMode = PictureBoxSizeMode.StretchImage
@@ -834,7 +834,7 @@ Partial Class admindashboardform
         TabControl1.Controls.Add(dept_tab)
         TabControl1.Controls.Add(report_tab)
         TabControl1.Location = New Point(240, 39)
-        TabControl1.Margin = New Padding(4, 4, 4, 4)
+        TabControl1.Margin = New Padding(4)
         TabControl1.Name = "TabControl1"
         TabControl1.SelectedIndex = 0
         TabControl1.Size = New Size(1275, 796)
@@ -853,9 +853,9 @@ Partial Class admindashboardform
         leave_tab.Controls.Add(Label1)
         leave_tab.Controls.Add(PictureBox7)
         leave_tab.Location = New Point(4, 34)
-        leave_tab.Margin = New Padding(4, 4, 4, 4)
+        leave_tab.Margin = New Padding(4)
         leave_tab.Name = "leave_tab"
-        leave_tab.Padding = New Padding(4, 4, 4, 4)
+        leave_tab.Padding = New Padding(4)
         leave_tab.Size = New Size(1267, 758)
         leave_tab.TabIndex = 5
         leave_tab.Text = "TabPage5"
@@ -906,7 +906,7 @@ Partial Class admindashboardform
         leave_datagrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         leave_datagrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         leave_datagrid.Location = New Point(30, 172)
-        leave_datagrid.Margin = New Padding(4, 4, 4, 4)
+        leave_datagrid.Margin = New Padding(4)
         leave_datagrid.Name = "leave_datagrid"
         leave_datagrid.RowHeadersWidth = 62
         leave_datagrid.RowTemplate.Height = 33
@@ -917,7 +917,7 @@ Partial Class admindashboardform
         ' 
         leave_branch_cb.FormattingEnabled = True
         leave_branch_cb.Location = New Point(627, 70)
-        leave_branch_cb.Margin = New Padding(4, 4, 4, 4)
+        leave_branch_cb.Margin = New Padding(4)
         leave_branch_cb.Name = "leave_branch_cb"
         leave_branch_cb.Size = New Size(157, 33)
         leave_branch_cb.TabIndex = 14
@@ -926,7 +926,7 @@ Partial Class admindashboardform
         ' leave_end_date
         ' 
         leave_end_date.Location = New Point(318, 70)
-        leave_end_date.Margin = New Padding(4, 4, 4, 4)
+        leave_end_date.Margin = New Padding(4)
         leave_end_date.Name = "leave_end_date"
         leave_end_date.Size = New Size(298, 31)
         leave_end_date.TabIndex = 13
@@ -934,7 +934,7 @@ Partial Class admindashboardform
         ' leave_start_date
         ' 
         leave_start_date.Location = New Point(9, 70)
-        leave_start_date.Margin = New Padding(4, 4, 4, 4)
+        leave_start_date.Margin = New Padding(4)
         leave_start_date.Name = "leave_start_date"
         leave_start_date.Size = New Size(298, 31)
         leave_start_date.TabIndex = 12
@@ -956,7 +956,7 @@ Partial Class admindashboardform
         PictureBox7.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox7.BackgroundImageLayout = ImageLayout.Stretch
         PictureBox7.Location = New Point(946, 75)
-        PictureBox7.Margin = New Padding(4, 4, 4, 4)
+        PictureBox7.Margin = New Padding(4)
         PictureBox7.Name = "PictureBox7"
         PictureBox7.Size = New Size(270, 750)
         PictureBox7.TabIndex = 3
@@ -969,9 +969,9 @@ Partial Class admindashboardform
         dept_tab.Controls.Add(Label11)
         dept_tab.Controls.Add(PictureBox5)
         dept_tab.Location = New Point(4, 34)
-        dept_tab.Margin = New Padding(4, 4, 4, 4)
+        dept_tab.Margin = New Padding(4)
         dept_tab.Name = "dept_tab"
-        dept_tab.Padding = New Padding(4, 4, 4, 4)
+        dept_tab.Padding = New Padding(4)
         dept_tab.Size = New Size(1267, 758)
         dept_tab.TabIndex = 3
         dept_tab.Text = "TabPage4"
@@ -982,7 +982,7 @@ Partial Class admindashboardform
         Panel12.Controls.Add(id_dept_tb)
         Panel12.Controls.Add(add_dept_btn)
         Panel12.Location = New Point(30, 92)
-        Panel12.Margin = New Padding(4, 4, 4, 4)
+        Panel12.Margin = New Padding(4)
         Panel12.Name = "Panel12"
         Panel12.Size = New Size(1202, 60)
         Panel12.TabIndex = 13
@@ -990,7 +990,7 @@ Partial Class admindashboardform
         ' id_dept_tb
         ' 
         id_dept_tb.Location = New Point(4, 14)
-        id_dept_tb.Margin = New Padding(4, 4, 4, 4)
+        id_dept_tb.Margin = New Padding(4)
         id_dept_tb.Name = "id_dept_tb"
         id_dept_tb.PlaceholderText = "search"
         id_dept_tb.Size = New Size(325, 31)
@@ -1004,7 +1004,7 @@ Partial Class admindashboardform
         add_dept_btn.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         add_dept_btn.ForeColor = Color.White
         add_dept_btn.Location = New Point(1072, 15)
-        add_dept_btn.Margin = New Padding(4, 4, 4, 4)
+        add_dept_btn.Margin = New Padding(4)
         add_dept_btn.Name = "add_dept_btn"
         add_dept_btn.Size = New Size(112, 34)
         add_dept_btn.TabIndex = 3
@@ -1018,7 +1018,7 @@ Partial Class admindashboardform
         dept_gridview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dept_gridview.Columns.AddRange(New DataGridViewColumn() {Id, dep_col, dep_desc, action_col})
         dept_gridview.Location = New Point(30, 152)
-        dept_gridview.Margin = New Padding(4, 4, 4, 4)
+        dept_gridview.Margin = New Padding(4)
         dept_gridview.Name = "dept_gridview"
         dept_gridview.ReadOnly = True
         dept_gridview.RowHeadersWidth = 62
@@ -1083,7 +1083,7 @@ Partial Class admindashboardform
         PictureBox5.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox5.BackgroundImageLayout = ImageLayout.Stretch
         PictureBox5.Location = New Point(946, 75)
-        PictureBox5.Margin = New Padding(4, 4, 4, 4)
+        PictureBox5.Margin = New Padding(4)
         PictureBox5.Name = "PictureBox5"
         PictureBox5.Size = New Size(270, 750)
         PictureBox5.TabIndex = 2
@@ -1101,9 +1101,9 @@ Partial Class admindashboardform
         report_tab.Controls.Add(Label12)
         report_tab.Controls.Add(PictureBox2)
         report_tab.Location = New Point(4, 34)
-        report_tab.Margin = New Padding(4, 4, 4, 4)
+        report_tab.Margin = New Padding(4)
         report_tab.Name = "report_tab"
-        report_tab.Padding = New Padding(4, 4, 4, 4)
+        report_tab.Padding = New Padding(4)
         report_tab.Size = New Size(1267, 758)
         report_tab.TabIndex = 4
         report_tab.Text = "TabPage5"
@@ -1143,10 +1143,10 @@ Partial Class admindashboardform
         report_grid_view.AllowUserToOrderColumns = True
         report_grid_view.AllowUserToResizeColumns = False
         report_grid_view.AllowUserToResizeRows = False
-        report_grid_view.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        report_grid_view.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         report_grid_view.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         report_grid_view.Location = New Point(30, 172)
-        report_grid_view.Margin = New Padding(4, 4, 4, 4)
+        report_grid_view.Margin = New Padding(4)
         report_grid_view.Name = "report_grid_view"
         report_grid_view.RowHeadersWidth = 62
         report_grid_view.RowTemplate.Height = 33
@@ -1157,7 +1157,7 @@ Partial Class admindashboardform
         ' 
         report_brach_cb.FormattingEnabled = True
         report_brach_cb.Location = New Point(627, 70)
-        report_brach_cb.Margin = New Padding(4, 4, 4, 4)
+        report_brach_cb.Margin = New Padding(4)
         report_brach_cb.Name = "report_brach_cb"
         report_brach_cb.Size = New Size(157, 33)
         report_brach_cb.TabIndex = 14
@@ -1166,7 +1166,7 @@ Partial Class admindashboardform
         ' report_end_date
         ' 
         report_end_date.Location = New Point(318, 70)
-        report_end_date.Margin = New Padding(4, 4, 4, 4)
+        report_end_date.Margin = New Padding(4)
         report_end_date.Name = "report_end_date"
         report_end_date.Size = New Size(298, 31)
         report_end_date.TabIndex = 13
@@ -1174,7 +1174,7 @@ Partial Class admindashboardform
         ' report_start_date
         ' 
         report_start_date.Location = New Point(9, 70)
-        report_start_date.Margin = New Padding(4, 4, 4, 4)
+        report_start_date.Margin = New Padding(4)
         report_start_date.Name = "report_start_date"
         report_start_date.Size = New Size(298, 31)
         report_start_date.TabIndex = 12
@@ -1196,7 +1196,7 @@ Partial Class admindashboardform
         PictureBox2.BackgroundImage = My.Resources.Resources.tower_na_malupet_removebg_preview
         PictureBox2.BackgroundImageLayout = ImageLayout.Stretch
         PictureBox2.Location = New Point(946, 75)
-        PictureBox2.Margin = New Padding(4, 4, 4, 4)
+        PictureBox2.Margin = New Padding(4)
         PictureBox2.Name = "PictureBox2"
         PictureBox2.Size = New Size(270, 750)
         PictureBox2.TabIndex = 3
@@ -1222,7 +1222,7 @@ Partial Class admindashboardform
         Controls.Add(TabControl1)
         Controls.Add(nav_panel)
         FormBorderStyle = FormBorderStyle.FixedToolWindow
-        Margin = New Padding(4, 4, 4, 4)
+        Margin = New Padding(4)
         MaximizeBox = False
         Name = "admindashboardform"
         StartPosition = FormStartPosition.CenterScreen

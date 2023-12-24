@@ -314,6 +314,7 @@ Partial Class addEmployee
         FormBorderStyle = FormBorderStyle.FixedToolWindow
         Name = "addEmployee"
         StartPosition = FormStartPosition.CenterScreen
+        TopMost = True
         Panel1.ResumeLayout(False)
         CType(cam_pic_box, ComponentModel.ISupportInitialize).EndInit()
         TableLayoutPanel1.ResumeLayout(False)

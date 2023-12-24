@@ -215,6 +215,7 @@ Partial Class Mainform
         time_out_tb.Location = New Point(0, 0)
         time_out_tb.Margin = New Padding(4, 5, 4, 5)
         time_out_tb.Name = "time_out_tb"
+        time_out_tb.ReadOnly = True
         time_out_tb.Size = New Size(623, 53)
         time_out_tb.TabIndex = 1
         ' 
@@ -289,6 +290,7 @@ Partial Class Mainform
         time_in_tb.Font = New Font("Segoe UI", 34F, FontStyle.Regular, GraphicsUnit.Pixel)
         time_in_tb.Location = New Point(0, 0)
         time_in_tb.Name = "time_in_tb"
+        time_in_tb.ReadOnly = True
         time_in_tb.Size = New Size(623, 53)
         time_in_tb.TabIndex = 2
         ' 
@@ -1034,7 +1036,7 @@ Partial Class Mainform
         PictureBox7.TabIndex = 2
         PictureBox7.TabStop = False
         ' 
-        ' mainform
+        ' Mainform
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
@@ -1042,7 +1044,7 @@ Partial Class Mainform
         Controls.Add(TableLayoutPanel5)
         FormBorderStyle = FormBorderStyle.None
         Margin = New Padding(4, 5, 4, 5)
-        Name = "mainform"
+        Name = "Mainform"
         StartPosition = FormStartPosition.CenterScreen
         Text = "mainform"
         WindowState = FormWindowState.Maximized

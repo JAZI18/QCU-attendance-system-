@@ -36,10 +36,7 @@ Public Class addEmployee
         ' Generate a random four-digit number
         Dim random As New Random()
         Dim randomNumber As Integer = random.Next(1000, 10000)
-
-
         Dim employeeCode As String = $"{yearCode}-{randomNumber:0000}"
-
         Return employeeCode
     End Function
 
@@ -49,9 +46,11 @@ Public Class addEmployee
         End If
         Dim empcode As String = GenerateEmployeeCode()
         Try
-            InsertQuery("employee_info", "employee_id,first_name,middle_name,last_name,dob,gender,department_id,email",
+            InsertQuery("employee_info", "employee_id,first_name,middle_name,last_name,dob,gender,department_id,email,employee_code",
         {empcode, e_firstname.Text, e_middlename.Text, e_lastname.Text, e_date.Value.ToString("yyyy/MM/dd"),
-         e_gender.SelectedItem.ToString, selectDepartment(), e_email.Text})
+         e_gender.SelectedItem.ToString, selectDepartment(), e_email.Text, empcode})
+
+
             MessageBox.Show("Record inserted successfully.", "add", MessageBoxButtons.OK)
 
             admindashboardform.updateEmpployeeGrid()
@@ -73,22 +72,28 @@ Public Class addEmployee
         ListDepartment()
         e_gender.SelectedIndex = 0
 
+        facerecog = New FaceRecognition({
+                                        New AddEmpformStates.FindingState(),
+                                        New AddEmpformStates.UnrecognizedFaceFoundState(),
+                                        New AddEmpformStates.RecognizedFaceFoundState(),
+                                        New FoundState(),
+                                        New UnlockingState()
+                                        }, Me, cam_pic_box)
 
-        facerecog = admindashboardform.facerecog
+
+        facerecog.Init()
+        facerecog.Create_tracker()
 
         Start_timer(Sub()
                         facerecog.Start_cam()
                         facerecog.Run()
-                    End Sub, "s2")
+                    End Sub, "s2", 300)
     End Sub
 
     Private Sub addEmployee_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         facerecog.Close_cam()
-        facerecog.Save_tracker()
-        MsgBox("saving!")
+        admindashboardform.Enabled = True
+        admindashboardform.Focus()
     End Sub
 
-    Private Sub e_Click(sender As Object, e As EventArgs) Handles e.Click
-
-    End Sub
 End Class

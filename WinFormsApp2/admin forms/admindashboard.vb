@@ -9,27 +9,22 @@ Public Class admindashboardform
 
     Private brach_last_s_btn As Button
 
-    Friend facerecog As FaceRecognition = New FaceRecognition({
-                                        New AddEmpformStates.FindingState(),
-                                        New AddEmpformStates.UnrecognizedFaceFoundState(),
-                                        New AddEmpformStates.RecognizedFaceFoundState(),
-                                        New FoundState(),
-                                        New UnlockingState()
-                                        }, addEmployee, addEmployee.cam_pic_box)
+
+
     Private WithEvents printDocument As New Printing.PrintDocument
     Private rowIndex As Integer = 0
 
     Private Sub updbranchstat(id As Integer)
-        total_stat.Counter = selectScalarQuery("count(distinct employee_id)", "total_emp", {id}, "emp_branc_id = @branch_id ")
-        absent_stat.Counter = selectScalarQuery("count(employee_id)", "absent_emp", {id}, "emp_branc_id = @branch_id")
-        leave_stat.Counter = selectScalarQuery("count(employee_id)", "emp_leave", {id}, "branch_id = @branch_id")
+        total_stat.Counter = selectScalarQuery("count(distinct employee_id)", "employee_schedule", {id}, "emp_branc_id = @branch_id and workday = dayname(curdate()) ")
+        absent_stat.Counter = selectScalarQuery("count(employee_id)", "absent_emp", {id}, "emp_branc_id = @branch_id and workday = dayname(curdate())")
+        leave_stat.Counter = selectScalarQuery("count(employee_id)", "emp_leave", {id}, "branch_id = @branch_id and dayname(leave_date) = dayname(curdate())")
         present_stat.Counter = selectScalarQuery("count(employee_id)", "present_emp", {id}, "emp_branc_id = @branch_id and att_date = curdate()")
     End Sub
     Private Sub UpdateStats()
-        main_total_stat.Counter = selectScalarQuery("count(distinct employee_id)", "total_emp")
-        main_leave_stat.Counter = selectScalarQuery("count(distinct employee_id)", "emp_leave")
+        main_total_stat.Counter = selectScalarQuery("count(distinct employee_id)", "employee_schedule", {}, "workday = dayname(curdate())")
+        main_leave_stat.Counter = selectScalarQuery("count(distinct employee_id)", "emp_leave", {}, "dayname(leave_date) = dayname(curdate())")
         main_present_stat.Counter = selectScalarQuery("count(distinct employee_id)", "present_emp", {}, "att_date = curdate()")
-        main_absent_stat.Counter = selectScalarQuery("count(distinct employee_id)", "absent_emp")
+        main_absent_stat.Counter = selectScalarQuery("count(distinct employee_id)", "absent_emp", {}, "workday = dayname(curdate())")
     End Sub
 
 
@@ -214,8 +209,7 @@ Public Class admindashboardform
         brach_last_s_btn = sanbartolome_branch_btn
         dashboard_btn.PerformClick()
 
-        facerecog.Init()
-        facerecog.Create_tracker()
+
 
         loginform.timerCallAbsent()
 
@@ -232,6 +226,7 @@ Public Class admindashboardform
 
     Private Sub add_employees_btn_Click(sender As Object, e As EventArgs) Handles add_employees_btn.Click
         addEmployee.Show()
+        Enabled = False
     End Sub
 
 
@@ -376,6 +371,9 @@ Public Class admindashboardform
         LoadLeaveData()
     End Sub
 
+    Private Sub admindashboardform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        staffadminbtns.Show()
+    End Sub
 End Class
 
 '

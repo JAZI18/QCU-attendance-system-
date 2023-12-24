@@ -27,7 +27,7 @@ Namespace Erenjhun.Utils
 
 
         Public Sub Run()
-
+            active = True
             Dim image As FSDK.CImage
             Dim frameImage As Image
 
@@ -163,7 +163,6 @@ Namespace Erenjhun.Utils
 #Region "Trackers"
         Friend Sub Create_tracker(Optional tracker As Integer = 0)
             If (FSDK.FSDKE_OK <> Retrieve_tracker(tracker)) Then ' try to load saved tracker state
-
                 FSDK.CreateTracker(tracker) ' if could not be loaded, create a new tracker
                 MsgBox("new tracker", MessageBoxButtons.OK, "start up")
             End If
@@ -185,15 +184,11 @@ Namespace Erenjhun.Utils
 
         Private Function Retrieve_tracker(tracker) As Integer
             Dim res = -1
-
             Try
                 Dim trackerBuffer As Byte() = selectScalarQuery("tracker", "face_recog")
                 res = FSDK.LoadTrackerMemoryFromBuffer(tracker, trackerBuffer)
             Catch ex As Exception
-
             End Try
-
-
             Return res
         End Function
 

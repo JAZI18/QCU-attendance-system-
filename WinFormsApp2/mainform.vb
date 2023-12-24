@@ -30,7 +30,7 @@ Public Class Mainform
 
             NewQuery("insert into emp_attendance (employee_id,workday,date,time_in,time_out,branch_id)
                         values (@ei,@wd,@d,@ti,@to, (select branch_id from qcu_branches where branch_name = @bn limit 1)   )
-                ", {id, Now.ToString("dddd"), Now, tin, tout, branch_lb.Text}).ExecuteNonQuery()
+                ", {id, Now.ToString("dddd"), Now, tin, tout, BRANCH}).ExecuteNonQuery()
 
 
             '    InsertQuery("emp_attendance", "employee_id,workday,date,time_in,time_out,branch_id", {
@@ -107,6 +107,8 @@ Public Class Mainform
     Public Sub Face_detected(image_tag_name)
         employee_id_tb.Text = image_tag_name
         Fetch_all()
+        employee_id_tb.ReadOnly = True
+        employee_code_tb.Focus()
     End Sub
 
     Private Sub Employee_code_tb_KeyDown(sender As Object, e As KeyEventArgs) Handles employee_code_tb.KeyDown
@@ -150,43 +152,48 @@ Public Class Mainform
             Fetch_employee_details(employee_id_tb.Text)
             Fetch_employee_scheds(employee_id_tb.Text)
         Catch ex As Exception
+            If (ex.Message = "cancel") Then Return
             MessageBox.Show(ex.Message, "FETCH DETAILS", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            facerecog.Refresh()
+
+            If ex.InnerException Is Nothing Then Return
             Refresh_fields()
         End Try
-
     End Sub
+
+
+    Private Function Check_timeout(time_out)
+
+        If time_out <> New TimeSpan(0, 0, 0) Then
+            cam_pic_box.Image = My.Resources.roblox
+            Return MessageBox.Show($"You have already TIMED OUT{vbCrLf}Do you want to continue?", "time out warning", MessageBoxButtons.YesNo)
+        End If
+        Return DialogResult.Yes
+    End Function
 
     Sub Fetch_employee_details(id As String)
 
         Dim time_out = selectScalarQuery("time_out", "emp_attendance", {id}, "employee_id  = @eid AND emp_attendance.date = CURDATE()")
 
-        Try
-            If time_out.ToString() <> "00:00:00" Then
-                cam_pic_box.Image = My.Resources.roblox
+        Dim res = Check_timeout(time_out)
 
-                Dim res = MessageBox.Show($"You have already TIMED OUT{vbCrLf}Do you want to continue?", "time out warning", MessageBoxButtons.YesNo)
-
-                If res = DialogResult.No Then
-                    Refresh_fields()
-                    facerecog.Refresh()
-                    Exit Sub
-                End If
-
-            End If
-        Catch ex As Exception
-
-        End Try
-
+        If res <> DialogResult.Yes Then
+            Refresh_fields()
+            facerecog.Refresh()
+            Throw New Exception("cancel")
+        End If
 
         Dim reader As MySqlDataReader = SelectQuery("*", "employee_info", {id}, "employee_id = @id")
 
         If reader.Read() Then
             fullname_lb.Text = $"{reader("last_name")}, {reader("first_name")} {reader("middle_name").substring(0, 1)}."
+
             Dim time_in = selectScalarQuery("CASE WHEN time_in IS  NULL THEN  'null'  ELSE time_in  END AS timed_in", "emp_attendance", {id}, "employee_id  = @eid AND emp_attendance.date = CURDATE()")
+
             Dim ntime_in = If(time_in = Nothing, Now, CDate(time_in)).ToString("hh:mm tt")
             time_in_tb.Text = ntime_in
             time_out_tb.Text = If(time_in = Nothing, "", Now.ToString("hh:mm tt"))
-            Exit Sub
+            Return
         End If
 
         EmpNotFound()
@@ -201,6 +208,8 @@ Public Class Mainform
 
     Public Sub Refresh_fields()
         employee_id_tb.Clear()
+        employee_id_tb.ReadOnly = False
+
         employee_code_tb.Clear()
 
         time_in_tb.Clear()
@@ -211,25 +220,26 @@ Public Class Mainform
 
 
     Sub Fetch_employee_scheds(id As String)
-        Dim reader As MySqlDataReader = SelectQuery("*", "emp_sched_view", {id}, "'Employee ID' = @id and workday = dayname(curdate())")
+        Dim reader As MySqlDataReader = SelectQuery("*", "emp_sched_view", {id}, "`Employee ID` = @id and workday = dayname(curdate())")
 
         Dim branch_t As String = ""
 
         If reader.Read() Then
             branch_t = reader("branch")
-
-           
-
             sched_lb.Text = $"{reader("shift start time")} to {reader("shift end time")}"
         End If
 
-          If (String.Compare(BRANCH, branch_t, True) <> 0) Then
-                Throw New Exception("You have no schedule in this branch today branch do not match")
-                Return
-            End If                                   
-        If (sched_lb.Text = SCHED_LB_TXT) Then
-            Throw New Exception("You have no schedule in this branch today nonono")
+        If String.Compare(BRANCH, branch_t, True) = 0 Then Return
+
+        cam_pic_box.Image = My.Resources.user
+        Dim res = MessageBox.Show($"You have no schedule in {BRANCH} branch today.", "SCHEDULE WARNING", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+
+        If res = DialogResult.OK Then
+            employee_code_tb.Focus()
+            Return
         End If
+        Refresh_fields()
+        facerecog.Refresh()
     End Sub
 
     Private Sub mainform_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -238,10 +248,9 @@ Public Class Mainform
     End Sub
 
     Private Sub Close_save()
-
         facerecog.Save_tracker()
-
         facerecog.Close_cam()
+        staffadminbtns.Show()
     End Sub
 
 
