@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `admin_account` (
   KEY `employee_info` (`employee_info`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table sql12671822.admin_account: ~0 rows (approximately)
+-- Dumping data for table sql12671822.admin_account: ~1 rows (approximately)
 DELETE FROM `admin_account`;
 INSERT INTO `admin_account` (`admin_id`, `username`, `password`, `employee_info`) VALUES
 	(1, 'lex', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '22');
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `admin_settings` (
   UNIQUE KEY `sett_key` (`sett_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table sql12671822.admin_settings: ~0 rows (approximately)
+-- Dumping data for table sql12671822.admin_settings: ~1 rows (approximately)
 DELETE FROM `admin_settings`;
 INSERT INTO `admin_settings` (`sett_key`, `sett_val`) VALUES
 	('late', '10');
